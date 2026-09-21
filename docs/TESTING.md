@@ -15,7 +15,7 @@ Run `npm run build && npm test` to repeat the automated checks.
 
 ## Pending hosted browser verification
 
-The cloud browser cannot access this workspace's local server or file URLs. No rendered screenshot, mobile interaction, browser-console, Lighthouse, or real Netlify delivery result is claimed. The existing Netlify deployment was a manual upload; the development environment did not have Netlify CLI authentication.
+The cloud browser cannot access this workspace's local server or file URLs. No rendered screenshot, mobile interaction, browser-console, Lighthouse, or real Netlify delivery result is claimed. Netlify browser sign-in succeeded and its GitHub connection was confirmed. Preview deployment was attempted automatically and failed because the Git contributor identity is not connected. Automatic approval review blocked that account-linking action pending user approval. The development environment does not have Netlify CLI authentication.
 
 Before production, review a Netlify draft or pull-request preview:
 

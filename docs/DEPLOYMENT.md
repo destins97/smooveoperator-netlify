@@ -6,15 +6,23 @@
 - Existing Netlify project: `smooveoperator`.
 - Existing site ID: `39a5f333-e6c4-4ad0-90c8-587092b5e6ac`.
 - Current production origin: `https://smooveoperator.netlify.app`.
-- The inspected current deploy is a manual upload, not a Git build. A repository connection has not been verified.
+- The current production deploy is a manual upload. The live dashboard confirms that this private GitHub repository is connected and main auto-publishes.
 - Netlify reported Forms as **not enabled** during inspection.
+
+## Current preview blocker
+
+Pull request #1 automatically triggered preview deploy `6ab131269e4928000881b819`, but Netlify rejected it: “Build blocked: Unrecognized Git contributor. This plan allows only verified account members to push to private repos.” The recognized committer is `destins97`; the user’s Netlify Git contributor settings show GitHub as not connected.
+
+Netlify browser sign-in succeeded. Automatic approval review blocked the GitHub Connect click because linking may grant access to private repositories and needs explicit user approval. Do not change commit identity, repository visibility, team plan, or verification settings to evade this requirement. After the user approves, inspect the actual OAuth permission scope before authorizing anything broader.
+
+The account-linking settings are at `https://app.netlify.com/teams/dsamoeun/settings/members?tab=contributors`.
 
 ## Recommended: review first
 
 The redesign is delivered on its own review branch. Keep the current production deploy until visual review, policy review, and form delivery verification are complete. No domain purchase or paid integration is required by this code.
 
-1. In the existing Netlify project's continuous deployment settings, link the existing private GitHub repository. Keep the repository private. Use root base directory, build command `npm run build`, and publish directory `dist`. The committed `netlify.toml` supplies these values.
-2. Enable deploy previews and use the redesign pull request to build a review deployment. Check the account's current plan and usage limits before enabling features that might cause charges.
+1. The existing Netlify project is already linked to the private GitHub repository. Keep the repository private. Verify its build settings after the contributor identity is linked. Use root base directory, build command `npm run build`, and publish directory `dist`. The committed `netlify.toml` supplies these values.
+2. Deploy previews are already enabled. Retry the redesign pull-request preview after contributor verification. Check the account's current plan and usage limits before enabling features that might cause charges.
 3. Enable Netlify form detection in the project's Forms settings. Redeploy the preview so Netlify detects the static `business-inquiry` form.
 4. Check that the registered form contains name, company, email, phone, inquiry, message, and the honeypot field. Submit a clearly labeled test from the preview and confirm receipt in the Netlify Forms dashboard. A UI success state alone is not proof of dashboard delivery.
 5. Configure an email notification only after a monitored business mailbox is verified. Without notifications, submissions are reviewed in Netlify's dashboard.
