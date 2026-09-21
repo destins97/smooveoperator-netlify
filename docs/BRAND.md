@@ -8,23 +8,24 @@ SmooveOperator is a developing independent commerce business focused on product 
 
 | Token | Value | Role |
 | --- | --- | --- |
-| `--bg` | `#101211` | Primary charcoal background |
-| `--surface` | `#181b19` | Secondary sections and form |
-| `--surface-raised` | `#20241f` | Hover surfaces |
-| `--gold` | `#cfb47d` | Warm brass accent, primary actions |
-| `--gold-hover` | `#e0c995` | Active primary action |
-| `--text` | `#f1f1e9` | Primary off-white text |
-| `--muted` | `#adb2a9` | Supporting body copy |
-| `--border` | `#353a33` | Quiet surface separators |
-| `--success` | `#a2c6a9` | Confirmed submission |
+| `--bg` | `#0a0a0a` | Original near-black brand background |
+| `--surface` | `#0f0f0f` | Secondary sections and form |
+| `--surface-raised` | `#181818` | Hover surfaces |
+| `--gold` | `#C5A028` | Original matte-gold brand accent |
+| `--gold-hover` | `#D4AF37` | Active primary action and gold highlight |
+| `--blue` | `#00aaff` | Restrained neon detail inherited from the original site |
+| `--text` | `#f5f5f5` | Primary off-white text |
+| `--muted` | `#a6a6a6` | Supporting body copy |
+| `--border` | `#302918` | Gold-toned surface separators |
+| `--success` | `#9cc7a5` | Confirmed submission |
 | `--error` | `#f3b4a8` | Recoverable submission error |
 
-Primary buttons use dark text on brass; secondary buttons use off-white text and a quiet border. Gold is restricted to meaningful accents, small labels, emphasis, and actions.
+Primary buttons use black text on matte gold. Secondary buttons use gold text and a gold border. Electric blue appears only in small system labels, separators, and navigation feedback so the black-and-gold identity remains dominant.
 
 ## Typography and layout
 
-- Body and wordmark: Arial, Helvetica, sans-serif. No remote font requests.
-- Editorial emphasis: Georgia, Times New Roman, serif italic.
+- Body and display type: Montserrat, matching the original Smoove Operator site.
+- Wordmark and expressive emphasis: Yellowtail, matching the original hand-lettered logo treatment.
 - Desktop hero: fluid 52–98px, tight line height; responsive overrides protect small screens.
 - Section headings: fluid 36–56px; body: 16–19px; labels: 14px; diagram annotations are secondary microcopy.
 - Reading measure: approximately 45–75 characters for editorial paragraphs.
@@ -35,7 +36,8 @@ Primary buttons use dark text on brass; secondary buttons use off-white text and
 
 ## Interaction
 
-- Buttons move 2px on hover; section cards have a subtle surface change.
+- Buttons move 2px on hover and gain a restrained gold shadow; section cards brighten subtly.
+- The wordmark and script emphasis use a slow gold pulse inspired by the original site. Reduced-motion preferences disable it.
 - Reveal motion starts with visible content and never hides content if JavaScript fails.
 - Reduced-motion preferences disable transitions, reveals, and smooth scrolling.
 - Visible keyboard focus uses a 2px brass outline, offset by 5px.
