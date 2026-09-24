@@ -152,7 +152,9 @@ em.claim{color:var(--foil)}
 .corner-tl{left:-9px;top:-9px}.corner-tr{right:-9px;top:-9px}.corner-br{right:-9px;bottom:-9px}.corner-bl{left:-9px;bottom:-9px}
 .micro{position:absolute;left:40px;right:40px;top:22px;height:8px;margin:0;background:url(/assets/microprint.svg) 0 0/420px 8px repeat-x;opacity:.9}
 .micro-b{top:auto;bottom:22px}
-.note-body{display:grid;grid-template-columns:1.4fr .9fr;gap:clamp(28px,4.5vw,64px);align-items:start}
+.note-body{display:grid;grid-template-columns:1.4fr .9fr;grid-template-rows:auto 1fr;grid-template-areas:"rules head" "rules dials";gap:0 clamp(28px,4.5vw,64px);align-items:start}
+.clauses{grid-area:rules}.sample-head{grid-area:head}.sample{grid-area:dials}
+.lbl-short{display:none}
 .clauses{list-style:none;margin:0;padding:0}
 .clause{display:grid;grid-template-columns:84px 1fr;gap:14px;padding-block:24px;border-bottom:1px solid var(--rule);transition:opacity var(--t2) var(--ease)}
 .clause:first-child{padding-top:0}.clause:last-child{border-bottom:0;padding-bottom:0}
@@ -161,7 +163,7 @@ em.claim{color:var(--foil)}
 .clause h3{font:500 clamp(22px,2.2vw,27px)/1.15 var(--display);margin:0 0 8px}
 .clause p{margin:0;color:var(--muted);font-size:16px}
 .clause code{display:inline-block;margin-top:12px;font:500 13px/1.4 var(--mono);color:var(--foil-hi);border:1px solid var(--rule-2);padding:7px 10px}
-.verdict,.sample,.note-result{display:none}
+.verdict,.sample,.sample-head,.note-result{display:none}
 .js .verdict{display:block;margin-top:14px !important;padding-left:14px;border-left:1px solid var(--foil);font:500 15px/1.45 var(--body);color:var(--text) !important}
 .verdict b{font-weight:700;color:var(--foil-hi);font-variant-numeric:tabular-nums lining-nums}
 .verdict .calc{font:500 14px/1.45 var(--mono)}
@@ -169,8 +171,9 @@ em.claim{color:var(--foil)}
 .note.is-skipped .stamp{display:block;animation:stamp 320ms var(--expo) both}
 @keyframes stamp{from{opacity:0;transform:rotate(-7deg) scale(1.7)}to{opacity:1;transform:rotate(-7deg) scale(1)}}
 .note.is-skipped .clause:not([data-rule="1"]){opacity:.3}
-.js .sample{display:block;position:sticky;top:104px;border-left:1px solid var(--rule);padding-left:clamp(24px,3vw,40px)}
-.sample h3{font:500 26px/1.15 var(--display);margin:0 0 6px}
+.js .sample-head,.js .sample{display:block;border-left:1px solid var(--rule);padding-left:clamp(24px,3vw,40px)}
+.js .sample{position:sticky;top:104px}
+.sample-head h3{font:500 26px/1.15 var(--display);margin:0 0 6px}
 .sample-note{margin:0;color:var(--muted);font-size:14.5px}
 .switch{display:flex;gap:14px;align-items:center;cursor:pointer;margin:26px 0 6px;font-size:15.5px;line-height:1.35}
 .switch input{position:absolute;opacity:0;width:1px;height:1px}
@@ -203,7 +206,16 @@ input[type=range]:focus-visible{outline-offset:2px}
 .latent-mono{font:40px var(--script);fill:var(--foil)}
 .glint{position:absolute;inset:0;overflow:hidden;pointer-events:none;-webkit-mask:url(/assets/seal-mask.svg) 0 0/100% 100% no-repeat;mask:url(/assets/seal-mask.svg) 0 0/100% 100% no-repeat}
 .glint i{position:absolute;top:-20%;bottom:-20%;left:-60%;width:220%;background:linear-gradient(105deg,transparent 42%,rgba(246,222,141,.95) 50%,transparent 58%);transform:translateX(-60%)}
-@media (max-width:980px){.note-body{grid-template-columns:1fr}.js .sample{order:-1;top:69px;z-index:2;background:var(--panel);border-left:0;border-bottom:1px solid var(--foil-lo);padding:14px 0 16px;margin-top:-14px}.sample h3{font-size:21px}.sample-note{font-size:13.5px}.switch{margin:14px 0 2px}.dial label{margin-top:12px}}
+@media (max-width:980px){
+  .note-body{grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:"head" "dials" "rules"}
+  .js .sample-head{border-left:0;padding:0 0 4px}.sample-head h3{font-size:22px}.sample-note{font-size:13.5px}
+  /* pinned while the rules scroll beneath: one compact strip, about a sixth of a phone screen */
+  .js .sample{top:69px;z-index:2;background:var(--panel);border-left:0;border-bottom:1px solid var(--foil-lo);padding:10px 0 8px;margin-bottom:22px}
+  .lbl-long{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.lbl-short{display:inline}
+  .switch{margin:0;font-size:14.5px;white-space:nowrap}
+  .dials{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}
+  .dial label{margin-top:8px;font-size:13.5px;white-space:nowrap}
+}
 @media (max-width:620px){
   .note{--band:12px;padding:44px 32px 42px}
   .note::before{inset:24px}
@@ -381,18 +393,18 @@ input[type=range]:focus-visible{outline-offset:2px}
   .note.is-armed .edge i{transition:transform 900ms var(--expo)}
   .note.is-armed .corner{transition:opacity 500ms var(--expo),transform 700ms var(--expo)}
   .note.is-armed .micro{transition:opacity 600ms var(--ease)}
-  .note.is-armed .clause,.note.is-armed .sample,.note.is-armed .note-foot{transition:opacity 650ms var(--expo),filter 650ms var(--expo)}
+  .note.is-armed .clause,.note.is-armed .sample-head,.note.is-armed .sample,.note.is-armed .note-foot{transition:opacity 650ms var(--expo),filter 650ms var(--expo)}
   .note.is-armed:not(.is-in) .edge-t i{transform:translateX(-100%)}
   .note.is-armed:not(.is-in) .edge-r i{transform:translateY(-100%)}
   .note.is-armed:not(.is-in) .edge-b i{transform:translateX(100%)}
   .note.is-armed:not(.is-in) .edge-l i{transform:translateY(100%)}
   .note.is-armed:not(.is-in) .corner{opacity:0;transform:scale(.4)}
   .note.is-armed:not(.is-in) .micro{opacity:0}
-  .note.is-armed:not(.is-in) :is(.clause,.sample,.note-foot){opacity:0;filter:blur(6px)}
+  .note.is-armed:not(.is-in) :is(.clause,.sample-head,.sample,.note-foot){opacity:0;filter:blur(6px)}
   .note.is-in .edge-r i{transition-delay:110ms}.note.is-in .edge-b i{transition-delay:220ms}.note.is-in .edge-l i{transition-delay:330ms}
   .note.is-in .corner{transition-delay:520ms}.note.is-in .micro{transition-delay:560ms}
   .note.is-in .clause:nth-child(1){transition-delay:600ms}.note.is-in .clause:nth-child(2){transition-delay:710ms}.note.is-in .clause:nth-child(3){transition-delay:820ms}.note.is-in .clause:nth-child(4){transition-delay:930ms}
-  .note.is-in .sample{transition-delay:1040ms}.note.is-in .note-foot{transition-delay:1120ms}
+  .note.is-in .sample-head,.note.is-in .sample{transition-delay:1040ms}.note.is-in .note-foot{transition-delay:1120ms}
   @supports (animation-timeline:view()){
     .glint i{animation:glint linear both;animation-timeline:--seal;animation-range:cover 20% cover 80%}
   }

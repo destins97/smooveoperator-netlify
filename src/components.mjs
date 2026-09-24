@@ -40,12 +40,13 @@ const verdicts = [
 ];
 const edges = ['t','r','b','l'].map(e=>`<span class="edge edge-${e}"><i></i></span>`).join('');
 const corners = ['tl','tr','br','bl'].map(c=>`<span class="corner corner-${c}"></span>`).join('');
-const range = (id,label,min,max,step,value) => `<div class="dial"><label for="${id}">${label}<output id="${id}-out" for="${id}">${value}</output></label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${value}"></div>`;
+/* phones pin the dials under the header, so each label has a short visual form; the full label stays in the accessible name */
+const range = (id,label,short,min,max,step,value) => `<div class="dial"><label for="${id}"><span class="lbl-long">${label}</span><span class="lbl-short" aria-hidden="true">${short}</span><output id="${id}-out" for="${id}">${value}</output></label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${value}"></div>`;
 export const instrument = (seal) => `<div class="note" id="note"><div class="note-frame" aria-hidden="true">${edges}${corners}</div><p class="micro" aria-hidden="true"></p>
 <div class="note-body"><ol class="clauses">${rules.map(([t,d,code],i)=>`<li class="clause" data-rule="${i+1}"><span class="clause-n">Rule ${['i','ii','iii','iv'][i]}.</span><div><h3>${t}</h3><p>${d}</p>${code?`<code>${code}</code>`:''}<p class="verdict" id="verdict-${i+1}">${verdicts[i]}</p>${i===0?'<span class="stamp" aria-hidden="true">Skipped</span>':''}</div></li>`).join('')}</ol>
-<div class="sample"><h3>Run a sample listing</h3><p class="sample-note">Sample numbers only. Nothing here describes a real listing.</p>
-<label class="switch"><input type="checkbox" id="rules-skip" role="switch"><span class="switch-track" aria-hidden="true"></span><span>The marketplace itself sells this listing</span></label>
-${range('slice-sales','Estimated sales per month, all sellers',30,3000,10,300)}${range('slice-sellers','Sellers already on the listing',1,30,1,5)}</div></div>
+<div class="sample-head"><h3>Run a sample listing</h3><p class="sample-note">Sample numbers only. Nothing here describes a real listing.</p></div>
+<div class="sample"><label class="switch"><input type="checkbox" id="rules-skip" role="switch"><span class="switch-track" aria-hidden="true"></span><span class="lbl-long">The marketplace itself sells this listing</span><span class="lbl-short" aria-hidden="true">Marketplace sells this listing</span></label>
+<div class="dials">${range('slice-sales','Estimated sales per month, all sellers','Sales a month',30,3000,10,300)}${range('slice-sellers','Sellers already on the listing','Sellers',1,30,1,5)}</div></div></div>
 <div class="note-foot">${seal}<p class="note-result"><span id="note-result-text"><span class="res-go">A first order of <b id="r-low">50</b> to <b id="r-high">100</b> units</span><span class="res-skip">No order. The listing is skipped.</span></span></p><p class="note-static">Estimated monthly sales divided by (sellers + 1), then one to two months of that.</p></div>
 <p class="micro micro-b" aria-hidden="true"></p><p class="visually-hidden" id="note-live" aria-live="polite"></p></div>`;
 
