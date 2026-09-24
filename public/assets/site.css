@@ -141,7 +141,10 @@ em.claim{color:var(--gold);font-style:normal;font-weight:700}
 .stop-by{margin:0;font:500 15px/1.35 var(--body);color:var(--muted)}
 .stop-by b{display:block;font-weight:600;color:var(--text)}
 .stop-d{margin:6px 0 0;color:var(--muted);font-size:15.5px;line-height:1.55;max-width:30ch}
-.route.is-armed .stop:not(.is-lit){opacity:.38}
+/* a station waiting for the car stays readable: its title drops to the muted tone (7.5:1), only the dot and numeral wait */
+.stop h3,.stop-by b{transition:color .5s var(--ease)}
+.route.is-armed .stop:not(.is-lit) h3,.route.is-armed .stop:not(.is-lit) .stop-by b{color:var(--muted)}
+.route.is-armed .stop:not(.is-lit) .stop-n{color:var(--gold-lo)}
 .route.is-armed .stop:not(.is-lit) .stop-dot{border-color:var(--rule-2)}
 .route.is-moving .route-car,.route.is-moving .route-fill{transition:transform 1s var(--travel)}
 .band-note{margin:clamp(32px,4vw,48px) auto 0;color:var(--muted);font-size:15.5px;max-width:65ch;text-align:center}
