@@ -1,17 +1,161 @@
-import {button,heading,pageHero,cta,cards,diagram,flow,contactForm,capabilities,icon} from './components.mjs';
+import {button,pageHero,ctaBand,path,rulesPanel,calculator,ledger,fitCheck,seal,download,arrow} from './components.mjs';
+
+const home = () => `
+<section class="hero">
+  <canvas class="rosette" id="rosette" aria-hidden="true"></canvas>
+  <div class="wrap hero-inner">
+    <h1>Wholesale, handled <span class="script foil-text">smoove.</span></h1>
+    <p class="lede"><strong>SmooveOperator is an independent wholesale reseller.</strong> We buy established brands from authorized sources and sell them through online marketplaces, with independent prep and fulfillment partners doing the physical work. Careful buying, written rules, and supplier relationships worth keeping.</p>
+    <div class="btn-row">${button('Open a supplier conversation','/contact/')}${button('Read the buy rules','#rules','line')}</div>
+    <p class="seal">${seal}<span>California seller's permit on file</span></p>
+  </div>
+</section>
+
+<section class="band" id="path" aria-labelledby="path-title">
+  <div class="wrap">
+    <h2 class="band-title" id="path-title">How a product moves, and who handles each step</h2>
+    ${path()}
+    <p class="band-note">SmooveOperator makes the sourcing and purchasing decisions. Independent providers handle the physical preparation and fulfillment. We don't operate a warehouse.</p>
+  </div>
+</section>
+
+<section class="section" id="rules" aria-labelledby="rules-title">
+  <div class="wrap split">
+    <div class="split-head">
+      <h2 id="rules-title">Every order passes <em>the same four rules.</em></h2>
+      <p class="intro">Written before the first purchase and applied to every one after it. They protect your pricing as much as our cash.</p>
+    </div>
+    ${rulesPanel()}
+  </div>
+  <div class="wrap">${calculator()}</div>
+</section>
+
+<section class="section section-tight" id="commitments" aria-labelledby="commit-title">
+  <div class="wrap split">
+    <div class="split-head">
+      <h2 id="commit-title">What a supplier <em>can count on.</em></h2>
+      <p class="intro">No guaranteed volumes and no invented scale. These are the terms we hold ourselves to from the first order.</p>
+      ${button('Supplier details and FAQ','/suppliers/','text')}
+    </div>
+    ${ledger()}
+  </div>
+</section>
+
+<section class="section section-tight" aria-labelledby="papers-title">
+  <div class="wrap papers">
+    <div>
+      <h2 id="papers-title">Paperwork, <em>ready.</em></h2>
+      <p class="intro">A one-page reseller profile you can drop straight into an account file: the business model, fulfillment path, buy rules and commitments. The seller's permit itself is shared directly with your application.</p>
+    </div>
+    <div class="papers-actions">
+      <a class="doc-link" href="/assets/smooveoperator-reseller-profile.pdf" download>${download}<span><strong>Reseller profile</strong><small>PDF, one page</small></span></a>
+      <a class="doc-link" href="/profile/">${arrow}<span><strong>View it on the web</strong><small>Same facts, readable on any screen</small></span></a>
+    </div>
+  </div>
+</section>
+${ctaBand()}`;
+
+const suppliers = () => `${pageHero('Good relationships, <em>built on common ground.</em>','We welcome introductions from brands, manufacturers, distributors and authorized wholesalers interested in a careful approach to marketplace commerce. Let\'s understand the fit before discussing the scale.')}
+<section class="section section-tight"><div class="wrap split">
+  <div class="split-head"><h2>What we <em>value.</em></h2><p class="intro">Supplier relationships built on accurate product information, documented sourcing and clear expectations about where products may be sold.</p></div>
+  ${ledger([
+    ['Responsible purchasing','Supported by real product demand and economics that work for both sides.'],
+    ['Accurate representation','Products and their condition are described truthfully.'],
+    ['Channel permissions','Agreed sales channels and applicable marketplace requirements are respected.'],
+    ['Organized fulfillment','Prep instructions, product identification and receiving requirements are confirmed before anything ships.'],
+    ['Repeat purchasing','Pursued when performance and availability support it, never promised up front.']
+  ])}
+</div></section>
+<section class="band"><div class="wrap">
+  <h2 class="band-title">The standard at each step</h2>
+  <ol class="path path-3">
+    <li class="stop"><span class="stop-n" aria-hidden="true">i.</span><h3>Before a purchase</h3><p>Check product fit, source documentation, channel requirements and the full cost to fulfill.</p></li>
+    <li class="stop"><span class="stop-n" aria-hidden="true">ii.</span><h3>Before fulfillment</h3><p>Confirm preparation instructions, product identification, condition expectations and receiving requirements.</p></li>
+    <li class="stop"><span class="stop-n" aria-hidden="true">iii.</span><h3>Before a reorder</h3><p>Revisit demand, stock availability, pricing and economics using what the first purchase taught us.</p></li>
+  </ol>
+</div></section>
+<section class="section section-tight"><div class="wrap split">
+  <div class="split-head"><h2>A useful first <em>conversation.</em></h2><p class="intro">A brief introduction is enough. Documentation and detailed terms come next, when there's a suitable fit.</p>${button('Start the Fit Check','/contact/')}</div>
+  ${ledger([
+    ['Your business','Your company, the brands or categories you supply, and your role in the supply chain.'],
+    ['Your requirements','Opening order expectations, permitted sales channels, and any account application steps.'],
+    ['The opportunity','Product availability, order cadence, and what a useful relationship looks like for you.']
+  ])}
+</div></section>
+<section class="section section-tight faq"><div class="wrap narrow">
+  <h2>A few practical <em>answers.</em></h2>
+  <details><summary>Are you currently looking for wholesale suppliers?</summary><p>Yes. We welcome introductions as we develop our supplier network. An inquiry doesn't imply an existing account or a purchasing commitment.</p></details>
+  <details><summary>Do you operate your own warehouse?</summary><p>No. Our model uses independent preparation and fulfillment providers. We don't represent ourselves as a warehouse or logistics operator.</p></details>
+  <details><summary>Can we discuss marketplace restrictions?</summary><p>Yes. Permitted sales channels, brand requirements and documentation are part of evaluating any supplier relationship.</p></details>
+  <details><summary>Do you guarantee order volumes?</summary><p>No. Purchasing depends on product fit, eligibility, demand, costs and available capital. We'd rather set realistic expectations from the start.</p></details>
+  <details><summary>Can you provide a resale certificate?</summary><p>Yes. SmooveOperator holds a California seller's permit, and we share it directly as part of your account application rather than posting it publicly.</p></details>
+</div></section>
+${ctaBand()}`;
+
+const profileFacts = [
+  ['Business','SmooveOperator'],
+  ['Model','Wholesale resale of established brands through online marketplaces'],
+  ['Sourcing','Brands, manufacturers, distributors and authorized wholesalers'],
+  ['Fulfillment','Independent prep partner, then marketplace fulfillment'],
+  ['Warehouse','None operated. Physical handling is done by third parties'],
+  ['Resale documentation','California seller\'s permit on file, provided with account applications'],
+  ['Stage','Developing. Measured first purchases; repeat orders earned by sell-through'],
+  ['Contact','Supplier Fit Check at smoove-operator.com/contact']
+];
+const profile = () => `<section class="page-hero profile-hero"><div class="wrap"><h1>Reseller <em>profile.</em></h1><p class="lede">The facts a supplier needs for an account file, on one page.</p><div class="btn-row">${button('Download the PDF','/assets/smooveoperator-reseller-profile.pdf','solid',' download')}${button('Start the Fit Check','/contact/','line')}</div></div></section>
+<section class="section section-tight"><div class="wrap">
+  <article class="sheet" id="profile-sheet">
+    <header class="sheet-head"><span class="wordmark">Smoove Operator</span><span class="sheet-meta">Reseller profile &middot; ${new Date().toLocaleString('en-US',{month:'long',year:'numeric'})}</span></header>
+    <dl class="facts">${profileFacts.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
+    <div class="sheet-cols">
+      <section><h2>Purchasing policy</h2><ol class="mini-rules"><li><strong>Pass when the marketplace sells it.</strong> Listings where the marketplace itself sells are skipped.</li><li><strong>Sell through in 30 to 60 days.</strong> No aging stock, no fire-sale pricing.</li><li><strong>Order only our share.</strong> Estimated monthly sales divided by (sellers + 1).</li><li><strong>Start small, reorder on evidence.</strong> Reorders follow real sell-through.</li></ol></section>
+      <section><h2>Commitments</h2><ul class="mini-list"><li>Agreed sales channels and brand requirements respected</li><li>Accurate listings in true condition</li><li>Sourcing records kept for every purchase</li><li>Prep and receiving requirements confirmed before shipping</li><li>Direct communication, realistic order expectations, no guaranteed volumes</li></ul></section>
+    </div>
+    <section class="direction"><h2>Direction</h2><div class="dir3"><div><b>Now</b><p>Establish the operation: sourcing criteria, purchasing records and a practical fulfillment path.</p></div><div><b>Next</b><p>Build repeatability through observed demand, inventory performance and reliable availability.</p></div><div><b>Long term</b><p>Deepen wholesale accounts and supplier collaboration while improving the systems behind the business.</p></div></div></section>
+    <p class="sheet-foot">SmooveOperator is not affiliated with or endorsed by any marketplace or any brand it resells.</p>
+  </article>
+</div></section>`;
+
+const contact = () => `${pageHero('Supplier <em>Fit Check.</em>','Three short steps, about a minute. It tells us what we need to know about your products and terms, so the first reply can be a useful one.')}
+<section class="section section-tight"><div class="wrap contact-grid">
+  <aside class="contact-aside">
+    <h2>A conversation, <em>not a commitment.</em></h2>
+    <p>For brands, manufacturers, distributors and authorized wholesalers. Submitting creates no purchase order or agreement.</p>
+    <h3>What happens next</h3>
+    <p>We read every Fit Check and reply by email when there's an opportunity to explore or we need more information.</p>
+    <p class="seal">${seal}<span>California seller's permit on file</span></p>
+  </aside>
+  <div class="form-panel">${fitCheck()}</div>
+</div></section>`;
+
+const legalNote = 'Effective September 2026';
+const privacy = () => `${pageHero('Privacy <em>notice.</em>','A plain-language explanation of how this website handles information.')}
+<article class="section section-tight"><div class="wrap narrow legal"><p class="legal-date">${legalNote}</p>
+<h2>Information you provide</h2><p>The Supplier Fit Check asks for your name, company, email address, role, the brands or categories you supply, your opening order minimum, channel permissions, MAP policy, and an optional phone number and message. It also records which outreach link brought you to the site, when there is one. Please don't include sensitive documents, government identifiers or banking information.</p>
+<h2>How information is used</h2><p>Submissions are used to review and respond to business inquiries, evaluate potential supplier relationships, and keep relevant business correspondence. This website doesn't enroll visitors in a newsletter.</p>
+<h2>Hosting and form processing</h2><p>This website is hosted on Netlify, which processes form submissions on the business's behalf and may filter them for spam. Hosting and security providers may process technical information such as IP addresses and request logs to operate and protect the site.</p>
+<h2>Cookies and analytics</h2><p>The site doesn't add advertising trackers, analytics tools or nonessential cookies. To remember which outreach link you arrived from, it keeps a short code in your browser's session storage, which clears when you close the tab.</p>
+<h2>Access and retention</h2><p>Inquiries are accessible only to the people who need them to respond or run the business, and are kept only as long as they're useful for that purpose.</p>
+<h2>Questions and requests</h2><p>Use the <a href="/contact/">Fit Check form</a> for questions about this notice or requests about information you've submitted. Include enough context to identify your inquiry, without sending identity documents.</p>
+<h2>Changes</h2><p>This notice is updated when the site's information practices change. The date above identifies the current version.</p></div></article>`;
+
+const terms = () => `${pageHero('Website <em>terms.</em>','Basic terms for using the SmooveOperator website.')}
+<article class="section section-tight"><div class="wrap narrow legal"><p class="legal-date">${legalNote}</p>
+<h2>Purpose of the website</h2><p>This website gives general information about SmooveOperator's developing ecommerce business and a way to make business inquiries. Descriptions of processes and future direction aren't guarantees of capability, availability or results.</p>
+<h2>Business inquiries</h2><p>Submitting a form doesn't create a supplier relationship, purchase order, distribution agreement or other contract. Any commercial arrangement requires separate discussion and agreement.</p>
+<h2>Appropriate use</h2><p>Use this website lawfully. Don't submit fraudulent information, harmful code, spam, or material you aren't authorized to share, and don't try to interfere with the site or access information not intended for you.</p>
+<h2>Names and third-party services</h2><p>Third-party brand and marketplace names, where referenced, belong to their owners. Mentioning them doesn't imply affiliation, endorsement, exclusive rights or authorized distributor status.</p>
+<h2>Calculator and examples</h2><p>The order-sizing calculator uses sample numbers to show a method. It isn't a quote, forecast or commitment to purchase.</p>
+<h2>Accuracy and availability</h2><p>Website information may change as the business develops. Confirm availability, operating arrangements and commercial terms directly before relying on them for a business decision.</p>
+<h2>Questions</h2><p>Use the <a href="/contact/">Fit Check form</a> for questions about this website or a potential business relationship.</p></div></article>`;
+
 export const pages = [
-{path:'/',title:'SmooveOperator | Commerce, thoughtfully operated',description:'SmooveOperator is developing a disciplined approach to product sourcing, marketplace commerce, and supplier relationships.',body:()=>`<section class="hero container"><div class="hero-copy"><p class="eyebrow"><span class="tiny-line"></span>Independent commerce. Long-term thinking.</p><h1>Good products.<br>Thoughtfully<br><em>connected.</em></h1><p class="lead">A modern commerce company built around considered sourcing, disciplined marketplace operations, and lasting supplier relationships.</p><div class="button-row">${button('Work with us','/suppliers/')}${button('Meet SmooveOperator','/about/',true)}</div></div>${diagram()}</section><div class="positioning-bar"><div class="container"><span>COMMERCE</span><span aria-hidden="true">/</span><span>DISTRIBUTION</span><span aria-hidden="true">/</span><span>MARKETPLACE OPERATIONS</span></div></div><section class="section container">${heading('01 / What we do','A considered approach.<br>A connected operation.','From product evaluation to the fulfillment path, our focus is on the decisions that make commerce repeatable.')}${cards()}</section><section class="section section-alt"><div class="container">${heading('02 / How it connects','A clear path from<br>source to customer.','Our developing operating model brings sourcing and inventory decisions together with independent preparation and fulfillment providers.')}${flow()}<div class="section-foot"><p>SmooveOperator coordinates the commerce. Third-party providers handle physical preparation and fulfillment.</p><a class="text-link" href="/operations/">Inside our approach <span aria-hidden="true">↗</span></a></div></div></section><section class="section container principles"><div><p class="eyebrow"><span class="tiny-line"></span>03 / What guides us</p><h2>Built for the<br><em>long view.</em></h2><p>We’re building a business around sound decisions, clear expectations, and relationships worth keeping.</p>${button('Our philosophy','/about/',true)}</div><div class="principle-list">${[['01','Discipline before scale','Evaluate demand, total costs, and product suitability before committing to inventory.'],['02','Clarity at every step','Keep sourcing records organized, represent products accurately, and communicate directly.'],['03','Growth with purpose','Learn from smaller purchases and pursue repeat orders when demand and economics support them.']].map(([n,t,d])=>`<article class="reveal"><span class="index">${n}</span><div><h3>${t}</h3><p>${d}</p></div></article>`).join('')}</div></section>${cta()}`},
-{path:'/about/',title:'About SmooveOperator | Built for the long view',description:'Learn about SmooveOperator’s approach to responsible sourcing, disciplined growth, and long-term marketplace commerce.',body:()=>`${pageHero('About SmooveOperator','Commerce with intention.<br><em>From the beginning.</em>','SmooveOperator is an independent ecommerce business in development, focused on connecting established products with customers through online marketplaces.')}<section class="section container editorial"><div><p class="eyebrow">Our philosophy</p><h2>Build the fundamentals.<br>Then build on them.</h2></div><div><p>Our starting point is straightforward: evaluate products carefully, understand the cost of getting them to customers, and keep the operation organized.</p><p>Today, that means developing a marketplace resale business with a focus on sourcing, inventory decisions, and third-party fulfillment coordination. Over time, we aim to build repeatable purchasing and direct supplier relationships.</p><p>We believe scale should follow a sound process. Every next step should be supported by evidence, workable economics, and the ability to meet the commitments we make.</p></div></section><section class="section section-alt"><div class="container">${heading('The direction','A durable business.<br>Built one decision at a time.')}<div class="three-grid"><article><span class="index">NOW</span><h3>Establish the operation</h3><p>Develop sourcing criteria, purchasing records, and a practical path to marketplace fulfillment.</p></article><article><span class="index">NEXT</span><h3>Build repeatability</h3><p>Identify replenishment opportunities through observed demand, inventory performance, and reliable availability.</p></article><article><span class="index">LONG TERM</span><h3>Deepen relationships</h3><p>Pursue wholesale accounts and supplier collaboration while improving the systems behind the business.</p></article></div></div></section>${cta()}`},
-{path:'/capabilities/',title:'Capabilities | SmooveOperator',description:'Explore SmooveOperator’s focus areas: marketplace commerce, product sourcing, inventory planning, and supplier collaboration.',body:()=>`${pageHero('Our capabilities','The details behind<br><em>better commerce.</em>','Our work centers on product and inventory decisions. We are developing the processes and supplier relationships that support a reliable marketplace operation.')}<section class="container capability-details">${capabilities.map(([n,i,t,d],idx)=>`<article id="capability-${n}" class="detail-row"><div class="detail-title"><span class="index">${n}</span>${icon(i)}<h2>${t}</h2></div><div><p class="lead-small">${d}</p><ul class="check-list">${[
-['Review listing eligibility, product condition, and channel requirements.','Plan accurate product representation against existing marketplace listings.','Monitor price and demand signals to guide purchasing decisions.'],
-['Assess source credibility and available purchasing documentation.','Review total landed cost, marketplace fees, and potential price changes.','Start with measured purchasing decisions before considering replenishment.'],
-['Plan inventory movement through independent prep and fulfillment providers.','Account for preparation, inbound shipping, storage, and available stock.','Develop reorder decisions around observed sell-through and cash availability.'],
-['Seek relationships with brands, distributors, and authorized wholesalers.','Discuss permitted sales channels, product information, and order requirements.','Explore repeat purchases where availability and economics support them.']][idx].map(t=>`<li>${t}</li>`).join('')}</ul></div></article>`).join('')}<p class="scope-note">These are our operating focus areas and developing processes. Specific arrangements depend on product eligibility, supplier agreement, and provider availability.</p></section>${cta()}`},
-{path:'/operations/',title:'Our Operating Approach | SmooveOperator',description:'See the planned path from sourcing to independent preparation, marketplace fulfillment, and the customer.',body:()=>`${pageHero('Our approach','Connected operations.<br><em>Clear responsibilities.</em>','Our planned model separates commercial decisions from physical logistics, bringing product sourcing together with third-party preparation and marketplace fulfillment.')}<section class="container operations-flow">${flow()}</section><section class="section container editorial"><div><p class="eyebrow">Where we focus</p><h2>The decisions<br>behind the movement.</h2></div><div><h3>Product and purchasing decisions</h3><p>SmooveOperator evaluates product opportunities, available documentation, expected costs, and inventory needs before making a purchasing decision.</p><h3>Independent logistics providers</h3><p>Our intended fulfillment path uses third-party providers for physical inspection, labeling, preparation, storage, and delivery. The exact route depends on the product and provider requirements.</p><h3>A measured replenishment cycle</h3><p>Sales performance, available cash, pricing, and supplier availability inform whether a product warrants another order. Repeat purchasing is a decision to earn, not an assumption.</p></div></section><section class="section section-alt"><div class="container">${heading('The standard','Evaluate. Coordinate. Learn.')}<div class="three-grid"><article><h3>Before a purchase</h3><p>Check product fit, source documentation, channel requirements, and the full cost to fulfill.</p></article><article><h3>Before fulfillment</h3><p>Confirm preparation instructions, product identification, condition expectations, and the receiving requirements.</p></article><article><h3>Before a reorder</h3><p>Revisit demand, stock availability, pricing, and economics using what the first purchase taught us.</p></article></div></div></section>${cta()}`},
-{path:'/suppliers/',title:'Supplier & Brand Relationships | SmooveOperator',description:'Connect with SmooveOperator to discuss wholesale availability, brand relationships, and suitable marketplace commerce opportunities.',body:()=>`${pageHero('Suppliers & partners','Good relationships.<br><em>Built on common ground.</em>','We’re seeking conversations with brands, manufacturers, distributors, and authorized wholesalers interested in a thoughtful approach to marketplace commerce.')}<section class="container partner-banner"><p>Let’s understand the fit before discussing the scale.</p>${button('Start a conversation','/contact/?type=supplier')}</section><section class="section container editorial"><div><p class="eyebrow">What we value</p><h2>A clear basis<br>for working together.</h2></div><div><p>We’re developing supplier relationships around accurate product information, documented sourcing, and clear expectations about where products may be sold.</p><ul class="check-list"><li>Responsible purchasing supported by product demand and workable economics.</li><li>Accurate representation of products and their condition.</li><li>Respect for agreed channel permissions and applicable marketplace requirements.</li><li>Organized fulfillment planning and direct communication.</li><li>Potential repeat purchasing when performance and availability support it.</li></ul></div></section><section class="section section-alt"><div class="container">${heading('A useful first conversation','Start with the essentials.','A brief introduction is enough. We can discuss documentation and detailed terms directly when there is a suitable fit.')}<div class="three-grid"><article><span class="index">01</span><h3>Your business</h3><p>Your company, the brands or product categories you supply, and your role in the supply chain.</p></article><article><span class="index">02</span><h3>Your requirements</h3><p>Opening order expectations, permitted sales channels, and any account application requirements.</p></article><article><span class="index">03</span><h3>The opportunity</h3><p>Product availability, order cadence, and what a useful relationship would look like for your business.</p></article></div></div></section><section class="container faq section"><h2>A few practical answers.</h2><details><summary>Are you currently seeking wholesale suppliers?</summary><p>Yes. We welcome introductions from brands, manufacturers, authorized wholesalers, and distributors as we develop our supplier network. An inquiry does not imply an existing account or purchasing commitment.</p></details><details><summary>Do you operate your own warehouse?</summary><p>Our planned model uses independent preparation and fulfillment providers. We do not represent ourselves as a warehouse operator or logistics infrastructure provider.</p></details><details><summary>Can we discuss marketplace restrictions?</summary><p>Yes. Permitted sales channels, brand requirements, and documentation are part of evaluating any potential supplier relationship.</p></details><details><summary>Do you guarantee order volumes?</summary><p>No. Purchasing depends on product fit, eligibility, demand, costs, and available capital. We prefer to set realistic expectations from the start.</p></details></section>${cta()}`},
-{path:'/contact/',title:'Contact SmooveOperator | Start a Conversation',description:'Contact SmooveOperator about supplier opportunities, wholesale availability, brand partnerships, or general business inquiries.',body:()=>`${pageHero('Work with us','Let’s make<br><em>a good connection.</em>','Tell us about your business and the opportunity you have in mind.')}<section class="container contact-layout"><aside><p class="eyebrow">A conversation, not a commitment</p><h2>The right place<br>to start.</h2><p>For supplier introductions, wholesale availability, brand opportunities, and general business inquiries.</p><div class="contact-aside-note"><h3>What happens next?</h3><p>We’ll review your message and respond using the email address you provide if there’s an opportunity to explore or more information is needed.</p></div><p class="small-text">Please don’t send tax IDs, banking information, or identity documents through this form.</p></aside><div class="form-panel">${contactForm()}</div></section>`},
-{path:'/privacy/',title:'Privacy Policy | SmooveOperator',description:'How information submitted through the SmooveOperator business inquiry form is used.',body:()=>`${pageHero('Website information','Privacy policy.','A plain-language explanation of how this website handles information.')}<article class="container legal"><p class="review-notice">Draft for business and legal review · September 21, 2026<br>This notice has not been reviewed by a lawyer and must be checked against actual business practices before launch.</p><h2>Information you provide</h2><p>The inquiry form requests your name, email address, inquiry type, and message. You may also provide a company name and phone number. Do not include sensitive documents, government identifiers, or banking information.</p><h2>How information is used</h2><p>Information submitted through the form is used to review and respond to business inquiries, evaluate potential supplier relationships, and maintain relevant business correspondence. This website does not enroll visitors in a marketing newsletter.</p><h2>Hosting and form processing</h2><p>This website is designed to be hosted on Netlify. When form processing is enabled, submissions are handled by Netlify on behalf of the business. Hosting and security providers may process technical information such as IP addresses and request logs to operate and protect the website.</p><h2>Cookies and analytics</h2><p>The website code does not add advertising trackers, analytics tools, or nonessential cookies. Hosting infrastructure may process technical data for delivery and security. This notice should be updated before additional tracking or services are introduced.</p><h2>Access and retention</h2><p>Business inquiries should be accessible only to people who need them to respond or administer the business. Retention periods, deletion procedures, and any applicable legal obligations must be confirmed before this policy is finalized.</p><h2>Questions and requests</h2><p>Use the <a href="/contact/">contact form</a> for questions about this notice or requests concerning information you have submitted. Include enough context to identify your inquiry, without sending sensitive identity documents.</p><h2>Changes</h2><p>This notice should be revised when the website’s information practices change. The date above identifies this draft version.</p></article>`},
-{path:'/terms/',title:'Website Terms of Use | SmooveOperator',description:'Draft terms describing use of the SmooveOperator informational business website.',body:()=>`${pageHero('Website information','Terms of use.','Basic terms for using the SmooveOperator website.')}<article class="container legal"><p class="review-notice">Draft for business and legal review · September 21, 2026<br>These terms have not been reviewed by a lawyer and require review before launch.</p><h2>Purpose of the website</h2><p>This website provides general information about SmooveOperator’s developing ecommerce business and a way to make business inquiries. Descriptions of intended processes and future direction are not guarantees of capability, availability, or results.</p><h2>Business inquiries</h2><p>Submitting a form does not create a supplier relationship, purchase order, distribution agreement, or other contract. Any commercial arrangement requires separate discussion and agreement.</p><h2>Appropriate use</h2><p>Use this website lawfully. Do not submit fraudulent information, harmful code, spam, or material you are not authorized to share. Do not attempt to interfere with the website or access information that is not intended for you.</p><h2>Names and third-party services</h2><p>Third-party brand and marketplace names, if referenced, belong to their respective owners. Their mention does not imply affiliation, endorsement, exclusive rights, or authorized distributor status.</p><h2>Accuracy and availability</h2><p>Website information may change as the business develops. Confirm product availability, operating arrangements, and commercial terms directly before relying on them for a business decision.</p><h2>Questions</h2><p>Please use the <a href="/contact/">contact form</a> for questions about this website or a potential business relationship.</p></article>`},
-{path:'/thank-you/',title:'Inquiry Submitted | SmooveOperator',description:'Your inquiry has been submitted to SmooveOperator.',noindex:true,body:()=>`${pageHero('Thank you','A good conversation<br><em>starts here.</em>','Your inquiry has been submitted. Thank you for introducing yourself to SmooveOperator.')}<div class="container utility-actions">${button('Back to home','/')}${button('Explore our approach','/operations/',true)}</div>`},
-{path:'/404/',title:'Page Not Found | SmooveOperator',description:'Find your way back to SmooveOperator.',noindex:true,body:()=>`${pageHero('404 / Page not found','A different<br><em>direction.</em>','This page may have moved, or the address may be incorrect. Let’s get you back on track.')}<div class="container utility-actions">${button('Back to home','/')}${button('Contact us','/contact/',true)}</div>`}
+  {path:'/',title:'SmooveOperator | Independent wholesale reseller',description:'SmooveOperator buys established brands from authorized sources and sells them through online marketplaces, with written buy rules that protect supplier pricing.',body:home},
+  {path:'/suppliers/',title:'For Suppliers and Brands | SmooveOperator',description:'What brands, distributors and authorized wholesalers can expect from SmooveOperator: channel rules respected, accurate listings, documented sourcing.',body:suppliers},
+  {path:'/profile/',title:'Reseller Profile | SmooveOperator',description:'One-page reseller profile for supplier account files: business model, fulfillment path, purchasing policy and commitments.',body:profile},
+  {path:'/contact/',title:'Supplier Fit Check | SmooveOperator',description:'Introduce your brand or distribution business to SmooveOperator in about a minute with the Supplier Fit Check.',body:contact},
+  {path:'/privacy/',title:'Privacy Notice | SmooveOperator',description:'How information submitted through the SmooveOperator Supplier Fit Check is used.',body:privacy},
+  {path:'/terms/',title:'Website Terms | SmooveOperator',description:'Terms for using the SmooveOperator informational business website.',body:terms},
+  {path:'/thank-you/',title:'Fit Check Received | SmooveOperator',description:'Your Supplier Fit Check has been received.',noindex:true,body:()=>`${pageHero('Received, <em>thank you.</em>','Your Fit Check reached SmooveOperator. We\'ll reply by email if there\'s an opportunity to explore or we need more information.')}<div class="wrap btn-row utility">${button('Back to home','/')}${button('Reseller profile','/profile/','line')}</div>`},
+  {path:'/404/',title:'Page Not Found | SmooveOperator',description:'Find your way back to SmooveOperator.',noindex:true,body:()=>`${pageHero('A different <em>direction.</em>','This page may have moved, or the address may be incorrect.')}<div class="wrap btn-row utility">${button('Back to home','/')}${button('Supplier Fit Check','/contact/','line')}</div>`}
 ];

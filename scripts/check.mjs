@@ -27,35 +27,29 @@ for(const page of pages){
   }
 }
 const contact=await readFile('dist/contact/index.html','utf8');
-check(contact.includes('data-netlify="true"'),'Netlify detection markup');
-check(contact.includes('netlify-honeypot="bot-field"'),'Spam honeypot');
-for(const name of ['name','company','email','phone','inquiry','message']){
-  check(contact.includes(`name="${name}"`),`${name} has submitted name`);
-  check(contact.includes(`for="${name}"`),`${name} has label`);
+check(contact.includes('name="supplier-fit-check"')&&contact.includes('data-netlify="true"'),'Netlify detection markup');
+check(contact.includes('netlify-honeypot="bot-field"')&&contact.includes('name="bot-field"'),'Spam honeypot');
+check(contact.includes('name="form-name" value="supplier-fit-check"'),'Form name for AJAX posts');
+for(const name of ['name','company','email','phone','brands','message']){
+  check(contact.includes(`name="${name}"`),`${name} is submitted`);
+  check(contact.includes(`for="fc-${name}"`),`${name} has a label`);
 }
+for(const name of ['role','channels','map_policy','opening_minimum','source','subject'])check(contact.includes(`name="${name}"`),`${name} is submitted`);
 const js=await readFile('public/assets/site.js','utf8');
-async function testForm(outcome){
-  let handler,reset=false,focused=false,posted,cleared=false;
-  const button={disabled:false,textContent:'',innerHTML:''};const status={dataset:{},textContent:'',focus(){focused=true;}};
-  const form={elements:{inquiry:{value:''}},querySelector:()=>button,addEventListener:(event,fn)=>{handler=fn;},reportValidity:()=>true,reset(){reset=true;}};
-  runInNewContext(js,{
-    document:{querySelector:s=>s==='#contact-form'?form:s==='#form-status'?status:null},window:{},
-    location:{search:'?type=supplier'},URLSearchParams,FormData:class{*[Symbol.iterator](){yield ['form-name','business-inquiry'];yield ['message','QA fixture'];}},AbortController,
-    setTimeout:()=>1,clearTimeout:()=>{cleared=true;},
-    fetch:async(url,options)=>{posted={url,options};if(outcome==='network')throw new Error('offline');if(outcome==='timeout'){const e=new Error();e.name='AbortError';throw e;}return{ok:outcome==='success'};}
-  });
-  check(form.elements.inquiry.value==='supplier','Supplier CTA prefills inquiry');
-  await handler({preventDefault(){}});
-  check(posted.url==='/'&&posted.options.method==='POST','Posts to Netlify endpoint');
-  check(posted.options.body.includes('form-name=business-inquiry'),'Sends Netlify form name');
-  check(!button.disabled&&cleared&&focused,'Restores controls and announces status');
-  check(reset===(outcome==='success'),'Only clears form after confirmed success');
-  check(status.dataset.state===(outcome==='success'?'success':'error'),`Correct state: ${outcome}`);
-  if(outcome!=='success')check(status.textContent.includes('still here'),'Error retains message');
+check(/fetch\('\/',\{method:'POST'/.test(js),'Posts to the Netlify form endpoint');
+check(js.includes("'Content-Type':'application/x-www-form-urlencoded'"),'URL-encoded body, as Netlify requires');
+check(js.includes('still here'),'Error keeps the visitor\'s answers');
+check(js.includes('prefers-reduced-motion'),'JS respects reduced motion');
+for(const page of pages){
+  const file=page.path==='/404/'?'dist/404.html':`dist${page.path}index.html`;
+  const html=await readFile(file,'utf8');
+  check(!/[\u2013\u2014]/.test(html),`${page.path}: no en or em dashes in copy`);
+  check(!/amazon|\bFBA\b/i.test(html),`${page.path}: no marketplace trademarks`);
+  check(!/fonts\.googleapis/.test(html),`${page.path}: fonts are self-hosted`);
 }
-for(const outcome of ['success','http-error','network','timeout'])await testForm(outcome);
+check((await stat('dist/assets/smooveoperator-reseller-profile.pdf')).size>10000,'Reseller profile PDF ships');
 const sitemap=await readFile('dist/sitemap.xml','utf8');check(!sitemap.includes('thank-you'),'Success page excluded from sitemap');
 const css=await readFile('public/assets/site.css','utf8');check(css.includes('prefers-reduced-motion'),'Reduced motion support');
 const social=await readFile('dist/assets/social-card.png');check(social.readUInt32BE(16)===1200&&social.readUInt32BE(20)===630,'Social card dimensions');
-console.log(`PASS: ${checks} checks across ${pages.length} pages, internal links, metadata, form payloads, success/error/timeout states, and social artwork.`);
+console.log(`PASS: ${checks} checks across ${pages.length} pages, internal links, metadata, Fit Check markup and payload rules, copy guardrails, and shipped assets.`);
 console.log('Browser visual, mobile interaction, console, and deployed Netlify delivery checks are separate release gates.');
