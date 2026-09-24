@@ -1,0 +1,647 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-24T13:14:37.230Z",
+  "title": "Design System: SmooveOperator",
+  "extensions": {
+    "colorMeta": {
+      "black": {
+        "role": "neutral",
+        "displayName": "Press Black",
+        "canonical": "#050504",
+        "oklch": "oklch(11.4% 0.004 107.0)",
+        "cssVar": "--black",
+        "tonalRamp": [
+          "#0B0B0A",
+          "#242422",
+          "#40403E",
+          "#5E5E5B",
+          "#80807E",
+          "#A5A5A2",
+          "#CBCBC8",
+          "#EFEFEC"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Note Panel",
+        "canonical": "#0e0d0a",
+        "oklch": "oklch(15.9% 0.006 91.7)",
+        "cssVar": "--panel",
+        "tonalRamp": [
+          "#0C0B08",
+          "#252421",
+          "#41403C",
+          "#5F5D5A",
+          "#81807C",
+          "#A6A4A0",
+          "#CCCAC6",
+          "#F0EEEA"
+        ]
+      },
+      "panel-2": {
+        "role": "neutral",
+        "displayName": "Under Sheet",
+        "canonical": "#15130e",
+        "oklch": "oklch(18.7% 0.010 88.8)",
+        "cssVar": "--panel-2",
+        "tonalRamp": [
+          "#0D0B07",
+          "#26241E",
+          "#42403A",
+          "#605D57",
+          "#838079",
+          "#A7A49D",
+          "#CDCAC3",
+          "#F1EEE7"
+        ]
+      },
+      "foil": {
+        "role": "primary",
+        "displayName": "Brushed Foil",
+        "canonical": "#D9B24C",
+        "oklch": "oklch(77.9% 0.127 88.0)",
+        "cssVar": "--foil",
+        "tonalRamp": [
+          "#110A00",
+          "#2F2200",
+          "#503D01",
+          "#745902",
+          "#9E7B06",
+          "#C69F36",
+          "#EDC661",
+          "#FFEDC3"
+        ]
+      },
+      "foil-hi": {
+        "role": "primary",
+        "displayName": "Foil Highlight",
+        "canonical": "#F6DE8D",
+        "oklch": "oklch(90.3% 0.104 93.5)",
+        "cssVar": "--foil-hi",
+        "tonalRamp": [
+          "#0F0B00",
+          "#2D2301",
+          "#4D3E03",
+          "#705C01",
+          "#957E2C",
+          "#BAA353",
+          "#E1C979",
+          "#FFEEB8"
+        ]
+      },
+      "foil-lo": {
+        "role": "primary",
+        "displayName": "Foil Shadow",
+        "canonical": "#8A6B22",
+        "oklch": "oklch(54.5% 0.097 84.9)",
+        "cssVar": "--foil-lo",
+        "tonalRamp": [
+          "#110A00",
+          "#302100",
+          "#523C02",
+          "#775804",
+          "#9B7B35",
+          "#C1A05A",
+          "#E8C680",
+          "#FFEDC7"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Bone",
+        "canonical": "#EFE8D6",
+        "oklch": "oklch(93.2% 0.025 89.2)",
+        "cssVar": "--text",
+        "tonalRamp": [
+          "#0F0B02",
+          "#292416",
+          "#453F31",
+          "#635D4E",
+          "#868070",
+          "#ABA493",
+          "#D1CAB9",
+          "#F5EEDC"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Worn Bone",
+        "canonical": "#A99F86",
+        "oklch": "oklch(70.4% 0.037 88.8)",
+        "cssVar": "--muted",
+        "tonalRamp": [
+          "#100A00",
+          "#2B230E",
+          "#483F29",
+          "#665D46",
+          "#897F67",
+          "#AEA48B",
+          "#D4CAB0",
+          "#F8EED3"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#2d2715",
+        "oklch": "oklch(27.4% 0.031 91.7)",
+        "cssVar": "--rule",
+        "tonalRamp": [
+          "#100A00",
+          "#2A2412",
+          "#463F2D",
+          "#645D4A",
+          "#87806B",
+          "#ACA48F",
+          "#D2CAB4",
+          "#F6EED7"
+        ]
+      },
+      "rule-2": {
+        "role": "neutral",
+        "displayName": "Double Hairline",
+        "canonical": "#3a321c",
+        "oklch": "oklch(32.0% 0.037 90.2)",
+        "cssVar": "--rule-2",
+        "tonalRamp": [
+          "#100A00",
+          "#2B230D",
+          "#473F29",
+          "#665D46",
+          "#898067",
+          "#ADA48B",
+          "#D4CAB0",
+          "#F8EED3"
+        ]
+      },
+      "err": {
+        "role": "secondary",
+        "displayName": "Correction Rose",
+        "canonical": "#F3B4A8",
+        "oklch": "oklch(82.5% 0.076 30.9)",
+        "cssVar": "--err",
+        "tonalRamp": [
+          "#1E0000",
+          "#42120B",
+          "#622F26",
+          "#834D43",
+          "#A96F64",
+          "#D09388",
+          "#F8B9AD",
+          "#FEE9E5"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home hero headline only, max 11ch. Bodoni Moda from static opsz 18 files; the script \"smoove.\" sits inside at 1.14em."
+      },
+      "headline-page": {
+        "displayName": "Page Headline",
+        "purpose": "The h1 of every inner page hero, max 22ch; its italic tail is the page's one foil claim."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section h2s, usually closed by an italic tail that drops to its own line."
+      },
+      "title-band": {
+        "displayName": "Band Title",
+        "purpose": "The route line heading."
+      },
+      "result": {
+        "displayName": "Result",
+        "purpose": "The engraved note's live result line; figures in foil highlight with lining tabular numerals."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Perforated items, step titles, sample heading (26px); route stops 28px, ledger 24px, FAQ 22px, success 32px."
+      },
+      "title-rule": {
+        "displayName": "Rule Title",
+        "purpose": "The four rule titles on the engraved note."
+      },
+      "numeral": {
+        "displayName": "Route Numeral",
+        "purpose": "Italic lowercase roman numerals on the route line (i. to iv.); muted, foil for SmooveOperator's own step."
+      },
+      "numeral-rule": {
+        "displayName": "Rule Numeral",
+        "purpose": "Italic foil \"Rule i.\" to \"Rule iv.\" on the engraved note."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "The one-sentence hero lede in bone, max 36ch. Inner ledes use clamp(17px,1.4vw,19px) in muted, max 52ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All reading text."
+      },
+      "body-small": {
+        "displayName": "Body Small",
+        "purpose": "Supporting descriptions, band notes, footer text (15px to 16px)."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Help text, error messages, document link captions, fine print (13px to 13.5px)."
+      },
+      "label-button": {
+        "displayName": "Button Label",
+        "purpose": "Uppercase button labels."
+      },
+      "label-nav": {
+        "displayName": "Nav Label",
+        "purpose": "Uppercase nav links, header CTA and menu toggle."
+      },
+      "label-field": {
+        "displayName": "Field Label",
+        "purpose": "Form labels, legends and dial labels in sentence case."
+      },
+      "label-fact": {
+        "displayName": "Fact Term",
+        "purpose": "Uppercase foil terms on the profile sheet's definition list. Not an eyebrow: it labels a value, never a heading."
+      },
+      "mono-formula": {
+        "displayName": "Formula",
+        "purpose": "The order-sizing formula chip; the calculation line runs at 14px."
+      },
+      "mono-readout": {
+        "displayName": "Readout",
+        "purpose": "Live dial values, tabular figures."
+      },
+      "script-wordmark": {
+        "displayName": "Wordmark",
+        "purpose": "\"Smoove Operator\", foil gradient fill; 30px at 1000px and below. Yellowtail is used only here and for the hero \"smoove.\"."
+      }
+    },
+    "shadows": [
+      {
+        "name": "document-drop",
+        "value": "0 28px 48px -18px rgba(0,0,0,.9)",
+        "purpose": "Under the stacked profile preview only. The one cast shadow in the system."
+      },
+      {
+        "name": "header-glass",
+        "value": "background: rgba(5,5,4,.88); backdrop-filter: saturate(1.2) blur(10px)",
+        "purpose": "Sticky header over scrolling content, with a hairline below."
+      },
+      {
+        "name": "focus-ring",
+        "value": "outline: 2px solid var(--foil-hi); outline-offset: 4px",
+        "purpose": "Every focusable element; custom controls move it onto the visible track or chip (offset 2px to 3px)."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.4,0,.2,1)",
+        "purpose": "Standard easing for color, border, arrow, menu and opacity changes."
+      },
+      {
+        "name": "expo",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Landing easing: switch thumb, stamp, step entrance and the authored moment."
+      },
+      {
+        "name": "t1",
+        "value": "180ms",
+        "purpose": "Color and border state changes on buttons, links, fields and choices."
+      },
+      {
+        "name": "t2",
+        "value": "360ms",
+        "purpose": "Menu wipe, arrow slide, switch, clause fade, Fit Check step entrance."
+      },
+      {
+        "name": "t3",
+        "value": "600ms",
+        "purpose": "The success seal tick drawing in."
+      },
+      {
+        "name": "stamp",
+        "value": "320ms expo, scale 1.7 to 1, rotate -7deg",
+        "purpose": "The SKIPPED stamp landing on rule i."
+      },
+      {
+        "name": "authored-moment",
+        "value": "rope edges 900ms expo clockwise at 0/110/220/330ms; corners 700ms at 520ms; microprint 600ms at 560ms; rules print in 650ms (opacity + 6px blur) at 600/710/820/930ms; sample at 1040ms; result at 1120ms",
+        "purpose": "The one authored entrance: the note engraves its frame, then prints the rules. Armed only when the note starts below the fold; never under reduced motion."
+      },
+      {
+        "name": "sheen",
+        "value": "9s ease infinite, background-position 0 to 100%",
+        "purpose": "Foil shine across the hero \"smoove.\" Removed under reduced motion."
+      },
+      {
+        "name": "rosette",
+        "value": "canvas, t += .008 every other frame, pointer ease .06, lean 34px x depth",
+        "purpose": "Hero guilloche rings counter-rotate and lean toward the pointer; paused off screen and in hidden tabs; drawn once under reduced motion and on page heroes."
+      },
+      {
+        "name": "glint",
+        "value": "view-timeline --seal, range cover 20% to cover 80%, translateX -60% to 60%",
+        "purpose": "Foil-highlight band crossing the latent seal as it scrolls past; only where animation-timeline is supported; hidden under reduced motion."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation and transition durations .01ms, one iteration; scroll-behavior auto",
+        "purpose": "Global prefers-reduced-motion: reduce fallback."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "nav",
+        "value": "1000px"
+      },
+      {
+        "name": "note-stack",
+        "value": "980px"
+      },
+      {
+        "name": "grid-2",
+        "value": "900px"
+      },
+      {
+        "name": "papers",
+        "value": "860px"
+      },
+      {
+        "name": "rosette-phone",
+        "value": "760px"
+      },
+      {
+        "name": "ledger",
+        "value": "700px"
+      },
+      {
+        "name": "perf-1",
+        "value": "640px"
+      },
+      {
+        "name": "compact",
+        "value": "620px"
+      },
+      {
+        "name": "route-1",
+        "value": "560px"
+      },
+      {
+        "name": "facts-1",
+        "value": "520px"
+      }
+    ],
+    "fonts": [
+      {
+        "family": "Bodoni Moda",
+        "files": [
+          "/fonts/BodoniModa-opsz18-normal.woff2",
+          "/fonts/BodoniModa-opsz18-italic.woff2"
+        ],
+        "axes": "wght 400 to 900; opsz instanced at 18",
+        "fallback": "Bodoni Fallback (Times New Roman, size-adjust 116% normal, 108.5% italic)",
+        "preload": true
+      },
+      {
+        "family": "Manrope",
+        "files": [
+          "/fonts/Manrope-normal.woff2"
+        ],
+        "axes": "wght (declared 400 to 700)",
+        "fallback": "Manrope Fallback (Arial, size-adjust 102%)",
+        "preload": true
+      },
+      {
+        "family": "JetBrains Mono",
+        "files": [
+          "/fonts/JetBrainsMono-normal.woff2"
+        ],
+        "axes": "static 500",
+        "preload": false
+      },
+      {
+        "family": "Yellowtail",
+        "files": [
+          "/fonts/Yellowtail-normal.woff2"
+        ],
+        "axes": "static 400",
+        "fallback": "Script Fallback (Brush Script MT, size-adjust 92%)",
+        "preload": true
+      }
+    ],
+    "engraving": [
+      {
+        "name": "band-h.svg / band-v.svg",
+        "value": "72 x 18 tile; 13 phase-shifted sine strands (foil-lo .9, foil .45, foil-lo .55; .55 stroke) between two 1px foil-lo hairlines",
+        "purpose": "Guilloche rope on the four edges of the engraved note (48 x 12 under 620px)."
+      },
+      {
+        "name": "corner.svg",
+        "value": "36 x 36 panel square, foil-lo border, hypotrochoid rosette (R15 r3 p9) in foil at .8, 2px foil dot",
+        "purpose": "Rosette corners overhanging the note by 9px."
+      },
+      {
+        "name": "microprint.svg",
+        "value": "420 x 8, 5.6px Arial in foil-lo, textLength-fitted so it tiles",
+        "purpose": "Top and bottom microprint lines of the note; true phrases only."
+      },
+      {
+        "name": "seal-mask.svg",
+        "value": "160 x 160 white seal geometry plus a 7px ring",
+        "purpose": "Mask that confines the latent seal glint to the engraved lines."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Solid Button",
+      "kind": "button",
+      "refersTo": "button-solid",
+      "description": "The primary action, square foil block. One label per destination: \"Start the Fit Check\".",
+      "html": "<a class=\"ds-btn-solid\" href=\"#\">Start the Fit Check <svg width=\"18\" height=\"18\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M4 10h11M11 5.5 15.5 10 11 14.5\"/></svg></a>",
+      "css": ".ds-btn-solid{display:inline-flex;align-items:center;gap:12px;font:700 14px/1 var(--body,Manrope,Arial,sans-serif);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:18px 24px;border:1px solid var(--foil,#D9B24C);border-radius:0;cursor:pointer;transition:background 180ms var(--ease,cubic-bezier(.4,0,.2,1)),color 180ms var(--ease,cubic-bezier(.4,0,.2,1)),transform 180ms var(--ease,cubic-bezier(.4,0,.2,1));background:var(--foil,#D9B24C);color:var(--black,#050504)}.ds-btn-solid svg{transition:transform 360ms var(--ease,cubic-bezier(.4,0,.2,1))}.ds-btn-solid:hover{background:var(--foil-hi,#F6DE8D);color:var(--black,#050504)}.ds-btn-solid:hover svg{transform:translateX(4px)}.ds-btn-solid:active{transform:translateY(1px)}.ds-btn-solid:focus-visible{outline:2px solid var(--foil-hi,#F6DE8D);outline-offset:4px}"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "The secondary action beside a solid button: foil hairline frame, transparent ground.",
+      "html": "<a class=\"ds-btn-line\" href=\"#\">Read the buy rules <svg width=\"18\" height=\"18\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M4 10h11M11 5.5 15.5 10 11 14.5\"/></svg></a>",
+      "css": ".ds-btn-line{display:inline-flex;align-items:center;gap:12px;font:700 14px/1 var(--body,Manrope,Arial,sans-serif);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:18px 24px;border:1px solid var(--foil,#D9B24C);border-radius:0;cursor:pointer;transition:background 180ms var(--ease,cubic-bezier(.4,0,.2,1)),color 180ms var(--ease,cubic-bezier(.4,0,.2,1)),transform 180ms var(--ease,cubic-bezier(.4,0,.2,1));background:transparent;color:var(--foil,#D9B24C)}.ds-btn-line svg{transition:transform 360ms var(--ease,cubic-bezier(.4,0,.2,1))}.ds-btn-line:hover{background:rgba(217,178,76,.08);color:var(--foil-hi,#F6DE8D)}.ds-btn-line:hover svg{transform:translateX(4px)}.ds-btn-line:active{transform:translateY(1px)}.ds-btn-line:focus-visible{outline:2px solid var(--foil-hi,#F6DE8D);outline-offset:4px}"
+    },
+    {
+      "name": "Header",
+      "kind": "nav",
+      "refersTo": "site-header",
+      "description": "Thin sticky header: foil script wordmark, muted uppercase links, current page in bone with a foil underline, square foil CTA.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-wordmark\" href=\"#\">Smoove Operator</a><nav class=\"ds-nav\"><a href=\"#\">How it moves</a><a href=\"#\" aria-current=\"page\">Buy rules</a><a href=\"#\">Suppliers</a><a class=\"ds-nav-cta\" href=\"#\">Start the Fit Check</a></nav></header>",
+      "css": ".ds-header{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:68px;padding:0 24px;background:rgba(5,5,4,.88);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--rule,#2d2715)}.ds-wordmark{font:400 34px/1 var(--script,Yellowtail,cursive);background:linear-gradient(100deg,var(--foil-lo,#8A6B22),var(--foil,#D9B24C) 30%,var(--foil-hi,#F6DE8D) 50%,var(--foil,#D9B24C) 70%,var(--foil-lo,#8A6B22));-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none;white-space:nowrap}.ds-nav{display:flex;align-items:center;gap:24px}.ds-nav a{font:600 13px/1 var(--body,Manrope,Arial,sans-serif);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--muted,#A99F86);padding-block:8px;white-space:nowrap;transition:color 180ms var(--ease,cubic-bezier(.4,0,.2,1))}.ds-nav a:not(.ds-nav-cta):hover,.ds-nav a[aria-current=page]{color:var(--text,#EFE8D6)}.ds-nav a[aria-current=page]{box-shadow:inset 0 -1px 0 var(--foil,#D9B24C)}.ds-nav .ds-nav-cta{color:var(--black,#050504);background:var(--foil,#D9B24C);padding:12px 16px}.ds-nav .ds-nav-cta:hover{background:var(--foil-hi,#F6DE8D)}.ds-nav a:focus-visible{outline:2px solid var(--foil-hi,#F6DE8D);outline-offset:4px}"
+    },
+    {
+      "name": "Underline Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Underline-only text field with a sentence-case label; focus lights the rule, errors turn it Correction Rose.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-f1\">Work email</label><input id=\"ds-f1\" type=\"email\"></div><div class=\"ds-field\"><label for=\"ds-f2\">Company</label><input id=\"ds-f2\" aria-invalid=\"true\"><p class=\"ds-err\">Enter your company name.</p></div>",
+      "css": ".ds-field{display:grid;gap:4px;margin-top:18px;font:400 17px/1.65 var(--body,Manrope,Arial,sans-serif);color:var(--text,#EFE8D6)}.ds-field label{font:600 14.5px/1.4 var(--body,Manrope,Arial,sans-serif);letter-spacing:.01em;color:var(--text,#EFE8D6)}.ds-field input{width:100%;font:inherit;background:transparent;border:0;border-bottom:1px solid var(--foil-lo,#8A6B22);padding:10px 0;border-radius:0;color:var(--text,#EFE8D6);caret-color:var(--foil-hi,#F6DE8D);transition:border-color 180ms var(--ease,cubic-bezier(.4,0,.2,1))}.ds-field input:focus{outline:none;border-color:var(--foil-hi,#F6DE8D)}.ds-field input[aria-invalid=true]{border-color:var(--err,#F3B4A8)}.ds-err{font-size:13.5px;color:var(--err,#F3B4A8);margin:4px 0 0}"
+    },
+    {
+      "name": "Ruled Textarea",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "The message field ruled like a ledger page: each 33px line sits on its own double hairline.",
+      "html": "<div class=\"ds-ruled\"><label for=\"ds-t1\">Questions <span>(optional)</span></label><textarea id=\"ds-t1\" rows=\"4\"></textarea></div>",
+      "css": ".ds-ruled{display:grid;gap:4px;font:400 17px/1.65 var(--body,Manrope,Arial,sans-serif);color:var(--text,#EFE8D6)}.ds-ruled label{font:600 14.5px/1.4 var(--body,Manrope,Arial,sans-serif)}.ds-ruled label span{font-weight:500;color:var(--muted,#A99F86)}.ds-ruled textarea{font:inherit;color:var(--text,#EFE8D6);resize:vertical;min-height:134px;padding:0;margin-top:6px;line-height:33px;border:0;border-bottom:1px solid var(--foil-lo,#8A6B22);border-radius:0;background:repeating-linear-gradient(transparent 0 32px,var(--rule-2,#3a321c) 32px 33px);background-attachment:local}.ds-ruled textarea:focus{outline:none;border-color:var(--foil-hi,#F6DE8D)}"
+    },
+    {
+      "name": "Choice Chips",
+      "kind": "chip",
+      "refersTo": "choice",
+      "description": "Radio answers as square foil-shadow boxes; selected lights foil highlight with a 12% foil wash.",
+      "html": "<div class=\"ds-choices\"><label class=\"ds-choice\"><input type=\"radio\" name=\"ds-r\" checked><span>Yes, permitted</span></label><label class=\"ds-choice\"><input type=\"radio\" name=\"ds-r\"><span>Some brands are restricted</span></label><label class=\"ds-choice\"><input type=\"radio\" name=\"ds-r\"><span>Let's discuss</span></label></div>",
+      "css": ".ds-choices{display:flex;flex-wrap:wrap;gap:8px;font:400 15px/1.65 var(--body,Manrope,Arial,sans-serif);color:var(--text,#EFE8D6)}.ds-choice{position:relative;cursor:pointer}.ds-choice input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}.ds-choice span{display:inline-block;border:1px solid var(--foil-lo,#8A6B22);padding:11px 14px;transition:border-color 180ms var(--ease,cubic-bezier(.4,0,.2,1)),background 180ms var(--ease,cubic-bezier(.4,0,.2,1)),color 180ms var(--ease,cubic-bezier(.4,0,.2,1))}.ds-choice:hover span{border-color:var(--foil,#D9B24C)}.ds-choice input:checked+span{border-color:var(--foil-hi,#F6DE8D);background:rgba(217,178,76,.12);color:var(--foil-hi,#F6DE8D)}.ds-choice input:focus-visible+span{outline:2px solid var(--foil-hi,#F6DE8D);outline-offset:2px}"
+    },
+    {
+      "name": "Switch and Dial",
+      "kind": "input",
+      "refersTo": "switch-track",
+      "description": "The sample-listing controls: a square rocker switch and an engraved range dial with a mono readout.",
+      "html": "<div class=\"ds-sample\"><label class=\"ds-switch\"><input type=\"checkbox\" role=\"switch\"><span class=\"ds-track\" aria-hidden=\"true\"></span>The marketplace itself sells this listing</label><div class=\"ds-dial\"><label for=\"ds-d1\">Sellers already on the listing<output>5</output></label><input id=\"ds-d1\" type=\"range\" min=\"1\" max=\"30\" value=\"5\" style=\"--p:14%\"></div></div>",
+      "css": ".ds-sample{font:400 15.5px/1.35 var(--body,Manrope,Arial,sans-serif);color:var(--text,#EFE8D6);max-width:360px}.ds-switch{display:flex;gap:14px;align-items:center;cursor:pointer}.ds-switch input{position:absolute;opacity:0;width:1px;height:1px}.ds-track{flex:none;position:relative;width:46px;height:24px;border:1px solid var(--foil-lo,#8A6B22);transition:border-color 360ms var(--ease,cubic-bezier(.4,0,.2,1))}.ds-track::after{content:\"\";position:absolute;top:3px;left:3px;width:16px;height:16px;background:var(--muted,#A99F86);transition:transform 360ms var(--expo,cubic-bezier(.16,1,.3,1)),background 360ms var(--ease,cubic-bezier(.4,0,.2,1))}.ds-switch input:checked+.ds-track{border-color:var(--foil,#D9B24C)}.ds-switch input:checked+.ds-track::after{transform:translateX(22px);background:var(--foil-hi,#F6DE8D)}.ds-switch input:focus-visible+.ds-track{outline:2px solid var(--foil-hi,#F6DE8D);outline-offset:3px}.ds-dial label{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:22px;font:600 14.5px/1.35 var(--body,Manrope,Arial,sans-serif)}.ds-dial output{font:500 15px/1 var(--mono,\"JetBrains Mono\",ui-monospace,monospace);color:var(--foil-hi,#F6DE8D);font-variant-numeric:tabular-nums}.ds-dial input{-webkit-appearance:none;appearance:none;width:100%;height:32px;background:transparent;margin:0;cursor:pointer}.ds-dial input::-webkit-slider-runnable-track{height:1px;background:linear-gradient(90deg,var(--foil,#D9B24C) var(--p),var(--rule-2,#3a321c) var(--p))}.ds-dial input::-webkit-slider-thumb{-webkit-appearance:none;width:10px;height:24px;margin-top:-12px;background:var(--black,#050504);border:1.5px solid var(--foil-hi,#F6DE8D)}.ds-dial input::-moz-range-track{height:1px;background:var(--rule-2,#3a321c)}.ds-dial input::-moz-range-progress{height:1px;background:var(--foil,#D9B24C)}.ds-dial input::-moz-range-thumb{width:8px;height:22px;border-radius:0;background:var(--black,#050504);border:1.5px solid var(--foil-hi,#F6DE8D)}.ds-dial input:focus-visible{outline:2px solid var(--foil-hi,#F6DE8D);outline-offset:2px}"
+    },
+    {
+      "name": "Engraved Note",
+      "kind": "card",
+      "refersTo": "engraved-note",
+      "description": "The signature: the buy rules printed as one security document. Simplified here (the shipped rope, corner and microprint are build-generated SVG tiles in /assets); frame, numerals, formula chip and verdict line are faithful.",
+      "html": "<div class=\"ds-note\"><div class=\"ds-clause\"><span class=\"ds-n\">Rule iii.</span><div><h3>Order only our share</h3><p>A realistic slice of monthly demand, split across everyone already selling the product.</p><code>est. monthly sales / (sellers + 1)</code><p class=\"ds-verdict\"><span>300 / (5 + 1) = <b>50</b></span> units a month</p></div></div></div>",
+      "css": ".ds-note{position:relative;background:var(--panel,#0e0d0a);padding:52px 44px;border:6px double var(--foil-lo,#8A6B22);outline:1px solid var(--foil,#D9B24C);outline-offset:-12px;color:var(--text,#EFE8D6);font:400 17px/1.65 var(--body,Manrope,Arial,sans-serif)}.ds-note::before{content:\"\";position:absolute;inset:22px;border:1px solid var(--rule,#2d2715);pointer-events:none}.ds-note::after{content:\"\";position:absolute;left:-6px;top:-6px;width:14px;height:14px;background:var(--foil,#D9B24C);transform:rotate(45deg)}.ds-clause{position:relative;display:grid;grid-template-columns:84px 1fr;gap:14px}.ds-n{font:italic 500 22px/1.25 var(--display,\"Bodoni Moda\",Didot,serif);color:var(--foil,#D9B24C);white-space:nowrap}.ds-clause h3{font:500 27px/1.15 var(--display,\"Bodoni Moda\",Didot,serif);margin:0 0 8px}.ds-clause p{margin:0;color:var(--muted,#A99F86);font-size:16px}.ds-clause code{display:inline-block;margin-top:12px;font:500 13px/1.4 var(--mono,\"JetBrains Mono\",ui-monospace,monospace);color:var(--foil-hi,#F6DE8D);border:1px solid var(--rule-2,#3a321c);padding:7px 10px}.ds-verdict{margin-top:14px!important;padding-left:14px;border-left:1px solid var(--foil,#D9B24C);font:500 15px/1.45 var(--body,Manrope,Arial,sans-serif);color:var(--text,#EFE8D6)!important}.ds-verdict span{font:500 14px/1.45 var(--mono,\"JetBrains Mono\",ui-monospace,monospace)}.ds-verdict b{color:var(--foil-hi,#F6DE8D);font-variant-numeric:tabular-nums}"
+    },
+    {
+      "name": "Stamp",
+      "kind": "custom",
+      "refersTo": "stamp",
+      "description": "\"SKIPPED\" lands on rule i in the note's skipped state: double foil-highlight rule, rotated -7deg, 320ms expo from 1.7x.",
+      "html": "<span class=\"ds-stamp\">Skipped</span>",
+      "css": ".ds-stamp{display:inline-block;border:4px double var(--foil-hi,#F6DE8D);color:var(--foil-hi,#F6DE8D);background:rgba(14,13,10,.82);font:500 15px/1 var(--mono,\"JetBrains Mono\",ui-monospace,monospace);letter-spacing:.24em;text-transform:uppercase;padding:9px 10px 8px 14px;transform:rotate(-7deg);animation:ds-stamp 320ms var(--expo,cubic-bezier(.16,1,.3,1)) both}@keyframes ds-stamp{from{opacity:0;transform:rotate(-7deg) scale(1.7)}to{opacity:1;transform:rotate(-7deg) scale(1)}}@media (prefers-reduced-motion:reduce){.ds-stamp{animation:none}}"
+    },
+    {
+      "name": "Perforated Grid",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Peer items separated like stamps on a sheet by rows and columns of foil-shadow dots. Never boxed.",
+      "html": "<ul class=\"ds-perf\"><li><h3>Your channel rules</h3><p>Permitted sales channels and brand requirements are part of the first conversation.</p></li><li><h3>Accurate listings</h3><p>Products are represented truthfully, in their real condition.</p></li></ul>",
+      "css": ".ds-perf{list-style:none;margin:0;padding:0 0 6px;display:grid;grid-template-columns:repeat(2,1fr);background:radial-gradient(circle at 3px 3px,rgba(138,107,34,.75) 1.5px,transparent 2px) 0 100%/9px 6px repeat-x;color:var(--text,#EFE8D6);font:400 17px/1.65 var(--body,Manrope,Arial,sans-serif)}.ds-perf li{position:relative;padding:34px 32px 38px 0}.ds-perf li::before{content:\"\";position:absolute;left:0;right:0;top:0;height:6px;background:radial-gradient(circle at 3px 3px,rgba(138,107,34,.75) 1.5px,transparent 2px) 0 0/9px 6px repeat-x}.ds-perf li:nth-child(2n){padding-left:32px}.ds-perf li:nth-child(2n)::after{content:\"\";position:absolute;top:6px;bottom:0;left:-3px;width:6px;background:radial-gradient(circle at 3px 3px,rgba(138,107,34,.75) 1.5px,transparent 2px) 0 0/6px 9px repeat-y}.ds-perf h3{font:500 26px/1.15 var(--display,\"Bodoni Moda\",Didot,serif);margin:0 0 10px}.ds-perf p{margin:0;color:var(--muted,#A99F86);max-width:44ch}"
+    },
+    {
+      "name": "Route Line",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "How a product moves: a foil-shadow rule with diamond nodes, italic roman numerals, and who handles each step. Only our own step is foil.",
+      "html": "<ol class=\"ds-path\"><li class=\"ds-stop is-ours\"><span class=\"ds-stop-n\">i.</span><h3>Source</h3><p class=\"ds-by\">Handled by <b>SmooveOperator</b></p></li><li class=\"ds-stop\"><span class=\"ds-stop-n\">ii.</span><h3>Prepare</h3><p class=\"ds-by\">Handled by <b>Third-party prep</b></p></li><li class=\"ds-stop\"><span class=\"ds-stop-n\">iii.</span><h3>Fulfill</h3><p class=\"ds-by\">Handled by <b>Marketplace network</b></p></li></ol>",
+      "css": ".ds-path{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--foil-lo,#8A6B22);color:var(--text,#EFE8D6);font:400 17px/1.65 var(--body,Manrope,Arial,sans-serif)}.ds-stop{position:relative;padding:30px 26px 34px;border-right:1px solid var(--rule,#2d2715)}.ds-stop:first-child{padding-left:0}.ds-stop:last-child{border-right:0}.ds-stop::before{content:\"\";position:absolute;top:-5px;left:-5px;width:9px;height:9px;background:var(--black,#050504);border:1px solid var(--foil-lo,#8A6B22);transform:rotate(45deg)}.ds-stop:first-child::before{left:0}.ds-stop.is-ours::before{background:var(--foil,#D9B24C);border-color:var(--foil,#D9B24C)}.ds-stop-n{display:block;font:italic 400 44px/1 var(--display,\"Bodoni Moda\",Didot,serif);color:var(--muted,#A99F86);margin-bottom:12px}.ds-stop.is-ours .ds-stop-n{color:var(--foil,#D9B24C)}.ds-stop h3{font:500 28px/1.1 var(--display,\"Bodoni Moda\",Didot,serif);margin:0 0 6px}.ds-by{margin:0;font:500 15px/1.4 var(--body,Manrope,Arial,sans-serif);color:var(--muted,#A99F86)}.ds-by b{font-weight:700;color:var(--text,#EFE8D6)}"
+    },
+    {
+      "name": "Stacked Document Preview",
+      "kind": "card",
+      "refersTo": "",
+      "description": "The real profile sheet as a physical file: tilted -2deg over an under sheet tilted a further 4.5deg, with the one document shadow. The shipped version holds the profile preview image.",
+      "html": "<div class=\"ds-doc\"><div class=\"ds-doc-page\"><span class=\"ds-doc-mark\">Smoove Operator</span><span class=\"ds-doc-line\"></span><span class=\"ds-doc-line\"></span><span class=\"ds-doc-line short\"></span></div></div>",
+      "css": ".ds-doc{position:relative;width:260px;transform:rotate(-2deg);isolation:isolate;margin:24px}.ds-doc::before{content:\"\";position:absolute;inset:0;z-index:-1;background:var(--panel-2,#15130e);border:1px solid var(--rule-2,#3a321c);transform:rotate(4.5deg) translate(10px,6px)}.ds-doc-page{display:grid;gap:12px;aspect-ratio:880/1162;padding:22px;background:var(--panel,#0e0d0a);border:1px solid var(--foil-lo,#8A6B22);box-shadow:0 28px 48px -18px rgba(0,0,0,.9);align-content:start}.ds-doc-mark{font:400 24px/1 var(--script,Yellowtail,cursive);color:var(--foil,#D9B24C);padding-bottom:10px;border-bottom:1px solid var(--foil-lo,#8A6B22)}.ds-doc-line{height:1px;background:var(--rule-2,#3a321c)}.ds-doc-line.short{width:60%}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Gold Standard",
+    "overview": "The site is an engraved instrument of trust. Every page is printed on near-black stock with brushed-foil gold, and the proof a supplier needs (the four written buy rules, the commitments, the seller's permit line) is set the way a banknote sets its fine print: framed in guilloche rope, backed by microprint, sealed with a latent mark. The world refuses the category default of a flat dark software template with icon cards and neon glow. Nothing floats, nothing is rounded, nothing glows; depth comes from engraving, hairlines and paper stacked on paper.\n\nDensity is calm and editorial. A high-contrast Didone display face carries the headlines, a quiet grotesque carries the reading, a monospace appears only where arithmetic is shown, and a single script face signs the name. Foil is the material of the instrument (buttons, rule numerals, hairlines, the engraved frame), while in headline type it is spent on exactly one claim per page. Motion is slow and physical: a guilloche rosette that turns and leans toward the pointer, a foil sheen, a seal that glints as it scrolls past, and one authored moment in which the note engraves its own frame and prints the rules in.\n\nThis file records the system as shipped in `public/assets/site.css`, `public/assets/site.js`, `src/components.mjs`, `src/engraving.mjs` and `src/pages.mjs`. It supersedes `docs/BRAND.md`, which describes the pre-redesign system (Montserrat, matte gold #C5A028, a blue accent, rounded panels) and is kept only as history.",
+    "keyCharacteristics": [
+      "Near-black stock, brushed-foil gold in three weights, bone text; dark only (`color-scheme: dark`).",
+      "Bodoni Moda pinned at optical size 18 for all display type; Manrope for reading; JetBrains Mono only for formulas and numeric readouts; Yellowtail only for the wordmark and \"smoove.\".",
+      "Security-printing devices generated at build time: guilloche rope bands, rosette corners, microprint, a latent seal.",
+      "Square everything: zero radius on buttons, fields, switches, panels and the stamp.",
+      "Structure drawn with hairlines, perforations and diamond nodes instead of cards and shadows.",
+      "Lowercase roman numerals (i., ii., iii., iv.) for sequence.",
+      "Content is visible by default; motion only ever adds."
+    ],
+    "rules": [
+      {
+        "name": "The One Moment Rule",
+        "body": "The site has one authored entrance: the engraved note draws its rope frame clockwise (top, right, bottom, left, 900ms each, staggered 110ms), the rosette corners and microprint arrive, then the four rules print in one after another (opacity and a 6px blur clearing over 650ms, 110ms apart), followed by the sample dials and the result. It is armed only when the note starts below the fold, so nothing a visitor has already seen is ever hidden. No other section gets an entrance animation.",
+        "section": "motion"
+      },
+      {
+        "name": "The One Claim Rule",
+        "body": "In headline type, foil marks exactly one phrase per page, the `em.claim` (home: \"the same four rules.\"; each inner page: the tail of its h1). Every other italic heading tail stays bone. The hero's foil script \"smoove.\" is the wordmark device, not a second claim.",
+        "section": "colors"
+      },
+      {
+        "name": "The Correction Ink Rule",
+        "body": "Correction Rose appears only on the Fit Check to mark a field, a choice set or a send that needs attention. It is never decoration, never a status color for the rules calculator, never a highlight.",
+        "section": "colors"
+      },
+      {
+        "name": "The Foil Is Material Rule",
+        "body": "Foil is used as a printed material (fills, hairlines, numerals, engraving), never as a glow. No colored shadows, no blurred halos, no neon.",
+        "section": "colors"
+      },
+      {
+        "name": "The Pinned Optical Size Rule",
+        "body": "Bodoni Moda ships as static opsz 18 instances (weight axis 400 to 900 kept). Its display optical sizes thin the \"e\" crossbar and serifs below one pixel on screen, so \"Wholesale\" read as \"Wholcsalc\". Never load the variable optical-size axis or let the browser auto-size it.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono Is Arithmetic Rule",
+        "body": "JetBrains Mono appears only for a formula (`est. monthly sales / (sellers + 1)`), a calculation line and live numeric readouts. It is never a label, heading or decoration.",
+        "section": "typography"
+      },
+      {
+        "name": "The Signature Rule",
+        "body": "Yellowtail writes the wordmark and the hero's \"smoove.\" and nothing else.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Eyebrow Rule",
+        "body": "No kicker or small uppercase label ever sits above a heading. A heading opens its section by itself.",
+        "section": "typography"
+      },
+      {
+        "name": "The Stacked Head Rule",
+        "body": "A section's heading and its intro stack in one column. Don't split a section header into heading on the left and intro on the right. Two shipped layouts still set a heading beside its content (the closing CTA band and the \"useful first conversation\" section on /suppliers/); they are recorded as drift, not as patterns.",
+        "section": "layout"
+      },
+      {
+        "name": "The Perforation, Not Box Rule",
+        "body": "Groups of peer items are separated like stamps on a sheet (rows of foil-shadow dots between and beside items) or by hairlines, never boxed as cards.",
+        "section": "layout"
+      },
+      {
+        "name": "The Printed, Not Lifted Rule",
+        "body": "Surfaces never rise on hover. Buttons press down 1px on activation; arrows slide 4px; nothing gains a shadow.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do mark exactly one headline phrase per page in foil with `em.claim`; keep every other italic tail bone.",
+      "Do use Correction Rose (#F3B4A8) only for Fit Check errors.",
+      "Do keep every corner square (0px) and every divider a 1px hairline, perforation or rope.",
+      "Do serve Bodoni Moda only from the pinned optical size 18 files, with the metric-matched fallbacks.",
+      "Do keep JetBrains Mono to formulas, calculation lines and numeric readouts, with tabular figures.",
+      "Do number sequences with lowercase roman numerals in italic Bodoni.",
+      "Do use one label per destination: \"Start the Fit Check\" for /contact/ everywhere.",
+      "Do keep content visible by default and let motion only add; honor `prefers-reduced-motion` in both CSS and script.",
+      "Do keep focus visible (2px foil highlight, 4px offset) and hold text at 4.5:1 or better on its ground.",
+      "Do write engraved text (microprint, seal ring) from true phrases only.",
+      "Do state the credential only as \"California seller's permit on file\", with no number shown."
+    ],
+    "donts": [
+      "Don't put an eyebrow, kicker or small uppercase label above a heading.",
+      "Don't split a section header into heading left and intro right.",
+      "Don't use foil as a glow, a colored shadow or a neon edge; don't add shadows beyond the document drop.",
+      "Don't box peer items as cards; separate them with perforations or hairlines.",
+      "Don't use Yellowtail for anything but the wordmark and \"smoove.\".",
+      "Don't add a second authored entrance; the note's engraving is the one moment.",
+      "Don't use em dashes or en dashes anywhere in copy.",
+      "Don't write the words \"Amazon\" or \"FBA\" anywhere on the site; say \"the marketplace\" or \"marketplace fulfillment\".",
+      "Don't invent testimonials, numbers, partner names, reviews or credentials.",
+      "Don't show a permit number or any credential other than the seller's permit on file."
+    ]
+  }
+}
