@@ -1,17 +1,17 @@
-import {button,pageHero,ctaBand,path,instrument,commitments,perfGrid,ledger,fitCheck,seal,download,arrow} from './components.mjs';
-import {latentSeal} from './engraving.mjs';
+import {button,pageHero,ctaBand,path,route,rulesBoard,commitments,perfGrid,ledger,fitCheck,seal,download,arrow} from './components.mjs';
 
 /* The printed profile carries this date too; change both together when the profile is revised. */
 const PROFILE_DATE = 'September 2026';
 
 const home = () => `
-<section class="hero">
-  <canvas class="rosette" id="rosette" aria-hidden="true"></canvas>
-  <div class="wrap hero-inner">
-    <h1>Wholesale, handled <span class="script foil-text">smoove.</span></h1>
-    <p class="lede">SmooveOperator buys established brands from authorized sources and resells them on online marketplaces under four written rules.</p>
-    <div class="btn-row">${button('Start the Fit Check','/contact/')}${button('Read the buy rules','#rules','line')}</div>
-    <p class="seal">${seal}<span>California seller’s permit on file</span></p>
+<section class="hero flapfield">
+  <div class="wrap hero-grid">
+    <h1>Wholesale, made <span class="script">smoove.</span></h1>
+    <div class="hero-side">
+      <p class="lede">SmooveOperator buys established brands from authorized sources and resells them on online marketplaces under four written rules.</p>
+      <div class="btn-row">${button('Start the Fit Check','/contact/')}${button('Read the buy rules','#rules','line')}</div>
+      <p class="seal">${seal}<span>California seller’s permit on file</span></p>
+    </div>
   </div>
 </section>
 
@@ -23,13 +23,13 @@ const home = () => `
   </div>
 </section>
 
-<section class="section instrument" id="rules" aria-labelledby="rules-title">
+<section class="section rules-sec" id="rules" aria-labelledby="rules-title">
   <div class="wrap">
-    <div class="instrument-head">
+    <div class="rules-intro">
       <h2 class="stack" id="rules-title">Every order passes <em class="claim">the same four rules.</em></h2>
       <p class="intro">Written before the first purchase and applied to every one after it. They protect your pricing as much as our cash.</p>
     </div>
-    ${instrument(latentSeal())}
+    ${rulesBoard()}
   </div>
 </section>
 
@@ -53,7 +53,7 @@ const home = () => `
       <a class="doc-link" href="/profile/">${arrow}<span><strong>View it on the web</strong><small>Same facts, readable on any screen</small></span></a>
     </div>
     </div>
-    <div class="papers-doc" aria-hidden="true"><img src="/assets/profile-preview.webp" width="880" height="1162" alt="" loading="lazy" decoding="async"></div>
+    <div class="papers-doc" aria-hidden="true"><img src="/assets/profile-preview.webp" width="880" height="1083" alt="" loading="lazy" decoding="async"></div>
   </div>
 </section>
 ${ctaBand()}`;
@@ -71,11 +71,11 @@ const suppliers = () => `${pageHero('Good relationships, <em class="claim">built
 </div></section>
 <section class="band"><div class="wrap">
   <h2 class="band-title">The standard at each step</h2>
-  <ol class="path path-3">
-    <li class="stop"><span class="stop-n" aria-hidden="true">i.</span><h3>Before a purchase</h3><p>Check product fit, source documentation, channel requirements and the full cost to fulfill.</p></li>
-    <li class="stop"><span class="stop-n" aria-hidden="true">ii.</span><h3>Before fulfillment</h3><p>Confirm preparation instructions, product identification, condition expectations and receiving requirements.</p></li>
-    <li class="stop"><span class="stop-n" aria-hidden="true">iii.</span><h3>Before a reorder</h3><p>Revisit demand, stock availability, pricing and economics using what the first purchase taught us.</p></li>
-  </ol>
+  ${route([
+    ['i.','Before a purchase','Check product fit, source documentation, channel requirements and the full cost to fulfill.'],
+    ['ii.','Before fulfillment','Confirm preparation instructions, product identification, condition expectations and receiving requirements.'],
+    ['iii.','Before a reorder','Revisit demand, stock availability, pricing and economics using what the first purchase taught us.']
+  ])}
 </div></section>
 <section class="section section-tight"><div class="wrap split">
   <div class="split-head"><h2>A useful first <em>conversation.</em></h2><p class="intro">A brief introduction is enough. Documentation and detailed terms come next, when there’s a suitable fit.</p>${button('Start the Fit Check','/contact/')}</div>
@@ -101,7 +101,7 @@ const profileFacts = [
   ['Stage','Developing. Measured first purchases; repeat orders earned by sell-through'],
   ['Contact','Supplier Fit Check at <span class="nowrap">smoove-operator.com/contact</span>']
 ];
-const profile = () => `<section class="page-hero profile-hero"><canvas class="rosette rosette-still" aria-hidden="true"></canvas><div class="wrap"><h1>Reseller <em class="claim">profile.</em></h1><p class="lede">The facts a supplier needs for an account file, on one page.</p><div class="btn-row">${button('Download the PDF','/assets/smooveoperator-reseller-profile.pdf','solid',' download')}${button('Start the Fit Check','/contact/','line')}</div></div></section>
+const profile = () => `<section class="page-hero profile-hero flapfield"><div class="wrap"><h1>Reseller <em class="claim">profile.</em></h1><p class="lede">The facts a supplier needs for an account file, on one page.</p><div class="btn-row">${button('Download the PDF','/assets/smooveoperator-reseller-profile.pdf','solid',' download')}${button('Start the Fit Check','/contact/','line')}</div></div></section>
 <section class="section section-tight"><div class="wrap">
   <article class="sheet" id="profile-sheet">
     <header class="sheet-head"><span class="wordmark">Smoove Operator</span><span class="sheet-meta">Reseller profile &middot; ${PROFILE_DATE}</span></header>

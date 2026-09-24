@@ -24,82 +24,55 @@ if(menu&&nav){
   mq.addEventListener('change',close);
 }
 
-/* guilloche rosette: concentric rope bands of hairline strands, as on a banknote. Rings counter-rotate so
-   their strands cross in moire; each ring leans toward the pointer by its depth and its rope tightens.
-   Page heroes carry a still copy, drawn once. */
-const ringsFull=[
-  // base radius, amplitude, lobes, strands, colour, alpha, turn direction, depth
-  [418,14,60,9,'#8A6B22',.55,1,1],
-  [352,22,44,11,'#D9B24C',.34,-1,.82],
-  [282,16,36,9,'#8A6B22',.6,1,.64],
-  [212,26,24,12,'#F6DE8D',.24,-1,.48],
-  [140,18,16,9,'#D9B24C',.4,1,.34],
-  [72,12,10,7,'#8A6B22',.6,-1,.2]
-];
-function rosette(c,live){
-  const x=c.getContext('2d');if(!x)return;
-  const small=innerWidth<760,rings=small?ringsFull.map(r=>{const q=[...r];q[3]=Math.ceil(r[3]*.6);return q;}):ringsFull;
-  let W=0,H=0,d=1,t=0,tx=0,ty=0,mx=0,my=0,run=false,raf=0,odd=false;
-  const size=()=>{const r=c.getBoundingClientRect();d=Math.min(1.5,devicePixelRatio||1);W=c.width=Math.round(r.width*d);H=c.height=Math.round(r.height*d);};
-  const draw=()=>{
-    mx+=(tx-mx)*.06;my+=(ty-my)*.06;x.clearRect(0,0,W,H);const s=W/d/900,lean=Math.hypot(mx,my);
-    x.lineWidth=(small?.6:.5)*d;
-    for(const [R,amp,lobes,strands,col,a,dir,depth] of rings){
-      const ox=W/2+mx*depth*34*d,oy=H/2+my*depth*34*d,rot=t*dir*.22,A=amp*s*(1-lean*.5),N=lobes*14;
-      x.strokeStyle=col;x.globalAlpha=a;x.beginPath();
-      for(let k=0;k<strands;k++){
-        const ph=k/strands*Math.PI;
-        for(let i=0;i<=N;i++){
-          const th=i/N*Math.PI*2,rr=(R*s+A*Math.sin(lobes*th+ph)+A*.35*Math.sin(3*th+t*dir))*d,an=th+rot;
-          const px=ox+rr*Math.cos(an),py=oy+rr*Math.sin(an);
-          i?x.lineTo(px,py):x.moveTo(px,py);
-        }
-      }
-      x.stroke();
-    }
-  };
-  size();draw();
-  addEventListener('resize',()=>{size();draw();});
-  if(!live||reduce)return;
-  const loop=()=>{odd=!odd;if(odd){t+=.008;draw();}if(run)raf=requestAnimationFrame(loop);};
-  const start=()=>{if(run)return;run=true;raf=requestAnimationFrame(loop);};
-  const stop=()=>{run=false;cancelAnimationFrame(raf);};
-  addEventListener('pointermove',e=>{tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5;},{passive:true});
-  if('IntersectionObserver' in window)new IntersectionObserver(es=>{es[0].isIntersecting&&!document.hidden?start():stop();}).observe(c);else start();
-  document.addEventListener('visibilitychange',()=>{document.hidden?stop():start();});
-}
-document.querySelectorAll('canvas.rosette').forEach(c=>rosette(c,!c.classList.contains('rosette-still')));
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
 
-/* the instrument: a sample listing run through the four rules */
-const note=$('note');
-if(note){
-  const sales=$('slice-sales'),sellers=$('slice-sellers'),skip=$('rules-skip'),live=$('note-live'),rule1=note.querySelector('[data-v="skip"]');
+/* route line: the page's one authored moment. A gold car travels the line station by station.
+   Every station stays readable (dimmed, never hidden) until the car arrives; reduced motion shows the finished line. */
+function routeLine(r){
+  const stops=[...r.querySelectorAll('.stop')],dots=stops.map(s=>s.querySelector('.stop-dot')),track=r.querySelector('.route-track'),car=r.querySelector('.route-car');
+  let at=stops.length-1;
+  const centre=d=>{const a=d.getBoundingClientRect(),b=r.getBoundingClientRect();return [a.left+a.width/2-b.left,a.top+a.height/2-b.top];};
+  const place=i=>{at=i;const [x,y]=centre(dots[i]);car.style.setProperty('--cx',x+'px');car.style.setProperty('--cy',y+'px');track.style.setProperty('--p',stops.length>1?i/(stops.length-1):1);};
+  const layout=()=>{
+    const [x0,y0]=centre(dots[0]),[x1,y1]=centre(dots[dots.length-1]),vertical=Math.abs(x1-x0)<2;
+    r.classList.toggle('is-vertical',vertical);
+    Object.assign(track.style,vertical?{left:x0-2+'px',top:y0+'px',width:'4px',height:y1-y0+'px',right:'auto',bottom:'auto'}:{left:x0+'px',top:y0-2+'px',width:x1-x0+'px',height:'4px',right:'auto',bottom:'auto'});
+    place(at);
+  };
+  layout();addEventListener('resize',layout);document.fonts&&document.fonts.ready.then(layout);
+  if(reduce||!('IntersectionObserver' in window))return;
+  r.classList.add('is-armed');stops.forEach((s,i)=>s.classList.toggle('is-lit',i===0));place(0);
+  const io=new IntersectionObserver(async es=>{
+    if(!es.some(e=>e.isIntersecting))return;
+    io.disconnect();await wait(250);r.classList.add('is-moving');
+    for(let i=1;i<stops.length;i++){place(i);await wait(1000);stops[i].classList.add('is-lit');await wait(220);}
+    r.classList.remove('is-moving');r.classList.remove('is-armed');
+  },{rootMargin:'0px 0px -20% 0px',threshold:.25});
+  io.observe(r);
+}
+document.querySelectorAll('[data-route]').forEach(routeLine);
+
+/* rules board: a sample listing run through the four rules */
+const board=$('rules-board');
+if(board){
+  const sales=$('slice-sales'),sellers=$('slice-sellers'),skip=$('rules-skip'),live=$('rules-live'),rule1=board.querySelector('[data-v="skip"]');
   const paint=el=>el.style.setProperty('--p',((el.value-el.min)/(el.max-el.min)*100)+'%');
+  const flapTo=(id,val)=>{const host=$(id),len=+host.dataset.len,t=String(val).padStart(len,' ').slice(-len);
+    [...host.children].forEach((c,i)=>{const ch=t[i]===' '?' ':t[i];if(c.textContent!==ch){c.textContent=ch;if(!reduce&&c.animate)c.animate([{transform:'scaleY(1)'},{transform:'scaleY(.1)'},{transform:'scaleY(1)'}],{duration:140,easing:'ease-out'});}});};
   let liveTimer=0;
   const upd=announce=>{
-    const s=+sales.value,n=+sellers.value,per=s/(n+1),off=skip.checked;
-    $('slice-sales-out').textContent=fmt(s);$('slice-sellers-out').textContent=n;
-    $('v-sales').textContent=fmt(s);$('v-sellers').textContent=n;$('v-per').textContent=fmt(per);
+    const s=+sales.value,n=+sellers.value,per=Math.round(s/(n+1)),off=skip.checked;
+    $('slice-sales-out').textContent=fmt(s);$('slice-sellers-out').textContent=n;$('v-per').textContent=fmt(per);
     for(const id of ['v-low','r-low'])$(id).textContent=fmt(per);
     for(const id of ['v-high','r-high'])$(id).textContent=fmt(per*2);
-    note.classList.toggle('is-skipped',off);
-    rule1.textContent=off?'Marketplace is selling. Skip this listing.':'Marketplace isn’t selling. Continue.';
+    flapTo('f-sales',s);flapTo('f-sellers',n);flapTo('f-per',per);
+    board.classList.toggle('is-skipped',off);rule1.textContent=off?'Marketplace is selling. Skip this listing.':'Marketplace isn’t selling. Continue.';
     paint(sales);paint(sellers);
     if(announce){clearTimeout(liveTimer);liveTimer=setTimeout(()=>{live.textContent=off?'Rule 1 skips this listing. No order.':`Our share is ${fmt(per)} units a month. First order: ${fmt(per)} to ${fmt(per*2)} units.`;},600);}
   };
   for(const el of [sales,sellers])el.addEventListener('input',()=>upd(true));
   skip.addEventListener('change',()=>upd(true));
   upd(false);
-  /* one authored moment: armed only when the note starts below the fold, so nothing visible ever hides */
-  if(!reduce&&'IntersectionObserver' in window&&note.getBoundingClientRect().top>innerHeight){
-    note.classList.add('is-armed');
-    const io=new IntersectionObserver(es=>{
-      if(!es.some(e=>e.isIntersecting))return;
-      io.disconnect();requestAnimationFrame(()=>note.classList.add('is-in'));
-      setTimeout(()=>note.classList.remove('is-armed','is-in'),2400);
-    },{rootMargin:'0px 0px -22% 0px'});
-    io.observe(note);
-  }
 }
 
 /* supplier fit check: three steps when JS runs, one long form when it doesn't */
@@ -110,9 +83,14 @@ if(form){
   const back=form.querySelector('[data-back]'),next=form.querySelector('[data-next]'),submit=form.querySelector('[data-submit]');
   const status=$('fit-status'),terms=[...steps[1].querySelectorAll('[required]')];
   let cur=0,sending=false;
+  /* the progress is a three-station route: the car sits on the current step */
+  const car=progList.querySelector('.fit-car'),track=progList.querySelector('.fit-track');
+  const placeCar=()=>{const a=prog[cur].getBoundingClientRect(),b=progList.getBoundingClientRect();if(!a.width)return;car.style.setProperty('--cx',a.left+a.width/2-b.left+'px');track.style.setProperty('--p',cur/(prog.length-1));};
+  addEventListener('resize',placeCar);document.fonts&&document.fonts.ready.then(placeCar);
   const show=(i,focus)=>{
     cur=i;steps.forEach((s,j)=>{s.hidden=j!==i;s.classList.toggle('is-entering',j===i&&!reduce);});
     prog.forEach((p,j)=>{p.classList.toggle('is-current',j===i);p.classList.toggle('is-done',j<i);});
+    placeCar();
     back.hidden=i===0;next.hidden=i===steps.length-1;submit.hidden=i!==steps.length-1;
     if(focus){
       const f=steps[i].querySelector('input:not([type=hidden]),select,textarea');f&&f.focus({preventScroll:true});
@@ -147,7 +125,7 @@ if(form){
   form.addEventListener('change',e=>{clearErr(e.target);if(e.target.name==='role')roleSync();});
   next.addEventListener('click',()=>{if(validate(steps[cur]))show(cur+1,true);});
   back.addEventListener('click',()=>show(cur-1,true));
-  roleSync();show(0,false);form.classList.add('is-ready');
+  roleSync();show(0,false);form.classList.add('is-ready');requestAnimationFrame(()=>{placeCar();requestAnimationFrame(()=>progList.classList.add('is-live'));});
   form.addEventListener('submit',async e=>{
     e.preventDefault();if(sending)return;
     for(let i=0;i<steps.length;i++){steps[i].hidden=false;if(!validate(steps[i])){show(i,false);validate(steps[i]);return;}steps[i].hidden=i!==cur;}

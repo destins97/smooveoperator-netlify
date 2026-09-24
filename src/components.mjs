@@ -23,7 +23,9 @@ export const steps = [
   ['iii.','Fulfill','Marketplace fulfillment stores the inventory and delivers each order.','Marketplace network'],
   ['iv.','Reach','An accurately listed product arrives with the customer as described.','The customer']
 ];
-export const path = () => `<ol class="path">${steps.map(([n,t,d,by],i)=>`<li class="stop${i===0?' is-ours':''}"><span class="stop-n" aria-hidden="true">${n}</span><h3>${t}</h3><p class="stop-by">Handled by <b>${by}</b></p><p>${d}</p></li>`).join('')}</ol>`;
+/* The route line: stations on a transit line. A gold car travels it once when it comes into view (site.js). */
+export const route = items => `<div class="route route-${items.length}" data-route><div class="route-track" aria-hidden="true"><i class="route-fill"></i></div><span class="route-car" aria-hidden="true"></span><ol class="stops">${items.map(([n,t,d,by])=>`<li class="stop${by==='SmooveOperator'?' is-ours':''}"><span class="stop-dot" aria-hidden="true"></span><span class="stop-n" aria-hidden="true">${n}</span><h3>${t}</h3>${by?`<p class="stop-by">Handled by <b>${by}</b></p>`:''}<p class="stop-d">${d}</p></li>`).join('')}</ol></div>`;
+export const path = () => route(steps);
 
 export const rules = [
   ['Pass when the marketplace sells it','If the marketplace itself is a seller on the listing, the product is skipped. We don’t pile onto listings we can’t sell on without undercutting.',''],
@@ -31,24 +33,19 @@ export const rules = [
   ['Order only our share','A realistic slice of monthly demand, split across everyone already selling the product.','est. monthly sales / (sellers + 1)'],
   ['Start small, reorder on evidence','A first purchase is a test. Reorders are earned by real sell-through, pricing and available cash.','']
 ];
-/* The instrument: the four rules printed as one engraved note. With JavaScript, a sample listing runs through them live. */
-const verdicts = [
-  '<span data-v="skip">Marketplace isn’t selling. Continue.</span>',
-  'First order: <b id="v-low">50</b> to <b id="v-high">100</b> units',
-  '<span class="calc"><span id="v-sales">300</span> / (<span id="v-sellers">5</span> + 1) = <b id="v-per">50</b></span> units a month',
-  'Reorder only after these sell through.'
-];
-const edges = ['t','r','b','l'].map(e=>`<span class="edge edge-${e}"><i></i></span>`).join('');
-const corners = ['tl','tr','br','bl'].map(c=>`<span class="corner corner-${c}"></span>`).join('');
+/* The rules board: the four rules posted like departures. With JavaScript, a sample listing runs through them live. */
+const statuses = ['Marketplace isn’t selling. Continue.','First order: <b id="v-low">50</b> to <b id="v-high">100</b> units','<b id="v-per">50</b> units a month','Reorder only after these sell through.'];
 /* phones pin the dials under the header, so each label has a short visual form; the full label stays in the accessible name */
 const range = (id,label,short,min,max,step,value) => `<div class="dial"><label for="${id}"><span class="lbl-long">${label}</span><span class="lbl-short" aria-hidden="true">${short}</span><output id="${id}-out" for="${id}">${value}</output></label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${value}"></div>`;
-export const instrument = (seal) => `<div class="note" id="note"><div class="note-frame" aria-hidden="true">${edges}${corners}</div><p class="micro" aria-hidden="true"></p>
-<div class="note-body"><ol class="clauses">${rules.map(([t,d,code],i)=>`<li class="clause" data-rule="${i+1}"><span class="clause-n">Rule ${['i','ii','iii','iv'][i]}.</span><div><h3>${t}</h3><p>${d}</p>${code?`<code>${code}</code>`:''}<p class="verdict" id="verdict-${i+1}">${verdicts[i]}</p>${i===0?'<span class="stamp" aria-hidden="true">Skipped</span>':''}</div></li>`).join('')}</ol>
-<div class="sample-head"><h3>Run a sample listing</h3><p class="sample-note">Sample numbers only. Nothing here describes a real listing.</p></div>
-<div class="sample"><label class="switch"><input type="checkbox" id="rules-skip" role="switch"><span class="switch-track" aria-hidden="true"></span><span class="lbl-long">The marketplace itself sells this listing</span><span class="lbl-short" aria-hidden="true">Marketplace sells this listing</span></label>
-<div class="dials">${range('slice-sales','Estimated sales per month, all sellers','Sales a month',30,3000,10,300)}${range('slice-sellers','Sellers already on the listing','Sellers',1,30,1,5)}</div></div></div>
-<div class="note-foot">${seal}<p class="note-result"><span id="note-result-text"><span class="res-go">A first order of <b id="r-low">50</b> to <b id="r-high">100</b> units</span><span class="res-skip">No order. The listing is skipped.</span></span></p><p class="note-static">Estimated monthly sales divided by (sellers + 1), then one to two months of that.</p></div>
-<p class="micro micro-b" aria-hidden="true"></p><p class="visually-hidden" id="note-live" aria-live="polite"></p></div>`;
+const flaps = (id,value,len) => `<span class="flaps" id="${id}" data-len="${len}">${String(value).padStart(len,' ').split('').map(c=>`<i>${c===' '?'&#160;':c}</i>`).join('')}</span>`;
+export const rulesBoard = () => `<div class="rules" id="rules-board">
+<div class="board"><div class="board-head" aria-hidden="true"><span>Rule</span><span>What it means</span><span class="js-only">This sample</span></div>
+<ol class="board-rows">${rules.map(([t,d,code],i)=>`<li class="board-row" data-rule="${i+1}"><span class="board-n"><span class="visually-hidden">Rule </span>${['i','ii','iii','iv'][i]}</span><div class="board-rule"><h3>${t}</h3><p>${d}</p>${code?`<code>${code}</code>`:''}</div><p class="board-status js-only" id="status-${i+1}">${i===0?`<span data-v="skip">${statuses[0]}</span>`:statuses[i]}</p></li>`).join('')}</ol></div>
+<div class="sample-head js-only"><h3>Run a sample listing</h3><p class="sample-note">Sample numbers only. Nothing here describes a real listing.</p></div>
+<div class="sample js-only"><label class="switch"><input type="checkbox" id="rules-skip" role="switch"><span class="switch-track" aria-hidden="true"></span><span class="lbl-long">The marketplace itself sells this listing</span><span class="lbl-short" aria-hidden="true">Marketplace sells this listing</span></label>
+<div class="dials">${range('slice-sales','Estimated sales per month, all sellers','Sales a month',30,3000,10,300)}${range('slice-sellers','Sellers already on the listing','Sellers',1,30,1,5)}</div></div>
+<div class="rules-foot"><p class="calc js-only" aria-hidden="true">${flaps('f-sales',300,4)}<span class="op">/</span><span class="op">(</span>${flaps('f-sellers',5,2)}<span class="op">+ 1) =</span>${flaps('f-per',50,4)}</p><p class="rules-result js-only" id="rules-result"><span class="res-go">A first order of <b id="r-low">50</b> to <b id="r-high">100</b> units</span><span class="res-skip">No order. The listing is skipped.</span></p><p class="rules-static">Estimated monthly sales divided by (sellers + 1), then one to two months of that.</p></div>
+<p class="visually-hidden" id="rules-live" aria-live="polite"></p></div>`;
 
 export const commitments = [
   ['Your channel rules','Permitted sales channels and brand requirements are part of the first conversation, and then they are followed.'],
@@ -57,12 +54,12 @@ export const commitments = [
   ['A direct line','One point of contact who answers. Clear expectations about order size from the start, and no guaranteed volumes.']
 ];
 export const ledger = (items=commitments) => `<ul class="ledger">${items.map(([t,d])=>`<li><h3>${t}</h3><p>${d}</p></li>`).join('')}</ul>`;
-/* Perforated sheet: items separated like stamps on a sheet, not boxed as cards */
+/* Timetable grid: items posted in ruled columns, not boxed as cards */
 export const perfGrid = (items, cols=2) => `<ul class="perf perf-${cols}">${items.map(([t,d])=>`<li><h3>${t}</h3><p>${d}</p></li>`).join('')}</ul>`;
 
-export const pageHero = (title, lede, actions='') => `<section class="page-hero"><canvas class="rosette rosette-still" aria-hidden="true"></canvas><div class="wrap"><h1>${title}</h1><p class="lede">${lede}</p>${actions?`<div class="btn-row">${actions}</div>`:''}</div></section>`;
+export const pageHero = (title, lede, actions='') => `<section class="page-hero flapfield"><div class="wrap"><h1>${title}</h1><p class="lede">${lede}</p>${actions?`<div class="btn-row">${actions}</div>`:''}</div></section>`;
 
-export const ctaBand = () => `<section class="cta-band"><div class="wrap cta-grid"><h2>Let’s see if <em>we’re a fit.</em></h2><div><p>Brands, manufacturers, distributors and authorized wholesalers: the Fit Check takes about a minute and tells us what we need to know about your terms.</p>${button('Start the Fit Check','/contact/')}</div></div></section>`;
+export const ctaBand = () => `<section class="cta-band flapfield"><div class="wrap cta-grid"><h2>Let’s see if <em>we’re a fit.</em></h2><div><p>Brands, manufacturers, distributors and authorized wholesalers: the Fit Check takes about a minute and tells us what we need to know about your terms.</p>${button('Start the Fit Check','/contact/')}</div></div></section>`;
 
 const radio = (name, legend, options, need) => `<fieldset class="field-set" data-need="${need}"><legend>${legend}</legend><div class="choices">${options.map(([v,l],i)=>`<label class="choice"><input type="radio" name="${name}" value="${v}"${i===0?' required':''}><span>${l}</span></label>`).join('')}</div></fieldset>`;
 
@@ -72,7 +69,7 @@ export function fitCheck() {
 <input type="hidden" name="subject" value="Supplier Fit Check from smoove-operator.com (%{submissionId})">
 <input type="hidden" name="source" id="fit-source" value="direct">
 <p class="hp" aria-hidden="true"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-<ol class="fit-progress" aria-hidden="true"><li class="is-current">You</li><li>Your terms</li><li>Anything else</li></ol>
+<div class="fit-progress" aria-hidden="true"><span class="fit-track"><i class="fit-fill"></i></span><span class="fit-car"></span><ol><li class="is-current">You</li><li>Your terms</li><li>Anything else</li></ol></div>
 <fieldset class="fit-step" data-step="1"><legend class="step-title">Who you are</legend>
 <div class="row2"><div class="field"><label for="fc-name">Your name</label><input id="fc-name" name="name" autocomplete="name" required maxlength="120" data-need="Enter your name."></div><div class="field"><label for="fc-company">Company</label><input id="fc-company" name="company" autocomplete="organization" required maxlength="160" data-need="Enter your company name."></div></div>
 <div class="row2"><div class="field"><label for="fc-email">Work email</label><input id="fc-email" name="email" type="email" autocomplete="email" required maxlength="254" data-need="Enter your work email."></div><div class="field"><label for="fc-phone">Phone <span class="opt">(optional)</span></label><input id="fc-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div></div>

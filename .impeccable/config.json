@@ -8,11 +8,10 @@
         "value": "*",
         "files": [
           "public/assets/site.css",
-          "dist/assets/site.css",
-          "dist/**/*.html"
+          "dist/assets/site.css"
         ],
         "createdAt": "2026-09-24T08:10:24.982Z",
-        "reason": "Foil sheen on the script wordmark/word is the signature of Direction C (Gold Standard), which the user picked from a card that described the moving foil shine; material effect, not decorative heading gradient"
+        "reason": "Gradient only on the .wordmark, the owner's gold cursive logo, which the owner asked to keep exactly; no other text uses a gradient"
       }
     ]
   }

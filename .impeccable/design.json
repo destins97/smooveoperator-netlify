@@ -1,0 +1,776 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-24T16:37:23.804Z",
+  "title": "Design System: SmooveOperator",
+  "extensions": {
+    "colorMeta": {
+      "black": {
+        "role": "neutral",
+        "displayName": "Station Black",
+        "canonical": "#060605",
+        "oklch": "oklch(12.1% 0.003 106.9)",
+        "cssVar": "--black",
+        "tonalRamp": [
+          "#0B0B0A",
+          "#242422",
+          "#40403E",
+          "#5E5E5C",
+          "#7D7D7B",
+          "#9E9E9C",
+          "#C4C4C2",
+          "#EEEFEC"
+        ]
+      },
+      "board": {
+        "role": "neutral",
+        "displayName": "Board",
+        "canonical": "#0f0e0b",
+        "oklch": "oklch(16.4% 0.006 91.7)",
+        "cssVar": "--board",
+        "tonalRamp": [
+          "#0C0B08",
+          "#252421",
+          "#41403C",
+          "#5F5D5A",
+          "#7E7D79",
+          "#A09E9A",
+          "#C5C4C0",
+          "#F0EEEA"
+        ]
+      },
+      "board-2": {
+        "role": "neutral",
+        "displayName": "Under Sheet",
+        "canonical": "#15130f",
+        "oklch": "oklch(18.8% 0.009 84.6)",
+        "cssVar": "--board-2",
+        "tonalRamp": [
+          "#0D0B07",
+          "#26241F",
+          "#423F3B",
+          "#605D58",
+          "#807D78",
+          "#A19E99",
+          "#C7C4BE",
+          "#F1EEE8"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel",
+        "canonical": "#0c0b09",
+        "oklch": "oklch(15.0% 0.005 84.9)",
+        "cssVar": "--panel",
+        "tonalRamp": [
+          "#0C0B09",
+          "#252422",
+          "#41403D",
+          "#5F5D5B",
+          "#7E7D7A",
+          "#A09E9B",
+          "#C5C4C1",
+          "#F0EEEB"
+        ]
+      },
+      "gold": {
+        "role": "primary",
+        "displayName": "Departure Gold",
+        "canonical": "#D9B24C",
+        "oklch": "oklch(77.9% 0.127 88.0)",
+        "cssVar": "--gold",
+        "tonalRamp": [
+          "#110A00",
+          "#2F2200",
+          "#503D01",
+          "#735A0E",
+          "#9A7815",
+          "#BF992E",
+          "#E6BF5A",
+          "#FFEA85"
+        ]
+      },
+      "gold-hi": {
+        "role": "primary",
+        "displayName": "Lamp Gold",
+        "canonical": "#F6DE8D",
+        "oklch": "oklch(90.3% 0.104 93.5)",
+        "cssVar": "--gold-hi",
+        "tonalRamp": [
+          "#100B00",
+          "#2D2300",
+          "#4D3E00",
+          "#6F5C0C",
+          "#927B28",
+          "#B49D4D",
+          "#DBC373",
+          "#FFEE9C"
+        ]
+      },
+      "gold-lo": {
+        "role": "primary",
+        "displayName": "Brass Shadow",
+        "canonical": "#8A6B22",
+        "oklch": "oklch(54.5% 0.097 84.9)",
+        "cssVar": "--gold-lo",
+        "tonalRamp": [
+          "#120A00",
+          "#312100",
+          "#533C00",
+          "#775804",
+          "#987831",
+          "#BA9A54",
+          "#E1C079",
+          "#FFEBAB"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Bone",
+        "canonical": "#ECE5D2",
+        "oklch": "oklch(92.2% 0.026 90.1)",
+        "cssVar": "--text",
+        "tonalRamp": [
+          "#0F0B01",
+          "#292415",
+          "#453F30",
+          "#635D4D",
+          "#837D6C",
+          "#A59E8C",
+          "#CBC4B1",
+          "#F5EEDB"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Timetable Grey",
+        "canonical": "#A79E86",
+        "oklch": "oklch(70.0% 0.035 89.9)",
+        "cssVar": "--muted",
+        "tonalRamp": [
+          "#100A00",
+          "#2B230F",
+          "#473F2A",
+          "#655D47",
+          "#857D66",
+          "#A79E86",
+          "#CDC4AB",
+          "#F8EED4"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#2B261B",
+        "oklch": "oklch(27.1% 0.021 86.4)",
+        "cssVar": "--rule",
+        "tonalRamp": [
+          "#0F0B03",
+          "#282319",
+          "#453F33",
+          "#635D51",
+          "#837D70",
+          "#A49E90",
+          "#CAC3B5",
+          "#F5EEDF"
+        ]
+      },
+      "rule-2": {
+        "role": "neutral",
+        "displayName": "Hairline Strong",
+        "canonical": "#3A331F",
+        "oklch": "oklch(32.3% 0.034 90.9)",
+        "cssVar": "--rule-2",
+        "tonalRamp": [
+          "#100A00",
+          "#2A2310",
+          "#463F2B",
+          "#655D48",
+          "#857D67",
+          "#A69E87",
+          "#CCC4AC",
+          "#F7EED5"
+        ]
+      },
+      "err": {
+        "role": "error",
+        "displayName": "Form Error",
+        "canonical": "#F3B4A8",
+        "oklch": "oklch(82.5% 0.076 30.9)",
+        "cssVar": "--err",
+        "tonalRamp": [
+          "#1F0000",
+          "#42120B",
+          "#622F26",
+          "#834D43",
+          "#A66C62",
+          "#C98D82",
+          "#F1B2A6",
+          "#FFE8E3"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home hero headline only: \"Wholesale, made\" in condensed capitals with the script \"smoove.\" beneath."
+      },
+      "script": {
+        "displayName": "Script",
+        "purpose": "The single word \"smoove.\" inside the hero headline, gold Yellowtail at 1.08em."
+      },
+      "wordmark": {
+        "displayName": "Wordmark",
+        "purpose": "The gradient Yellowtail logo in header, footer and manifest head; 30px at 1000px and below."
+      },
+      "headline-page": {
+        "displayName": "Page Headline",
+        "purpose": "Inner page hero h1, max 20ch, carrying the page's one em.claim."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section h2s; an unmarked em breaks to its own line in bone."
+      },
+      "title-band": {
+        "displayName": "Band Title",
+        "purpose": "Title over a route line band, max 26ch."
+      },
+      "result": {
+        "displayName": "Result",
+        "purpose": "The rules board verdict line under the math."
+      },
+      "title-station": {
+        "displayName": "Station Title",
+        "purpose": "Route station names."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Timetable items; ledger, step titles and legal h2s sit on the same ramp."
+      },
+      "title-rule": {
+        "displayName": "Rule Title",
+        "purpose": "Rules board row titles."
+      },
+      "numeral-station": {
+        "displayName": "Station Numeral",
+        "purpose": "Italic 600 station and step numerals i. to iv. The only italic in the system."
+      },
+      "numeral-flap": {
+        "displayName": "Flap Numeral",
+        "purpose": "Upright 700 numerals on flap tiles: board rule numerals and the sample math."
+      },
+      "status": {
+        "displayName": "Status",
+        "purpose": "The live status column on the rules board, sentence case in gold-hi."
+      },
+      "label-button": {
+        "displayName": "Button Label",
+        "purpose": "All buttons, uppercase."
+      },
+      "label-nav": {
+        "displayName": "Nav Label",
+        "purpose": "Header nav, menu toggle, footer nav (0.12em) and Fit Check stations (14px), uppercase."
+      },
+      "label-board": {
+        "displayName": "Board Head",
+        "purpose": "Column heads on the rules board, muted, uppercase."
+      },
+      "label-manifest": {
+        "displayName": "Manifest Label",
+        "purpose": "Fact names on the profile sheet, gold, uppercase."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Hero and page ledes in muted, max 52ch; the home hero lede is bone at clamp(18px, 1.6vw, 21px), max 34ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All reading text. Never uppercase."
+      },
+      "body-small": {
+        "displayName": "Body Small",
+        "purpose": "Station descriptions, band notes, choices, sheet lists."
+      },
+      "label-field": {
+        "displayName": "Field Label",
+        "purpose": "Form labels, legends and dial labels."
+      },
+      "fine": {
+        "displayName": "Fine Print",
+        "purpose": "Footer legal line and manifest foot, max 75ch."
+      }
+    },
+    "shadows": [
+      {
+        "name": "car",
+        "value": "0 6px 14px rgba(0,0,0,.7)",
+        "purpose": "Lifts the route car off the track. The Fit Check car uses 0 5px 12px rgba(0,0,0,.7)."
+      },
+      {
+        "name": "document-drop",
+        "value": "0 28px 48px -18px rgba(0,0,0,.9)",
+        "purpose": "Under the stacked profile preview only."
+      },
+      {
+        "name": "header-glass",
+        "value": "background: rgba(6,6,5,.9); backdrop-filter: saturate(1.2) blur(10px)",
+        "purpose": "Sticky header over scrolling content, with a rule hairline below."
+      },
+      {
+        "name": "current-underline",
+        "value": "inset 0 -2px 0 var(--gold)",
+        "purpose": "Current nav link."
+      },
+      {
+        "name": "cta-current-ring",
+        "value": "inset 0 0 0 1px var(--gold)",
+        "purpose": "The nav CTA on the Fit Check page, outlined because you are already there."
+      },
+      {
+        "name": "focus-ring",
+        "value": "outline: 2px solid var(--gold-hi); outline-offset: 4px",
+        "purpose": "Global focus-visible ring; 3px offset on the switch, 2px on choices and dials."
+      },
+      {
+        "name": "flap-hinge",
+        "value": "linear-gradient(#1c1a14 0 49%, #070706 49% 51%, #17150f 51%)",
+        "purpose": "The flap tile material with its hinge line: board numerals and flap digits."
+      }
+    ],
+    "motion": [
+      {
+        "name": "travel",
+        "value": "cubic-bezier(.65,0,.35,1)",
+        "purpose": "Anything that travels: the route car and fill, the Fit Check car, the switch knob, the step entrance."
+      },
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.4,0,.2,1)",
+        "purpose": "Color, border, opacity and arrow changes; the mobile menu wipe."
+      },
+      {
+        "name": "t1",
+        "value": "180ms",
+        "purpose": "Color and border state on links, buttons, fields and choices."
+      },
+      {
+        "name": "t2",
+        "value": "360ms",
+        "purpose": "Arrow slide, menu wipe, switch, Fit Check labels and dots, step entrance."
+      },
+      {
+        "name": "t3",
+        "value": "600ms",
+        "purpose": "Fit Check car travel and the sent seal check drawing."
+      },
+      {
+        "name": "route-leg",
+        "value": "1000ms per leg, travel curve; 250ms before departure, 220ms dwell after each station lights",
+        "purpose": "The route line, the one authored moment. Runs once when a quarter of the line is in view."
+      },
+      {
+        "name": "station-light",
+        "value": "color 500ms ease; dot border and fill 400ms ease",
+        "purpose": "A waiting station lighting as the car arrives."
+      },
+      {
+        "name": "flap",
+        "value": "scaleY 1 to .1 to 1, 140ms ease-out, once per changed digit",
+        "purpose": "Sample math digits. Never cycles, never under reduced motion."
+      },
+      {
+        "name": "step-enter",
+        "value": "translateX(14px) and opacity 0 to rest, 360ms travel",
+        "purpose": "A new Fit Check step entering. Steps never flip."
+      },
+      {
+        "name": "live-announce",
+        "value": "600ms debounce",
+        "purpose": "Delay before the rules board outcome is spoken to the polite live region."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation and transition durations .01ms; smooth scroll off; route shows the finished line; flaps skipped",
+        "purpose": "prefers-reduced-motion: reduce."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "nav",
+        "value": "1000px"
+      },
+      {
+        "name": "rules-stack",
+        "value": "980px"
+      },
+      {
+        "name": "grid-1",
+        "value": "900px"
+      },
+      {
+        "name": "hero-1",
+        "value": "860px"
+      },
+      {
+        "name": "route-vertical",
+        "value": "760px"
+      },
+      {
+        "name": "ledger-1",
+        "value": "700px"
+      },
+      {
+        "name": "timetable-1",
+        "value": "640px"
+      },
+      {
+        "name": "compact",
+        "value": "620px"
+      },
+      {
+        "name": "facts-1",
+        "value": "520px"
+      }
+    ],
+    "fonts": [
+      {
+        "family": "Barlow Condensed",
+        "files": [
+          "/fonts/BarlowCondensed-600.woff2",
+          "/fonts/BarlowCondensed-700.woff2",
+          "/fonts/BarlowCondensed-600italic.woff2"
+        ],
+        "license": "SIL Open Font License",
+        "fallback": "Cond Fallback (Arial Bold, size-adjust 71.5%, ascent 140%, descent 28%), then Arial Narrow"
+      },
+      {
+        "family": "Barlow",
+        "files": [
+          "/fonts/Barlow-400.woff2",
+          "/fonts/Barlow-500.woff2",
+          "/fonts/Barlow-600.woff2"
+        ],
+        "license": "SIL Open Font License",
+        "fallback": "Barlow Fallback (Arial, size-adjust 92%, ascent 109%, descent 22%)"
+      },
+      {
+        "family": "Yellowtail",
+        "files": [
+          "/fonts/Yellowtail-normal.woff2"
+        ],
+        "license": "Logo face",
+        "fallback": "Script Fallback (Brush Script MT, size-adjust 92%)"
+      }
+    ],
+    "contrast": [
+      {
+        "pair": "text on black",
+        "ratio": "16.12:1"
+      },
+      {
+        "pair": "text on board",
+        "ratio": "15.35:1"
+      },
+      {
+        "pair": "text on board-2",
+        "ratio": "14.76:1"
+      },
+      {
+        "pair": "text on panel",
+        "ratio": "15.65:1"
+      },
+      {
+        "pair": "text over flap field #13110c",
+        "ratio": "15.01:1"
+      },
+      {
+        "pair": "muted on black",
+        "ratio": "7.60:1"
+      },
+      {
+        "pair": "muted on board",
+        "ratio": "7.24:1"
+      },
+      {
+        "pair": "muted on panel",
+        "ratio": "7.38:1"
+      },
+      {
+        "pair": "muted on board-2",
+        "ratio": "6.96:1"
+      },
+      {
+        "pair": "muted over flap field",
+        "ratio": "7.08:1"
+      },
+      {
+        "pair": "gold on black",
+        "ratio": "10.06:1"
+      },
+      {
+        "pair": "gold on board",
+        "ratio": "9.58:1"
+      },
+      {
+        "pair": "gold-hi on black",
+        "ratio": "15.20:1"
+      },
+      {
+        "pair": "gold-hi on board",
+        "ratio": "14.48:1"
+      },
+      {
+        "pair": "black on gold (solid button, skipped status)",
+        "ratio": "10.06:1"
+      },
+      {
+        "pair": "black on gold-hi (button hover)",
+        "ratio": "15.20:1"
+      },
+      {
+        "pair": "gold-hi on chosen choice wash (#2b2514)",
+        "ratio": "11.44:1"
+      },
+      {
+        "pair": "flap gold #E9C45C on tile",
+        "ratio": "10.37:1 to 10.88:1"
+      },
+      {
+        "pair": "gold numeral on tile",
+        "ratio": "8.63:1"
+      },
+      {
+        "pair": "gold-lo on black (UI lines, waiting numerals)",
+        "ratio": "4.06:1"
+      },
+      {
+        "pair": "gold-lo on board (dashed choices)",
+        "ratio": "3.87:1"
+      },
+      {
+        "pair": "gold-lo digits on tile (skipped math, 30px bold)",
+        "ratio": "3.48:1"
+      },
+      {
+        "pair": "err on black",
+        "ratio": "11.49:1"
+      },
+      {
+        "pair": "err on board",
+        "ratio": "10.94:1"
+      },
+      {
+        "pair": "rule-2 on black (tracks, rulings; not for text)",
+        "ratio": "1.62:1"
+      }
+    ],
+    "flapMaterial": [
+      {
+        "name": "flap-tile",
+        "value": "linear-gradient(#1c1a14 0 49%, #070706 49% 51%, #17150f 51%); radius 3px",
+        "purpose": "Board numerals (52 x 64px) and flap digits (0.92em x 1.42em)."
+      },
+      {
+        "name": "flap-digit-gold",
+        "value": "#E9C45C",
+        "purpose": "Numerals on flap digits; dims to gold-lo when a listing is skipped."
+      },
+      {
+        "name": "flap-field",
+        "value": "34 x 52px tiles on #13110c, black 4px gaps, #050504 hinge band at 23 to 25px; masked linear-gradient(90deg, transparent, #000 55%); opacity .8 (.45 full width under 860px)",
+        "purpose": "Quiet empty-board texture behind the right side of page heroes and the closing band."
+      }
+    ],
+    "supersedes": {
+      "file": "docs/BRAND.md",
+      "note": "Superseded by DESIGN.md and this sidecar; kept only as history."
+    }
+  },
+  "components": [
+    {
+      "name": "Solid Button",
+      "kind": "button",
+      "refersTo": "button-solid",
+      "description": "Primary action: square gold with black condensed capitals and a drawn arrow.",
+      "html": "<a class=\"ds-btn ds-btn-solid\" href=\"#\">Start the Fit Check<svg viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M4 10h11M11 5.5 15.5 10 11 14.5\"/></svg></a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:12px;font:700 16px/1 \"Barlow Condensed\",\"Arial Narrow\",sans-serif;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;padding:17px 24px;border:1px solid var(--gold);border-radius:0;cursor:pointer;transition:background 180ms cubic-bezier(.4,0,.2,1),color 180ms cubic-bezier(.4,0,.2,1)}.ds-btn svg{width:18px;height:18px;transition:transform 360ms cubic-bezier(.4,0,.2,1)}.ds-btn:hover svg{transform:translateX(4px)}.ds-btn:active{transform:translateY(1px)}.ds-btn:focus-visible{outline:2px solid var(--gold-hi);outline-offset:4px}.ds-btn-solid{background:var(--gold);color:var(--black)}.ds-btn-solid:hover{background:var(--gold-hi);color:var(--black)}"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Secondary action: transparent with a gold hairline and gold capitals.",
+      "html": "<a class=\"ds-btn-line\" href=\"#\">Read the buy rules<svg viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M4 10h11M11 5.5 15.5 10 11 14.5\"/></svg></a>",
+      "css": ".ds-btn-line{display:inline-flex;align-items:center;gap:12px;font:700 16px/1 \"Barlow Condensed\",\"Arial Narrow\",sans-serif;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;padding:17px 24px;border:1px solid var(--gold);border-radius:0;background:transparent;color:var(--gold);transition:background 180ms cubic-bezier(.4,0,.2,1),color 180ms cubic-bezier(.4,0,.2,1)}.ds-btn-line svg{width:18px;height:18px;transition:transform 360ms cubic-bezier(.4,0,.2,1)}.ds-btn-line:hover{background:rgba(217,178,76,.08);color:var(--gold-hi)}.ds-btn-line:hover svg{transform:translateX(4px)}.ds-btn-line:focus-visible{outline:2px solid var(--gold-hi);outline-offset:4px}"
+    },
+    {
+      "name": "Header",
+      "kind": "nav",
+      "refersTo": "header",
+      "description": "Sticky glass header: gradient script wordmark, condensed nav, gold CTA.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-wordmark\" href=\"#\">Smoove Operator</a><nav class=\"ds-nav\"><a href=\"#\">How it moves</a><a href=\"#\" aria-current=\"page\">Buy rules</a><a href=\"#\">Suppliers</a><a class=\"ds-nav-cta\" href=\"#\">Start the Fit Check</a></nav></header>",
+      "css": ".ds-header{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:68px;padding:0 24px;background:rgba(6,6,5,.9);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--rule)}.ds-wordmark{font:400 34px/1 Yellowtail,cursive;background:linear-gradient(100deg,var(--gold-lo),var(--gold) 30%,var(--gold-hi) 50%,var(--gold) 70%,var(--gold-lo));-webkit-background-clip:text;background-clip:text;color:transparent;text-decoration:none;padding-block:6px}.ds-wordmark:hover{filter:brightness(1.15)}.ds-nav{display:flex;align-items:center;gap:26px}.ds-nav a{font:600 15px/1 \"Barlow Condensed\",\"Arial Narrow\",sans-serif;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding-block:8px;transition:color 180ms cubic-bezier(.4,0,.2,1)}.ds-nav a:hover,.ds-nav a[aria-current=\"page\"]{color:var(--text)}.ds-nav a[aria-current=\"page\"]{box-shadow:inset 0 -2px 0 var(--gold)}.ds-nav a.ds-nav-cta{color:var(--black);background:var(--gold);padding:12px 16px}.ds-nav a.ds-nav-cta:hover{background:var(--gold-hi)}.ds-nav a:focus-visible{outline:2px solid var(--gold-hi);outline-offset:4px}"
+    },
+    {
+      "name": "Underline Field and Ruled Textarea",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Square underline fields in brass that light on focus; the message textarea is ruled like a manifest page.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-f1\">Work email</label><input id=\"ds-f1\" type=\"email\" placeholder=\"\"></div><div class=\"ds-field\"><label for=\"ds-f2\">Questions <span>(optional)</span></label><textarea id=\"ds-f2\" rows=\"4\"></textarea></div><div class=\"ds-field\"><label for=\"ds-f3\">Company</label><input id=\"ds-f3\" aria-invalid=\"true\"><p class=\"ds-err\">Enter your company name.</p></div>",
+      "css": ".ds-field{display:grid;gap:4px;margin-top:18px;max-width:420px}.ds-field label{font:600 15px/1.4 Barlow,Arial,sans-serif;color:var(--text)}.ds-field label span{font-weight:500;color:var(--muted)}.ds-field input,.ds-field textarea{font:400 17px/1.6 Barlow,Arial,sans-serif;color:var(--text);background:transparent;border:0;border-bottom:1px solid var(--gold-lo);border-radius:0;padding:10px 0;caret-color:var(--gold-hi);transition:border-color 180ms cubic-bezier(.4,0,.2,1)}.ds-field textarea{resize:vertical;min-height:134px;padding:0;margin-top:6px;line-height:33px;background:repeating-linear-gradient(transparent 0 32px,var(--rule-2) 32px 33px);background-attachment:local}.ds-field input:focus,.ds-field textarea:focus{outline:none;border-color:var(--gold-hi)}.ds-field [aria-invalid=\"true\"]{border-color:var(--err)}.ds-err{font:400 14px/1.5 Barlow,Arial,sans-serif;color:var(--err);margin:4px 0 0}"
+    },
+    {
+      "name": "Open and Chosen Choices",
+      "kind": "chip",
+      "refersTo": "choice-open",
+      "description": "Open answers stay dashed; the one you commit to prints solid in lamp gold.",
+      "html": "<div class=\"ds-choices\"><label class=\"ds-choice\"><input type=\"radio\" name=\"ds-role\" checked><span>Brand or manufacturer</span></label><label class=\"ds-choice\"><input type=\"radio\" name=\"ds-role\"><span>Distributor</span></label><label class=\"ds-choice\"><input type=\"radio\" name=\"ds-role\"><span>Something else</span></label></div>",
+      "css": ".ds-choices{display:flex;flex-wrap:wrap;gap:8px}.ds-choice{position:relative;cursor:pointer}.ds-choice input{position:absolute;opacity:0;inset:0;cursor:pointer}.ds-choice span{display:inline-block;border:1px dashed var(--gold-lo);border-radius:0;padding:11px 14px;font:400 15.5px/1.5 Barlow,Arial,sans-serif;color:var(--text);transition:border-color 180ms cubic-bezier(.4,0,.2,1),background 180ms cubic-bezier(.4,0,.2,1),color 180ms cubic-bezier(.4,0,.2,1)}.ds-choice:hover span{border-color:var(--gold)}.ds-choice input:checked+span{border-style:solid;border-color:var(--gold-hi);background:rgba(217,178,76,.14);color:var(--gold-hi)}.ds-choice input:focus-visible+span{outline:2px solid var(--gold-hi);outline-offset:2px}"
+    },
+    {
+      "name": "Switch and Dial",
+      "kind": "input",
+      "refersTo": "switch-track",
+      "description": "Square switch whose knob travels and lights; range dial with a gold fill and a square lamp-gold thumb.",
+      "html": "<label class=\"ds-switch\"><input type=\"checkbox\" role=\"switch\"><span class=\"ds-track\" aria-hidden=\"true\"></span>The marketplace itself sells this listing</label><div class=\"ds-dial\"><label for=\"ds-r\">Sellers already on the listing <output>5</output></label><input id=\"ds-r\" type=\"range\" min=\"1\" max=\"30\" value=\"5\" style=\"--p:14%\"></div>",
+      "css": ".ds-switch{display:flex;gap:14px;align-items:center;cursor:pointer;font:400 16px/1.35 Barlow,Arial,sans-serif;color:var(--text)}.ds-switch input{position:absolute;opacity:0;width:1px;height:1px}.ds-track{flex:none;position:relative;width:46px;height:24px;border:1px solid var(--gold-lo);transition:border-color 360ms cubic-bezier(.4,0,.2,1)}.ds-track::after{content:\"\";position:absolute;top:3px;left:3px;width:16px;height:16px;background:var(--muted);transition:transform 360ms cubic-bezier(.65,0,.35,1),background 360ms cubic-bezier(.4,0,.2,1)}.ds-switch input:checked+.ds-track{border-color:var(--gold)}.ds-switch input:checked+.ds-track::after{transform:translateX(22px);background:var(--gold-hi)}.ds-switch input:focus-visible+.ds-track{outline:2px solid var(--gold-hi);outline-offset:3px}.ds-dial{max-width:360px}.ds-dial label{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:22px;font:600 15px/1.35 Barlow,Arial,sans-serif;color:var(--text)}.ds-dial output{font:700 20px/1 \"Barlow Condensed\",\"Arial Narrow\",sans-serif;color:var(--gold-hi);font-variant-numeric:tabular-nums}.ds-dial input{-webkit-appearance:none;appearance:none;width:100%;height:32px;background:transparent;margin:0;cursor:pointer}.ds-dial input::-webkit-slider-runnable-track{height:2px;background:linear-gradient(90deg,var(--gold) var(--p,30%),var(--rule-2) var(--p,30%))}.ds-dial input::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:26px;margin-top:-12px;background:var(--black);border:2px solid var(--gold-hi)}.ds-dial input::-moz-range-track{height:2px;background:var(--rule-2)}.ds-dial input::-moz-range-progress{height:2px;background:var(--gold)}.ds-dial input::-moz-range-thumb{width:10px;height:24px;border-radius:0;background:var(--black);border:2px solid var(--gold-hi)}.ds-dial input:focus-visible{outline:2px solid var(--gold-hi);outline-offset:2px}"
+    },
+    {
+      "name": "Route Line",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Stations on a transit line with a gold car; the page's one authored moment. Shown here in its finished, reduced-motion state.",
+      "html": "<ol class=\"ds-route\"><li class=\"ds-ours\"><i></i><span>i.</span><b>Source</b><small>Handled by <em>SmooveOperator</em></small></li><li><i></i><span>ii.</span><b>Prepare</b><small>Handled by <em>Third-party prep</em></small></li><li><i></i><span>iii.</span><b>Fulfill</b><small>Handled by <em>Marketplace network</em></small></li><li><i></i><span>iv.</span><b>Reach</b><small>Handled by <em>The customer</em></small></li></ol>",
+      "css": ".ds-route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0 20px;text-align:center;position:relative}.ds-route::before{content:\"\";position:absolute;top:9px;left:12.5%;right:12.5%;height:4px;background:var(--gold);border-radius:4px}.ds-route li{display:grid;justify-items:center;gap:8px;position:relative}.ds-route i{width:22px;height:22px;border-radius:50%;background:var(--black);border:4px solid var(--gold);position:relative;z-index:1}.ds-route .ds-ours i{background:var(--gold)}.ds-route span{font:italic 600 24px/1 \"Barlow Condensed\",\"Arial Narrow\",sans-serif;color:var(--muted);margin-top:14px}.ds-route .ds-ours span{color:var(--gold)}.ds-route b{font:700 32px/1 \"Barlow Condensed\",\"Arial Narrow\",sans-serif;text-transform:uppercase;color:var(--text)}.ds-route small{font:500 15px/1.35 Barlow,Arial,sans-serif;color:var(--muted)}.ds-route em{display:block;font-style:normal;font-weight:600;color:var(--text)}"
+    },
+    {
+      "name": "Rules Board",
+      "kind": "custom",
+      "refersTo": "board",
+      "description": "The buy rules posted like departures: flap numeral, rule, live status column. The second row shows the skipped state recolor.",
+      "html": "<div class=\"ds-board\"><div class=\"ds-board-head\"><span>Rule</span><span>What it means</span><span>This sample</span></div><div class=\"ds-row ds-skip\"><span class=\"ds-n\">i</span><div><h3>Pass when the marketplace sells it</h3><p>If the marketplace itself is a seller on the listing, the product is skipped.</p></div><p class=\"ds-status\">Marketplace is selling. Skip this listing.</p></div><div class=\"ds-row ds-dim\"><span class=\"ds-n\">ii</span><div><h3>Sell through in 30 to 60 days</h3><p>Orders are sized to clear in one to two months.</p></div><p class=\"ds-status\">First order: <b>50</b> to <b>100</b> units</p></div><div class=\"ds-row\"><span class=\"ds-n\">iii</span><div><h3>Order only our share</h3><p>A realistic slice of monthly demand.</p><code>est. monthly sales / (sellers + 1)</code></div><p class=\"ds-status\"><b>50</b> units a month</p></div></div>",
+      "css": ".ds-board{background:var(--board);border:1px solid var(--rule-2);color:var(--text);font:400 16px/1.6 Barlow,Arial,sans-serif}.ds-board-head,.ds-row{display:grid;grid-template-columns:64px 1fr 230px;gap:20px}.ds-board-head{padding:14px 24px;border-bottom:1px solid var(--rule-2);font:600 13px/1 \"Barlow Condensed\",\"Arial Narrow\",sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}.ds-row{align-items:start;padding:22px 24px;border-top:1px solid var(--rule)}.ds-board-head+.ds-row{border-top:0}.ds-n{display:grid;place-items:center;width:52px;height:64px;font:700 30px/1 \"Barlow Condensed\",\"Arial Narrow\",sans-serif;color:var(--gold);background:linear-gradient(#1c1a14 0 49%,#070706 49% 51%,#17150f 51%);border-radius:3px}.ds-row h3{font:700 26px/1.05 \"Barlow Condensed\",\"Arial Narrow\",sans-serif;text-transform:uppercase;margin:4px 0 8px}.ds-row p{margin:0;color:var(--muted)}.ds-row code{display:inline-block;margin-top:12px;font:600 16px/1.3 \"Barlow Condensed\",\"Arial Narrow\",sans-serif;letter-spacing:.06em;color:var(--gold-hi);border:1px solid var(--rule-2);padding:6px 10px}.ds-row .ds-status{margin:4px 0 0;font:600 19px/1.25 \"Barlow Condensed\",\"Arial Narrow\",sans-serif;letter-spacing:.02em;color:var(--gold-hi);border-left:2px solid var(--gold-lo);padding:6px 0 6px 12px}.ds-status b{font-weight:700;font-variant-numeric:tabular-nums lining-nums}.ds-skip .ds-status{background:var(--gold);color:var(--black);border-left-color:var(--gold)}.ds-dim h3,.ds-dim .ds-n,.ds-dim .ds-status{color:var(--muted)}.ds-dim .ds-status{border-left-color:var(--rule-2)}"
+    },
+    {
+      "name": "Flap Digits",
+      "kind": "custom",
+      "refersTo": "flap-digit",
+      "description": "The sample math on hinged tiles; a changed digit flaps once.",
+      "html": "<p class=\"ds-calc\"><span class=\"ds-flaps\"><i>&#160;</i><i>3</i><i>0</i><i>0</i></span><span class=\"ds-op\">/ (</span><span class=\"ds-flaps\"><i>&#160;</i><i>5</i></span><span class=\"ds-op\">+ 1) =</span><span class=\"ds-flaps\"><i>&#160;</i><i>&#160;</i><i>5</i><i>0</i></span></p>",
+      "css": ".ds-calc{display:flex;align-items:center;gap:8px;margin:0;font:700 30px/1 \"Barlow Condensed\",\"Arial Narrow\",sans-serif}.ds-flaps{display:inline-flex;gap:3px}.ds-flaps i{display:inline-grid;place-items:center;width:.92em;height:1.42em;font-style:normal;color:#E9C45C;background:linear-gradient(#1c1a14 0 49%,#070706 49% 51%,#17150f 51%);border-radius:3px;font-variant-numeric:tabular-nums lining-nums}.ds-flaps i:hover{animation:ds-flap 140ms ease-out}.ds-op{color:var(--muted);white-space:nowrap}@keyframes ds-flap{50%{transform:scaleY(.1)}}@media (prefers-reduced-motion:reduce){.ds-flaps i:hover{animation:none}}"
+    },
+    {
+      "name": "Timetable Grid",
+      "kind": "card",
+      "refersTo": "",
+      "description": "Items posted in ruled columns under brass top rules, never boxed as cards.",
+      "html": "<ul class=\"ds-perf\"><li><h3>Your channel rules</h3><p>Permitted sales channels and brand requirements are part of the first conversation, and then they are followed.</p></li><li><h3>Records on file</h3><p>Sourcing records are kept for every purchase.</p></li></ul>",
+      "css": ".ds-perf{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px}.ds-perf li{border-top:2px solid var(--gold-lo);padding:22px 0 34px}.ds-perf h3{font:700 28px/1.05 \"Barlow Condensed\",\"Arial Narrow\",sans-serif;text-transform:uppercase;color:var(--text);margin:0 0 10px}.ds-perf p{margin:0;font:400 17px/1.6 Barlow,Arial,sans-serif;color:var(--muted);max-width:46ch}"
+    },
+    {
+      "name": "Manifest Profile Sheet",
+      "kind": "card",
+      "refersTo": "manifest-sheet",
+      "description": "The reseller profile as a shipping manifest: brass border, gold field names, ruled facts.",
+      "html": "<article class=\"ds-sheet\"><header><span class=\"ds-sheet-mark\">Smoove Operator</span><span class=\"ds-sheet-meta\">Reseller profile</span></header><dl><div><dt>Business</dt><dd>SmooveOperator</dd></div><div><dt>Resale documentation</dt><dd>California seller&#8217;s permit on file, provided with account applications</dd></div></dl></article>",
+      "css": ".ds-sheet{background:var(--board);border:1px solid var(--gold-lo);padding:36px;color:var(--text);font:400 17px/1.6 Barlow,Arial,sans-serif}.ds-sheet header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:2px solid var(--gold-lo);padding-bottom:16px}.ds-sheet-mark{font:400 34px/1 Yellowtail,cursive;background:linear-gradient(100deg,var(--gold-lo),var(--gold) 30%,var(--gold-hi) 50%,var(--gold) 70%,var(--gold-lo));-webkit-background-clip:text;background-clip:text;color:transparent}.ds-sheet-meta{font:600 16px/1.3 \"Barlow Condensed\",\"Arial Narrow\",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}.ds-sheet dl{margin:0}.ds-sheet dl div{display:grid;grid-template-columns:170px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule)}.ds-sheet dt{font:700 15px/1.4 \"Barlow Condensed\",\"Arial Narrow\",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}.ds-sheet dd{margin:0}"
+    },
+    {
+      "name": "Stacked Document Preview",
+      "kind": "card",
+      "refersTo": "",
+      "description": "The real profile page tilted over an under sheet; the one physical object that casts a shadow.",
+      "html": "<div class=\"ds-doc\"><div class=\"ds-page\"><b>Reseller profile</b><span></span><span></span><span></span></div></div>",
+      "css": ".ds-doc{position:relative;width:220px;transform:rotate(-2deg);isolation:isolate;margin:24px}.ds-doc::before{content:\"\";position:absolute;inset:0;z-index:-1;background:var(--board-2);border:1px solid var(--rule-2);transform:rotate(4.5deg) translate(10px,6px)}.ds-page{display:grid;gap:10px;padding:22px;height:270px;align-content:start;background:var(--board);border:1px solid var(--gold-lo);box-shadow:0 28px 48px -18px rgba(0,0,0,.9)}.ds-page b{font:700 18px/1 \"Barlow Condensed\",\"Arial Narrow\",sans-serif;text-transform:uppercase;color:var(--gold);padding-bottom:10px;border-bottom:2px solid var(--gold-lo)}.ds-page span{height:1px;background:var(--rule)}"
+    },
+    {
+      "name": "Fit Check Progress",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "The route line at three stations; the car sits on the current step and travels on the travel curve.",
+      "html": "<div class=\"ds-prog\"><span class=\"ds-prog-track\"><i></i></span><span class=\"ds-prog-car\"></span><ol><li class=\"ds-done\">You</li><li class=\"ds-cur\">Your terms</li><li>Anything else</li></ol></div>",
+      "css": ".ds-prog{position:relative;max-width:520px}.ds-prog ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);text-align:center}.ds-prog li{display:grid;justify-items:center;gap:10px;font:600 14px/1.2 \"Barlow Condensed\",\"Arial Narrow\",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}.ds-prog li::before{content:\"\";width:16px;height:16px;border-radius:50%;background:var(--board);border:3px solid var(--rule-2);position:relative;z-index:1}.ds-prog li.ds-done,.ds-prog li.ds-cur{color:var(--text)}.ds-prog li.ds-done::before,.ds-prog li.ds-cur::before{border-color:var(--gold)}.ds-prog li.ds-done::before{background:var(--gold)}.ds-prog-track{position:absolute;top:6px;left:16.667%;right:16.667%;height:4px;background:var(--rule-2);border-radius:4px}.ds-prog-track i{position:absolute;inset:0;background:var(--gold);border-radius:4px;transform-origin:0 0;transform:scaleX(.5);transition:transform 600ms cubic-bezier(.65,0,.35,1)}.ds-prog-car{position:absolute;top:8px;left:50%;width:28px;height:24px;margin:-12px 0 0 -14px;background:var(--gold-hi);border-radius:6px 6px 3px 3px;box-shadow:0 5px 12px rgba(0,0,0,.7);z-index:2;transition:left 600ms cubic-bezier(.65,0,.35,1)}.ds-prog-car::before{content:\"\";position:absolute;left:5px;right:5px;top:4px;height:8px;background:var(--black);border-radius:2px;opacity:.85}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Departures Board",
+    "overview": "Wholesale as a well-run station. The path a product travels, the four rules every order passes and who handles each step are posted the way a terminal posts departures: condensed capitals on black, gold numerals on hinged flap tiles, ruled columns, nothing decorated for its own sake. The world earns trust by being legible and on time. A supplier scanning from an account-application queue should be able to read the operation the way a traveler reads a board: row by row, at a glance, with the one thing that matters lit in gold.\n\nDensity is board-like rather than editorial. Headlines are tall, tight and uppercase; reading text is plain Barlow in bone on black at a generous 1.6 line height. The only script on the site is the owner's Yellowtail logo and the single word \"smoove.\" in the hero; everything else speaks in Barlow Condensed or Barlow. Surfaces are flat black and near-black board stock separated by hairline rules; depth comes from the flap tile's hinge line and from one stacked document, not from cards and shadows.\n\nMotion has mass and a destination. The route line's gold car travels from station to station once, on a slow in-out curve, and a changed digit flaps once. Nothing cycles, nothing loops, and with reduced motion the finished line is simply there. The world refuses the flat dark SaaS template and the cliche Gatsby black-and-gold: no Art Deco fans, no gradient panels, no glowing cards.",
+    "keyCharacteristics": [
+      "Black stock (#060605) and board (#0f0e0b) with gold #D9B24C as the only accent family.",
+      "Barlow Condensed 700 uppercase for headlines, boards and buttons; Barlow for reading.",
+      "Flap tiles with a dark hinge line carry every numeral that is a value.",
+      "Ruled timetable columns instead of boxed cards.",
+      "One authored motion: the route line's gold car.",
+      "Square buttons, switches, fields and choices; round only for route stations and the car."
+    ],
+    "rules": [
+      {
+        "name": "The One Claim Rule",
+        "body": "Gold marks one `em.claim` per page, in the page's main headline or its key section headline. Every other `em` in a headline stays bone.",
+        "section": "colors"
+      },
+      {
+        "name": "The Error Pink Rule",
+        "body": "`err` appears only on form validation and the send-failure message. It is never decoration, never a status on the rules board, never a highlight.",
+        "section": "colors"
+      },
+      {
+        "name": "The Brass Is Structure Rule",
+        "body": "`gold-lo` draws lines, borders and dimmed numerals. It is never used for body-size text.",
+        "section": "colors"
+      },
+      {
+        "name": "The Upright Emphasis Rule",
+        "body": "Headline emphasis is upright 700, never italic. An `em` in a stacked headline breaks onto its own line in bone; only `em.claim` turns gold.",
+        "section": "typography"
+      },
+      {
+        "name": "The Board Voice Rule",
+        "body": "Barlow Condensed 700 uppercase is for headlines, boards and buttons. Long reading text is never uppercase and never condensed; status lines and verdict sentences stay in sentence case at 19px.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Script Rule",
+        "body": "Yellowtail appears on the `.wordmark` logo and the single word \"smoove.\" in the hero headline. Nowhere else.",
+        "section": "typography"
+      },
+      {
+        "name": "The Italic Numeral Rule",
+        "body": "Barlow Condensed 600 italic is reserved for station and step numerals. Rule numerals on the board are upright 700 on flap tiles.",
+        "section": "typography"
+      },
+      {
+        "name": "The Only Things That Cast Rule",
+        "body": "Only moving objects (the cars) and the one physical document cast shadows. Boards, panels, buttons and cards never do.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do set headlines, boards and buttons in Barlow Condensed 700 uppercase, and all reading text in Barlow 400 at 17px / 1.6.",
+      "Do keep headline emphasis upright; mark exactly one `em.claim` per page in gold.",
+      "Do put every numeral that is a value on a flap tile with the hinge line.",
+      "Do post lists as ruled timetable columns with `gold-lo` top rules, not boxed cards.",
+      "Do keep waiting route stations readable in `muted`; only the dot and numeral wait.",
+      "Do flap a digit once, only when it changes, and never under reduced motion.",
+      "Do use `cubic-bezier(.65,0,.35,1)` for anything that travels (cars, switch knob, step entrance) and `cubic-bezier(.4,0,.2,1)` for color and border state at 180ms or 360ms.",
+      "Do leave open answers dashed and print the chosen answer solid.",
+      "Do keep the hero headline exactly \"Wholesale, made smoove.\" with \"smoove.\" in gold Yellowtail.",
+      "Do state the only credential as \"California seller’s permit on file\", with no number shown.",
+      "Do measure contrast from the tokens: bone and muted clear 7:1 on every surface; `gold-lo` is for lines and large numerals only."
+    ],
+    "donts": [
+      "Don't use a text gradient anywhere except the `.wordmark` logo.",
+      "Don't use Yellowtail for anything but the logo and the single word \"smoove.\".",
+      "Don't use italic outside station and step numerals, and never italicize headline emphasis.",
+      "Don't use `err` for anything but form errors.",
+      "Don't add eyebrows or kickers above headlines, and don't split a section header into a heading column and an intro column.",
+      "Don't set long reading text in uppercase or in Barlow Condensed.",
+      "Don't round buttons, switches, fields or choices.",
+      "Don't add shadows to boards, panels, cards or buttons; only the cars and the stacked document cast.",
+      "Don't cycle or randomize flap digits, loop the route car, or flip the Fit Check steps.",
+      "Don't reach for Art Deco fans, sunbursts, gradient panels or glow: this is a departures board, not a Gatsby party.",
+      "Don't write em dashes or en dashes in site copy.",
+      "Don't write \"Amazon\" or \"FBA\" anywhere, or show any marketplace or brand logo.",
+      "Don't invent facts, figures, testimonials, partners or credentials."
+    ]
+  }
+}
