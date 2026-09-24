@@ -34,13 +34,13 @@ export const rules = [
   ['Start small, reorder on evidence','A first purchase is a test. Reorders are earned by real sell-through, pricing and available cash.','']
 ];
 /* The rules board: the four rules posted like departures. With JavaScript, a sample listing runs through them live. */
-const statuses = ['Continue','<b id="v-low">50</b> to <b id="v-high">100</b> units','<b id="v-per">50</b> a month','On evidence'];
+const statuses = ['Marketplace isn’t selling. Continue.','First order: <b id="v-low">50</b> to <b id="v-high">100</b> units','<b id="v-per">50</b> units a month','Reorder only after these sell through.'];
 /* phones pin the dials under the header, so each label has a short visual form; the full label stays in the accessible name */
 const range = (id,label,short,min,max,step,value) => `<div class="dial"><label for="${id}"><span class="lbl-long">${label}</span><span class="lbl-short" aria-hidden="true">${short}</span><output id="${id}-out" for="${id}">${value}</output></label><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${value}"></div>`;
 const flaps = (id,value,len) => `<span class="flaps" id="${id}" data-len="${len}">${String(value).padStart(len,' ').split('').map(c=>`<i>${c===' '?'&#160;':c}</i>`).join('')}</span>`;
 export const rulesBoard = () => `<div class="rules" id="rules-board">
 <div class="board"><div class="board-head" aria-hidden="true"><span>Rule</span><span>What it means</span><span class="js-only">This sample</span></div>
-<ol class="board-rows">${rules.map(([t,d,code],i)=>`<li class="board-row" data-rule="${i+1}"><span class="board-n"><span class="visually-hidden">Rule </span>${['i','ii','iii','iv'][i]}</span><div class="board-rule"><h3>${t}</h3><p>${d}</p>${code?`<code>${code}</code>`:''}</div><p class="board-status js-only" id="status-${i+1}">${i===0?'<span data-v="skip">Continue</span>':statuses[i]}</p></li>`).join('')}</ol></div>
+<ol class="board-rows">${rules.map(([t,d,code],i)=>`<li class="board-row" data-rule="${i+1}"><span class="board-n"><span class="visually-hidden">Rule </span>${['i','ii','iii','iv'][i]}</span><div class="board-rule"><h3>${t}</h3><p>${d}</p>${code?`<code>${code}</code>`:''}</div><p class="board-status js-only" id="status-${i+1}">${i===0?`<span data-v="skip">${statuses[0]}</span>`:statuses[i]}</p></li>`).join('')}</ol></div>
 <div class="sample-head js-only"><h3>Run a sample listing</h3><p class="sample-note">Sample numbers only. Nothing here describes a real listing.</p></div>
 <div class="sample js-only"><label class="switch"><input type="checkbox" id="rules-skip" role="switch"><span class="switch-track" aria-hidden="true"></span><span class="lbl-long">The marketplace itself sells this listing</span><span class="lbl-short" aria-hidden="true">Marketplace sells this listing</span></label>
 <div class="dials">${range('slice-sales','Estimated sales per month, all sellers','Sales a month',30,3000,10,300)}${range('slice-sellers','Sellers already on the listing','Sellers',1,30,1,5)}</div></div>

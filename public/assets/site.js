@@ -66,7 +66,7 @@ if(board){
     for(const id of ['v-low','r-low'])$(id).textContent=fmt(per);
     for(const id of ['v-high','r-high'])$(id).textContent=fmt(per*2);
     flapTo('f-sales',s);flapTo('f-sellers',n);flapTo('f-per',per);
-    board.classList.toggle('is-skipped',off);rule1.textContent=off?'Skipped':'Continue';
+    board.classList.toggle('is-skipped',off);rule1.textContent=off?'Marketplace is selling. Skip this listing.':'Marketplace isn’t selling. Continue.';
     paint(sales);paint(sellers);
     if(announce){clearTimeout(liveTimer);liveTimer=setTimeout(()=>{live.textContent=off?'Rule 1 skips this listing. No order.':`Our share is ${fmt(per)} units a month. First order: ${fmt(per)} to ${fmt(per*2)} units.`;},600);}
   };
