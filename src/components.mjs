@@ -14,7 +14,7 @@ export function header(path) {
 }
 
 export function footer() {
-  return `<footer class="site-footer"><div class="wrap footer-grid"><div><a class="wordmark" href="/">Smoove Operator</a><p>Independent wholesale resale for online marketplaces.</p></div><nav aria-label="Footer"><a href="/suppliers/">Supplier relationships</a><a href="/profile/">Reseller profile</a><a href="/contact/">Supplier Fit Check</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></nav><p class="fine">&copy; ${new Date().getFullYear()} SmooveOperator. Not affiliated with or endorsed by any marketplace or any brand it resells. Brand and marketplace names belong to their owners.</p></div></footer>`;
+  return `<footer class="site-footer"><div class="wrap footer-grid"><div><a class="wordmark" href="/">Smoove Operator</a><p>Independent wholesale resale for online marketplaces.</p></div><nav aria-label="Footer"><a href="/suppliers/">Supplier relationships</a><a href="/profile/">Reseller profile</a><a href="/contact/">Start the Fit Check</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></nav><p class="fine">&copy; ${new Date().getFullYear()} SmooveOperator. Not affiliated with or endorsed by any marketplace or any brand it resells. Brand and marketplace names belong to their owners.</p></div></footer>`;
 }
 
 export const steps = [
@@ -46,7 +46,7 @@ export const instrument = (seal) => `<div class="note" id="note"><div class="not
 <div class="sample"><h3>Run a sample listing</h3><p class="sample-note">Sample numbers only. Nothing here describes a real listing.</p>
 <label class="switch"><input type="checkbox" id="rules-skip" role="switch"><span class="switch-track" aria-hidden="true"></span><span>The marketplace itself sells this listing</span></label>
 ${range('slice-sales','Estimated sales per month, all sellers',30,3000,10,300)}${range('slice-sellers','Sellers already on the listing',1,30,1,5)}</div></div>
-<div class="note-foot">${seal}<p class="note-result"><span class="note-k">Sample result</span><span id="note-result-text"><span class="res-go">A first order of <b id="r-low">50</b> to <b id="r-high">100</b> units</span><span class="res-skip">No order. The listing is skipped.</span></span></p><p class="note-static">Estimated monthly sales divided by (sellers + 1), then one to two months of that.</p></div>
+<div class="note-foot">${seal}<p class="note-result"><span id="note-result-text"><span class="res-go">A first order of <b id="r-low">50</b> to <b id="r-high">100</b> units</span><span class="res-skip">No order. The listing is skipped.</span></span></p><p class="note-static">Estimated monthly sales divided by (sellers + 1), then one to two months of that.</p></div>
 <p class="micro micro-b" aria-hidden="true"></p><p class="visually-hidden" id="note-live" aria-live="polite"></p></div>`;
 
 export const commitments = [

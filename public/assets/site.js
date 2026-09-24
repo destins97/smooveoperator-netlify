@@ -24,35 +24,37 @@ if(menu&&nav){
   mq.addEventListener('change',close);
 }
 
-/* guilloche rosette: layered hypotrochoid bands at different depths. They turn slowly, and each
-   layer leans toward the pointer by its depth, so the engraving reads as stacked plates.
+/* guilloche rosette: concentric rope bands of hairline strands, as on a banknote. Rings counter-rotate so
+   their strands cross in moire; each ring leans toward the pointer by its depth and its rope tightens.
    Page heroes carry a still copy, drawn once. */
-const bandsFull=[
-  // R, r, p, wobble, colour, alpha, line width, turn direction, depth
-  [300,40,120,.02,'#D9B24C',.36,.6,1,1],
-  [280,48,104,.022,'#8A6B22',.5,.45,-.8,.82],
-  [250,70,90,.03,'#8A6B22',.5,.5,-1.3,.64],
-  [210,33,82,.018,'#F6DE8D',.16,.35,.9,.5],
-  [180,30,70,.025,'#F6DE8D',.22,.45,.7,.36],
-  [120,20,40,.04,'#D9B24C',.3,.5,-1,.2]
+const ringsFull=[
+  // base radius, amplitude, lobes, strands, colour, alpha, turn direction, depth
+  [418,14,60,9,'#8A6B22',.55,1,1],
+  [352,22,44,11,'#D9B24C',.34,-1,.82],
+  [282,16,36,9,'#8A6B22',.6,1,.64],
+  [212,26,24,12,'#F6DE8D',.24,-1,.48],
+  [140,18,16,9,'#D9B24C',.4,1,.34],
+  [72,12,10,7,'#8A6B22',.6,-1,.2]
 ];
-const gcd=(a,b)=>b?gcd(b,a%b):a;
 function rosette(c,live){
   const x=c.getContext('2d');if(!x)return;
-  const small=innerWidth<760,bands=small?bandsFull.filter((_,i)=>i!==1&&i!==3):bandsFull;
+  const small=innerWidth<760,rings=small?ringsFull.map(r=>{const q=[...r];q[3]=Math.ceil(r[3]*.6);return q;}):ringsFull;
   let W=0,H=0,d=1,t=0,tx=0,ty=0,mx=0,my=0,run=false,raf=0,odd=false;
   const size=()=>{const r=c.getBoundingClientRect();d=Math.min(1.5,devicePixelRatio||1);W=c.width=Math.round(r.width*d);H=c.height=Math.round(r.height*d);};
   const draw=()=>{
     mx+=(tx-mx)*.06;my+=(ty-my)*.06;x.clearRect(0,0,W,H);const s=W/d/900,lean=Math.hypot(mx,my);
-    for(const [R,r,p,amp,col,a,lw,dir,depth] of bands){
-      const RR=R*s,rr=r*s,pp=p*s,k=(RR-rr)/rr,revs=r/gcd(R,r),turns=Math.PI*2*revs,N=Math.min(small?1400:2600,Math.round(revs*(small?220:320)));
-      const rot=t*dir*.35,cr=Math.cos(rot),sr=Math.sin(rot),ph=t*dir,am=amp+lean*.035*dir;
-      const ox=W/2+mx*depth*34*d,oy=H/2+my*depth*34*d;
-      x.beginPath();x.strokeStyle=col;x.globalAlpha=a;x.lineWidth=lw*d;
-      for(let i=0;i<=N;i++){const th=i/N*turns,w=1+am*Math.sin(th*7+ph);
-        const X=((RR-rr)*Math.cos(th)+pp*Math.cos(k*th))*w,Y=((RR-rr)*Math.sin(th)-pp*Math.sin(k*th))*w;
-        const px=ox+(X*cr-Y*sr)*d,py=oy+(X*sr+Y*cr)*d;
-        i?x.lineTo(px,py):x.moveTo(px,py);}
+    x.lineWidth=(small?.6:.5)*d;
+    for(const [R,amp,lobes,strands,col,a,dir,depth] of rings){
+      const ox=W/2+mx*depth*34*d,oy=H/2+my*depth*34*d,rot=t*dir*.22,A=amp*s*(1-lean*.5),N=lobes*14;
+      x.strokeStyle=col;x.globalAlpha=a;x.beginPath();
+      for(let k=0;k<strands;k++){
+        const ph=k/strands*Math.PI;
+        for(let i=0;i<=N;i++){
+          const th=i/N*Math.PI*2,rr=(R*s+A*Math.sin(lobes*th+ph)+A*.35*Math.sin(3*th+t*dir))*d,an=th+rot;
+          const px=ox+rr*Math.cos(an),py=oy+rr*Math.sin(an);
+          i?x.lineTo(px,py):x.moveTo(px,py);
+        }
+      }
       x.stroke();
     }
   };
