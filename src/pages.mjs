@@ -128,9 +128,8 @@ const contact = () => `${pageHero('Supplier <em>Fit Check.</em>','Three short st
   <div class="form-panel">${fitCheck()}</div>
 </div></section>`;
 
-const legalNote = 'Effective September 2026';
-const privacy = () => `${pageHero('Privacy <em>notice.</em>','A plain-language explanation of how this website handles information.')}
-<article class="section section-tight"><div class="wrap narrow legal"><p class="legal-date">${legalNote}</p>
+const privacy = () => `${pageHero('Privacy <em>notice.</em>','A plain-language explanation of how this website handles information. Effective September 2026.')}
+<article class="section section-tight"><div class="wrap narrow legal">
 <h2>Information you provide</h2><p>The Supplier Fit Check asks for your name, company, email address, role, the brands or categories you supply, your opening order minimum, channel permissions, MAP policy, and an optional phone number and message. It also records which outreach link brought you to the site, when there is one. Please don’t include sensitive documents, government identifiers or banking information.</p>
 <h2>How information is used</h2><p>Submissions are used to review and respond to business inquiries, evaluate potential supplier relationships, and keep relevant business correspondence. This website doesn’t enroll visitors in a newsletter.</p>
 <h2>Hosting and form processing</h2><p>This website is hosted on Netlify, which processes form submissions on the business’s behalf and may filter them for spam. Hosting and security providers may process technical information such as IP addresses and request logs to operate and protect the site.</p>
@@ -139,8 +138,8 @@ const privacy = () => `${pageHero('Privacy <em>notice.</em>','A plain-language e
 <h2>Questions and requests</h2><p>Use the <a href="/contact/">Fit Check form</a> for questions about this notice or requests about information you’ve submitted. Include enough context to identify your inquiry, without sending identity documents.</p>
 <h2>Changes</h2><p>This notice is updated when the site’s information practices change. The date above identifies the current version.</p></div></article>`;
 
-const terms = () => `${pageHero('Website <em>terms.</em>','Basic terms for using the SmooveOperator website.')}
-<article class="section section-tight"><div class="wrap narrow legal"><p class="legal-date">${legalNote}</p>
+const terms = () => `${pageHero('Website <em>terms.</em>','Basic terms for using the SmooveOperator website. Effective September 2026.')}
+<article class="section section-tight"><div class="wrap narrow legal">
 <h2>Purpose of the website</h2><p>This website gives general information about SmooveOperator’s developing ecommerce business and a way to make business inquiries. Descriptions of processes and future direction aren’t guarantees of capability, availability or results.</p>
 <h2>Business inquiries</h2><p>Submitting a form doesn’t create a supplier relationship, purchase order, distribution agreement or other contract. Any commercial arrangement requires separate discussion and agreement.</p>
 <h2>Appropriate use</h2><p>Use this website lawfully. Don’t submit fraudulent information, harmful code, spam, or material you aren’t authorized to share, and don’t try to interfere with the site or access information not intended for you.</p>
