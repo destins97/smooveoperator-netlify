@@ -49,6 +49,9 @@ for(const page of pages){
 }
 check((await stat('dist/assets/smooveoperator-reseller-profile.pdf')).size>10000,'Reseller profile PDF ships');
 const sitemap=await readFile('dist/sitemap.xml','utf8');check(!sitemap.includes('thank-you'),'Success page excluded from sitemap');
+const {createHash}=await import('node:crypto');const {BOOT}=await import('../src/boot.mjs');
+const toml=await readFile('netlify.toml','utf8');check(toml.includes(`'sha256-${createHash('sha256').update(BOOT).digest('base64')}'`),'CSP allows the inline boot script by hash');
+for(const f of ['band-h.svg','band-v.svg','corner.svg','microprint.svg','seal-mask.svg'])check((await stat('dist/assets/'+f)).size>200,`Engraving asset ${f} is generated`);
 const css=await readFile('public/assets/site.css','utf8');check(css.includes('prefers-reduced-motion'),'Reduced motion support');
 const social=await readFile('dist/assets/social-card.png');check(social.readUInt32BE(16)===1200&&social.readUInt32BE(20)===630,'Social card dimensions');
 console.log(`PASS: ${checks} checks across ${pages.length} pages, internal links, metadata, Fit Check markup and payload rules, copy guardrails, and shipped assets.`);
