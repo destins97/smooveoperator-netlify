@@ -13,20 +13,6 @@
   from = "/terms.html"
   to = "/terms/"
   status = 301
-# About, Capabilities and Our approach were folded into the homepage and Suppliers page
-[[redirects]]
-  from = "/about/*"
-  to = "/"
-  status = 301
-[[redirects]]
-  from = "/capabilities/*"
-  to = "/#rules"
-  status = 301
-[[redirects]]
-  from = "/operations/*"
-  to = "/#path"
-  status = 301
-
 [[headers]]
   for = "/*"
   [headers.values]

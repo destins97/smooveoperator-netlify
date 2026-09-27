@@ -1,32 +1,25 @@
-# Verification and release gates
+# Verification record
 
-## Completed in the build environment
+## Completed
 
-- Production build generates 10 pages, sitemap, robots, favicon, and social card.
-- Automated checks validate every internal page/asset link and capability fragment.
-- Unique page titles, descriptions, canonical tags, social metadata, one H1 per page, skip navigation, and unique IDs are checked.
-- Form field names, associated labels, Netlify detection markup, honeypot, and URL-encoded POST payload are checked.
-- Contact handler is exercised with isolated success, HTTP failure, network failure, and timeout fixtures. It restores controls, focuses the status, and clears inputs only on success.
-- Social artwork dimensions are verified at 1200 × 630.
-- Draft legal pages are explicitly marked as requiring review.
-- Source has no remote browser dependencies, analytics, tracking code, fake testimonials, invented metrics, private addresses, or personal financial information.
+- Build: 11 pages, including restored About, Capabilities and Operations and retained Profile.
+- 399 static checks cover internal links, IDs, labels, metadata, form contract, copy guardrails and assets.
+- 51 form behavior assertions cover required fields, focus, original descriptions, duplicate prevention, payload, success, HTTP/network/timeout failures and retained answers.
+- Social image: 1200 by 630 pixels.
+- Profile PDF: one page, visually rendered with Poppler after correcting invisible embedded WOFF2 fonts. Uses readable standard PDF fonts and the exact Yellowtail wordmark rendered at high resolution.
+- Every route checked for overflow at measured 375, 390, 768 and 1440 CSS pixels. The requested 1024 viewport rounded to 1023 and 1025 on the Windows host; both bracketing sizes were inspected.
+- Desktop/mobile homepage and mobile contact captures visually reviewed. Independent Impeccable review cleared visual quality and credibility; documentation fix completed with final disposition ship.
+- Mobile menu and Escape focus return verified. Browser validation errors and retained answers after local HTTP 503 verified.
+- Preview form showed success and focused confirmation. Backend receipt confirmed: 6ab8af631c20d1c8d6f10d6a.
+- Final hero DOM text is exactly Wholesale, made Smoove. Both emphasized word and logo compute to Yellowtail.
+- Dependency audit: zero vulnerabilities at inspection.
 
-Run `npm run build && npm test` to repeat the automated checks.
+## Lighthouse
 
-## Pending hosted browser verification
+Local mobile homepage and contact initially scored 99 Performance, 100 Accessibility, 100 Best Practices and 100 SEO. Desktop scored 100 in all four categories. Mobile LCP was approximately 1.7 seconds and CLS 0. Final slogan audits are saved separately in qa-artifacts.
 
-The cloud browser cannot access this workspace's local server or file URLs. No rendered screenshot, mobile interaction, browser-console, Lighthouse, or real Netlify delivery result is claimed. Netlify browser sign-in succeeded and its GitHub connection was confirmed. Preview deployment was attempted automatically and failed because the Git contributor identity is not connected. Automatic approval review blocked that account-linking action pending user approval. The development environment does not have Netlify CLI authentication.
+## Evidence limits
 
-Before production, review a Netlify draft or pull-request preview:
+Local qa-artifacts contains screenshots, Lighthouse JSON and responsive measurements; excluded from Git. These lab results are not field guarantees or full WCAG certification. Reduced-motion and no-JavaScript fallback are implemented and source-reviewed; a real no-JavaScript form submission and mailbox notification delivery have not been verified. The Netlify preview review drawer conflicts with the preserved restrictive CSP; verify production independently for site errors.
 
-- At 320, 390, 768, 1024, and 1440px: verify hierarchy, spacing, diagram labels, long text, and no horizontal overflow on every route.
-- At 200% zoom: verify readable text, accessible controls, and no clipped form labels.
-- Keyboard: skip link, all navigation, mobile menu opening/closing, Escape focus restoration, FAQ toggles, and all form controls.
-- Navigate every header/footer/CTA and capability fragment; check the custom 404.
-- Test required fields, invalid email, minimum message length, query-prefilled inquiry type, and a network failure with content retained.
-- Submit a labeled test to enabled Netlify Forms and confirm actual receipt in the dashboard, including native no-JS submission.
-- Check console and network for unexpected errors; verify no broken assets.
-- Check reduced motion and no-JavaScript navigation.
-- Check deployed redirects, security headers, indexability of production, noindex of preview, canonical origin, sitemap, and social preview.
-
-These remaining checks are release gates, not completed tests.
+After merge, verify the deployed commit and custom domain, then record the result in the handoff. Repeat relevant tests after implementation changes.

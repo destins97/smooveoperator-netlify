@@ -9,3 +9,9 @@ qa-artifacts/
 .impeccable/review/
 .impeccable/build/
 .impeccable/mocks/
+
+# Local design guidance is installed for this checkout, not deployed.
+.agents/
+qa-font.mjs
+qa-prepare.mjs
+qa-fix.mjs
