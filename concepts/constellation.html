@@ -5,16 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
 <title>Supplier Constellation</title>
+<meta name="description" content="Supplier Constellation: an orbital map of the brands, distributors and partners SmooveOperator works with.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='46' fill='%23FFC000'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&family=Yellowtail&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&family=Yellowtail&display=swap">
 <style>
 :root{
   color-scheme:dark;
   --black:#000000;--gold:#FFC000;--gold-text:#FFCE3E;--gold-deep:#917300;--gold-faint:rgba(255,192,0,.14);
-  --panel:#07060300;--iron:#0b0a07;--text:#EFEBE0;--muted:#9C978A;--dim:#5f5b51;
+  --panel:#07060300;--iron:#0b0a07;--text:#EFEBE0;--muted:#9C978A;--dim:#8a8577;
   --line:rgba(239,235,224,.1);--line-gold:rgba(255,192,0,.28);
-  --serif:'Instrument Serif',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
   --ease:cubic-bezier(.22,.8,.2,1);
 }
 *{box-sizing:border-box}
@@ -24,7 +26,7 @@ a{color:inherit}button,input,textarea{font:inherit;color:inherit}
 :focus-visible{outline:1.5px solid var(--gold);outline-offset:4px}
 .wrap{width:min(1280px,100% - 2*clamp(16px,4vw,56px));margin-inline:auto}
 .mono{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
-h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;letter-spacing:-.01em;text-wrap:balance}
 p{margin:0}
 .logo{font-family:'Yellowtail',cursive;font-size:clamp(28px,2.8vw,34px);line-height:1.1;color:var(--gold);text-decoration:none;white-space:nowrap;
   text-shadow:0 0 1px #fff8e0,0 0 6px rgba(255,192,0,.85),0 0 16px rgba(255,192,0,.55),0 0 38px rgba(255,192,0,.35),0 0 70px rgba(255,192,0,.18)}
@@ -38,7 +40,7 @@ p{margin:0}
 /* Hero */
 .hero{padding-block:clamp(24px,4vw,48px) clamp(56px,7vw,96px)}
 .intro{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:end}
-.intro h1{font-size:clamp(52px,7.4vw,112px);line-height:.95}
+.intro h1{font-size:clamp(56px,8vw,120px);line-height:1}
 .intro h1 i{color:var(--gold);font-style:italic}
 .intro p{color:var(--muted);max-width:44ch;font-size:clamp(17px,1.3vw,19px)}
 @media (max-width:860px){.intro{grid-template-columns:minmax(0,1fr);gap:20px}}
@@ -63,7 +65,7 @@ p{margin:0}
 .hold:hover{color:var(--gold-text);border-color:var(--line-gold)}
 .panel{padding:clamp(22px,2.6vw,36px);display:flex;flex-direction:column;gap:18px}
 .panel .kind{color:var(--gold-text)}
-.panel h2{font-size:clamp(36px,3.4vw,52px);line-height:1}
+.panel h2{font-size:clamp(40px,3.7vw,58px);line-height:1.02}
 .panel .desc{color:var(--muted)}
 .panel h3{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
 .panel ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
@@ -76,12 +78,12 @@ p{margin:0}
 
 /* Gravity */
 section{padding-block:clamp(64px,8vw,120px)}
-.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:48px}
+.sec-head{display:flex;flex-direction:column;gap:16px;max-width:760px;margin-bottom:48px}
 .sec-head h2{font-size:clamp(40px,5vw,76px);line-height:1}
 .sec-head p{color:var(--muted);max-width:44ch}
 .laws{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,2.4vw,40px)}
 .law svg{width:64px;height:64px;display:block;margin-bottom:22px}
-.law h3{font-size:30px;line-height:1.05;margin-bottom:10px}
+.law h3{font-size:33px;line-height:1.08;margin-bottom:10px}
 .law p{color:var(--muted);font-size:15.5px}
 @media (max-width:960px){.laws{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:520px){.laws{grid-template-columns:minmax(0,1fr)}}
@@ -90,7 +92,7 @@ section{padding-block:clamp(64px,8vw,120px)}
 .signal{border-top:1px solid var(--line);position:relative;overflow:hidden}
 .signal::before{content:"";position:absolute;left:50%;top:100%;width:1200px;height:1200px;transform:translate(-50%,-50%);border-radius:50%;border:1px solid var(--line-gold);box-shadow:0 0 0 120px rgba(255,192,0,.02),0 0 0 240px rgba(255,192,0,.015);pointer-events:none}
 .sig{position:relative;max-width:760px;margin-inline:auto;text-align:center}
-.sig h2{font-size:clamp(44px,6vw,92px);line-height:.98}
+.sig h2{font-size:clamp(48px,6.6vw,100px);line-height:1.02}
 .sig h2 i{color:var(--gold)}
 .sig>p{color:var(--muted);margin:18px auto 0;max-width:48ch}
 .tx{margin-top:40px;text-align:left;border:1px solid var(--line-gold);background:rgba(0,0,0,.7);padding:18px}
@@ -109,6 +111,13 @@ section{padding-block:clamp(64px,8vw,120px)}
 footer{border-top:1px solid var(--line);padding-block:44px}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 .foot p{color:var(--dim);font-size:14px}
+/* Shared polish from the redesign and ui-ux-pro-max audits */
+html{scroll-padding-top:96px}
+p{text-wrap:pretty}
+button,a,input,textarea{touch-action:manipulation}
+.btn:active{transform:translateY(1px)}
+body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .9 0 0 0 0 .7 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@supports (animation-timeline: view()){@media (prefers-reduced-motion:no-preference){main>section:not(:first-of-type)>.wrap>*{animation:rise-in linear both;animation-timeline:view();animation-range:entry 0% cover 22%}@keyframes rise-in{from{opacity:.55;transform:translateY(24px)}to{opacity:1;transform:none}}}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -123,7 +132,7 @@ footer{border-top:1px solid var(--line);padding-block:44px}
   <div class="wrap">
     <div class="intro">
       <h1>Every relationship in its <i>proper orbit.</i></h1>
-      <p>SmooveOperator sits at the center of a small, deliberate system: the suppliers we buy from, the partners who prepare and deliver, and the customers who receive. Select any point to see what we bring and what we ask.</p>
+      <p>Suppliers, service partners and customers, each in a deliberate orbit. Select any point to see what we bring and ask.</p>
     </div>
     <div class="stage-wrap">
       <div class="stage" id="stage">
@@ -140,7 +149,7 @@ footer{border-top:1px solid var(--line);padding-block:44px}
 
 <section id="gravity">
   <div class="wrap">
-    <div class="sec-head"><h2>The gravity that<br>holds it together.</h2><p>Four commitments that apply to every orbit on the map, whatever the size of the account.</p></div>
+    <div class="sec-head"><h2>The gravity that holds it together.</h2><p>Four commitments that apply to every orbit on the map, whatever the size of the account.</p></div>
     <div class="laws">
       <div class="law"><svg viewBox="0 0 64 64" fill="none" stroke="#FFC000" stroke-width="1.2" aria-hidden="true"><circle cx="32" cy="32" r="4" fill="#FFC000"/><circle cx="32" cy="32" r="16" stroke-opacity=".5"/><circle cx="32" cy="32" r="28" stroke-opacity=".25"/><circle cx="48" cy="32" r="2.5" fill="#FFC000"/></svg><h3>Documented sources</h3><p>We buy only from parties who can show the product's chain of custody, and we keep every invoice on file.</p></div>
       <div class="law"><svg viewBox="0 0 64 64" fill="none" stroke="#FFC000" stroke-width="1.2" aria-hidden="true"><ellipse cx="32" cy="32" rx="28" ry="10" stroke-opacity=".5"/><ellipse cx="32" cy="32" rx="28" ry="10" transform="rotate(60 32 32)" stroke-opacity=".35"/><ellipse cx="32" cy="32" rx="28" ry="10" transform="rotate(120 32 32)" stroke-opacity=".2"/><circle cx="32" cy="32" r="3.5" fill="#FFC000"/></svg><h3>Accurate listings</h3><p>Titles, images and claims match what the brand publishes. We ask before we describe anything the brand has not.</p></div>
@@ -217,7 +226,7 @@ hb.onclick=()=>{hold=!hold;hb.setAttribute('aria-pressed',hold);hb.textContent=h
 const f=document.getElementById('tx'),m=document.getElementById('m'),count=document.getElementById('count'),status=document.getElementById('status');
 const upd=()=>count.textContent=m.value.length+' characters';m.addEventListener('input',upd);upd();
 f.addEventListener('submit',e=>{e.preventDefault();const missing=[...f.querySelectorAll('[required]')].filter(x=>!x.value.trim()||(x.type==='email'&&!/^\S+@\S+\.\S+$/.test(x.value)));
-  if(missing.length){status.textContent='Add your '+missing.map(x=>f.querySelector(`label[for=${x.id}]`).textContent.toLowerCase()).join(' and ')+' to transmit.';missing[0].focus();return;}
+  f.querySelectorAll('[required]').forEach(x=>x.setAttribute('aria-invalid',missing.includes(x)));if(missing.length){status.textContent='Add your '+missing.map(x=>f.querySelector(`label[for=${x.id}]`).textContent.toLowerCase()).join(' and ')+' to transmit.';missing[0].focus();return;}
   status.textContent='Signal received in this prototype. The live site would deliver it to the SmooveOperator inbox; nothing was sent.';});
 })();
 </script>

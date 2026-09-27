@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
 <title>SmooveOperator Directions</title>
+<meta name="description" content="Five interactive black and gold website directions for SmooveOperator.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='46' fill='%23FFC000'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Yellowtail&display=swap">
@@ -12,7 +14,7 @@
 :root{
   color-scheme:dark;
   --black:#000000;--gold:#FFC000;--gold-text:#FFCE3E;--gold-deep:#917300;
-  --iron:#0c0b08;--text:#F5F1E6;--muted:#A6A192;--dim:#68645A;
+  --iron:#0c0b08;--text:#F5F1E6;--muted:#A6A192;--dim:#8a8577;
   --line:rgba(245,241,230,.1);--line-gold:rgba(255,192,0,.3);
   --display:'Fraunces',Georgia,serif;--body:'Inter',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
   --ease:cubic-bezier(.2,.8,.2,1);
@@ -53,7 +55,7 @@ main{padding-block:clamp(40px,5vw,72px)}
 .item .what b{display:block;color:var(--text);font-weight:500;margin-bottom:4px}
 .meters{display:flex;flex-direction:column;gap:10px}
 .meter .mono{font-size:10.5px;color:var(--dim);display:flex;justify-content:space-between}
-.meter .track{height:3px;background:var(--line);margin-top:4px}
+.meter .track{height:3px;margin-top:4px}
 .meter .track i{display:block;height:100%;background:var(--gold)}
 .req{display:inline-block;margin-top:10px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#000;background:var(--gold);padding:3px 8px}
 @media (max-width:960px){.item a{grid-template-columns:56px minmax(0,1fr);}.item .what,.item .meters{grid-column:2}.meters{flex-direction:row;gap:16px}.meter{flex:1}}
@@ -62,6 +64,12 @@ main{padding-block:clamp(40px,5vw,72px)}
 .foot p{color:var(--muted);font-size:15.5px}
 @media (max-width:860px){.foot{grid-template-columns:minmax(0,1fr)}}
 footer{border-top:1px solid var(--line);padding-block:36px;color:var(--dim);font-size:14px}
+/* Shared polish from the redesign and ui-ux-pro-max audits */
+html{scroll-padding-top:96px}
+p{text-wrap:pretty}
+button,a,input,textarea{touch-action:manipulation}
+.btn:active{transform:translateY(1px)}
+body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .9 0 0 0 0 .7 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>

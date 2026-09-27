@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
 <title>The Buying Ledger</title>
+<meta name="description" content="The Buying Ledger: a live instrument showing how SmooveOperator decides whether a product earns a purchase order.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='46' fill='%23FFC000'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Yellowtail&display=swap">
@@ -12,7 +14,7 @@
 :root{
   color-scheme:dark;
   --black:#000000;--gold:#FFC000;--gold-text:#FFCE3E;--gold-deep:#917300;
-  --s1:#0a0a08;--s2:#121210;--s3:#1b1a16;--text:#F2EFE6;--muted:#A3A092;--dim:#65625A;
+  --s1:#0a0a08;--s2:#121210;--s3:#1b1a16;--text:#F2EFE6;--muted:#A3A092;--dim:#8a8577;
   --line:#23221d;--line2:#34322a;--loss:#F08C73;--ok:#FFC000;
   --sans:'Familjen Grotesk',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
   --ease:cubic-bezier(.2,.75,.15,1);
@@ -30,8 +32,10 @@ h1,h2,h3{margin:0;font-weight:500;letter-spacing:-.03em;text-wrap:balance}
 p{margin:0}
 .logo{font-family:'Yellowtail',cursive;font-size:clamp(28px,2.8vw,34px);line-height:1.1;color:var(--gold);text-decoration:none;white-space:nowrap;letter-spacing:0;
   text-shadow:0 0 1px #fff8e0,0 0 6px rgba(255,192,0,.85),0 0 16px rgba(255,192,0,.55),0 0 38px rgba(255,192,0,.35),0 0 70px rgba(255,192,0,.18)}
-.top{border-bottom:1px solid var(--line);background:rgba(0,0,0,.85);position:sticky;top:env(safe-area-inset-top,0px);z-index:10;backdrop-filter:blur(8px)}
 .bar{display:flex;align-items:center;justify-content:space-between;min-height:72px;gap:20px}
+.top{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:20;width:min(1360px,100% - 2*clamp(16px,4vw,56px));margin:12px auto 0;background:rgba(0,0,0,.74);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line2)}
+.top .bar{width:auto;padding-inline:clamp(14px,2vw,24px);min-height:64px}
+
 .bar nav{display:flex;gap:4px;align-items:center}
 .bar nav a{font-size:15px;color:var(--muted);text-decoration:none;padding:0 12px;min-height:44px;display:inline-flex;align-items:center}
 .bar nav a:hover{color:var(--text)}
@@ -72,7 +76,7 @@ p{margin:0}
 .ro{background:var(--s1);padding:12px 14px}
 .ro .mono{color:var(--dim);font-size:11px}
 .ro b{display:block;font-family:var(--mono);font-weight:500;font-size:20px;margin-top:4px;font-variant-numeric:tabular-nums}
-.verdict{border:1px solid var(--line2);padding:18px;background:#000;position:relative;overflow:hidden}
+.verdict{padding:4px 0 4px 20px;position:relative}
 .verdict::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--vc,var(--gold));box-shadow:0 0 16px var(--vc,var(--gold))}
 .verdict .mono{color:var(--dim)}
 .verdict h3{font-size:34px;line-height:1.05;margin:8px 0 10px;color:var(--vc,var(--gold))}
@@ -91,7 +95,7 @@ p{margin:0}
 
 /* Criteria */
 section{padding-block:clamp(64px,8vw,120px)}
-.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:40px}
+.sh{display:flex;flex-direction:column;gap:16px;max-width:760px;margin-bottom:40px}
 .sh h2{font-size:clamp(38px,4.6vw,68px);line-height:1}
 .sh p{color:var(--muted);max-width:50ch}
 @media (max-width:860px){.sh{grid-template-columns:minmax(0,1fr);gap:16px}}
@@ -106,6 +110,14 @@ td .d{color:var(--muted);font-size:15px}
 .pill.g{border-color:rgba(255,192,0,.4);color:var(--gold-text)}
 tr:last-child td{border-bottom:0}
 tbody tr:hover td{background:var(--s2)}
+
+.groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
+.grp{background:var(--s1);border-top:2px solid var(--gold);padding:clamp(20px,2.4vw,32px)}
+.grp h3{font-size:clamp(24px,2.2vw,30px);margin-bottom:22px}
+.grp dl{margin:0;display:flex;flex-direction:column;gap:20px}
+.grp dt{font-weight:500;font-size:19px}
+.grp dd{margin:6px 0 0;color:var(--muted);font-size:15.5px;max-width:52ch}
+@media (max-width:760px){.groups{grid-template-columns:minmax(0,1fr)}}
 
 /* Purchase order */
 .po-sec{border-top:1px solid var(--line)}
@@ -139,6 +151,13 @@ tbody tr:hover td{background:var(--s2)}
 footer{border-top:1px solid var(--line);padding-block:44px;background:#000}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 .foot p{color:var(--dim);font-size:14px}
+/* Shared polish from the redesign and ui-ux-pro-max audits */
+html{scroll-padding-top:96px}
+p{text-wrap:pretty}
+button,a,input,textarea{touch-action:manipulation}
+.btn:active{transform:translateY(1px)}
+body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .9 0 0 0 0 .7 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@supports (animation-timeline: view()){@media (prefers-reduced-motion:no-preference){main>section:not(:first-of-type)>.wrap>*{animation:rise-in linear both;animation-timeline:view();animation-range:entry 0% cover 22%}@keyframes rise-in{from{opacity:.55;transform:translateY(24px)}to{opacity:1;transform:none}}}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -153,14 +172,14 @@ footer{border-top:1px solid var(--line);padding-block:44px;background:#000}
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="tag"><i></i>How SmooveOperator decides to buy</span>
+        <span class="tag">How SmooveOperator decides to buy</span>
         <h1>Every purchase earns its place <span>on the shelf.</span></h1>
       </div>
-      <p class="lead">Before a purchase order goes out, the product has to clear the numbers and the rules. This is the instrument we use, running live. Change any input and watch the decision change with it.</p>
+      <p class="lead">Before a purchase order goes out, the product must clear the numbers and the rules. Try it live.</p>
     </div>
 
     <div class="inst" id="instrument">
-      <div class="inst-bar"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="mono">Buy decision &middot; Example item A &middot; Illustrative figures</span><span class="mono" id="stamp">Recalculated</span></div>
+      <div class="inst-bar"><span class="mono">Example item A, illustrative figures</span></div>
       <div class="inst-grid">
         <div class="col c1">
           <h2>Inputs</h2>
@@ -203,18 +222,19 @@ footer{border-top:1px solid var(--line);padding-block:44px;background:#000}
 <section id="criteria">
   <div class="wrap">
     <div class="sh"><h2>The numbers are only half of the ledger.</h2><p>A product that clears every financial test still has to pass the questions a brand would ask. These are checked before the first order and again before every reorder.</p></div>
-    <div class="tbl">
-      <table>
-        <thead><tr><th>Ref</th><th>Criterion</th><th>What we check</th><th>When</th></tr></thead>
-        <tbody>
-          <tr><td>L1</td><td><b>Product suitability</b></td><td class="d">Condition, packaging, expiration windows, hazmat status and whether the item can be prepared correctly by our providers.</td><td><span class="pill g">Before PO</span></td></tr>
-          <tr><td>L2</td><td><b>Documentation</b></td><td class="d">Invoices, authorization letters and specifications that establish a clean chain of custody from the brand.</td><td><span class="pill g">Before PO</span></td></tr>
-          <tr><td>L3</td><td><b>Channel permission</b></td><td class="d">Whether the brand allows marketplace sales at all, on which channels, and under what pricing policy.</td><td><span class="pill g">Before PO</span></td></tr>
-          <tr><td>L4</td><td><b>Demand</b></td><td class="d">Sales history, seasonality and the number of existing sellers, so order sizes match real customer demand.</td><td><span class="pill">Every reorder</span></td></tr>
-          <tr><td>L5</td><td><b>Full landed cost</b></td><td class="d">Unit cost plus freight, prep, marketplace fees, storage and the cost of the capital tied up in stock.</td><td><span class="pill">Every reorder</span></td></tr>
-          <tr><td>L6</td><td><b>Inventory performance</b></td><td class="d">Sell through, returns and customer feedback after launch. Weak performers are not reordered.</td><td><span class="pill">Every reorder</span></td></tr>
-        </tbody>
-      </table>
+    <div class="groups">
+      <div class="grp"><h3>Before the first order</h3>
+        <dl>
+          <dt>Product suitability</dt><dd>Condition, packaging, expiration windows, hazmat status and whether our providers can prepare it correctly.</dd>
+          <dt>Documentation</dt><dd>Invoices, authorization letters and specifications that establish a clean chain of custody from the brand.</dd>
+          <dt>Channel permission</dt><dd>Whether the brand allows marketplace sales at all, on which channels, and under what pricing policy.</dd>
+        </dl></div>
+      <div class="grp"><h3>Before every reorder</h3>
+        <dl>
+          <dt>Demand</dt><dd>Sales history, seasonality and the number of existing sellers, so order sizes match real customer demand.</dd>
+          <dt>Full landed cost</dt><dd>Unit cost plus freight, prep, marketplace fees, storage and the cost of capital tied up in stock.</dd>
+          <dt>Inventory performance</dt><dd>Sell through, returns and customer feedback after launch. Weak performers are not reordered.</dd>
+        </dl></div>
     </div>
   </div>
 </section>
@@ -222,8 +242,7 @@ footer{border-top:1px solid var(--line);padding-block:44px;background:#000}
 <section class="po-sec" id="po">
   <div class="wrap po-grid">
     <div class="po-copy">
-      <p class="mono" style="color:var(--gold-text)">For suppliers</p>
-      <h2 style="margin-top:12px">What lands in your inbox.</h2>
+      <h2>What lands in your inbox.</h2>
       <p>When the ledger says buy, you receive a clean purchase order with everything your team needs to process it once.</p>
       <ul>
         <li>Your item numbers and case packs, exactly as quoted</li>
@@ -278,7 +297,7 @@ function chart(d){
   const y=v=>T+Hd*(top-v)/span;
   // grid
   const step=span>80?20:span>40?10:5;
-  for(let v=Math.ceil(lo/step)*step;v<=top+.001;v+=step){svg.appendChild(el('line',{x1:L,x2:620-R,y1:y(v),y2:y(v),stroke:v===0?'#4a473d':'#1f1e19','stroke-width':1}));svg.appendChild(el('text',{x:L-8,y:y(v)+4,'text-anchor':'end','font-size':11,fill:'#65625A'},'$'+v));}
+  for(let v=Math.ceil(lo/step)*step;v<=top+.001;v+=step){svg.appendChild(el('line',{x1:L,x2:620-R,y1:y(v),y2:y(v),stroke:v===0?'#4a473d':'#1f1e19','stroke-width':1}));svg.appendChild(el('text',{x:L-8,y:y(v)+4,'text-anchor':'end','font-size':11,fill:'#8a8577'},'$'+v));}
   const bars=[
     {k:'Sale price',a:0,b:d.P,type:'total'},
     {k:'Referral',a:d.P,b:d.P-d.refFee,type:'cost'},
@@ -322,7 +341,6 @@ function render(){
   const lines=[['Example item A','EX-1001',12,d.Q,d.C],['Example item B','EX-1002',6,48,9.25],['Example item C','EX-1003',24,72,4.8]];
   let sub=0;$('poBody').innerHTML=lines.map(([n,s,cp,q,u])=>{const t=q*u;sub+=t;return`<tr><td>${n}</td><td class="num" style="font-family:var(--mono);color:var(--muted)">${s}</td><td class="n">${cp}</td><td class="n">${q}</td><td class="n">${usd(u)}</td><td class="n">${usd(t)}</td></tr>`;}).join('');
   $('poSub').textContent=usd(sub);$('poTot').textContent=usd(sub);
-  const st=$('stamp');st.textContent='Recalculated '+new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'});
 }
 $('f').addEventListener('input',render);$('f').addEventListener('submit',e=>e.preventDefault());
 render();

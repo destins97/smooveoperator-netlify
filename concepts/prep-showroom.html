@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
 <title>Prep Showroom</title>
+<meta name="description" content="Prep Showroom: an exploded 3D carton showing who prepares each layer of a SmooveOperator shipment.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='46' fill='%23FFC000'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..500&family=Michroma&family=Yellowtail&display=swap">
@@ -12,7 +14,7 @@
 :root{
   color-scheme:dark;
   --black:#000000;--gold:#FFC000;--gold-text:#FFCE3E;--gold-deep:#917300;
-  --iron:#0c0b08;--char:#15140f;--text:#F4F0E6;--muted:#A8A393;--dim:#6a665b;
+  --iron:#0c0b08;--char:#15140f;--text:#F4F0E6;--muted:#A8A393;--dim:#8a8577;
   --line:rgba(244,240,230,.1);--line-gold:rgba(255,192,0,.3);
   --serif:'Bodoni Moda',Didot,Georgia,serif;--sans:'Barlow',system-ui,sans-serif;--wide:'Michroma','Barlow',sans-serif;
   --ease:cubic-bezier(.2,.8,.2,1);
@@ -29,7 +31,7 @@ p{margin:0}
 .logo{font-family:'Yellowtail',cursive;font-size:clamp(28px,2.8vw,34px);line-height:1.1;color:var(--gold);text-decoration:none;white-space:nowrap;
   text-shadow:0 0 1px #fff8e0,0 0 6px rgba(255,192,0,.85),0 0 16px rgba(255,192,0,.55),0 0 38px rgba(255,192,0,.35),0 0 70px rgba(255,192,0,.18)}
 .top{position:absolute;inset:env(safe-area-inset-top,0px) 0 auto 0;z-index:5}
-.bar{display:flex;justify-content:space-between;align-items:center;min-height:86px;gap:20px}
+.bar{display:flex;justify-content:space-between;align-items:center;min-height:72px;gap:20px}
 .bar nav{display:flex;gap:30px;align-items:center}
 .bar nav a{text-decoration:none;min-height:44px;display:inline-flex;align-items:center;color:var(--muted)}
 .bar nav a.wide{color:var(--muted)}
@@ -37,7 +39,7 @@ p{margin:0}
 @media (max-width:760px){.bar nav a:not(:first-child){display:none}}
 
 /* Horizon hero */
-.hero{position:relative;overflow:hidden;min-height:clamp(620px,90vh,880px);display:flex;align-items:flex-end;border-bottom:1px solid var(--line)}
+.hero{position:relative;overflow:hidden;min-height:clamp(620px,90vh,880px);min-height:clamp(620px,90dvh,880px);display:flex;align-items:flex-end;border-bottom:1px solid var(--line)}
 .sun{position:absolute;left:62%;bottom:28%;width:min(78vw,980px);aspect-ratio:1;transform:translate(-50%,50%);border-radius:50%;
   background:radial-gradient(circle at 50% 50%,#FFE9A8 0%,#FFC000 26%,rgba(255,192,0,.55) 40%,rgba(145,115,0,.22) 55%,rgba(0,0,0,0) 70%);
   animation:rise 2.8s var(--ease) both}
@@ -54,10 +56,6 @@ p{margin:0}
 .btn:hover{background:var(--gold-text)}
 .btn.line{background:transparent;color:var(--text);border-color:var(--line-gold)}
 .btn.line:hover{border-color:var(--gold);color:var(--gold-text)}
-.stats{display:flex;gap:clamp(24px,4vw,56px)}
-.stats div{border-left:1px solid var(--line-gold);padding-left:16px}
-.stats b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(28px,2.6vw,40px);line-height:1}
-.stats span{color:var(--dim)}
 
 /* Showroom */
 section{padding-block:clamp(72px,9vw,130px)}
@@ -82,7 +80,6 @@ section{padding-block:clamp(72px,9vw,130px)}
 .label::before{content:"";display:block;height:22px;background:repeating-linear-gradient(90deg,#000 0 1.5px,transparent 1.5px 3px,#000 3px 5px,transparent 5px 6px,#000 6px 6.8px,transparent 6.8px 9px)}
 .label::after{content:"X00EXAMPLE";display:block;margin-top:3px;font:600 8px/1 'Barlow',sans-serif;letter-spacing:.12em;color:#000;text-align:center}
 .dimmed{opacity:.18}
-.tag3d{position:absolute;font-family:var(--wide);font-size:9.5px;letter-spacing:.2em;color:var(--gold-text);white-space:nowrap;transition:opacity .5s var(--ease)}
 .ctrl{position:absolute;left:16px;right:16px;bottom:14px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .ctrl .wide{color:var(--dim)}
 .toggle{min-height:44px;padding:0 18px;border:1px solid var(--line-gold);background:rgba(0,0,0,.6);color:var(--text);cursor:pointer;font-family:var(--wide);font-size:10px;letter-spacing:.22em;text-transform:uppercase}
@@ -102,9 +99,15 @@ section{padding-block:clamp(72px,9vw,130px)}
 @media (max-width:960px){.show{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:560px){.scene{transform:scale(.72)}.scene-box{height:500px}}
 
+.owners{display:grid;grid-template-columns:1.1fr 1.1fr .8fr;gap:clamp(20px,3vw,48px)}
+.own{border-top:1px solid var(--gold);padding-top:22px}
+.own h3{font-size:clamp(26px,2.4vw,34px);margin-bottom:18px}
+.own ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.own li{color:var(--muted);font-size:17px;line-height:1.5;max-width:36ch}
+@media (max-width:900px){.owners{grid-template-columns:minmax(0,1fr)}}
 /* Spec sheet */
 .spec{border-top:1px solid var(--line);background:linear-gradient(180deg,var(--iron),#000)}
-.spec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:44px}
+.spec-head{display:flex;flex-direction:column;gap:16px;max-width:760px;margin-bottom:44px}
 .spec-head h2{font-size:clamp(40px,5vw,78px);line-height:1}
 .spec-head p{max-width:42ch;color:var(--muted)}
 .sheet{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(28px,5vw,80px)}
@@ -125,13 +128,20 @@ section{padding-block:clamp(72px,9vw,130px)}
 footer{border-top:1px solid var(--line);padding-block:44px}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 .foot p{color:var(--dim)}
+/* Shared polish from the redesign and ui-ux-pro-max audits */
+html{scroll-padding-top:96px}
+p{text-wrap:pretty}
+button,a,input,textarea{touch-action:manipulation}
+.btn:active{transform:translateY(1px)}
+body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .9 0 0 0 0 .7 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@supports (animation-timeline: view()){@media (prefers-reduced-motion:no-preference){main>section:not(:first-of-type)>.wrap>*{animation:rise-in linear both;animation-timeline:view();animation-range:entry 0% cover 22%}@keyframes rise-in{from{opacity:.55;transform:translateY(24px)}to{opacity:1;transform:none}}}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap bar">
   <a class="logo" href="./" aria-label="Smoove Operator, all concepts">Smoove Operator</a>
-  <nav aria-label="Showroom"><a class="wide" href="./">All concepts</a><a class="wide" href="#showroom">Showroom</a><a class="wide" href="#spec">Specification</a><a class="wide" href="#talk" style="color:var(--gold-text)">Suppliers</a></nav>
+  <nav aria-label="Showroom"><a class="wide" href="./">All concepts</a><a class="wide" href="#showroom">Showroom</a><a class="wide" href="#spec">Specification</a><a class="wide" href="https://smoove-operator.com/suppliers/" style="color:var(--gold-text)">Suppliers</a></nav>
 </div></header>
 
 <main>
@@ -142,11 +152,8 @@ footer{border-top:1px solid var(--line);padding-block:44px}
     <p class="wide" style="color:var(--gold-text)">Preparation &amp; fulfillment coordination</p>
     <h1 style="margin-top:20px">Prepared with care <i>before</i> it ever ships.</h1>
     <div class="hero-foot">
-      <p>Your product reaches the customer the way it left your dock. We write the prep instructions, independent providers carry them out, and the marketplace delivers. Open the carton below to see each layer.</p>
-      <div class="stats" aria-label="Preparation layers">
-        <div><b>4</b><span>Layers inspected</span></div>
-        <div><b>3</b><span>Responsible parties</span></div>
-      </div>
+      <p>We write the prep instructions, independent providers carry them out, and the marketplace delivers.</p>
+      <a class="btn line" href="#showroom">Open the carton</a>
     </div>
   </div>
 </section>
@@ -161,8 +168,7 @@ footer{border-top:1px solid var(--line);padding-block:44px}
       </div>
     </div>
     <div>
-      <p class="wide" style="color:var(--gold-text)">Exploded view</p>
-      <h2 style="margin-top:14px">Four layers, <i>one standard.</i></h2>
+      <h2>Four layers, <i>one standard.</i></h2>
       <p class="intro">Each layer has a named owner and a written rule. Select a layer to isolate it.</p>
       <ol class="parts" id="parts">
         <li><button type="button" data-layer="carton" aria-pressed="false"><span class="n">1</span><b>Shipping carton</b><span class="who">Prep provider</span><span class="d">Built to the marketplace's size and weight limits, one label per carton, box contents recorded before it leaves.</span></button></li>
@@ -176,17 +182,12 @@ footer{border-top:1px solid var(--line);padding-block:44px}
 
 <section class="spec" id="spec">
   <div class="wrap">
-    <div class="spec-head"><h2>Specification.</h2><p>The way a yacht builder lists hull and engine, this lists who handles your product at every point, and to what standard.</p></div>
-    <dl class="sheet">
-      <div class="row"><dt>Receiving</dt><dd class="v">Counted against PO and packing list</dd><dd class="o">Prep provider</dd></div>
-      <div class="row"><dt>Condition</dt><dd class="v">Damaged units photographed and set aside</dd><dd class="o">Prep provider</dd></div>
-      <div class="row"><dt>Instructions</dt><dd class="v">Written per order, per SKU</dd><dd class="o">SmooveOperator</dd></div>
-      <div class="row"><dt>Labeling</dt><dd class="v">Marketplace unit and carton labels</dd><dd class="o">Prep provider</dd></div>
-      <div class="row"><dt>Storage</dt><dd class="v">Marketplace fulfillment network</dd><dd class="o">Marketplace</dd></div>
-      <div class="row"><dt>Delivery</dt><dd class="v">Picked, packed and shipped to customer</dd><dd class="o">Marketplace</dd></div>
-      <div class="row"><dt>Returns</dt><dd class="v">Reviewed before any unit is resold</dd><dd class="o">SmooveOperator</dd></div>
-      <div class="row"><dt>Records</dt><dd class="v">Invoices and shipment history on file</dd><dd class="o">SmooveOperator</dd></div>
-    </dl>
+    <div class="spec-head"><h2>Specification.</h2><p>Who handles your product at every point, grouped by the party responsible.</p></div>
+    <div class="owners">
+      <div class="own"><h3>SmooveOperator</h3><ul><li>Written prep instructions, per order and per SKU</li><li>Returns reviewed before any unit is resold</li><li>Invoices and shipment history kept on file</li></ul></div>
+      <div class="own"><h3>Independent prep provider</h3><ul><li>Receiving counted against the PO and packing list</li><li>Damaged units photographed and set aside</li><li>Marketplace unit and carton labels applied</li></ul></div>
+      <div class="own"><h3>Marketplace</h3><ul><li>Storage inside the fulfillment network</li><li>Picked, packed and shipped to the customer</li></ul></div>
+    </div>
   </div>
 </section>
 
@@ -195,7 +196,7 @@ footer{border-top:1px solid var(--line);padding-block:44px}
     <p class="wide" style="color:var(--gold-text)">For brands &amp; suppliers</p>
     <h2 style="margin-top:16px">Ask us how we would <i>prepare yours.</i></h2>
     <p>Send a product line and your packaging requirements. We will reply with how it would be received, prepared and represented.</p>
-    <div class="ctas"><a class="btn" href="#talk">Start a supplier conversation</a><a class="btn line" href="#spec">Review the specification</a></div>
+    <div class="ctas"><a class="btn" href="https://smoove-operator.com/suppliers/">Start a conversation</a><a class="btn line" href="#spec">Review the specification</a></div>
   </div>
 </section>
 </main>
@@ -230,7 +231,9 @@ const box=document.getElementById('box');let drag=null,idle=!REDUCED,lastT=perfo
 box.addEventListener('pointerdown',e=>{if(e.target.closest('button'))return;drag={x:e.clientX,y:e.clientY,ry,rx};idle=false;box.setPointerCapture(e.pointerId);});
 box.addEventListener('pointermove',e=>{if(!drag)return;ry=drag.ry+(e.clientX-drag.x)*.4;rx=Math.max(-40,Math.min(10,drag.rx-(e.clientY-drag.y)*.25));spin();});
 box.addEventListener('pointerup',()=>{drag=null;});box.addEventListener('pointercancel',()=>{drag=null;});
-function tick(now){const dt=now-lastT;lastT=now;if(idle){ry+=dt*.006;spin();}requestAnimationFrame(tick);}
+// idle drift stops after 20s, on tab hide, or once the visitor takes control
+const idleUntil=performance.now()+20000;document.addEventListener('visibilitychange',()=>{if(document.hidden)idle=false;});btn.addEventListener('click',()=>{idle=false;});
+function tick(now){const dt=now-lastT;lastT=now;if(idle&&now>idleUntil)idle=false;if(idle){ry+=dt*.006;spin();}if(idle||drag)requestAnimationFrame(tick);}
 place();spin();requestAnimationFrame(tick);
 // open the carton once when the showroom first comes into view
 const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){setTimeout(()=>{if(!exploded)setExplode(true);},REDUCED?0:500);io.disconnect();}},{threshold:.45});io.observe(box);

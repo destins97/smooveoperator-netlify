@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
 <title>Smoove Atelier</title>
+<meta name="description" content="Smoove Atelier: a generative art studio concept with prompt previews, a style gallery, creator tools and an edition minting flow.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='46' fill='%23FFC000'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Yellowtail&display=swap">
@@ -13,7 +15,7 @@
   color-scheme:dark;
   --black:#000000;--gold:#FFC000;--gold-text:#FFCE3E;--gold-deep:#917300;
   --iron:#0d0c09;--char:#16140e;--raised:#1f1c13;
-  --text:#F6F1E4;--muted:#A9A290;--dim:#6f6a5c;
+  --text:#F6F1E4;--muted:#A9A290;--dim:#8a8577;
   --line:rgba(255,192,0,.16);--line-strong:rgba(255,192,0,.38);
   --display:'Fraunces',Georgia,'Times New Roman',serif;
   --body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
@@ -39,8 +41,10 @@ p{margin:0}
 @keyframes ignite{0%{opacity:.25}8%{opacity:1}12%{opacity:.4}18%{opacity:1}24%{opacity:.7}30%,100%{opacity:1}}
 
 /* Header */
-.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(0,0,0,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:76px}
+.top{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);z-index:20;width:min(1320px,100% - 2*clamp(16px,4vw,56px));margin:12px auto 0;background:rgba(0,0,0,.74);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line-strong)}
+.top .bar{width:auto;padding-inline:clamp(14px,2vw,24px);min-height:64px}
+
 .nav{display:flex;gap:28px;align-items:center}
 .nav a{font-size:15px;color:var(--muted);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
 .nav a:hover{color:var(--gold-text)}
@@ -90,8 +94,8 @@ p{margin:0}
 
 /* Sections */
 section{padding-block:clamp(64px,8vw,120px)}
-.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:clamp(32px,4vw,56px)}
-.sec-head h2{font-size:clamp(36px,4.4vw,64px);line-height:1.02;margin-top:14px}
+.sec-head{display:flex;flex-direction:column;gap:18px;max-width:760px;margin-bottom:clamp(32px,4vw,56px)}
+.sec-head h2{font-size:clamp(36px,4.4vw,64px);line-height:1.04;margin-top:10px}
 .sec-head p{color:var(--muted);max-width:52ch}
 @media (max-width:860px){.sec-head{grid-template-columns:minmax(0,1fr);gap:18px}}
 
@@ -158,7 +162,6 @@ input[type=range]::-moz-range-thumb{width:12px;height:12px;background:#000;borde
 .field input[type=text]{min-height:48px;background:#000;border:1px solid var(--line-strong);padding:0 14px}
 fieldset{border:0;margin:0 0 22px;padding:0}
 .cert{display:grid;grid-template-columns:200px minmax(0,1fr);gap:26px;border:1px solid var(--gold);padding:22px;position:relative;background:radial-gradient(90% 90% at 100% 0%,rgba(255,192,0,.08),transparent 60%),#000}
-.cert::after{content:"";position:absolute;inset:6px;border:1px solid var(--line);pointer-events:none}
 .cert img{width:100%;aspect-ratio:1;display:block}
 .cert h4{font-family:var(--display);font-weight:340;font-size:28px;margin:6px 0 14px;font-style:italic}
 .cert dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 18px;margin:0}
@@ -176,6 +179,13 @@ footer{border-top:1px solid var(--line);padding-block:48px 56px}
 .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
 .foot p{color:var(--dim);font-size:14px;max-width:60ch}
 
+/* Shared polish from the redesign and ui-ux-pro-max audits */
+html{scroll-padding-top:96px}
+p{text-wrap:pretty}
+button,a,input,textarea{touch-action:manipulation}
+.btn:active{transform:translateY(1px)}
+body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .9 0 0 0 0 .7 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@supports (animation-timeline: view()){@media (prefers-reduced-motion:no-preference){main>section:not(:first-of-type)>.wrap>*{animation:rise-in linear both;animation-timeline:view();animation-range:entry 0% cover 22%}@keyframes rise-in{from{opacity:.55;transform:translateY(24px)}to{opacity:1;transform:none}}}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -198,9 +208,9 @@ footer{border-top:1px solid var(--line);padding-block:48px 56px}
 <section class="hero" id="studio" style="padding-top:clamp(40px,6vw,84px)">
   <div class="wrap hero-grid">
     <div>
-      <p class="eyebrow">Smoove Atelier &middot; Generative studio</p>
+      <p class="eyebrow">Smoove Atelier generative studio</p>
       <h1>Art with a <em>gold thread</em> running through it.</h1>
-      <p class="lead">Describe a feeling. The studio turns it into a seeded, reproducible composition in black and gold, then lets you refine it, sign it and release it as a numbered edition.</p>
+      <p class="lead">Describe a feeling. The studio paints it in black and gold, then signs and numbers the edition.</p>
       <form class="composer" id="composer" autocomplete="off">
         <label for="prompt">Your prompt</label>
         <div class="prompt-row">
@@ -220,7 +230,7 @@ footer{border-top:1px solid var(--line);padding-block:48px 56px}
           <div><dt>Seed</dt><dd id="mSeed">0</dd></div>
           <div><dt>Style</dt><dd id="mStyle">Flow</dd></div>
           <div><dt>Strokes</dt><dd id="mStrokes">0</dd></div>
-          <div><dt>Master</dt><dd>8192 &times; 8192</dd></div>
+          <div><dt>Palette</dt><dd>Black / gold</dd></div>
         </dl>
       </div>
     </div>
@@ -230,7 +240,7 @@ footer{border-top:1px solid var(--line);padding-block:48px 56px}
 <section id="styles">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="eyebrow">Style gallery</p><h2>Six house styles, one palette.</h2></div>
+      <h2>Six house styles, one palette.</h2>
       <p>Every style is an algorithm, not a filter. Each one draws from the same locked palette of absolute black and Lamborghini gold, so a collection always looks like it belongs together. Choose one to load it into the studio.</p>
     </div>
     <div class="gallery" id="gallery"></div>
@@ -240,7 +250,7 @@ footer{border-top:1px solid var(--line);padding-block:48px 56px}
 <section class="tools" id="tools">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="eyebrow">Creator tools</p><h2>Direct the machine by hand.</h2></div>
+      <h2>Direct the machine by hand.</h2>
       <p>The prompt gets you close. These controls get you exact. Every change is live, and every result stays reproducible from its seed and settings.</p>
     </div>
     <div class="deck">
@@ -291,7 +301,7 @@ footer{border-top:1px solid var(--line);padding-block:48px 56px}
 <section id="mint">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="eyebrow">Minting flow</p><h2>From sketch to signed edition in four steps.</h2></div>
+      <div><p class="eyebrow">Minting flow</p><h2>From sketch to signed edition.</h2></div>
       <p>Choose a piece, set the edition, review the certificate, then release. This is an interactive prototype: no wallet is connected and nothing is written anywhere.</p>
     </div>
     <div class="mint-shell">
@@ -426,7 +436,7 @@ $('composer').addEventListener('submit',e=>{e.preventDefault();generate(true);})
 
 // Gallery
 const gal=$('gallery');
-STYLES.forEach((s,i)=>{const t=document.createElement('article');t.className='tile';t.innerHTML=`<div class="cv"><canvas width="480" height="480" role="img" aria-label="${s.name} style sample"></canvas></div><div class="tile-top"><h3>${s.name}</h3><span class="mono" style="color:var(--dim)">Style 0${i+1}</span></div><p>${s.desc}</p><button class="use" type="button">Load into studio</button>`;gal.appendChild(t);
+STYLES.forEach((s,i)=>{const t=document.createElement('article');t.className='tile';t.innerHTML=`<div class="cv"><canvas width="480" height="480" role="img" aria-label="${s.name} style sample"></canvas></div><h3>${s.name}</h3><p>${s.desc}</p><button class="use" type="button">Load into studio</button>`;gal.appendChild(t);
   const cv=t.querySelector('canvas');
   const draw=()=>render(cv,{style:s.id,seed:1000+i*97,density:1,turb:s.id==='flow'?1.1:1.4,sym:s.id==='kinetic'?1:1,glow:.5});
   t._draw=draw;
