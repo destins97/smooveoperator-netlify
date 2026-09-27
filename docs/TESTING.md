@@ -1,25 +1,29 @@
-# Verification record
+# Recovery verification record
 
-## Completed
+## Automated and browser checks
 
-- Build: 11 pages, including restored About, Capabilities and Operations and retained Profile.
-- 399 static checks cover internal links, IDs, labels, metadata, form contract, copy guardrails and assets.
-- 51 form behavior assertions cover required fields, focus, original descriptions, duplicate prevention, payload, success, HTTP/network/timeout failures and retained answers.
-- Social image: 1200 by 630 pixels.
-- Profile PDF: one page, visually rendered with Poppler after correcting invisible embedded WOFF2 fonts. Uses readable standard PDF fonts and the exact Yellowtail wordmark rendered at high resolution.
-- Every route checked for overflow at measured 375, 390, 768 and 1440 CSS pixels. The requested 1024 viewport rounded to 1023 and 1025 on the Windows host; both bracketing sizes were inspected.
-- Desktop/mobile homepage and mobile contact captures visually reviewed. Independent Impeccable review cleared visual quality and credibility; documentation fix completed with final disposition ship.
-- Mobile menu and Escape focus return verified. Browser validation errors and retained answers after local HTTP 503 verified.
-- Preview form showed success and focused confirmation. Backend receipt confirmed: 6ab8af631c20d1c8d6f10d6a.
-- Final hero DOM text is exactly Wholesale, made Smoove. Both emphasized word and logo compute to Yellowtail.
-- Dependency audit: zero vulnerabilities at inspection.
+- Build produces 11 pages. 396 static checks and 51 form behavior assertions pass.
+- Form tests cover required fields, error focus/descriptions, duplicate submission prevention, payload, success, HTTP/network/timeout failure and preserved answers.
+- Browser checks confirmed mobile menu opening, Escape closing with focus return, route and operating-board keyboard disclosures, three required-field errors and retained answers after deliberate local HTTP 503.
+- All 11 routes measured without horizontal overflow at 375, 390, 769, 1024, 1440 and 1920 CSS pixels. Windows rounded the interactive 768 request to 769; a separate exact 768 Lighthouse render was captured and visually inspected.
+- Exact homepage captures and audits at 375, 390, 768, 1024, 1440 and 1920. Both historical versions were built and captured at 1440 for direct comparison.
+- Hero overlap found during review was corrected by top-aligning the hero grid. Final desktop and mobile screenshots show clean spacing and readable type.
+- Social card is 1200 by 630. One-page PDF was regenerated and visually rendered, using readable standard PDF fonts with protected Yellowtail artwork.
+- Exact opening headline and protected logo treatment retained. No runtime framework or dependency additions.
 
-## Lighthouse
+## Lighthouse lab results
 
-Local mobile homepage and contact initially scored 99 Performance, 100 Accessibility, 100 Best Practices and 100 SEO. Desktop scored 100 in all four categories. Mobile LCP was approximately 1.7 seconds and CLS 0. Final slogan audits are saved separately in qa-artifacts.
+| Viewport | Performance | Accessibility | Best Practices | SEO |
+| --- | --- | --- | --- | --- |
+| 375, mobile throttling | 98 | 100 | 100 | 100 |
+| 390, desktop preset | 100 | 100 | 100 | 100 |
+| 768, desktop preset | 100 | 100 | 100 | 100 |
+| 1024, desktop preset | 100 | 100 | 100 | 100 |
+| 1440, desktop preset | 100 | 100 | 100 | 100 |
+| 1920, desktop preset | 100 | 100 | 100 | 100 |
+
+Current production baseline: 100 across desktop categories. Departures baseline: 99 Performance, 100 remaining categories. Recovery layout shift was below 0.001 on desktop and mobile. Lighthouse report generation completed successfully; Windows temporary-profile cleanup emitted EPERM after reports were saved.
 
 ## Evidence limits
 
-Local qa-artifacts contains screenshots, Lighthouse JSON and responsive measurements; excluded from Git. These lab results are not field guarantees or full WCAG certification. Reduced-motion and no-JavaScript fallback are implemented and source-reviewed; a real no-JavaScript form submission and mailbox notification delivery have not been verified. The Netlify preview review drawer conflicts with the preserved restrictive CSP; verify production independently for site errors.
-
-After merge, verify the deployed commit and custom domain, then record the result in the handoff. Repeat relevant tests after implementation changes.
+Lab scores are not field guarantees or a full WCAG certification. No-JavaScript and reduced-motion fallbacks are implemented and source-reviewed; native end-to-end form receipt and mailbox notification delivery are separate checks. Preview hosting may inject a review toolbar whose requests conflict with the site's restrictive CSP; do not weaken site security to accommodate that toolbar. QA files are excluded from Git. Live preview verification belongs in the final review record before approval. Production publication has not been authorized.

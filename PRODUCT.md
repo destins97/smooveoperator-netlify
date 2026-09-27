@@ -1,29 +1,16 @@
-# Product
+# SmooveOperator product contract
 
-## Platform
-web
+Purpose: present a developing marketplace commerce business as a credible prospective supplier customer. Audience: brands, manufacturers, distributors, wholesale account managers and business service providers.
 
-## Primary outcome
-A brand or supplier account manager can understand SmooveOperator within 15 to 30 seconds, find the supplier page immediately and submit a useful inquiry.
+Exact slogan: Wholesale, made Smoove.
+Direction: Premium Industrial Commerce. Existing Yellowtail gold wordmark and black/gold identity are protected.
 
-## Business truth
-Independent marketplace commerce and distribution business. Focus: documented sourcing, product evaluation, purchasing, inventory decisions, third-party preparation and marketplace fulfillment coordination. Seeking direct relationships with brands, manufacturers, wholesalers and authorized distributors. Amazon FBA is an important channel, not the company identity. Repeat purchasing depends on demand, availability and economics.
+Current approved facts: sourcing and purchasing focus, marketplace operations, developing direct supplier relationships, independent preparation and fulfillment providers, California seller's permit on file. No published permit number, personal details, operational leads, private purchase thresholds, claimed scale, employees, warehouses or distribution rights.
 
-## Protected identity
-Retain the Yellowtail gold cursive wordmark. Black and gold dominate. No em or en dashes in copy.
+Keep all 11 pages and the current Netlify Forms contract. Preserve accessibility, source-of-truth documents, sitemap, robots, canonical origin and security headers. Existing static Node/HTML/CSS/JavaScript stack.
 
-## Public facts and privacy
-California seller's permit on file is an existing approved public fact. No permit number, personal name, home address, government ID, business legal entity type, private email or phone is added. No fabricated partners, authorization, scale, history, warehouse, volume, performance or testimonials. Archived vending site is outside scope.
+Build from production 5a2ff52dd7cb6083b4b84f47565893d5a86761ce; recover visual strengths directly from aeec63eaa1ab06a96033a31059ade85237fe71ad. Preserved production reference: preserve/production-2026-09-27. Recovery branch: recovery/premium-industrial-commerce.
 
-## Technology
-Custom Node static build, HTML/CSS/JS, existing GitHub repository and Netlify project. Preserve existing URLs and /profile/. Netlify Forms is enabled as verified 2026-09-26. The existing form name is retained. No paid API, framework migration, DNS or email changes.
-
-## Release authorization
-The current user brief authorizes preview, finished commits and pushes, and production publication after verification. Earlier approval instructions were superseded by this explicit brief. Production branch main; baseline aeec63eaa1ab06a96033a31059ade85237fe71ad; deploy 6ab5521baa1f8400089c36fb.
-
-## Quality
-WCAG 2.2 AA target; 375, 390, 768, 1024 and 1440px; keyboard and no-JS fallbacks; honest form success and failure; no perpetual motion. Legal text requires owner/counsel review for business-specific obligations; website publication is not legal validation.
-
-## Locked homepage slogan
-The primary headline is exactly: Wholesale, made Smoove. Use Barlow 600 for Wholesale, made and the existing Yellowtail 400 wordmark font and gold gradient for Smoove. This explicit brand rule supersedes earlier hero wording and the wordmark-only script restriction. Other editorial headings remain Bodoni Moda.
-
+Authorized: source inspection, local work, testing, commits and a Netlify deploy preview on the existing project.
+Not authorized until the user says Ship it: merge to main or replace production.
+Never modify DNS, registrar, Google Workspace records or archived vending-machine files for this task.

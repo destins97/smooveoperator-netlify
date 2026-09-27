@@ -1,12 +1,12 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-09-27T05:53:04.921Z",
-  "title": "Design System: SmooveOperator",
+  "title": "Design System: SmooveOperator Premium Industrial Commerce",
   "extensions": {
     "typographyMeta": {
       "display": {
-        "displayName": "Bodoni Moda",
-        "purpose": "Editorial headings outside the locked Barlow and Yellowtail homepage slogan."
+        "displayName": "Barlow Condensed",
+        "purpose": "Recovered condensed display hierarchy, including the Wholesale, made headline."
       },
       "wordmark": {
         "displayName": "Yellowtail",
@@ -48,8 +48,16 @@
         "value": "430px"
       },
       {
+        "name": "max-700",
+        "value": "700px"
+      },
+      {
         "name": "max-760",
         "value": "760px"
+      },
+      {
+        "name": "max-900",
+        "value": "900px"
       },
       {
         "name": "max-1000",
@@ -61,7 +69,7 @@
       },
       {
         "name": "min-wide",
-        "value": "1600px"
+        "value": "1800px"
       }
     ],
     "gradients": [
@@ -230,7 +238,15 @@
         ]
       }
     },
-    "tonalRampNote": "Synthesized OKLCH ramps are panel previews only; they are not additional site CSS tokens."
+    "tonalRampNote": "Synthesized OKLCH ramps are panel previews only; they are not additional site CSS tokens.",
+    "recovery": {
+      "baseline": "5a2ff52dd7cb6083b4b84f47565893d5a86761ce",
+      "visualReference": "aeec63eaa1ab06a96033a31059ade85237fe71ad",
+      "direction": "Premium Industrial Commerce",
+      "productionGate": "User must explicitly say Ship it.",
+      "runtimeDependenciesAdded": [],
+      "authoritativeTokens": "DESIGN.md and the final recovery token block in public/assets/site.css"
+    }
   },
   "components": [
     {
@@ -239,7 +255,7 @@
       "refersTo": "button-primary",
       "description": "The primary supplier action.",
       "html": "<a class=\"ds-primary\" href=\"#supplier\">For brands &amp; suppliers <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M4 12h15M13 6l6 6-6 6\"/></svg></a>",
-      "css": ".ds-primary{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;display:inline-flex;align-items:center;gap:18px;min-height:50px;padding:13px 22px;background:var(--gold,#C5A028);color:var(--black,#0a0a0a);border:1px solid var(--gold,#C5A028);font-weight:500;line-height:1.4;text-decoration:none;transition:background 220ms cubic-bezier(.22,1,.36,1)}.ds-primary:hover{background:var(--gold-light,#e5c974)}.ds-primary:focus-visible{outline:2px solid var(--gold-light,#e5c974);outline-offset:5px}.ds-primary:active{transform:translateY(1px)}"
+      "css": ".ds-primary{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;display:inline-flex;align-items:center;gap:18px;min-height:50px;padding:13px 22px;background:var(--gold,#D9B24C);color:var(--black,#080807);border:1px solid var(--gold,#D9B24C);font-weight:500;line-height:1.4;text-decoration:none;transition:background 220ms cubic-bezier(.22,1,.36,1)}.ds-primary:hover{background:var(--gold-light,#e7cf8a)}.ds-primary:focus-visible{outline:2px solid var(--gold-light,#e7cf8a);outline-offset:5px}.ds-primary:active{transform:translateY(1px)}"
     },
     {
       "name": "Text Button",
@@ -247,7 +263,7 @@
       "refersTo": "button-text",
       "description": "Secondary editorial action.",
       "html": "<a class=\"ds-text\" href=\"#operations\">How we operate</a>",
-      "css": ".ds-text{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;display:inline-flex;align-items:center;min-height:50px;padding:13px 0;color:var(--text,#f0eee7);border-bottom:1px solid var(--control,#77796b);font-weight:500;text-decoration:none}.ds-text:hover{color:var(--gold-light,#e5c974);border-color:var(--gold,#C5A028)}.ds-text:focus-visible{outline:2px solid var(--gold-light,#e5c974);outline-offset:5px}.ds-text:active{transform:translateY(1px)}"
+      "css": ".ds-text{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;display:inline-flex;align-items:center;min-height:50px;padding:13px 0;color:var(--text,#f0ebde);border-bottom:1px solid var(--control,#84785d);font-weight:500;text-decoration:none}.ds-text:hover{color:var(--gold-light,#e7cf8a);border-color:var(--gold,#D9B24C)}.ds-text:focus-visible{outline:2px solid var(--gold-light,#e7cf8a);outline-offset:5px}.ds-text:active{transform:translateY(1px)}"
     },
     {
       "name": "Inquiry Input",
@@ -255,28 +271,28 @@
       "refersTo": "input",
       "description": "A labeled, fully bordered field.",
       "html": "<label class=\"ds-label\" for=\"ds-email\">Work email *</label><input class=\"ds-input\" id=\"ds-email\" type=\"email\" autocomplete=\"email\" required>",
-      "css": ".ds-label{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;display:block;color:var(--text,#f0eee7);font-weight:500;margin-bottom:9px}.ds-input{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;font-size:18px;line-height:1.45;width:100%;min-height:49px;padding:12px 14px;border:1px solid var(--control,#77796b);border-radius:0;background:var(--black,#0a0a0a);color:var(--text,#f0eee7)}.ds-input:focus-visible{outline:2px solid var(--gold-light,#e5c974);outline-offset:5px;outline-offset:3px}.ds-input[aria-invalid=true]{border-color:var(--error,#f3b4a8)}"
+      "css": ".ds-label{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;display:block;color:var(--text,#f0ebde);font-weight:500;margin-bottom:9px}.ds-input{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;font-size:18px;line-height:1.45;width:100%;min-height:49px;padding:12px 14px;border:1px solid var(--control,#84785d);border-radius:0;background:var(--black,#080807);color:var(--text,#f0ebde)}.ds-input:focus-visible{outline:2px solid var(--gold-light,#e7cf8a);outline-offset:5px;outline-offset:3px}.ds-input[aria-invalid=true]{border-color:var(--error,#f3b4a8)}"
     },
     {
       "name": "Navigation",
       "kind": "nav",
       "description": "Sentence-case links with current-page underline.",
       "html": "<nav class=\"ds-nav\" aria-label=\"Sample navigation\"><a href=\"#suppliers\" aria-current=\"page\">For suppliers</a><a href=\"#capabilities\">Capabilities</a></nav>",
-      "css": ".ds-nav{display:flex;gap:27px}.ds-nav a{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;font-size:16px;display:inline-flex;min-height:44px;align-items:center;color:var(--muted,#b0afa4);text-decoration:none}.ds-nav a:hover,.ds-nav a[aria-current=page]{color:var(--gold-light,#e5c974)}.ds-nav a[aria-current=page]{box-shadow:inset 0 -1px var(--gold,#C5A028)}.ds-nav a:focus-visible{outline:2px solid var(--gold-light,#e5c974);outline-offset:5px}"
+      "css": ".ds-nav{display:flex;gap:27px}.ds-nav a{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;font-size:16px;display:inline-flex;min-height:44px;align-items:center;color:var(--muted,#b7ae99);text-decoration:none}.ds-nav a:hover,.ds-nav a[aria-current=page]{color:var(--gold-light,#e7cf8a)}.ds-nav a[aria-current=page]{box-shadow:inset 0 -1px var(--gold,#D9B24C)}.ds-nav a:focus-visible{outline:2px solid var(--gold-light,#e7cf8a);outline-offset:5px}"
     },
     {
       "name": "Commerce Stage",
       "kind": "custom",
       "description": "Native disclosure exposes stage ownership before expansion.",
       "html": "<details class=\"ds-stage\" open><summary><span class=\"ds-number\">02</span><span>Evaluate<small>SmooveOperator</small></span></summary><p>We assess marketplace eligibility, channel permissions, demand and the full cost of an order.</p></details>",
-      "css": ".ds-stage{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;background:var(--surface,#111210);color:var(--text,#f0eee7);padding:12px}.ds-stage summary{display:flex;align-items:center;gap:18px;cursor:pointer;font-size:23px;line-height:1.25}.ds-number{display:grid;place-items:center;min-width:35px;height:35px;border:1px solid #9b8746;color:var(--gold-light,#e5c974);font-size:14px}.ds-stage[open] .ds-number{background:var(--gold,#C5A028);color:var(--black,#0a0a0a)}.ds-stage small{display:block;font-size:16px;color:var(--muted,#b0afa4)}.ds-stage p{font-size:16px;line-height:1.5;color:var(--muted,#b0afa4);padding-left:54px}.ds-stage summary:focus-visible{outline:2px solid var(--gold-light,#e5c974);outline-offset:5px}"
+      "css": ".ds-stage{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;background:var(--surface,#12110e);color:var(--text,#f0ebde);padding:12px}.ds-stage summary{display:flex;align-items:center;gap:18px;cursor:pointer;font-size:23px;line-height:1.25}.ds-number{display:grid;place-items:center;min-width:35px;height:35px;border:1px solid #9b8746;color:var(--gold-light,#e7cf8a);font-size:14px}.ds-stage[open] .ds-number{background:var(--gold,#D9B24C);color:var(--black,#080807)}.ds-stage small{display:block;font-size:16px;color:var(--muted,#b7ae99)}.ds-stage p{font-size:16px;line-height:1.5;color:var(--muted,#b7ae99);padding-left:54px}.ds-stage summary:focus-visible{outline:2px solid var(--gold-light,#e7cf8a);outline-offset:5px}"
     },
     {
       "name": "Capability Row",
       "kind": "custom",
       "description": "Open ruled row with a restrained hover surface.",
       "html": "<a class=\"ds-row\" href=\"#sourcing\"><span>Sourcing &amp; evaluation</span><p>Product fit, documented sources and channel permissions.</p></a>",
-      "css": ".ds-row{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;display:grid;grid-template-columns:1.1fr 1fr;gap:35px;padding:30px 0;border-block:1px solid var(--line,#34352b);color:var(--text,#f0eee7);text-decoration:none;transition:background 260ms cubic-bezier(.22,1,.36,1)}.ds-row span{font-size:25px;line-height:1.3}.ds-row p{margin:0;font-size:18px;color:var(--muted,#b0afa4)}.ds-row:hover{background:var(--raised,#191a16);color:var(--gold-light,#e5c974)}.ds-row:focus-visible{outline:2px solid var(--gold-light,#e5c974);outline-offset:5px}"
+      "css": ".ds-row{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;display:grid;grid-template-columns:1.1fr 1fr;gap:35px;padding:30px 0;border-block:1px solid var(--line,#393326);color:var(--text,#f0ebde);text-decoration:none;transition:background 260ms cubic-bezier(.22,1,.36,1)}.ds-row span{font-size:25px;line-height:1.3}.ds-row p{margin:0;font-size:18px;color:var(--muted,#b7ae99)}.ds-row:hover{background:var(--raised,#1c1912);color:var(--gold-light,#e7cf8a)}.ds-row:focus-visible{outline:2px solid var(--gold-light,#e7cf8a);outline-offset:5px}"
     }
   ],
   "narrative": {
