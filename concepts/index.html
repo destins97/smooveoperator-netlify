@@ -63,6 +63,14 @@ main{padding-block:clamp(40px,5vw,72px)}
 .foot h3{font-size:22px;margin-bottom:8px}
 .foot p{color:var(--muted);font-size:15.5px}
 @media (max-width:860px){.foot{grid-template-columns:minmax(0,1fr)}}
+.changes{margin-top:clamp(40px,5vw,64px);border:1px solid var(--line-gold);background:linear-gradient(180deg,rgba(255,192,0,.05),transparent 60%);padding:clamp(20px,3vw,36px)}
+.changes .mono{color:var(--gold-text)}
+.changes h2{font-size:clamp(28px,3vw,40px);margin:10px 0 22px}
+.changes ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 40px}
+.changes li{color:var(--muted);font-size:15.5px;padding-left:18px;position:relative}
+.changes li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:1px;background:var(--gold)}
+.changes li b{color:var(--text);font-weight:500}
+@media (max-width:760px){.changes ul{grid-template-columns:minmax(0,1fr)}}
 footer{border-top:1px solid var(--line);padding-block:36px;color:var(--dim);font-size:14px}
 /* Shared polish from the redesign and ui-ux-pro-max audits */
 html{scroll-padding-top:96px}
@@ -122,6 +130,19 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
       </a></li>
     </ol>
 
+
+    <section class="changes" aria-labelledby="chg">
+      <p class="mono">Version 2 &middot; Skill audit pass</p>
+      <h2 id="chg">What changed inside the concepts</h2>
+      <ul>
+        <li><b>Night Route:</b> shorter hero copy, one "Start a conversation" button with a nested arrow square, no "Stage 01" labels, smoother route line.</li>
+        <li><b>Prep Showroom:</b> "Open the carton" button in the hero, spec list regrouped by who does the work, carton stops spinning on its own.</li>
+        <li><b>Buying Ledger:</b> floating nav bar, criteria split into "Before the first order" and "Before every reorder", fake window dots removed.</li>
+        <li><b>Smoove Atelier:</b> floating nav bar, shorter intro, fewer small labels, cleaner certificate frame.</li>
+        <li><b>Constellation:</b> new heading font (Cormorant Garamond), shorter intro, form flags missing fields.</li>
+        <li><b>Every page:</b> brighter gray text for readability, subtle film grain, gentle fade-up as sections scroll in, gold favicon.</li>
+      </ul>
+    </section>
     <div class="foot">
       <div><h3>What they share</h3><p>True black ground, gold used for action and emphasis, square controls, generous space, and one signature interaction per page. That calm focus is the thread running through every reference you sent.</p></div>
       <div><h3>How to read the scores</h3><p>Wow is visual impact. Supplier fit is how well the direction serves your main goal: a brand rep deciding in 30 seconds whether to answer your email.</p></div>
