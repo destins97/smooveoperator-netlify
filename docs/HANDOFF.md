@@ -6,7 +6,7 @@ Existing static Node build, GitHub repository and Netlify project retained. No f
 
 Primary opening headline: Wholesale, made Smoove.
 
-Wholesale, made uses Barlow 600. Smoove uses the exact existing self-hosted Yellowtail font and gold gradient from the protected logo. Never replace the slogan. Other editorial headings use Bodoni Moda. Preserve black and gold.
+Approved treatment (owner decision, 2026-09-27): WHOLESALE, MADE in compressed all caps, Smoove in the protected Yellowtail font in gold with the neon glow, and compressed all caps for other headings, per `concepts/night-route.html`. Production still uses Barlow 600 for Wholesale, made and Bodoni Moda headings until the Night Route redesign ships. Never replace the slogan wording. Preserve black and gold.
 
 ## Content truth
 
