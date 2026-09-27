@@ -14,8 +14,8 @@ Supplier credibility leads. Distinguish commercial decisions from physical work 
 
 ## Maintenance
 
-src/pages.mjs owns pages. src/commerce.mjs owns the pathway and inquiry form. The Night Route homepage (hero, spec strip, route and partnership outline) lives in `home()` in src/pages.mjs; its behavior (light trails, route observer, outline and suppliers prefill) is in site.js. src/components.mjs owns navigation/footer. public/assets/site.css and site.js own styling and enhancement. scripts/assets.mjs regenerates the social image and profile PDF. Read DESIGN.md, docs/BRAND.md, docs/TESTING.md and docs/DEPLOYMENT.md.
+src/pages.mjs owns pages. src/commerce.mjs owns the pathway and inquiry form. The Night Route homepage (hero, spec strip, route and partnership outline) lives in `home()` in src/pages.mjs; its behavior (light trails, route observer, outline and suppliers prefill) is in site.js. src/components.mjs owns navigation/footer. public/assets/site.css and site.js own styling and enhancement. scripts/assets.mjs regenerates the profile PDF. The 1200x630 link preview image is authored in scripts/social-card.html and rendered with scripts/render-social-card.mjs (needs Playwright locally); build.mjs adds a content hash to og:image so link previews refresh. Read DESIGN.md, docs/BRAND.md, docs/TESTING.md and docs/DEPLOYMENT.md.
 
-Run npm run assets after profile/social content changes, then npm run build and npm test. Always render the PDF to inspect it; text extraction alone missed invisible WOFF2 fonts. Inquiries are available in Netlify Forms. Mailbox notifications have not been verified.
+Run npm run assets after profile content changes and node scripts/render-social-card.mjs after social card changes, then npm run build and npm test. Always render the PDF to inspect it; text extraction alone missed invisible WOFF2 fonts. Inquiries are available in Netlify Forms. Mailbox notifications have not been verified.
 
 The current user brief authorizes verified production publishing and supersedes historical preview-only instructions. No DNS, registrar or Google Workspace records were changed.
