@@ -30,11 +30,11 @@ const contact=await readFile('dist/contact/index.html','utf8');
 check(contact.includes('name="supplier-fit-check"')&&contact.includes('data-netlify="true"'),'Netlify detection markup');
 check(contact.includes('netlify-honeypot="bot-field"')&&contact.includes('name="bot-field"'),'Spam honeypot');
 check(contact.includes('name="form-name" value="supplier-fit-check"'),'Form name for AJAX posts');
-for(const name of ['name','company','email','phone','brands','message']){
+for(const name of ['name','company','email','phone','brands','message','inquiry']){
   check(contact.includes(`name="${name}"`),`${name} is submitted`);
   check(contact.includes(`for="fc-${name}"`),`${name} has a label`);
 }
-for(const name of ['role','channels','map_policy','opening_minimum','source','subject'])check(contact.includes(`name="${name}"`),`${name} is submitted`);
+for(const name of ['channels','opening_minimum','source','subject'])check(contact.includes(`name="${name}"`),`${name} is submitted`);
 const js=await readFile('public/assets/site.js','utf8');
 check(/fetch\('\/',\{method:'POST'/.test(js),'Posts to the Netlify form endpoint');
 check(js.includes("'Content-Type':'application/x-www-form-urlencoded'"),'URL-encoded body, as Netlify requires');
@@ -44,7 +44,7 @@ for(const page of pages){
   const file=page.path==='/404/'?'dist/404.html':`dist${page.path}index.html`;
   const html=await readFile(file,'utf8');
   check(!/[\u2013\u2014]/.test(html),`${page.path}: no en or em dashes in copy`);
-  check(!/amazon|\bFBA\b/i.test(html),`${page.path}: no marketplace trademarks`);
+  check(!/authorized reseller|guaranteed sales|trusted by thousands/i.test(html),`${page.path}: no unsupported claims`);
   check(!/fonts\.googleapis/.test(html),`${page.path}: fonts are self-hosted`);
 }
 check((await stat('dist/assets/smooveoperator-reseller-profile.pdf')).size>10000,'Reseller profile PDF ships');

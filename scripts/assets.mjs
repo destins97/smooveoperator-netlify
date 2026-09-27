@@ -1,43 +1,23 @@
-// Regenerates the reseller profile PDF, its on-page preview and the social card from the built site.
-// Dev-only: needs Playwright + Chromium (not used by the Netlify build).
-// Usage: npm run build && npm run dev (in another shell) && node scripts/assets.mjs
-import {createRequire} from 'node:module';
-import {execSync} from 'node:child_process';
-const require=createRequire(import.meta.url);
-const {chromium}=require(process.env.PLAYWRIGHT_PATH||execSync('npm root -g').toString().trim()+'/playwright');
-const base=process.env.PREVIEW_URL||'http://localhost:4173';
-const b=await chromium.launch();
-const p=await b.newPage();
-await p.goto(base+'/profile/',{waitUntil:'networkidle'});await p.evaluate(()=>document.fonts.ready);
-await p.emulateMedia({media:'print'});
-await p.pdf({path:'public/assets/smooveoperator-reseller-profile.pdf',format:'Letter',printBackground:true,margin:{top:'0.5in',bottom:'0.5in',left:'0.5in',right:'0.5in'},pageRanges:'1'});
-// Preview of the real profile sheet for the home page's Paperwork section, encoded as WebP by the browser itself.
-const v=await b.newPage({viewport:{width:1000,height:1400},deviceScaleFactor:1,reducedMotion:'reduce'});
-await v.goto(base+'/profile/',{waitUntil:'networkidle'});await v.evaluate(()=>document.fonts.ready);
-const png=(await v.locator('#profile-sheet').screenshot()).toString('base64');
-const webp=await v.evaluate(async src=>{const i=new Image();i.src=src;await i.decode();const w=880,h=Math.round(i.height*w/i.width),c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');x.imageSmoothingQuality='high';x.drawImage(i,0,0,w,h);return {data:c.toDataURL('image/webp',.84).split(',')[1],w,h};},'data:image/png;base64,'+png);
-const {writeFile}=await import('node:fs/promises');await writeFile('public/assets/profile-preview.webp',Buffer.from(webp.data,'base64'));
-console.log(`profile-preview.webp ${webp.w}x${webp.h}`);
-const s=await b.newPage({viewport:{width:1200,height:630}});
-// A composed card, not a page crop: the logo, the headline and the route line, set with the site's own styles and fonts.
-await s.goto(base+'/',{waitUntil:'networkidle'});
-await s.evaluate(()=>{
-  document.documentElement.classList.remove('js');
-  document.body.innerHTML=`<div class="card flapfield"><span class="wordmark">Smoove Operator</span><h1>Wholesale, made <span class="script">smoove.</span></h1><ol class="card-route"><li class="is-ours"><i></i>Source</li><li><i></i>Prepare</li><li><i></i>Fulfill</li><li><i></i>Reach</li></ol></div>`;
-  const st=document.createElement('style');st.textContent=`
-    body{margin:0;background:var(--black)}
-    .card{width:1200px;height:630px;padding:56px 72px;display:grid;grid-template-rows:auto 1fr auto;border-bottom:6px solid var(--gold)}
-    .card .wordmark{font-size:44px;justify-self:start}
-    .card h1{align-self:center;margin:0;font:700 128px/.86 var(--cond);text-transform:uppercase;color:var(--text)}
-    .card h1 .script{display:block;font:400 138px/1.02 var(--script);text-transform:none;color:var(--gold);margin-top:-.12em}
-    .card-route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);position:relative;max-width:760px}
-    .card-route::before{content:"";position:absolute;left:11px;right:calc(25% - 11px);top:9px;height:4px;background:var(--gold)}
-    .card-route li{display:flex;flex-direction:column;gap:12px;font:700 26px/1 var(--cond);letter-spacing:.12em;text-transform:uppercase;color:var(--text);position:relative}
-    .card-route i{width:22px;height:22px;border-radius:50%;background:var(--black);border:4px solid var(--gold);box-sizing:border-box}
-    .card-route .is-ours i{background:var(--gold)}`;
-  document.head.appendChild(st);
-});
-await s.evaluate(()=>document.fonts.ready);await s.waitForTimeout(400);
-await s.screenshot({path:'public/assets/social-card.png'});
-await b.close();
-console.log('Wrote the reseller profile PDF, profile-preview.webp and social-card.png in public/assets');
+import {readFile,writeFile} from 'node:fs/promises';
+import fontkit from '@pdf-lib/fontkit';
+import {PDFDocument,rgb} from 'pdf-lib';
+import {Resvg} from '@resvg/resvg-js';
+const files={script:'public/fonts/Yellowtail-normal.woff2',body:'public/fonts/Barlow-400.woff2',display:'public/fonts/BodoniModa-400.woff2'};
+const bytes=Object.fromEntries(await Promise.all(Object.entries(files).map(async([k,p])=>[k,await readFile(p)])));
+const fonts=Object.fromEntries(Object.entries(bytes).map(([k,b])=>[k,fontkit.create(b)]));
+function outline(text,font,size,x,y,color){const run=fonts[font].layout(text),scale=size/fonts[font].unitsPerEm;let cursor=0;return `<g fill="${color}" transform="translate(${x} ${y}) scale(${scale} ${-scale})">${run.glyphs.map((g,i)=>{const p=run.positions[i],s=`<path transform="translate(${cursor+p.xOffset} ${p.yOffset})" d="${g.path.toSVG()}"/>`;cursor+=p.xAdvance;return s;}).join('')}</g>`;}
+let svg=`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"><rect width="1200" height="630" fill="#0a0a0a"/><path d="M68 115H1132M68 533H1132" stroke="#34352b"/>${outline('Smoove Operator','script',45,68,82,'#D4AF37')}${outline('Commerce, carefully','display',76,68,239,'#f0eee7')}${outline('connected.','display',88,68,339,'#e5c974')}${outline('Independent marketplace commerce.','body',28,71,411,'#b0afa4')}${outline('For brands, wholesalers and suppliers.','body',28,71,455,'#b0afa4')}${outline('smoove-operator.com','body',24,71,580,'#e5c974')}<path d="M1060 580h65m-17-17 17 17-17 17" stroke="#C5A028" stroke-width="2" fill="none"/></svg>`;
+await writeFile('public/assets/social-card.png',new Resvg(svg).render().asPng());
+const pdf=await PDFDocument.create();pdf.registerFontkit(fontkit);
+const pf={};for(const[k,b]of Object.entries(bytes))pf[k]=await pdf.embedFont(b,{subset:true});
+const page=pdf.addPage([612,792]);page.drawRectangle({x:0,y:0,width:612,height:792,color:rgb(.04,.04,.04)});
+const gold=rgb(.83,.69,.22),text=rgb(.94,.93,.9),muted=rgb(.69,.69,.65);
+page.drawText('Smoove Operator',{x:48,y:720,size:36,font:pf.script,color:gold});
+page.drawText('Business profile',{x:48,y:680,size:26,font:pf.display,color:text});
+let y=643;
+const rows=[['BUSINESS','Independent marketplace commerce and distribution.'],['COMMERCIAL ROLE','Product sourcing, purchasing, marketplace evaluation and inventory decisions.'],['SUPPLIER RELATIONSHIPS','Seeking brands, manufacturers, wholesalers and authorized distributors.'],['PHYSICAL OPERATIONS','Independent preparation providers and marketplace fulfillment networks. No company-operated warehouse.'],['PURCHASING APPROACH','Evaluate product eligibility, documented sources, channel requirements, demand and total costs. Repeat purchasing depends on observed performance, availability and economics.'],['DOCUMENTATION','California seller’s permit on file. Appropriate resale documentation is shared directly during account applications.'],['CONTACT','smoove-operator.com/contact/']];
+for(const [title,body]of rows){page.drawLine({start:{x:48,y:y+5},end:{x:564,y:y+5},color:rgb(.21,.21,.17),thickness:.5});y-=18;page.drawText(title,{x:48,y,size:10,font:pf.body,color:gold});y-=21;let line='';for(const word of body.split(' ')){const t=line?line+' '+word:word;if(pf.body.widthOfTextAtSize(t,12)>505){page.drawText(line,{x:48,y,size:12,font:pf.body,color:text});y-=17;line=word;}else line=t;}page.drawText(line,{x:48,y,size:12,font:pf.body,color:text});y-=32;}
+page.drawText('September 2026. No marketplace endorsement or purchasing commitment is implied.',{x:48,y:42,size:9,font:pf.body,color:muted});
+await writeFile('public/assets/smooveoperator-reseller-profile.pdf',await pdf.save());
+await writeFile('public/assets/social-card.png.json',JSON.stringify({origin:'Authored vector typography, rendered with Resvg. Existing Yellowtail and Barlow plus Google Fonts Bodoni Moda. No generated or stock image.',generator:'scripts/assets.mjs',width:1200,height:630},null,2));
+console.log('Generated 1200x630 social card and one-page current business profile.');
