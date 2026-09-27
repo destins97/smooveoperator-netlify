@@ -130,7 +130,7 @@ Error color is reserved for validation and submission failures. Success uses gol
 
 ## Typography
 
-Archivo is self-hosted as one variable file (`/fonts/Archivo-var.woff2`, weights 100 to 900, widths 62% to 125%, SIL OFL in `Archivo-OFL.txt`). Headings use it at 62% width, weight 500, uppercase. Body copy, controls and labels use it at normal width. Yellowtail is self-hosted at 400 and reserved for the wordmark and the Smoove in the slogan. All files use font-display swap; only Archivo and Yellowtail are preloaded. Bodoni Moda and Barlow files remain in `/fonts` but are no longer referenced.
+Archivo is self-hosted as one variable file (`/fonts/Archivo-var.woff2`, weights 100 to 900, widths 62% to 125%, SIL OFL in `Archivo-OFL.txt`). Headings use it at 62% width, weight 500, uppercase. Body copy, controls and labels use it at normal width. Yellowtail is self-hosted at 400 and reserved for the wordmark and the Smoove in the slogan. All files use font-display swap; only Archivo and Yellowtail are preloaded. The previous Bodoni Moda and Barlow files have been removed.
 
 The frontmatter captures desktop roles. The homepage hero slogan uses `clamp(64px,11.4vw,184px)` at 0.9 line height. Below 760px, section headings use `clamp(40px,10vw,60px)` and page headings `clamp(50px,12vw,80px)`, 52px below 430px. The wordmark becomes 31px below 1100px and 29px below 430px.
 

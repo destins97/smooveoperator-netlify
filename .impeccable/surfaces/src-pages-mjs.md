@@ -4,7 +4,7 @@ Mode: Persuade. Target: src/pages.mjs, src/commerce.mjs, src/components.mjs, pub
 
 ## Direction contract
 THESIS: A commerce operator whose clarity earns a supplier reply. Replace the loud departures board with an editorial business presentation.
-OWN-WORLD: Near-black #0a0a0a, charcoal surfaces, matte gold #C5A028, restrained #D4AF37, warm readable copy. Bodoni Moda display, Barlow body, protected Yellowtail wordmark. Open editorial columns, thin structural rules, square controls.
+OWN-WORLD (Night Route, live 2026-09-27): absolute black #000000, neutral charcoal surfaces, Lamborghini gold #FFC000 with #FFCE3E hover, neon Yellowtail wordmark, compressed Archivo capital headings, near-white readable copy.
 STORY: Identify the business, inspect the product journey and responsibilities, understand supplier fit, send an introduction.
 FIRST VIEWPORT: Large three-line commerce statement on left, plain-language business description and supplier CTA below. On the right, an interactive source-to-customer pathway with native details and visible responsible parties.
 FORM: Code-led, per the brief's explicit autonomy and diagram preference. Seed 4d1404e5 ran; brief-pinned editorial luxury overrides unrelated catalog challengers and random choices. No raster concept is necessary for this semantic operating diagram.

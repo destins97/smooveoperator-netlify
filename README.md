@@ -1,10 +1,10 @@
 # SmooveOperator
 
-A supplier-first website for an independent marketplace commerce and distribution business. Editorial black and gold, the protected Yellowtail wordmark, Bodoni Moda headings and Barlow body text explain sourcing, purchasing and inventory decisions alongside independent preparation and fulfillment roles.
+A supplier-first website for an independent marketplace commerce and distribution business. The Night Route design (absolute black, Lamborghini gold, the protected neon Yellowtail wordmark, compressed Archivo capitals and a light-trail homepage) explains sourcing, purchasing and inventory decisions alongside independent preparation and fulfillment roles.
 
 ## Run locally
 
-Use Node.js 22 or newer. There are no browser framework or runtime package dependencies. Development dependencies support tests and asset generation.
+Use Node.js 22 or newer. There are no browser framework or runtime package dependencies. Development dependencies support tests. Regenerating the social card and profile PDF uses Playwright, installed locally only when needed.
 
 ```sh
 npm ci
@@ -13,7 +13,7 @@ npm test
 npm run dev
 ```
 
-Open http://localhost:4173. The server rebuilds on startup; restart after source changes. Local POST requests deliberately return HTTP 503 because the preview server cannot confirm Netlify Forms delivery. `npm run assets` generates supporting artwork and the downloadable profile. This README documents implementation and commands, not a completed QA run.
+Open http://localhost:4173. The server rebuilds on startup; restart after source changes. Local POST requests deliberately return HTTP 503 because the preview server cannot confirm Netlify Forms delivery. `npm run assets` renders the link preview image and the business profile PDF from HTML sources in `scripts/` (requires `npm i --no-save playwright && npx playwright install chromium`). This README documents implementation and commands, not a completed QA run.
 
 ## Source map
 
@@ -24,10 +24,12 @@ Open http://localhost:4173. The server rebuilds on startup; restart after source
 | `src/pages.mjs` | Copy, page metadata and composition |
 | `src/boot.mjs` | Initial browser enhancement bootstrap |
 | `public/assets/site.css` | Tokens, typography, responsive layout and states |
-| `public/assets/site.js` | Menu, route entrance, attribution and enhanced submission |
-| `public/fonts/` | Local Bodoni Moda, Barlow and Yellowtail files |
+| `public/assets/site.js` | Menu, light trails, route observer, partnership outline, profile viewer, attribution and enhanced submission |
+| `public/fonts/` | Local Archivo variable font and Yellowtail, with licenses |
 | `scripts/build.mjs` | Static HTML, hashed asset references, sitemap and robots |
 | `scripts/serve.mjs` | Local preview with deliberate POST failure |
+| `scripts/social-card.html`, `scripts/profile.html` | Sources for the link preview image and the business profile PDF |
+| `scripts/render-assets.mjs` | Renders both sources in Chromium |
 | `scripts/check.mjs` | Static release checks |
 | `scripts/test-form.mjs` | Form behavior tests |
 | `netlify.toml` | Hosting, redirects and headers |
@@ -38,13 +40,13 @@ The build declares 11 pages. The not-found page is also written as `/404.html` f
 
 | URL | Purpose |
 | --- | --- |
-| `/` | Identity, product journey and supplier invitation |
+| `/` | Light-trail hero, spec strip, five-stage route and the partnership outline |
 | `/suppliers/` | Fit, responsibilities, practical questions and inquiry |
 | `/capabilities/` | Sourcing, marketplace operations, coordination and replenishment |
 | `/operations/` | Inspectable product journey and commercial decisions |
 | `/about/` | Current focus and future direction |
 | `/contact/` | Brief introduction with optional product details |
-| `/profile/` | Business facts and downloadable profile |
+| `/profile/` | Business facts and the profile PDF in an on-page viewer |
 | `/privacy/` | Privacy notice |
 | `/terms/` | Website terms |
 | `/thank-you/` | Native form return page, noindex |

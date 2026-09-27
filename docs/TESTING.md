@@ -30,3 +30,10 @@ Local mobile homepage and contact initially scored 99 Performance, 100 Accessibi
 Local qa-artifacts contains screenshots, Lighthouse JSON and responsive measurements; excluded from Git. These lab results are not field guarantees or full WCAG certification. Reduced-motion and no-JavaScript fallback are implemented and source-reviewed; a real no-JavaScript form submission and mailbox notification delivery have not been verified. The Netlify preview review drawer conflicts with the preserved restrictive CSP; verify production independently for site errors.
 
 After merge, verify the deployed commit and custom domain, then record the result in the handoff. Repeat relevant tests after implementation changes.
+
+## Finishing pass, 2026-09-27
+
+- Lighthouse 13 (local build, production CSP, simulated throttling). Mobile: home 95 performance after deferring the light-trail drawing to idle time (was 72), suppliers 99, profile 100. Desktop: home 95, suppliers 100, profile 100. Accessibility, Best Practices and SEO 100 on every audited page and form factor. CLS 0 everywhere.
+- Business profile PDF re-rendered in Chromium from scripts/profile.html and inspected as a rendered image (PyMuPDF): one US Letter page, Archivo and Yellowtail visibly rendered, black and gold.
+- Favicon redrawn as a path-based neon Yellowtail S, independent of installed fonts.
+- All 11 routes rechecked at 1440 and 390 CSS pixels under the production CSP: no console errors, no horizontal overflow. Outline prefill and profile viewer fallback (new tab when the browser reports no inline PDF viewer) verified.
