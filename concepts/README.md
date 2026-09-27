@@ -7,7 +7,7 @@ These files live outside `src/` and `public/`, so the Netlify build does not pub
 | File | Direction |
 | --- | --- |
 | `atelier.html` | Generative art platform: AI art preview, style gallery, creator tools, minting flow |
-| `night-route.html` | Cinematic light trails, spec strip, scroll route, relationship configurator |
+| `night-route.html` | Cinematic light trails, spec strip, scroll route, partnership outline |
 | `constellation.html` | Orbital map of supplier and partner relationships |
 | `ledger.html` | Live buy decision instrument and example purchase order |
 | `prep-showroom.html` | Rising sun hero, exploded 3D carton, prep specification sheet |

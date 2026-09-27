@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="dark">
 <title>Night Route</title>
-<meta name="description" content="Night Route: a cinematic SmooveOperator concept with gold light trails, the five stage commerce route and a supplier relationship configurator.">
+<meta name="description" content="Night Route: a cinematic SmooveOperator concept with gold light trails, the five stage commerce route and a space to shape a supplier partnership.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='46' fill='%23FFC000'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,7 +100,7 @@ section{padding-block:clamp(72px,9vw,140px)}
 .stage p{margin-top:16px;color:var(--ash);max-width:54ch}
 @media (max-width:900px){.route{grid-template-columns:minmax(0,1fr)}.route-sticky{position:static}.big-n{display:none}}
 
-/* Configurator */
+/* Partnership outline */
 .config{background:var(--iron);border-block:1px solid var(--line)}
 .cfg-head{display:flex;flex-direction:column;gap:18px;max-width:900px;margin-bottom:48px}
 .cfg-head h2{font-size:clamp(48px,6.4vw,104px)}
@@ -150,9 +150,9 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
 <body>
 <header class="top">
   <div class="wrap bar">
-    <div class="left"><a class="lnk dim" href="./">All concepts</a><a class="lnk" href="#route">The route</a><a class="lnk" href="#configure">Configure</a></div>
+    <div class="left"><a class="lnk dim" href="./">All concepts</a><a class="lnk" href="#route">The route</a><a class="lnk" href="#partner">Partner with us</a></div>
     <a class="logo" href="./" aria-label="Smoove Operator, all concepts">Smoove Operator</a>
-    <div class="right"><a class="lnk keep" href="#configure" style="color:var(--gold)">Start a conversation</a></div>
+    <div class="right"><a class="lnk keep" href="#partner" style="color:var(--gold)">Start a conversation</a></div>
   </div>
 </header>
 
@@ -168,7 +168,7 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
     <div class="hero-row">
       <p>We buy from brands and authorized distributors, and move every unit through documented, independent prep and fulfillment.</p>
       <div class="ctas">
-        <a class="btn" href="#configure">Start a conversation <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
+        <a class="btn" href="#partner">Start a conversation <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
         <a class="btn ghost" href="#route">See the route</a>
       </div>
     </div>
@@ -200,11 +200,11 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
   </div>
 </section>
 
-<section class="config" id="configure">
+<section class="config" id="partner">
   <div class="wrap">
     <div class="cfg-head">
-      <div><p class="cap" style="color:var(--gold)">Start configuration</p><h2 class="xc">Configure a relationship.</h2></div>
-      <p>Tell us the shape of the account you have in mind. The build sheet on the right becomes the first message of our conversation.</p>
+      <div><p class="cap" style="color:var(--gold)">Start a partnership</p><h2 class="xc">Shape the partnership.</h2></div>
+      <p>Tell us what a good account looks like to you. The outline on the right becomes the first message of our conversation.</p>
     </div>
     <form class="cfg" id="cfg">
       <div class="opts">
@@ -224,8 +224,8 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
         </div></fieldset>
       </div>
       <div class="sheet">
-        <p class="cap">Build sheet</p>
-        <h3>Your configuration</h3>
+        <p class="cap">Partnership outline</p>
+        <h3>What you have in mind</h3>
         <dl>
           <dt>Partner</dt><dd id="sWho"></dd>
           <dt>Channel</dt><dd id="sCh"></dd>
@@ -233,7 +233,7 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
           <dt>Prep</dt><dd>Independent provider</dd>
         </dl>
         <p class="msg"><span class="cap">First message preview</span><span id="sMsg"></span></p>
-        <button class="btn" type="submit">Send build sheet <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></button>
+        <button class="btn" type="submit">Send outline <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></button>
         <p class="sent" id="sent" aria-live="polite"></p>
       </div>
     </form>
@@ -286,14 +286,14 @@ function paint(){let cur=-1;stages.forEach((st,i)=>{const on=onSet.has(i);st.cla
 const sio=new IntersectionObserver(es=>{es.forEach(e=>{const i=stages.indexOf(e.target);const past=e.isIntersecting||e.boundingClientRect.bottom<(e.rootBounds?e.rootBounds.top:0);past?onSet.add(i):onSet.delete(i);});paint();},{rootMargin:'0px 0px -45% 0px'});
 stages.forEach(st=>sio.observe(st));paint();
 
-// Configurator
+// Partnership outline
 const f=document.getElementById('cfg');
 function sync(){const d=new FormData(f);const who=d.get('who'),ch=d.get('ch'),cad=d.get('cad');
   const $=id=>document.getElementById(id);$('sWho').textContent=who;$('sCh').textContent=ch;$('sCad').textContent=cad;
   const art=/^[AEIOU]/.test(who)?'an':'a';
   $('sMsg').textContent=`Hello SmooveOperator. I represent ${art} ${who.toLowerCase()} and would like to discuss an account. Channel: ${ch.toLowerCase()}. Cadence: ${cad.toLowerCase()}. Please send your reseller profile and let me know what documentation you need from us.`;}
 f.addEventListener('change',sync);sync();
-f.addEventListener('submit',e=>{e.preventDefault();document.getElementById('sent').textContent='Prototype: in the live site this opens the supplier form with your build sheet attached. Nothing was sent.';});
+f.addEventListener('submit',e=>{e.preventDefault();document.getElementById('sent').textContent='Prototype: in the live site this opens the supplier form with your outline attached. Nothing was sent.';});
 })();
 </script>
 </body>
