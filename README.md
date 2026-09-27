@@ -1,10 +1,10 @@
 # SmooveOperator
 
-A restrained charcoal-and-brass website for a developing commerce and marketplace operations business. Replaces the prior ATM/vending website while preserving the dark-and-gold brand direction. No claims of established wholesale relationships, scale, warehouses, or marketplace affiliation are made.
+A supplier-first website for an independent marketplace commerce and distribution business. Editorial black and gold, the protected Yellowtail wordmark, Bodoni Moda headings and Barlow body text explain sourcing, purchasing and inventory decisions alongside independent preparation and fulfillment roles.
 
-## Run
+## Run locally
 
-Node.js 22 or newer. There are no runtime or development dependencies.
+Use Node.js 22 or newer. There are no browser framework or runtime package dependencies. Development dependencies support tests and asset generation.
 
 ```sh
 npm ci
@@ -13,48 +13,63 @@ npm test
 npm run dev
 ```
 
-Open `http://localhost:4173`. The preview server rebuilds on startup; restart after source changes. Local form POST requests deliberately fail with HTTP 503 because only Netlify can confirm real delivery.
+Open http://localhost:4173. The server rebuilds on startup; restart after source changes. Local POST requests deliberately return HTTP 503 because the preview server cannot confirm Netlify Forms delivery. `npm run assets` generates supporting artwork and the downloadable profile. This README documents implementation and commands, not a completed QA run.
 
-## Structure
+## Source map
 
-```text
-src/components.mjs       Shared navigation, buttons, cards, headings, diagram, form, footer
-src/pages.mjs            All page copy and page compositions
-public/assets/site.css   Responsive layouts and design tokens
-public/assets/site.js    Progressive navigation, reveals, contact interaction
-public/assets/social-card.png  1200 × 630 social-sharing artwork
-scripts/build.mjs        Static HTML, sitemap, robots generation
-scripts/serve.mjs        Local preview, honest form failure behavior
-scripts/check.mjs        Content, links, SEO, and contact-state verification
-netlify.toml            Build, redirects, security headers
-docs/                   Brand, deployment, testing, and handoff
-```
+| Path | Responsibility |
+| --- | --- |
+| `src/components.mjs` | Shared buttons, navigation, wordmark, footer and escaping |
+| `src/commerce.mjs` | Native-details commerce pathway, principles, invitation and inquiry form |
+| `src/pages.mjs` | Copy, page metadata and composition |
+| `src/boot.mjs` | Initial browser enhancement bootstrap |
+| `public/assets/site.css` | Tokens, typography, responsive layout and states |
+| `public/assets/site.js` | Menu, route entrance, attribution and enhanced submission |
+| `public/fonts/` | Local Bodoni Moda, Barlow and Yellowtail files |
+| `scripts/build.mjs` | Static HTML, hashed asset references, sitemap and robots |
+| `scripts/serve.mjs` | Local preview with deliberate POST failure |
+| `scripts/check.mjs` | Static release checks |
+| `scripts/test-form.mjs` | Form behavior tests |
+| `netlify.toml` | Hosting, redirects and headers |
 
 ## Page map
 
+The build declares 11 pages. The not-found page is also written as `/404.html` for hosting.
+
 | URL | Purpose |
 | --- | --- |
-| `/` | Brand positioning, capabilities, operating flow, principles |
-| `/about/` | Current business focus and future direction |
-| `/capabilities/` | Four developing operational focus areas |
-| `/operations/` | Sourcing, third-party prep, fulfillment, replenishment approach |
-| `/suppliers/` | Supplier introductions, expectations, practical questions |
-| `/contact/` | Business inquiry form |
-| `/privacy/` | Clearly labeled draft privacy notice |
-| `/terms/` | Clearly labeled draft website terms |
-| `/thank-you/` | Native form submission return page; noindex |
-| `/404.html` | Useful not-found page; noindex |
+| `/` | Identity, product journey and supplier invitation |
+| `/suppliers/` | Fit, responsibilities, practical questions and inquiry |
+| `/capabilities/` | Sourcing, marketplace operations, coordination and replenishment |
+| `/operations/` | Inspectable product journey and commercial decisions |
+| `/about/` | Current focus and future direction |
+| `/contact/` | Brief introduction with optional product details |
+| `/profile/` | Business facts and downloadable profile |
+| `/privacy/` | Privacy notice |
+| `/terms/` | Website terms |
+| `/thank-you/` | Native form return page, noindex |
+| `/404/` | Recovery page, noindex |
 
-Legacy `/privacy.html` and `/terms.html` paths redirect to their new locations.
+## Forms and progressive enhancement
 
-## Architecture decision
+The retained Netlify form name is `supplier-fit-check`. Supplier and contact pages share a continuous form. Inquiry type, name, email and message are required. Company and phone are optional; native details holds optional product and order information. Sensitive identity and financial documents are not requested.
 
-The original repository was static HTML/CSS/JS. This rebuild keeps browser delivery static and uses small Node modules to compose reusable components during the build. Astro was considered; with no requested interactive application or content CMS, it would add a dependency without changing the delivered experience. Pages, content, and CSS are already separated and can be migrated into Astro components if that becomes useful. Add future authenticated tools under a separate `/portal/` or `/tools/` application with server-side authorization; never protect private supplier data through client-only routing.
+Without JavaScript, navigation remains visible, disclosures work, and forms post natively with `/thank-you/` as the return destination. Enhanced submission validates, focuses the first invalid field and posts URL-encoded data to `/`. A successful HTTP response confirms receipt and resets answers. Failure or a 15-second timeout preserves answers. Actual hosted delivery requires separate verification.
 
-No remote fonts, icon libraries, animation libraries, tracking scripts, or images are needed at runtime. The hero is an accessible operational diagram, not a photograph implying company-owned infrastructure. Arial/Helvetica provides fast and dependable typography; Georgia adds an editorial accent.
+Optional attribution accepts `ref`, `src` or `utm_campaign`, restricts it to letters, digits, underscore, period and hyphen, and limits it to 64 characters. Session storage retains it for inquiries in that tab session. No paid API or browser analytics integration is required.
 
-## Configuration
+## Configuration and architecture
 
-No API keys are required. `SITE_URL` is optional and must be the verified production origin. Its default is the existing `https://smooveoperator.netlify.app`; if omitted on Netlify, Netlify's `URL` is used first. It controls canonical URLs, sitemap, social metadata, and organization markup. `CONTEXT=deploy-preview` or `branch-deploy` makes the build noindex and blocks crawling. `PORT` changes the local preview port.
+`SITE_URL` controls canonicals, sitemap, sharing metadata and organization markup. Priority is `SITE_URL`, then Netlify's `URL`, then `https://smoove-operator.com`. Use the verified origin. `CONTEXT=deploy-preview` or `CONTEXT=branch-deploy` produces noindex pages and blocks crawling. `PORT` controls the local preview port.
 
-Before launch, follow [Deployment](docs/DEPLOYMENT.md) and [Testing](docs/TESTING.md). Brand decisions are in [Brand system](docs/BRAND.md). All public copy is in `src/pages.mjs` and `src/components.mjs`.
+Delivery remains static HTML, CSS and JavaScript with local fonts and inline SVG arrows. No framework migration, paid API, DNS change or email change is required. The semantic commerce diagram explains roles without implying company-owned infrastructure.
+
+## Handoff
+
+- [Product](PRODUCT.md): business truth, public facts, scope and quality targets.
+- [Design](DESIGN.md): implemented visual system and component behavior.
+- [Brand](docs/BRAND.md): positioning, identity, voice and factual boundaries.
+- [Deployment](docs/DEPLOYMENT.md): release procedure and hosting evidence.
+- [Testing](docs/TESTING.md): verification scope and results.
+
+Preserve URLs and `/profile/`. Legal copy needs owner or counsel review for business-specific obligations. Deployment is not legal validation. Release claims must come from current verification records.

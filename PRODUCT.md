@@ -23,3 +23,7 @@ The current user brief authorizes preview, finished commits and pushes, and prod
 
 ## Quality
 WCAG 2.2 AA target; 375, 390, 768, 1024 and 1440px; keyboard and no-JS fallbacks; honest form success and failure; no perpetual motion. Legal text requires owner/counsel review for business-specific obligations; website publication is not legal validation.
+
+## Locked homepage slogan
+The primary headline is exactly: Wholesale, made Smoove. Use Barlow 600 for Wholesale, made and the existing Yellowtail 400 wordmark font and gold gradient for Smoove. This explicit brand rule supersedes earlier hero wording and the wordmark-only script restriction. Other editorial headings remain Bodoni Moda.
+
