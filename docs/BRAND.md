@@ -8,15 +8,15 @@ The focus is documented sourcing, product evaluation, purchasing, inventory deci
 
 ## Identity
 
-The protected identity is the gold Yellowtail cursive wordmark on black. The current home statement is “Commerce, carefully connected.” Bodoni Moda supplies regular-weight editorial headings; Barlow supplies reading text and controls. All fonts are locally hosted. Black and matte gold dominate with warm off-white and muted gray copy.
+The protected identity is the Yellowtail cursive wordmark in Lamborghini gold `#FFC000` with a neon glow, on absolute black `#000000`. The home statement is the locked slogan “Wholesale, made Smoove.” Compressed Archivo capitals supply headings; normal-width Archivo supplies reading text and controls. All fonts are locally hosted. Black and gold dominate with near-white and muted gray copy.
 
-[DESIGN.md](../DESIGN.md) is the normative visual system. Its frontmatter records the reusable tokens extracted from code. [.impeccable/design.json](../.impeccable/design.json) extends it with motion, breakpoints and component samples. The departures-board system, Montserrat, Barlow Condensed and neon-blue accents are superseded.
+[DESIGN.md](../DESIGN.md) is the normative visual system. Its frontmatter records the reusable tokens extracted from code. [.impeccable/design.json](../.impeccable/design.json) extends it with motion, breakpoints and component samples. The departures-board system, Montserrat, Barlow Condensed, neon-blue accents, and the 2026 editorial system (Bodoni Moda, Barlow, matte gold `#C5A028`) are superseded by Night Route.
 
 ## Visual expression
 
-Use open editorial columns, restrained serif headlines, square controls and thin structural rules. The signature diagram follows the product journey through native disclosures, with responsible parties always visible. It explains coordination without implying owned physical infrastructure. Supplier inquiry is one continuous form with optional product details.
+Use open columns, compressed capital headlines, square controls and thin structural rules. The homepage opens with long-exposure gold light trails and draws the five-stage route as the visitor scrolls. The signature diagram follows the product journey through native disclosures, with responsible parties always visible. It explains coordination without implying owned physical infrastructure. Supplier inquiry is one continuous form with optional product details.
 
-Gold identifies actions, emphasis and the route. The wordmark keeps its gradient; the diagram uses a subtle charcoal gradient and one diffuse shadow. Motion is brief and once-only, with reduced-motion support.
+Gold identifies actions, emphasis and the route. The wordmark keeps its neon glow. The light trails pause offscreen, stop after 30 seconds, offer a pause control and render a still frame under reduced motion.
 
 ## Voice and fact boundaries
 
@@ -35,7 +35,5 @@ Business-specific legal obligations require owner or counsel review. Publication
 ## Locked homepage slogan
 The primary headline is exactly: Wholesale, made Smoove. Never replace the wording.
 
-**Approved treatment (owner decision, 2026-09-27):** set "WHOLESALE, MADE" in compressed all caps (Archivo at 62% width, weight 500, uppercase, tight line height) and "Smoove." in the protected Yellowtail 400 wordmark font in gold with the neon glow. Other headings follow the same compressed all caps system. Reference implementation: `concepts/night-route.html` (heading option 1).
-
-**Status:** production still renders the previous treatment (Barlow 600 for Wholesale, made; Bodoni Moda editorial headings) until the Night Route redesign ships. Update `src/` and this note together when it does.
+"WHOLESALE, MADE" is set in compressed Archivo capitals (62% width, weight 500, uppercase). "Smoove." is set in the protected Yellowtail 400 wordmark font in `#FFC000` with the neon glow. Approved by the owner on 2026-09-27 (Night Route, heading option 1) and live in production.
 

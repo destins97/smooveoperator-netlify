@@ -1,51 +1,57 @@
 ---
 name: SmooveOperator
-description: "Considered commerce: an editorial black and gold system with clear operational roles."
+description: "Night Route: absolute black, Lamborghini gold, compressed capitals and a neon cursive wordmark, with clear operational roles."
 colors:
-  black: "#0a0a0a"
-  surface: "#111210"
-  raised: "#191a16"
-  gold: "#C5A028"
-  gold-hi: "#D4AF37"
-  gold-light: "#e5c974"
-  text: "#f0eee7"
-  muted: "#b0afa4"
-  line: "#34352b"
-  control: "#77796b"
+  black: "#000000"
+  surface: "#111111"
+  raised: "#1a1a1a"
+  gold: "#FFC000"
+  gold-hi: "#FFCE3E"
+  gold-deep: "#917300"
+  text: "#F5F5F5"
+  muted: "#A8A8A8"
+  line: "#262626"
+  control: "#6b6b6b"
   error: "#f3b4a8"
 typography:
   display:
-    fontFamily: "Bodoni, Georgia, serif"
-    fontSize: "clamp(60px, 7vw, 96px)"
-    fontWeight: 400
-    lineHeight: 1.035
-    letterSpacing: "-0.025em"
+    fontFamily: "Archivo, Helvetica Neue, Arial, sans-serif"
+    fontStretch: "62%"
+    textTransform: "uppercase"
+    fontSize: "clamp(64px, 11.4vw, 184px)"
+    fontWeight: 500
+    lineHeight: 0.9
+    letterSpacing: "-0.005em"
   headline-page:
-    fontFamily: "Bodoni, Georgia, serif"
-    fontSize: "clamp(48px, 6.4vw, 92px)"
-    fontWeight: 400
-    lineHeight: 1.12
-    letterSpacing: "-0.025em"
+    fontFamily: "Archivo"
+    fontStretch: "62%"
+    textTransform: "uppercase"
+    fontSize: "clamp(56px, 8.2vw, 124px)"
+    fontWeight: 500
+    lineHeight: 0.95
   headline:
-    fontFamily: "Bodoni, Georgia, serif"
-    fontSize: "clamp(36px, 4.1vw, 59px)"
-    fontWeight: 400
-    lineHeight: 1.12
-    letterSpacing: "-0.025em"
+    fontFamily: "Archivo"
+    fontStretch: "62%"
+    textTransform: "uppercase"
+    fontSize: "clamp(42px, 5.4vw, 82px)"
+    fontWeight: 500
+    lineHeight: 0.95
   title:
-    fontFamily: "Barlow, system-ui, sans-serif"
+    fontFamily: "Archivo"
     fontSize: "23px"
     fontWeight: 500
     lineHeight: 1.3
   body:
-    fontFamily: "Barlow, system-ui, sans-serif"
+    fontFamily: "Archivo"
     fontSize: "18px"
     fontWeight: 400
     lineHeight: 1.6
   label:
-    fontFamily: "Barlow, system-ui, sans-serif"
-    fontSize: "17px"
-    fontWeight: 500
+    fontFamily: "Archivo"
+    fontSize: "13px"
+    fontWeight: 600
+    letterSpacing: "0.14em"
+    textTransform: "uppercase"
   wordmark:
     fontFamily: "Yellowtail, cursive"
     fontSize: "36px"
@@ -63,10 +69,13 @@ components:
     backgroundColor: "{colors.gold}"
     textColor: "{colors.black}"
     rounded: "{rounded.square}"
-    padding: "13px 22px"
+    padding: "13px 24px"
   button-primary-hover:
-    backgroundColor: "{colors.gold-light}"
+    backgroundColor: "{colors.gold-hi}"
     textColor: "{colors.black}"
+  button-ghost:
+    borderColor: "#ffffff80"
+    textColor: "{colors.text}"
   button-text:
     textColor: "{colors.text}"
     padding: "13px 0"
@@ -81,128 +90,138 @@ components:
 
 ## Overview
 
-**Creative North Star: "Considered Commerce"**
+**Creative North Star: "Night Route"**
 
-An editorial business presentation built around open columns, readable explanations and an inspectable product journey. Near-black grounds the page, matte gold identifies actions, and warm text carries the business explanation. The protected cursive wordmark remains distinct from the serif headlines.
+A cinematic business presentation for supplier account managers. True black grounds the page the way a night road does, Lamborghini gold marks the actions and the route, and compressed capitals give headings the confidence of a spec sheet. The protected cursive wordmark glows in neon gold and stays the only script on the page, apart from the Smoove in the locked slogan.
 
-The composition uses thin rules and measured spacing to separate responsibilities. Interaction reveals useful information through native controls. Motion briefly reinforces the route and never runs perpetually.
+The homepage opens with long-exposure gold light trails behind the slogan, then a spec strip, a route drawn stage by stage as the visitor scrolls, and a partnership outline that becomes the first message of a supplier conversation. Motion is purposeful, pausable and absent under reduced motion.
 
 **Key Characteristics:**
 
-- Open editorial columns and structural rules.
-- Bodoni Moda headings, Barlow reading text and a protected Yellowtail wordmark.
+- Absolute black `#000000` with Lamborghini gold `#FFC000` as the single accent.
+- Compressed Archivo capitals for headings, Archivo for reading, Yellowtail neon for the protected wordmark.
 - Inspectable commerce stages with explicit responsible parties.
-- Square controls and restrained gold emphasis.
-- Progressive enhancement with visible content and native fallbacks.
+- Square controls; uppercase, letter-spaced button and navigation labels.
+- Progressive enhancement: content, navigation, disclosures and forms work without JavaScript.
 
 ## Colors
 
-The palette is warm black, muted olive charcoal, matte gold and warm off-white. Frontmatter records reusable CSS primitives; special gradients live in the sidecar.
+The palette is absolute black, neutral charcoal surfaces, Lamborghini gold and near-white text. Frontmatter records the CSS primitives.
 
 ### Primary
 
-- **Matte gold** (`gold`): primary action backgrounds and the commerce route.
-- **Bright gold** (`gold-hi`): a stop in the protected wordmark gradient.
-- **Light gold** (`gold-light`): headline emphasis, links, focus rings and open-stage emphasis.
+- **Lamborghini gold** (`gold`, `#FFC000`): primary action backgrounds, the route line, eyebrows, the wordmark and slogan emphasis.
+- **Bright gold** (`gold-hi`, `#FFCE3E`): hover state for gold actions, links and focus rings.
+- **Deep gold** (`gold-deep`, `#917300`): stage-number borders and quiet gold structure. Not for text.
 
 ### Neutral
 
-- **Near-black** (`black`): page background and field interiors.
-- **Charcoal** (`surface`): section bands and stage-number interiors.
+- **Absolute black** (`black`): page background and field interiors.
+- **Charcoal** (`surface`): section bands and the partnership outline cards.
 - **Raised charcoal** (`raised`): capability-row hover background.
-- **Warm text** (`text`): headings and primary copy.
-- **Muted warm gray** (`muted`): explanations, annotations and secondary navigation.
+- **Near-white** (`text`): headings and primary copy.
+- **Muted gray** (`muted`, 8:1 on black): explanations, annotations and labels.
 - **Structural line** (`line`): quiet dividers.
-- **Control gray** (`control`): field boundaries and stronger rules.
+- **Control gray** (`control`, 3:1 on black): field boundaries and stronger rules.
 
-Error color is reserved for validation and submission failures. Success uses light gold with explicit text.
+Error color is reserved for validation and submission failures. Success uses gold with explicit text.
 
-**The Protected Mark Rule.** Keep the Yellowtail gold wordmark. Its multistop gradient is an identity treatment, not a body-text treatment.
+**The Protected Mark Rule.** Keep the Yellowtail wordmark in `#FFC000` with the neon glow (`--neon` in `site.css`). The glow is an identity treatment, reserved for the wordmark and the Smoove in the slogan.
 
 ## Typography
 
-Bodoni Moda is registered locally under the CSS family name `Bodoni`. Barlow has local 400, 500 and 600 files. Yellowtail is locally hosted at 400 and reserved for the wordmark. All files use font-display swap.
+Archivo is self-hosted as one variable file (`/fonts/Archivo-var.woff2`, weights 100 to 900, widths 62% to 125%, SIL OFL in `Archivo-OFL.txt`). Headings use it at 62% width, weight 500, uppercase. Body copy, controls and labels use it at normal width. Yellowtail is self-hosted at 400 and reserved for the wordmark and the Smoove in the slogan. All files use font-display swap; only Archivo and Yellowtail are preloaded. Bodoni Moda and Barlow files remain in `/fonts` but are no longer referenced.
 
-The frontmatter captures desktop roles. Below 760px the hero uses `clamp(58px,11.9vw,86px)` at 1.06 line height; below 430px it is 61px. Page headings become 46px below 430px. The wordmark becomes 31px below 1100px and 29px below 430px.
+The frontmatter captures desktop roles. The homepage hero slogan uses `clamp(64px,11.4vw,184px)` at 0.9 line height. Below 760px, section headings use `clamp(40px,10vw,60px)` and page headings `clamp(50px,12vw,80px)`, 52px below 430px. The wordmark becomes 31px below 1100px and 29px below 430px.
 
-Lead copy uses `clamp(18px,1.45vw,21px)` at 1.65. Larger introductory paragraphs use `clamp(22px,2vw,27px)` at 1.5. General reading width is 65ch, standard leads 58ch and the home lead 45ch. Help text is 16px at 1.5.
+Lead copy uses `clamp(18px,1.45vw,21px)` at 1.65. Larger introductory paragraphs use `clamp(22px,2vw,27px)` at 1.5. General reading width is 65ch. Help text is 16px at 1.5. Buttons and navigation use 13 to 14px, weight 600, `0.14em` tracking, uppercase.
 
-**The Separate Voices Rule.** Use Bodoni for display hierarchy, Barlow for reading and controls, and Yellowtail for the protected wordmark.
+**The Two Voices Rule.** Compressed capitals for display hierarchy, normal-width Archivo for reading and controls, Yellowtail neon only for the protected mark.
 
 ## Layout
 
-The centered container is `min(1296px, 100% - gutter * 2)`. Gutter becomes 24px at 760px and below. Section spacing follows the frontmatter's fluid section value.
+The centered container is `min(1296px, 100% - gutter * 2)`. Gutter becomes 24px at 760px and below.
 
-Desktop hero columns are 1.1fr / 1fr. Editorial sections are 1fr / 1.07fr with a fluid 40px to 100px gap. Supplier features use equal columns, invitations 1.15fr / 1fr, and contact .85fr / 1.15fr. These compositions stack at 760px. Capability rows become a title-and-arrow row with description beneath.
+The homepage hero is full width, `clamp(620px,90dvh,900px)` tall, with the light-trail canvas behind the copy. The spec strip is four columns, two at 1000px and one at 560px. The route section is 0.9fr / 1.1fr with a sticky heading and stage counter, stacking at 1000px where the counter hides. The partnership outline is 1.2fr / 0.8fr (choices / outline), stacking at 1000px; its choice cards stack below 560px.
 
-The sticky header bar has minimum height 91px, becoming 78px at 1000px. JavaScript enables collapsed navigation at 1000px and below. Without JavaScript navigation wraps and remains visible. Paired form fields stack below 1000px, return to two columns when contact stacks at 760px, then stack below 430px.
+Editorial sections are 1fr / 1.07fr with a fluid 40px to 100px gap. Contact is .85fr / 1.15fr. These compositions stack at 760px.
 
-Breakpoints are 430px, 760px, 1000px, 1100px and a 1600px minimum-width enhancement. Print removes navigation, footer, action rows and invitations with white paper and dark body text.
+The sticky header bar has minimum height 76px. JavaScript enables collapsed navigation at 1000px and below. Without JavaScript navigation wraps and remains visible.
+
+Breakpoints are 430px, 560px, 760px, 1000px and 1100px. Print removes navigation, footer, action rows and invitations with white paper and dark body text.
 
 ## Elevation & Depth
 
-Most surfaces are flat with tonal changes or hairline rules. The commerce diagram uses a subtle charcoal gradient and diffuse `0 22px 48px #0004` shadow. The sticky header uses a nearly opaque background. Hero and page-intro radial washes provide atmosphere without photographs.
+Most surfaces are flat with tonal changes or hairline rules. The homepage hero gets its depth from the light-trail canvas, a faint gold radial wash and a black gradient at the foot. The commerce diagram uses a subtle charcoal gradient and diffuse `0 22px 48px #0006` shadow. The sticky header uses a nearly opaque black background. Page intros carry a faint gold radial wash.
 
 ## Shapes
 
-Controls and panels have square corners. Thin borders distinguish fields and the commerce diagram; ruled rows separate lists and facts. Stage numbers occupy 35px squares linked by a 1px vertical gold line. Small rotated squares mark the hero's supporting principles.
+Controls and panels have square corners. Thin borders distinguish fields and the commerce diagram; ruled rows separate lists and facts. Stage numbers occupy 35px squares linked by a 1px vertical gold line. On the homepage route, rotated squares mark each stage and fill gold when the stage is reached. The hero pause control is a hexagon, after the reference brand's motif.
 
 ## Components
 
 ### Buttons
 
-Primary actions use matte gold with black text and light-gold hover. Text actions have warm text and a bottom rule, changing to light gold on hover. Buttons have minimum height 50px, 17px Barlow medium text, 18px gap and a 24px inline SVG arrow. Hover shifts the arrow 3px right; active shifts the button 1px down. Disabled submission buttons use .65 opacity and a waiting cursor. Transitions last 220ms on the shared easing curve.
+Primary actions use `#FFC000` with black text, uppercase 14px labels at `0.14em` tracking, square corners and minimum height 52px. The trailing arrow sits in its own darker square that nudges up and right on hover. Hover lightens to `gold-hi`. Ghost buttons are transparent with a 50% white border that turns gold on hover. Text actions keep a bottom rule. Active shifts 1px down. Disabled submission buttons use .65 opacity and a waiting cursor.
 
-Global keyboard focus is a 2px light-gold outline offset 5px. Fields use a 3px offset instead.
+Global keyboard focus is a 2px gold outline offset 5px. Fields use a 3px offset.
 
 ### Navigation
 
-Navigation is sentence case, 16px and muted at rest. Hover/current links become light gold; the current page gains a 1px gold inset underline. The contact link has a control-gray outline. Mobile navigation opens as a full-width dark sheet. Escape closes it and returns focus to Menu. Link selection and breakpoint changes also close it.
+Navigation is uppercase, 13px, weight 600, near-white at rest and gold on hover or current page; the current page keeps a 1px gold underline. The contact link is gold with a gold outline. Mobile navigation opens as a full-width black sheet; Escape closes it and returns focus to Menu.
 
-### Commerce pathway
+### Light trails (homepage hero)
 
-Five native details elements show Source, Evaluate, Prepare, Fulfill and Customer with responsible parties always visible. Evaluate starts open. Multiple stages may remain open. Open stages fill their number square gold and emphasize their title. Descriptions work without JavaScript.
+A canvas draws long-exposure gold and white trails converging on a vanishing point. It pauses when offscreen or when the tab is hidden, stops by itself after 30 seconds, and exposes a hexagonal pause and play button. Under reduced motion it renders a single still frame and the button stays hidden. It is decorative and hidden from assistive technology.
 
-When 20% of the diagram enters the viewport, one stage-number entrance sequence runs for 850ms with 100ms stagger. Content is visible before animation. Reduced motion disables animations, transitions and smooth scrolling. There is no route car or perpetual animation.
+### Route (homepage)
+
+Five stages (Source, Evaluate, Prepare, Fulfill, Customer) each show their responsible party. An IntersectionObserver lights each stage as it crosses 55% of the viewport and scales a gold rail to match; the sticky counter shows the current stage. Without JavaScript all stages render lit.
+
+### Commerce pathway (supplier and operations pages)
+
+Five native details elements with responsible parties always visible. Evaluate starts open. Descriptions work without JavaScript.
+
+### Partnership outline
+
+"Tailor the partnership." Radio cards (partner type, channel, cadence) update an outline preview. Submitting is a GET to `/suppliers/#supplier-form`; the suppliers page prefills the inquiry message and channels only from known values, never free text from the URL. Without JavaScript the form still reaches the suppliers page.
 
 ### Editorial rows
 
-Capability links are ruled title, description and SVG-arrow rows with a raised-charcoal hover surface. Principles and profile facts are definition lists. These patterns use open rows rather than rounded cards or numerical sales examples.
+Capability links are ruled rows with compressed uppercase titles, descriptions and SVG arrows. Principles and profile facts are definition lists.
 
 ### Inquiry fields
 
 Fields have full control-gray borders, black interiors, square corners and minimum height 49px. Textareas resize vertically with minimum height 140px. Invalid fields gain an error-color border and a textual message linked through aria-describedby.
 
-Suppliers and contact share one continuous form, not a mandatory step sequence. Inquiry type, name, email and message are required. Company and phone are optional. Native details contains optional categories, opening-order requirements and sales channels. Messages require at least 15 characters. Status uses a polite live region. Failed or timed-out submission preserves answers; a successful HTTP response resets the form and confirms receipt. Native POST remains available without JavaScript.
+Suppliers and contact share one continuous form. Inquiry type, name, email and message are required. Company and phone are optional. Native details contains optional categories, opening-order requirements and sales channels. Messages require at least 15 characters. Status uses a polite live region. Failed or timed-out submission preserves answers; a successful HTTP response resets the form and confirms receipt. Native POST remains available without JavaScript.
 
 ### FAQ
 
-Native disclosures use ruled separators, 21px summaries and muted answers. Keep questions visible while collapsed and preserve browser keyboard behavior.
+Native disclosures use ruled separators, 21px summaries and muted answers.
 
 ## Do's and Don'ts
 
 ### Do:
 
-- Do preserve the Yellowtail gold wordmark.
-- Do use Bodoni headings and Barlow reading text with the recorded hierarchy.
-- Do separate content through open columns, thin rules and readable measures.
-- Do identify responsible parties wherever the commerce pathway appears.
+- Do preserve the Yellowtail neon wordmark in `#FFC000`.
+- Do use absolute black and Lamborghini gold as the only background and accent.
+- Do set headings in compressed Archivo capitals and reading text in normal-width Archivo.
+- Do identify responsible parties wherever the commerce route appears.
+- Do give every perpetual motion a pause control, an offscreen pause and a reduced-motion still state.
 - Do retain native navigation, disclosure and form fallbacks.
-- Do keep animation brief, once-only and disabled under reduced motion.
 
 ### Don't:
 
-- Don't restore departures boards, flap digits, condensed uppercase headlines or a mandatory multistep form.
+- Don't add a second accent color or replace gold with a matte or brass gold.
 - Don't introduce rounded controls or decorative card grids into established editorial patterns.
-- Don't use Yellowtail as a general headline or reading font.
+- Don't use Yellowtail for anything other than the wordmark and the Smoove in the slogan.
 - Don't hide essential content until an animation runs.
-- Don't use error color without an explicit text explanation.
+- Don't use inline style attributes; the Content Security Policy blocks them.
 - Don't write em dashes or en dashes in public copy.
 
 ## Locked homepage slogan
+
 The primary headline is exactly: Wholesale, made Smoove. Never replace the wording.
 
-**Approved treatment (owner decision, 2026-09-27):** set "WHOLESALE, MADE" in compressed all caps (Archivo at 62% width, weight 500, uppercase, tight line height) and "Smoove." in the protected Yellowtail 400 wordmark font in gold with the neon glow. Other headings follow the same compressed all caps system. Reference implementation: `concepts/night-route.html` (heading option 1).
-
-**Status:** production still renders the previous treatment (Barlow 600 for Wholesale, made; Bodoni Moda editorial headings) until the Night Route redesign ships. Update `src/` and this note together when it does.
-
+"WHOLESALE, MADE" is set in compressed Archivo capitals (62% width, weight 500, uppercase). "Smoove." is set in the protected Yellowtail 400 wordmark font in `#FFC000` with the neon glow. This treatment was approved by the owner on 2026-09-27 (Night Route, heading option 1) and is live in production.

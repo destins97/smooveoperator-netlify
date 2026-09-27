@@ -13,7 +13,5 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 ## Locked homepage slogan
 The primary headline is exactly: Wholesale, made Smoove. Never replace the wording.
 
-**Approved treatment (owner decision, 2026-09-27):** set "WHOLESALE, MADE" in compressed all caps (Archivo at 62% width, weight 500, uppercase, tight line height) and "Smoove." in the protected Yellowtail 400 wordmark font in gold with the neon glow. Other headings follow the same compressed all caps system. Reference implementation: `concepts/night-route.html` (heading option 1).
-
-**Status:** production still renders the previous treatment (Barlow 600 for Wholesale, made; Bodoni Moda editorial headings) until the Night Route redesign ships. Update `src/` and this note together when it does.
+"WHOLESALE, MADE" is set in compressed Archivo capitals (62% width, weight 500, uppercase). "Smoove." is set in the protected Yellowtail 400 wordmark font in `#FFC000` with the neon glow. Approved by the owner on 2026-09-27 (Night Route, heading option 1) and live in production.
 
