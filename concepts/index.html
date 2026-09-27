@@ -70,6 +70,8 @@ main{padding-block:clamp(40px,5vw,72px)}
 .changes li{color:var(--muted);font-size:15.5px;padding-left:18px;position:relative}
 .changes li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:1px;background:var(--gold)}
 .changes li b{color:var(--text);font-weight:500}
+.changes li a{color:var(--gold-text)}
+.changes+.changes{margin-top:24px}
 @media (max-width:760px){.changes ul{grid-template-columns:minmax(0,1fr)}}
 footer{border-top:1px solid var(--line);padding-block:36px;color:var(--dim);font-size:14px}
 /* Shared polish from the redesign and ui-ux-pro-max audits */
@@ -131,6 +133,16 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
     </ol>
 
 
+    <section class="changes" aria-labelledby="opt">
+      <p class="mono">Night Route &middot; Heading options</p>
+      <h2 id="opt">Compare the three heading styles</h2>
+      <ul>
+        <li><b><a href="night-route.html#caps">1. All caps</a>:</b> compressed capitals everywhere. Full Lamborghini.</li>
+        <li><b><a href="night-route.html#bodoni">2. Bodoni</a>:</b> your live site's lettering. Barlow slogan, Bodoni serif headings.</li>
+        <li><b><a href="night-route.html#mix">3. Mix</a>:</b> all caps for the hero slogan only, Bodoni for every other heading.</li>
+        <li>Each page has a switcher pinned to the bottom, so you can flip between styles while you scroll.</li>
+      </ul>
+    </section>
     <section class="changes" aria-labelledby="chg">
       <p class="mono">Version 2 &middot; Skill audit pass</p>
       <h2 id="chg">What changed inside the concepts</h2>

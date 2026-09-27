@@ -9,7 +9,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='46' fill='%23FFC000'%3ES%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Yellowtail&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Barlow:wght@600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..500;1,6..96,400&family=Yellowtail&display=swap">
 <style>
 :root{
   color-scheme:dark;
@@ -137,6 +137,28 @@ section{padding-block:clamp(72px,9vw,140px)}
 footer{padding-block:56px}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
 .foot p{color:var(--ash);font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+
+/* Heading options: caps (default), bodoni (blend), mix */
+html{--serif:'Bodoni Moda',Didot,Georgia,serif}
+:is(.t-bodoni,.t-mix) :is(.route-sticky h2,.cfg-head h2,.stage h3,.spec strong,.opt legend b,.sheet h3){font-family:var(--serif);font-stretch:100%;text-transform:none;font-weight:400;letter-spacing:-.02em}
+:is(.t-bodoni,.t-mix) .route-sticky h2{font-size:clamp(42px,4.8vw,78px);line-height:1.06}
+:is(.t-bodoni,.t-mix) .cfg-head h2{font-size:clamp(42px,5vw,80px);line-height:1.04}
+:is(.t-bodoni,.t-mix) .stage h3{font-size:clamp(36px,3.8vw,58px);line-height:1.05}
+:is(.t-bodoni,.t-mix) .spec strong{font-size:clamp(24px,2.1vw,32px);line-height:1.12}
+:is(.t-bodoni,.t-mix) .opt legend b{font-size:27px}
+:is(.t-bodoni,.t-mix) .sheet h3{font-size:34px;line-height:1.1}
+:is(.t-bodoni,.t-mix) .big-n b{font-family:var(--serif);font-stretch:100%;font-weight:400;font-size:clamp(88px,9vw,150px)}
+:is(.t-bodoni,.t-mix) .big-n span{font-family:var(--serif);font-stretch:100%;text-transform:none;font-size:30px}
+/* Blend keeps the live site's locked slogan: Barlow 600 plus the Yellowtail Smoove */
+.t-bodoni .hero h1{font-family:'Barlow',var(--f);font-stretch:100%;text-transform:none;font-weight:600;letter-spacing:-.035em;line-height:1.02;font-size:clamp(56px,8.6vw,136px)}
+.t-bodoni .hero h1 .smoove{font-size:1.2em}
+.typeswitch{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);transform:translateX(-50%);z-index:70;display:flex;align-items:center;gap:4px;padding:5px;background:rgba(0,0,0,.86);border:1px solid var(--line-gold);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);max-width:calc(100% - 32px)}
+.typeswitch span{padding:0 12px 0 8px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ash);white-space:nowrap}
+.typeswitch button{min-height:40px;padding:0 14px;border:1px solid transparent;background:none;color:var(--smoke);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:background .2s var(--ease),color .2s var(--ease)}
+.typeswitch button:hover{color:var(--gold)}
+.typeswitch button[aria-pressed=true]{background:var(--gold);color:#000}
+@media (max-width:520px){.typeswitch span{display:none}.typeswitch button{padding:0 10px;font-size:11px}}
+footer{padding-bottom:110px!important}
 /* Shared polish from the redesign and ui-ux-pro-max audits */
 html{scroll-padding-top:96px}
 p{text-wrap:pretty}
@@ -241,6 +263,12 @@ body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opa
 </section>
 </main>
 
+<div class="typeswitch" role="group" aria-label="Heading style">
+  <span>Headings</span>
+  <button type="button" data-t="caps" aria-pressed="true">1 &middot; All caps</button>
+  <button type="button" data-t="bodoni" aria-pressed="false">2 &middot; Bodoni</button>
+  <button type="button" data-t="mix" aria-pressed="false">3 &middot; Mix</button>
+</div>
 <footer><div class="wrap foot"><a class="logo" href="./">Smoove Operator</a><p>Concept 02 of 5 &middot; Night Route</p></div></footer>
 
 <script>
@@ -295,6 +323,14 @@ function sync(){const d=new FormData(f);const who=d.get('who'),ch=d.get('ch'),ca
 f.addEventListener('change',sync);sync();
 f.addEventListener('submit',e=>{e.preventDefault();document.getElementById('sent').textContent='Prototype: in the live site this opens the supplier form with your outline attached. Nothing was sent.';});
 })();
+</script>
+<script>
+(()=>{const btns=[...document.querySelectorAll('.typeswitch button')];const keys=['caps','bodoni','mix'];
+function set(k,push){document.documentElement.classList.remove('t-bodoni','t-mix');if(k!=='caps')document.documentElement.classList.add('t-'+k);
+  btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===k));if(push){try{history.replaceState(null,'','#'+k);}catch(e){}}}
+btns.forEach(b=>b.onclick=()=>set(b.dataset.t,true));
+const h=location.hash.slice(1);if(keys.includes(h))set(h,false);
+addEventListener('hashchange',()=>{const k=location.hash.slice(1);if(keys.includes(k))set(k,false);});})();
 </script>
 </body>
 </html>
