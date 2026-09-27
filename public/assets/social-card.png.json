@@ -1,6 +1,6 @@
 {
   "origin": "Authored HTML and canvas typography with the self-hosted Archivo and Yellowtail fonts, rendered in Chromium. No generated or stock image.",
-  "generator": "scripts/render-social-card.mjs",
+  "generator": "scripts/render-assets.mjs",
   "source": "scripts/social-card.html",
   "width": 1200,
   "height": 630

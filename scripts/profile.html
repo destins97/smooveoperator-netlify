@@ -1,0 +1,48 @@
+<!-- Source for public/assets/smooveoperator-reseller-profile.pdf (US Letter, one page). Render with: node scripts/render-assets.mjs -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>SmooveOperator business profile</title><style>
+@font-face{font-family:Archivo;src:url(../public/fonts/Archivo-var.woff2) format('woff2');font-weight:100 900;font-stretch:62% 125%}
+@font-face{font-family:Yellowtail;src:url(../public/fonts/Yellowtail-normal.woff2) format('woff2')}
+@page{size:8.5in 11in;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;background:#000}
+.page{position:relative;width:8.5in;height:11in;overflow:hidden;background:radial-gradient(ellipse at 88% 4%,rgba(255,192,0,.14),transparent 45%),#000;color:#F5F5F5;font-family:Archivo,Arial,sans-serif;padding:.62in .7in .55in}
+canvas{position:absolute;right:0;top:0;width:4.4in;height:2.6in}
+.logo{position:relative;font-family:Yellowtail;font-size:38px;line-height:1;color:#FFC000;text-shadow:0 0 1px #fff8e0,0 0 5px rgba(255,192,0,.8),0 0 14px rgba(255,192,0,.45)}
+.eye{position:relative;margin-top:34px;font-size:10.5px;font-weight:600;letter-spacing:.18em;color:#FFC000}
+h1{position:relative;margin:8px 0 0;font-stretch:62%;font-weight:500;font-size:72px;line-height:.9;letter-spacing:-.005em;text-transform:uppercase}
+.lede{position:relative;margin:14px 0 0;max-width:5.4in;font-size:13px;line-height:1.55;color:#A8A8A8}
+dl{margin:26px 0 0;border-top:1px solid #FFC000}
+dl div{display:grid;grid-template-columns:1.9in 1fr;gap:18px;padding:12px 0;border-bottom:1px solid #262626}
+dt{font-size:10px;font-weight:600;letter-spacing:.16em;color:#FFC000;padding-top:3px}
+dd{margin:0;font-size:13px;line-height:1.5;color:#F5F5F5}
+.route{margin-top:22px;display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid #262626}
+.route div{padding:10px 10px 11px;border-right:1px solid #262626}.route div:last-child{border-right:0}
+.route b{display:block;font-stretch:62%;font-weight:500;font-size:19px;text-transform:uppercase;line-height:1}
+.route span{display:block;margin-top:6px;font-size:8.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#FFCE3E}
+.foot{position:absolute;left:.7in;right:.7in;bottom:.5in;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;border-top:1px solid #262626;padding-top:12px;font-size:9px;line-height:1.5;color:#A8A8A8}
+.foot strong{font-size:10.5px;font-weight:600;letter-spacing:.14em;color:#FFC000}
+</style></head><body><div class="page">
+<canvas id="c" width="1320" height="780" aria-hidden="true"></canvas>
+<div class="logo">Smoove Operator</div>
+<div class="eye">BUSINESS PROFILE &middot; SEPTEMBER 2026</div>
+<h1>The business<br>at a glance.</h1>
+<p class="lede">An independent marketplace commerce and distribution business, seeking direct relationships with brands, manufacturers, wholesalers and authorized distributors.</p>
+<dl>
+<div><dt>BUSINESS</dt><dd>Independent marketplace commerce and distribution.</dd></div>
+<div><dt>COMMERCIAL ROLE</dt><dd>Product sourcing, purchasing, marketplace evaluation and inventory decisions.</dd></div>
+<div><dt>SUPPLIER RELATIONSHIPS</dt><dd>Seeking brands, manufacturers, wholesalers and authorized distributors.</dd></div>
+<div><dt>PHYSICAL OPERATIONS</dt><dd>Independent preparation providers and marketplace fulfillment networks. No company-operated warehouse.</dd></div>
+<div><dt>PURCHASING APPROACH</dt><dd>Evaluate product eligibility, documented sources, channel requirements, demand and total costs. Repeat purchasing depends on observed performance, availability and economics.</dd></div>
+<div><dt>DOCUMENTATION</dt><dd>California seller’s permit on file. Appropriate resale documentation is shared directly during account applications.</dd></div>
+<div><dt>CONTACT</dt><dd>smoove-operator.com/contact/</dd></div>
+</dl>
+<div class="route"><div><b>Source</b><span>SmooveOperator</span></div><div><b>Evaluate</b><span>SmooveOperator</span></div><div><b>Prepare</b><span>Prep provider</span></div><div><b>Fulfill</b><span>Marketplace network</span></div><div><b>Customer</b><span>End customer</span></div></div>
+<div class="foot"><span>No marketplace endorsement, distribution rights or purchasing commitment is implied.<br>An introduction creates no purchase order or agreement.</span><strong>SMOOVE-OPERATOR.COM</strong></div>
+</div>
+<script>const c=document.getElementById('c'),x=c.getContext('2d'),W=c.width,H=c.height;let s=5;const r=()=>{s=(s*16807)%2147483647;return s/2147483647;};
+const pt=(l,z)=>{const e=z*z,cu=Math.sin(z*Math.PI*.9)*W*.2*(1-z);return[W*.62+cu+l*e*W*.18,H*.18+e*H*1.1];};
+x.lineCap='round';x.globalCompositeOperation='lighter';
+for(let i=0;i<110;i++){const l=Math.floor(r()*7)-3+(r()-.5)*.6,z1=.2+r()*.8,z0=Math.max(0,z1-(.1+r()*.25)),col=r()<.8?(r()<.3?'255,241,194':'255,192,0'):'255,255,255';
+x.beginPath();for(let k=0;k<=14;k++){const[a,b]=pt(l,z0+(z1-z0)*k/14);k?x.lineTo(a,b):x.moveTo(a,b);}const[a0,b0]=pt(l,z0),[a1,b1]=pt(l,z1),g=x.createLinearGradient(a0,b0,a1,b1);g.addColorStop(0,'rgba('+col+',0)');g.addColorStop(1,'rgba('+col+','+(.2+r()*.5)+')');x.strokeStyle=g;x.lineWidth=(.6+r()*2)*(.4+z1*2);x.stroke();}
+const fade=x.createLinearGradient(0,0,0,H);fade.addColorStop(0,'rgba(0,0,0,0)');fade.addColorStop(1,'rgba(0,0,0,1)');x.globalCompositeOperation='destination-out';x.fillStyle=fade;x.fillRect(0,0,W,H);
+</script></body></html>

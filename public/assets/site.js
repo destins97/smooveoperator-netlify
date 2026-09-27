@@ -20,21 +20,23 @@ if(trailsCv&&trailsCv.getContext){
  const ctx=trailsCv.getContext('2d'),pauseBtn=document.querySelector('.nr-pause');let W=0,H=0,trails=[],running=false,visible=true,userPaused=false,raf=0;const stopAt=performance.now()+30000;
  const mk=()=>{const gold=Math.random()<.78;return{lane:Math.floor(Math.random()*7)-3+(Math.random()-.5)*.6,z:Math.random(),speed:.0016+Math.random()*.0032,len:.08+Math.random()*.22,w:.6+Math.random()*2.2,col:gold?(Math.random()<.3?'255,241,194':'255,192,0'):'255,255,255',a:.25+Math.random()*.6};};
  const pt=(lane,z)=>{const e=z*z,curve=Math.sin(z*Math.PI*.9)*W*.18*(1-z);return[W*.62+curve+lane*e*W*.16,H*.46+e*H*.62];};
- const size=()=>{const d=Math.min(2,devicePixelRatio||1);W=trailsCv.clientWidth;H=trailsCv.clientHeight;trailsCv.width=W*d;trailsCv.height=H*d;ctx.setTransform(d,0,0,d,0,0);trails=Array.from({length:W<700?70:140},mk);};
+ const size=()=>{W=trailsCv.clientWidth;H=trailsCv.clientHeight;const small=W<700,d=Math.min(small?1.5:2,devicePixelRatio||1);trailsCv.width=W*d;trailsCv.height=H*d;ctx.setTransform(d,0,0,d,0,0);trails=Array.from({length:small?48:120},mk);};
  const frame=(move)=>{ctx.globalCompositeOperation='source-over';ctx.fillStyle='rgba(0,0,0,.28)';ctx.fillRect(0,0,W,H);ctx.globalCompositeOperation='lighter';ctx.lineCap='round';
   for(const t of trails){if(move){t.z+=t.speed*(.4+t.z*1.6);if(t.z-t.len>1)Object.assign(t,mk(),{z:0});}
    const z0=Math.max(0,t.z-t.len),z1=Math.min(1.05,t.z);ctx.beginPath();for(let k=0;k<=14;k++){const[x,y]=pt(t.lane,z0+(z1-z0)*k/14);k?ctx.lineTo(x,y):ctx.moveTo(x,y);}
    const[xa,ya]=pt(t.lane,z0),[xb,yb]=pt(t.lane,z1),g=ctx.createLinearGradient(xa,ya,xb,yb);g.addColorStop(0,`rgba(${t.col},0)`);g.addColorStop(1,`rgba(${t.col},${t.a})`);ctx.strokeStyle=g;ctx.lineWidth=t.w*(.3+z1*2.2);ctx.stroke();}};
- const settle=()=>{for(let i=0;i<90;i++)frame(true);};
+ const settle=()=>{for(let i=0;i<28;i++)frame(true);};
+ const idle=fn=>('requestIdleCallback' in window)?requestIdleCallback(fn,{timeout:1200}):setTimeout(fn,200);
  const loop=()=>{if(!running)return;frame(true);if(performance.now()>stopAt)return stop();raf=requestAnimationFrame(loop);};
  const sync=()=>{if(pauseBtn){pauseBtn.setAttribute('aria-pressed',String(!running));pauseBtn.setAttribute('aria-label',running?'Pause background motion':'Play background motion');}};
  const start=()=>{if(running||reduced.matches||userPaused||!visible||document.hidden)return;running=true;sync();raf=requestAnimationFrame(loop);};
  const stop=()=>{running=false;cancelAnimationFrame(raf);sync();};
- size();settle();
+ // Draw after first paint and during idle time so the light trails never delay the page becoming usable.
+ idle(()=>{size();settle();
  if(!reduced.matches){if(pauseBtn){pauseBtn.hidden=false;pauseBtn.addEventListener('click',()=>{if(running){userPaused=true;stop();}else{userPaused=false;running=true;sync();raf=requestAnimationFrame(loop);}});}start();}
- new ResizeObserver(()=>{size();settle();}).observe(trailsCv);
+ let rw=W;new ResizeObserver(()=>{if(Math.abs(trailsCv.clientWidth-rw)<2)return;rw=trailsCv.clientWidth;size();settle();}).observe(trailsCv);
  if('IntersectionObserver' in window)new IntersectionObserver(([e])=>{visible=e.isIntersecting;visible?start():stop();}).observe(trailsCv);
- document.addEventListener('visibilitychange',()=>{document.hidden?stop():start();});
+ document.addEventListener('visibilitychange',()=>{document.hidden?stop():start();});});
 }
 // Route line: a stage lights once it crosses 55% of the viewport.
 const rail=document.querySelector('[data-route]');
