@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Smoove Atelier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Yellowtail&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --black:#000000;--gold:#FFC000;--gold-text:#FFCE3E;--gold-deep:#917300;
+  --iron:#0d0c09;--char:#16140e;--raised:#1f1c13;
+  --text:#F6F1E4;--muted:#A9A290;--dim:#6f6a5c;
+  --line:rgba(255,192,0,.16);--line-strong:rgba(255,192,0,.38);
+  --display:'Fraunces',Georgia,'Times New Roman',serif;
+  --body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--black);color:var(--text);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.wrap{width:min(1320px,100% - 2*clamp(16px,4vw,56px));margin-inline:auto}
+.mono{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-text)}
+h1,h2,h3{font-family:var(--display);font-weight:340;letter-spacing:-.02em;text-wrap:balance;margin:0}
+p{margin:0}
+
+/* Protected neon wordmark */
+.logo{font-family:'Yellowtail',cursive;font-size:clamp(28px,3vw,36px);line-height:1.1;color:var(--gold);text-decoration:none;white-space:nowrap;
+  text-shadow:0 0 1px #fff8e0,0 0 6px rgba(255,192,0,.85),0 0 16px rgba(255,192,0,.55),0 0 38px rgba(255,192,0,.35),0 0 70px rgba(255,192,0,.18);
+  animation:ignite 1.6s steps(1,end) .2s both}
+@keyframes ignite{0%{opacity:.25}8%{opacity:1}12%{opacity:.4}18%{opacity:1}24%{opacity:.7}30%,100%{opacity:1}}
+
+/* Header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(0,0,0,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:76px}
+.nav{display:flex;gap:28px;align-items:center}
+.nav a{font-size:15px;color:var(--muted);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.nav a:hover{color:var(--gold-text)}
+.back{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)!important}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:0 22px;border:1px solid var(--gold);background:var(--gold);color:#000;font-weight:600;font-size:15px;letter-spacing:.01em;text-decoration:none;cursor:pointer;transition:background .2s var(--ease),transform .2s var(--ease)}
+.btn:hover{background:var(--gold-text)}
+.btn:active{transform:translateY(1px)}
+.btn[disabled]{opacity:.55;cursor:progress}
+.btn.ghost{background:transparent;color:var(--text);border-color:var(--line-strong)}
+.btn.ghost:hover{border-color:var(--gold);color:var(--gold-text)}
+@media (max-width:860px){.nav a:not(.btn):not(.back){display:none}}
+@media (max-width:520px){.nav .btn{display:none}}
+
+/* Hero studio */
+.hero{position:relative;padding-block:clamp(40px,6vw,84px) clamp(56px,7vw,96px);border-bottom:1px solid var(--line)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 78% 40%,rgba(255,192,0,.09),transparent 70%);pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(32px,5vw,80px);align-items:center}
+.hero h1{font-size:clamp(46px,6.2vw,92px);line-height:.98;margin-top:22px}
+.hero h1 em{font-style:italic;font-weight:300;color:var(--gold)}
+.lead{margin-top:24px;max-width:46ch;color:var(--muted);font-size:clamp(17px,1.35vw,19px)}
+.composer{margin-top:36px;border:1px solid var(--line-strong);background:linear-gradient(180deg,var(--char),var(--iron));padding:18px}
+.composer label{display:block;margin-bottom:10px;color:var(--muted)}
+.prompt-row{display:flex;gap:10px;flex-wrap:wrap}
+.prompt-row input{flex:1 1 260px;min-height:52px;background:#000;border:1px solid var(--line-strong);padding:0 16px;font-size:16px}
+.prompt-row input:focus-visible{outline-offset:1px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{min-height:36px;padding:0 13px;border:1px solid var(--line);background:transparent;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);cursor:pointer}
+.chip[aria-pressed=true]{border-color:var(--gold);color:#000;background:var(--gold)}
+.chip:hover:not([aria-pressed=true]){color:var(--gold-text);border-color:var(--line-strong)}
+.interp{margin-top:14px;min-height:22px;color:var(--dim);font-family:var(--mono);font-size:12px;letter-spacing:.04em}
+.interp b{color:var(--gold-text);font-weight:500}
+.progress{height:2px;background:var(--line);margin-top:14px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+.frame{position:relative;border:1px solid var(--line-strong);background:#000;padding:14px}
+.frame canvas{display:block;width:100%;height:auto;aspect-ratio:1;background:#000}
+.frame .reveal{clip-path:circle(150% at 50% 50%)}
+.frame .reveal.run{animation:reveal 1.3s var(--ease) both}
+@keyframes reveal{from{clip-path:circle(0% at 50% 55%)}to{clip-path:circle(75% at 50% 55%)}}
+.meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);margin-top:14px;padding-top:12px;gap:8px}
+.meta div{min-width:0}
+.meta dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.meta dd{margin:2px 0 0;font-family:var(--mono);font-size:13px;color:var(--gold-text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.corner{position:absolute;width:14px;height:14px;border-color:var(--gold);border-style:solid}
+.c1{top:-1px;left:-1px;border-width:2px 0 0 2px}.c2{top:-1px;right:-1px;border-width:2px 2px 0 0}
+.c3{bottom:-1px;left:-1px;border-width:0 0 2px 2px}.c4{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+@media (max-width:960px){.hero-grid{grid-template-columns:minmax(0,1fr)}.meta{grid-template-columns:repeat(2,1fr)}}
+
+/* Sections */
+section{padding-block:clamp(64px,8vw,120px)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:clamp(32px,4vw,56px)}
+.sec-head h2{font-size:clamp(36px,4.4vw,64px);line-height:1.02;margin-top:14px}
+.sec-head p{color:var(--muted);max-width:52ch}
+@media (max-width:860px){.sec-head{grid-template-columns:minmax(0,1fr);gap:18px}}
+
+/* Style gallery */
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.tile{background:#000;padding:16px 16px 20px;display:flex;flex-direction:column;gap:14px;position:relative}
+.tile canvas{width:100%;height:auto;aspect-ratio:1;display:block;transition:transform .6s var(--ease),filter .6s var(--ease);filter:brightness(.88)}
+.tile .cv{overflow:hidden}
+.tile:hover canvas{transform:scale(1.035);filter:brightness(1.05)}
+.tile-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.tile h3{font-size:27px;font-weight:360}
+.tile p{color:var(--muted);font-size:15px;line-height:1.55}
+.tile .use{align-self:flex-start;background:none;border:0;border-bottom:1px solid var(--line-strong);padding:6px 0;min-height:40px;color:var(--gold-text);cursor:pointer;font-size:14px}
+.tile .use:hover{border-color:var(--gold)}
+@media (max-width:960px){.gallery{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.gallery{grid-template-columns:minmax(0,1fr)}}
+
+/* Tools */
+.tools{background:linear-gradient(180deg,#000,var(--iron) 40%,#000);border-block:1px solid var(--line)}
+.deck{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,4vw,64px);align-items:start}
+.tool-list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.tool{padding:22px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 20px;align-items:center}
+.tool h3{font-size:24px;font-weight:380}
+.tool p{grid-column:1/-1;color:var(--muted);font-size:15px}
+.tool output{font-family:var(--mono);font-size:13px;color:var(--gold-text);min-width:5ch;text-align:right}
+.tool .ctl{grid-column:1/-1;margin-top:8px}
+input[type=range]{width:100%;appearance:none;-webkit-appearance:none;background:transparent;height:28px}
+input[type=range]::-webkit-slider-runnable-track{height:2px;background:linear-gradient(90deg,var(--gold) var(--p,50%),var(--line-strong) var(--p,50%))}
+input[type=range]::-moz-range-track{height:2px;background:var(--line-strong)}
+input[type=range]::-moz-range-progress{height:2px;background:var(--gold)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;margin-top:-7px;background:#000;border:2px solid var(--gold);transform:rotate(45deg)}
+input[type=range]::-moz-range-thumb{width:12px;height:12px;background:#000;border:2px solid var(--gold);border-radius:0;transform:rotate(45deg)}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg button{min-width:44px;min-height:40px;border:1px solid var(--line);background:none;font-family:var(--mono);font-size:13px;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--gold);color:#000;border-color:var(--gold)}
+.live{position:sticky;top:100px}
+.live .frame{padding:12px}
+.live-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:16px}
+.live-foot span{color:var(--dim)}
+.extras{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:clamp(40px,5vw,72px);padding-top:28px;border-top:1px solid var(--line)}
+.extras h3{font-size:21px;font-weight:420;margin-bottom:8px}
+.extras p{color:var(--muted);font-size:15px}
+@media (max-width:960px){.deck{grid-template-columns:minmax(0,1fr)}.live{position:static}.extras{grid-template-columns:minmax(0,1fr)}}
+
+/* Mint */
+.mint-shell{display:grid;grid-template-columns:260px minmax(0,1fr);border:1px solid var(--line-strong);background:var(--iron)}
+.steps{list-style:none;margin:0;padding:0;border-right:1px solid var(--line)}
+.steps li{display:flex;gap:14px;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line);color:var(--dim)}
+.steps li .n{width:30px;height:30px;display:grid;place-items:center;border:1px solid currentColor;font-family:var(--mono);font-size:13px;flex:none}
+.steps li.done{color:var(--muted)}
+.steps li.done .n{background:var(--gold-deep);border-color:var(--gold-deep);color:#000}
+.steps li.on{color:var(--text);background:var(--char)}
+.steps li.on .n{background:var(--gold);border-color:var(--gold);color:#000;box-shadow:0 0 16px rgba(255,192,0,.5)}
+.panel{padding:clamp(22px,3vw,40px);min-height:460px;display:flex;flex-direction:column}
+.panel h3{font-size:clamp(26px,2.6vw,36px);margin-bottom:8px}
+.panel .sub{color:var(--muted);margin-bottom:24px}
+.pick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.pick button{padding:0;border:1px solid var(--line);background:#000;cursor:pointer;text-align:left}
+.pick button img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
+.pick button span{display:block;padding:10px 12px;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.04em}
+.pick button[aria-pressed=true]{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 0 24px rgba(255,192,0,.25)}
+.field{display:flex;flex-direction:column;gap:8px;margin-bottom:22px}
+.field label,.field legend{color:var(--muted);font-size:15px;padding:0}
+.field input[type=text]{min-height:48px;background:#000;border:1px solid var(--line-strong);padding:0 14px}
+fieldset{border:0;margin:0 0 22px;padding:0}
+.cert{display:grid;grid-template-columns:200px minmax(0,1fr);gap:26px;border:1px solid var(--gold);padding:22px;position:relative;background:radial-gradient(90% 90% at 100% 0%,rgba(255,192,0,.08),transparent 60%),#000}
+.cert::after{content:"";position:absolute;inset:6px;border:1px solid var(--line);pointer-events:none}
+.cert img{width:100%;aspect-ratio:1;display:block}
+.cert h4{font-family:var(--display);font-weight:340;font-size:28px;margin:6px 0 14px;font-style:italic}
+.cert dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 18px;margin:0}
+.cert dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.cert dd{margin:0;font-family:var(--mono);font-size:13px;color:var(--gold-text);word-break:break-all}
+.panel-foot{margin-top:auto;padding-top:26px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.log{font-family:var(--mono);font-size:13px;color:var(--muted);border-left:1px solid var(--line-strong);padding-left:16px;display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.log .ok{color:var(--gold-text)}
+.minted{margin-top:22px;padding:18px;border:1px solid var(--gold);color:var(--text)}
+.minted strong{color:var(--gold);font-weight:600}
+.demo-note{margin-top:14px;color:var(--dim);font-size:14px}
+@media (max-width:860px){.mint-shell{grid-template-columns:minmax(0,1fr)}.steps{display:grid;grid-template-columns:repeat(4,1fr);border-right:0;border-bottom:1px solid var(--line)}.steps li{flex-direction:column;gap:6px;padding:14px 6px;font-size:12px;text-align:center;border-bottom:0}.cert{grid-template-columns:minmax(0,1fr)}.pick{grid-template-columns:repeat(3,1fr)}}
+
+footer{border-top:1px solid var(--line);padding-block:48px 56px}
+.foot{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.foot p{color:var(--dim);font-size:14px;max-width:60ch}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="logo" href="./" aria-label="Smoove Operator, all concepts">Smoove Operator</a>
+    <nav class="nav" aria-label="Atelier">
+      <a class="back" href="./">All concepts</a>
+      <a href="#studio">Studio</a>
+      <a href="#styles">Styles</a>
+      <a href="#tools">Tools</a>
+      <a href="#mint">Mint</a>
+      <a class="btn" href="#studio">Open the studio</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="studio" style="padding-top:clamp(40px,6vw,84px)">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Smoove Atelier &middot; Generative studio</p>
+      <h1>Art with a <em>gold thread</em> running through it.</h1>
+      <p class="lead">Describe a feeling. The studio turns it into a seeded, reproducible composition in black and gold, then lets you refine it, sign it and release it as a numbered edition.</p>
+      <form class="composer" id="composer" autocomplete="off">
+        <label for="prompt">Your prompt</label>
+        <div class="prompt-row">
+          <input id="prompt" name="prompt" type="text" value="calm night drive along the coast, slow gold light" aria-describedby="interp">
+          <button class="btn" id="gen" type="submit">Generate</button>
+        </div>
+        <div class="chips" role="group" aria-label="Style" id="styleChips"></div>
+        <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+        <p class="interp" id="interp" aria-live="polite"></p>
+      </form>
+    </div>
+    <div>
+      <div class="frame">
+        <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
+        <canvas id="hero" class="reveal" width="1000" height="1000" role="img" aria-label="Generated artwork preview"></canvas>
+        <dl class="meta">
+          <div><dt>Seed</dt><dd id="mSeed">0</dd></div>
+          <div><dt>Style</dt><dd id="mStyle">Flow</dd></div>
+          <div><dt>Strokes</dt><dd id="mStrokes">0</dd></div>
+          <div><dt>Master</dt><dd>8192 &times; 8192</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="styles">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Style gallery</p><h2>Six house styles, one palette.</h2></div>
+      <p>Every style is an algorithm, not a filter. Each one draws from the same locked palette of absolute black and Lamborghini gold, so a collection always looks like it belongs together. Choose one to load it into the studio.</p>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<section class="tools" id="tools">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Creator tools</p><h2>Direct the machine by hand.</h2></div>
+      <p>The prompt gets you close. These controls get you exact. Every change is live, and every result stays reproducible from its seed and settings.</p>
+    </div>
+    <div class="deck">
+      <div class="tool-list">
+        <div class="tool">
+          <h3><label for="tDensity">Density</label></h3><output id="oDensity" for="tDensity">1.0&times;</output>
+          <p>How many strokes the field carries. Low reads as a sketch, high reads as silk.</p>
+          <div class="ctl"><input id="tDensity" type="range" min="0.2" max="1.8" step="0.05" value="1"></div>
+        </div>
+        <div class="tool">
+          <h3><label for="tTurb">Turbulence</label></h3><output id="oTurb" for="tTurb">1.4</output>
+          <p>How hard the invisible wind twists each line. Calm water on the left, a storm on the right.</p>
+          <div class="ctl"><input id="tTurb" type="range" min="0.3" max="3.2" step="0.05" value="1.4"></div>
+        </div>
+        <div class="tool">
+          <h3 id="symLabel">Symmetry</h3><output id="oSym">1-fold</output>
+          <p>Mirror the composition around its center for mandalas, medallions and emblems.</p>
+          <div class="ctl seg" role="group" aria-labelledby="symLabel" id="symSeg"></div>
+        </div>
+        <div class="tool">
+          <h3><label for="tGlow">Neon glow</label></h3><output id="oGlow" for="tGlow">45%</output>
+          <p>The same bloom that lights the SmooveOperator wordmark, applied to the artwork.</p>
+          <div class="ctl"><input id="tGlow" type="range" min="0" max="1" step="0.05" value="0.45"></div>
+        </div>
+      </div>
+      <div class="live">
+        <div class="frame">
+          <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
+          <canvas id="toolCanvas" width="760" height="760" role="img" aria-label="Live preview of creator tool settings"></canvas>
+        </div>
+        <div class="live-foot">
+          <span class="mono" id="toolSeed">Seed 4242</span>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn ghost" type="button" id="shuffle">New seed</button>
+            <button class="btn" type="button" id="applyTools">Send to studio</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="extras">
+      <div><h3>Seed vault</h3><p>Every piece is stored as a seed plus settings, a few hundred bytes that regenerate the full master on demand.</p></div>
+      <div><h3>Layer stack</h3><p>Combine two styles, for example a ridge horizon under a flow field sky, with blend and mask controls per layer.</p></div>
+      <div><h3>Print-ready export</h3><p>Masters render at 8192 pixels square, with a vector option for foil stamping, packaging and signage.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="mint">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="eyebrow">Minting flow</p><h2>From sketch to signed edition in four steps.</h2></div>
+      <p>Choose a piece, set the edition, review the certificate, then release. This is an interactive prototype: no wallet is connected and nothing is written anywhere.</p>
+    </div>
+    <div class="mint-shell">
+      <ol class="steps" id="steps">
+        <li class="on"><span class="n">1</span><span>Choose piece</span></li>
+        <li><span class="n">2</span><span>Edition</span></li>
+        <li><span class="n">3</span><span>Certificate</span></li>
+        <li><span class="n">4</span><span>Release</span></li>
+      </ol>
+      <div class="panel" id="panel" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="./">Smoove Operator</a>
+    <p>Concept 01 of 5. A speculative creative platform built on the SmooveOperator identity: absolute black, Lamborghini gold and the protected neon wordmark.</p>
+  </div>
+</footer>
+
+<script>
+(()=>{
+const REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const GOLDS=['#FFC000','#FFCE3E','#FFD95E','#917300','#FFF1C2'];
+const STYLES=[
+  {id:'flow',name:'Flow',desc:'Thousands of strokes riding an invisible wind. Our signature style, calm at low turbulence.'},
+  {id:'ridge',name:'Ridgeline',desc:'Stacked horizons that swell toward the center, like a coastline seen at night from the air.'},
+  {id:'halftone',name:'Halftone Sun',desc:'A setting sun built from printed dots, cut by the horizontal bands of a vintage poster.'},
+  {id:'kinetic',name:'Kinetic Grid',desc:'A disciplined grid of short strokes, each turned by the same field. Order under pressure.'},
+  {id:'filament',name:'Filament',desc:'Rays of light spun from a hot core. Reads as a star, a flower or a bulb filament.'},
+  {id:'deco',name:'Deco',desc:'A stepped Art Deco sunburst in fine gold rule, the language of 1930s lobbies and liner menus.'}
+];
+
+// Seeded randomness
+function hashStr(s){let h1=0xdeadbeef,h2=0x41c6ce57;for(let i=0;i<s.length;i++){const c=s.charCodeAt(i);h1=Math.imul(h1^c,2654435761);h2=Math.imul(h2^c,1597334677);}h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507)^Math.imul(h1^(h1>>>13),3266489909);return (h2>>>0)*4096+(h1>>>20);}
+function rng(seed){let a=seed>>>0||1;return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function noise2(rand){const perm=new Uint8Array(512),v=new Float32Array(256);const p=[...Array(256).keys()];for(let i=255;i>0;i--){const j=Math.floor(rand()*(i+1));[p[i],p[j]]=[p[j],p[i]];}for(let i=0;i<512;i++)perm[i]=p[i&255];for(let i=0;i<256;i++)v[i]=rand();
+  const f=t=>t*t*(3-2*t);const h=(i,j)=>v[perm[(perm[i&255]+j)&255]];
+  const n=(x,y)=>{const xi=Math.floor(x),yi=Math.floor(y),xf=x-xi,yf=y-yi,u=f(xf),w=f(yf);const a=h(xi,yi),b=h(xi+1,yi),c=h(xi,yi+1),d=h(xi+1,yi+1);return a+(b-a)*u+(c-a)*w+(a-b-c+d)*u*w;};
+  return (x,y)=>(n(x,y)*.6+n(x*2.1+17,y*2.1+9)*.3+n(x*4.3+3,y*4.3+41)*.1);}
+const pick=(r,a)=>a[Math.floor(r()*a.length)];
+const rgba=(hex,a)=>{const n=parseInt(hex.slice(1),16);return`rgba(${n>>16},${n>>8&255},${n&255},${a})`;};
+
+function render(cv,o){
+  const ctx=cv.getContext('2d');const W=cv.width,H=cv.height;const r=rng(o.seed);const N=noise2(rng(o.seed^0x9e3779b9));
+  const dens=o.density??1,turb=o.turb??1.4,sym=o.sym??1,glow=o.glow??.45;
+  ctx.save();ctx.globalCompositeOperation='source-over';ctx.fillStyle='#000';ctx.fillRect(0,0,W,H);
+  let strokes=0;
+  const withSym=(draw)=>{for(let k=0;k<sym;k++){ctx.save();ctx.translate(W/2,H/2);ctx.rotate(k*Math.PI*2/sym);if(sym>1&&k%2===1)ctx.scale(1,-1);ctx.translate(-W/2,-H/2);draw();ctx.restore();}};
+  ctx.globalCompositeOperation='lighter';ctx.lineCap='round';
+  const s=W/1000;
+  if(o.style==='flow'){
+    const count=Math.round(900*dens/Math.sqrt(sym));const sc=.0018/s;
+    withSym(()=>{const rr=rng(o.seed+7);for(let i=0;i<count;i++){let x=rr()*W,y=rr()*H;const col=pick(rr,GOLDS);ctx.strokeStyle=rgba(col,.06+rr()*.18);ctx.lineWidth=(.5+rr()*1.4)*s;ctx.beginPath();ctx.moveTo(x,y);const steps=60+rr()*120;for(let j=0;j<steps;j++){const a=N(x*sc,y*sc)*Math.PI*2*turb;x+=Math.cos(a)*2.4*s;y+=Math.sin(a)*2.4*s;ctx.lineTo(x,y);}ctx.stroke();strokes++;}});
+  } else if(o.style==='ridge'){
+    ctx.globalCompositeOperation='source-over';const rows=Math.round(46*dens)+8;const top=H*.16,bot=H*.9;
+    for(let i=0;i<rows;i++){const y0=top+(bot-top)*i/(rows-1);ctx.beginPath();ctx.moveTo(0,H);for(let x=0;x<=W;x+=4*s){const c=Math.exp(-Math.pow((x-W/2)/(W*.2),2));const n=N(x*.004/s*turb*.7,i*.35);const y=y0-c*n*n*H*.22*(0.6+turb*.3)-n*H*.012;ctx.lineTo(x,y);}ctx.lineTo(W,H);ctx.closePath();ctx.fillStyle='#000';ctx.fill();ctx.strokeStyle=rgba(i%7===3?'#FFF1C2':'#FFC000',.35+.55*(i/rows));ctx.lineWidth=1.3*s;ctx.stroke();strokes++;}
+  } else if(o.style==='halftone'){
+    const step=Math.max(9,Math.round(22/dens))*s;const cx=W/2,cy=H*.6,R=W*.34;
+    for(let y=step/2;y<H;y+=step){for(let x=step/2;x<W;x+=step){const d=Math.hypot(x-cx,y-cy)/R;const band=y>cy-R*.1&&Math.floor((y-(cy-R*.1))/(step*2.2))%2===1&&d<1;let v=d<1?1-d*.55:Math.max(0,1.25-d)*.5;v*=.75+N(x*.006/s*turb,y*.006/s*turb)*.5;if(band)v*=.12;if(y>cy+R*.55)v*=.25;const rad=Math.max(0,v)*step*.5;if(rad<.4)continue;ctx.fillStyle=d<1?'#FFC000':rgba('#917300',.9);ctx.beginPath();ctx.arc(x,y,rad,0,Math.PI*2);ctx.fill();strokes++;}}
+    ctx.strokeStyle=rgba('#FFCE3E',.8);ctx.lineWidth=1.2*s;ctx.beginPath();ctx.moveTo(W*.08,cy+R*.55);ctx.lineTo(W*.92,cy+R*.55);ctx.stroke();
+  } else if(o.style==='kinetic'){
+    const n=Math.round(28*Math.sqrt(dens))+6;const cell=W/n;
+    withSym(()=>{for(let i=0;i<n;i++)for(let j=0;j<n;j++){const x=(i+.5)*cell,y=(j+.5)*cell;const v=N(x*.003/s,y*.003/s);const a=v*Math.PI*2*turb;const L=cell*(.25+v*.7);ctx.strokeStyle=rgba(v>.62?'#FFF1C2':'#FFC000',.25+v*.7);ctx.lineWidth=(1+v*2)*s;ctx.beginPath();ctx.moveTo(x-Math.cos(a)*L/2,y-Math.sin(a)*L/2);ctx.lineTo(x+Math.cos(a)*L/2,y+Math.sin(a)*L/2);ctx.stroke();if(v>.72){ctx.fillStyle=rgba('#FFC000',.2);ctx.fillRect(x-cell*.4,y-cell*.4,cell*.8,cell*.8);}strokes++;}});
+  } else if(o.style==='filament'){
+    const cx=W/2,cy=H/2;const count=Math.round(520*dens/Math.sqrt(sym));
+    const g=ctx.createRadialGradient(cx,cy,0,cx,cy,W*.18);g.addColorStop(0,'rgba(255,241,194,.9)');g.addColorStop(.3,'rgba(255,192,0,.35)');g.addColorStop(1,'rgba(255,192,0,0)');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+    withSym(()=>{const rr=rng(o.seed+3);for(let i=0;i<count;i++){let a=rr()*Math.PI*2;let rad=W*.03;const len=W*(.12+N(Math.cos(a)*2+5,Math.sin(a)*2+5)*.38);ctx.strokeStyle=rgba(pick(rr,GOLDS),.08+rr()*.25);ctx.lineWidth=(.4+rr())*s;ctx.beginPath();ctx.moveTo(cx+Math.cos(a)*rad,cy+Math.sin(a)*rad);while(rad<len){rad+=3*s;a+=(N(rad*.01/s,a*3)-.5)*.05*turb;ctx.lineTo(cx+Math.cos(a)*rad,cy+Math.sin(a)*rad);}ctx.stroke();strokes++;}});
+  } else if(o.style==='deco'){
+    ctx.globalCompositeOperation='source-over';const cx=W/2,cy=H*.86;const rings=Math.round(14*dens)+4;
+    ctx.strokeStyle='#FFC000';
+    for(let i=0;i<rings;i++){const R=W*.08+i*(W*.62/rings);ctx.lineWidth=(i%4===0?2.2:.9)*s;ctx.globalAlpha=.4+.6*(1-i/rings);ctx.beginPath();ctx.arc(cx,cy,R,Math.PI,0);ctx.stroke();strokes++;}
+    const rays=Math.round(24+turb*10);for(let k=0;k<=rays;k++){const a=Math.PI+k*Math.PI/rays;const inner=W*.1,outer=W*(.45+(k%3===0?.26:k%3===1?.12:.18))+N(k*.4,1)*W*.04;ctx.globalAlpha=k%3===0?.95:.45;ctx.lineWidth=(k%3===0?1.6:.8)*s;ctx.beginPath();ctx.moveTo(cx+Math.cos(a)*inner,cy+Math.sin(a)*inner);ctx.lineTo(cx+Math.cos(a)*outer,cy+Math.sin(a)*outer);ctx.stroke();strokes++;}
+    ctx.globalAlpha=1;ctx.fillStyle='#FFC000';ctx.beginPath();ctx.arc(cx,cy,W*.06,Math.PI,0);ctx.fill();
+    ctx.fillStyle='#000';ctx.fillRect(0,cy,W,H-cy);ctx.fillStyle='#FFC000';ctx.fillRect(W*.1,cy,W*.8,1.6*s);
+    for(let i=1;i<=4;i++){ctx.globalAlpha=.8/i;ctx.fillRect(W*(.1+i*.05),cy+i*10*s,W*(.8-i*.1),1*s);}ctx.globalAlpha=1;
+  }
+  // neon bloom
+  if(glow>0&&'filter' in ctx){ctx.globalCompositeOperation='lighter';ctx.globalAlpha=glow*.9;ctx.filter=`blur(${Math.round(10*s)}px)`;ctx.drawImage(cv,0,0);ctx.filter='none';ctx.globalAlpha=1;}
+  // vignette
+  ctx.globalCompositeOperation='source-over';const v=ctx.createRadialGradient(W/2,H/2,W*.35,W/2,H/2,W*.75);v.addColorStop(0,'rgba(0,0,0,0)');v.addColorStop(1,'rgba(0,0,0,.7)');ctx.fillStyle=v;ctx.fillRect(0,0,W,H);
+  ctx.restore();return strokes;
+}
+
+// Prompt interpretation
+const LEX=[
+  [/\b(calm|slow|still|quiet|soft|gentle|serene)\b/i,'calm',o=>{o.turb=Math.min(o.turb,.8);}],
+  [/\b(storm|wild|chaos|electric|fast|rush|fire)\b/i,'energetic',o=>{o.turb=Math.max(o.turb,2.4);}],
+  [/\b(dense|silk|rich|lush|thick)\b/i,'dense',o=>{o.density=1.5;}],
+  [/\b(sparse|minimal|thin|sketch|light)\b/i,'sparse',o=>{o.density=.6;}],
+  [/\b(glow|neon|night|shine|bright)\b/i,'glowing',o=>{o.glow=.75;}],
+  [/\b(mandala|emblem|medallion|crest|symmetr\w*)\b/i,'symmetric',o=>{o.sym=6;}],
+  [/\b(coast|ocean|sea|mountain|horizon|dune)\b/i,'landscape',o=>{o.suggest='ridge';}],
+  [/\b(sun|sunset|sunrise|poster|retro)\b/i,'solar',o=>{o.suggest='halftone';}],
+  [/\b(star|flower|bloom|burst|core)\b/i,'radiant',o=>{o.suggest='filament';}],
+  [/\b(deco|gatsby|lobby|1920s|1930s|architect\w*)\b/i,'deco',o=>{o.suggest='deco';}]
+];
+function interpret(text,base){const o={...base};const tags=[];for(const[re,t,fn]of LEX){if(re.test(text)){fn(o);tags.push(t);}}return{o,tags};}
+
+// State
+const state={style:'flow',density:1,turb:1.4,sym:1,glow:.45,seed:0};
+const recent=[];
+const $=id=>document.getElementById(id);
+const heroCv=$('hero');
+
+// Style chips
+const chips=$('styleChips');
+STYLES.forEach(s=>{const b=document.createElement('button');b.type='button';b.className='chip';b.textContent=s.name;b.dataset.id=s.id;b.setAttribute('aria-pressed',s.id===state.style);b.onclick=()=>{setStyle(s.id);generate(false);};chips.appendChild(b);});
+function setStyle(id){state.style=id;chips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.id===id));}
+
+function thumb(cv){const t=document.createElement('canvas');t.width=t.height=360;t.getContext('2d').drawImage(cv,0,0,360,360);return t.toDataURL('image/jpeg',.86);}
+function pushRecent(label){recent.unshift({src:thumb(heroCv),seed:state.seed,style:state.style,label,settings:{...state}});if(recent.length>3)recent.pop();if(mint.step===0)drawPanel();}
+
+let busy=false;
+function generate(fromPrompt=true){
+  if(busy)return;const text=$('prompt').value.trim()||'untitled';
+  const {o,tags}=interpret(text,{density:state.density,turb:state.turb,sym:state.sym,glow:state.glow});
+  if(fromPrompt){Object.assign(state,{density:o.density,turb:o.turb,sym:o.sym,glow:o.glow});if(o.suggest&&state.style==='flow')setStyle(o.suggest);}
+  state.seed=hashStr(text+'|'+state.style)%1e8;
+  $('interp').innerHTML=tags.length?'Interpreted as: '+tags.map(t=>'<b>'+t+'</b>').join(' &middot; '):'Interpreted as: <b>open</b> (no style cues found, using house defaults)';
+  busy=true;const btn=$('gen');btn.disabled=true;const labels=['Reading prompt','Seeding field','Tracing strokes','Glazing gold'];
+  const bar=$('bar');let t0=performance.now();const dur=REDUCED?0:1100;
+  const tick=now=>{const p=Math.min(1,(now-t0)/Math.max(dur,1));bar.style.width=(p*100)+'%';btn.textContent=labels[Math.min(3,Math.floor(p*4))]+'…';if(p<1)requestAnimationFrame(tick);else finish();};
+  const finish=()=>{const n=render(heroCv,{...state});$('mSeed').textContent=state.seed;$('mStyle').textContent=STYLES.find(s=>s.id===state.style).name;$('mStrokes').textContent=n.toLocaleString();
+    heroCv.classList.remove('run');void heroCv.offsetWidth;if(!REDUCED)heroCv.classList.add('run');
+    btn.disabled=false;btn.textContent='Generate';busy=false;setTimeout(()=>bar.style.width='0',400);pushRecent(text.slice(0,28));};
+  if(REDUCED)finish();else requestAnimationFrame(tick);
+}
+$('composer').addEventListener('submit',e=>{e.preventDefault();generate(true);});
+
+// Gallery
+const gal=$('gallery');
+STYLES.forEach((s,i)=>{const t=document.createElement('article');t.className='tile';t.innerHTML=`<div class="cv"><canvas width="480" height="480" role="img" aria-label="${s.name} style sample"></canvas></div><div class="tile-top"><h3>${s.name}</h3><span class="mono" style="color:var(--dim)">Style 0${i+1}</span></div><p>${s.desc}</p><button class="use" type="button">Load into studio</button>`;gal.appendChild(t);
+  const cv=t.querySelector('canvas');
+  const draw=()=>render(cv,{style:s.id,seed:1000+i*97,density:1,turb:s.id==='flow'?1.1:1.4,sym:s.id==='kinetic'?1:1,glow:.5});
+  t._draw=draw;
+  t.querySelector('.use').onclick=()=>{setStyle(s.id);$('studio').scrollIntoView({behavior:REDUCED?'auto':'smooth'});setTimeout(()=>generate(false),REDUCED?0:500);};});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target._draw();io.unobserve(e.target);}}),{rootMargin:'300px'});
+gal.querySelectorAll('.tile').forEach(t=>io.observe(t));
+
+// Tools
+const tc=$('toolCanvas');let tSeed=4242;
+const symSeg=$('symSeg');[1,2,3,4,6,8].forEach(n=>{const b=document.createElement('button');b.type='button';b.textContent=n;b.setAttribute('aria-label',n+'-fold symmetry');b.setAttribute('aria-pressed',n===1);b.onclick=()=>{tool.sym=n;symSeg.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));$('oSym').textContent=n+'-fold';drawTool();};symSeg.appendChild(b);});
+const tool={density:1,turb:1.4,sym:1,glow:.45};
+function fillRange(el){const p=(el.value-el.min)/(el.max-el.min)*100;el.style.setProperty('--p',p+'%');}
+[['tDensity','density',v=>v.toFixed(2).replace(/0$/,'')+'×'],['tTurb','turb',v=>v.toFixed(2)],['tGlow','glow',v=>Math.round(v*100)+'%']].forEach(([id,key,fmt])=>{const el=$(id);fillRange(el);el.addEventListener('input',()=>{tool[key]=+el.value;$('o'+id.slice(1)).textContent=fmt(+el.value);fillRange(el);drawTool();});});
+let raf=0;function drawTool(){cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{render(tc,{style:'flow',seed:tSeed,...tool});$('toolSeed').textContent='Seed '+tSeed;});}
+$('shuffle').onclick=()=>{tSeed=Math.floor(Math.random()*1e8);drawTool();};
+$('applyTools').onclick=()=>{Object.assign(state,tool);setStyle('flow');state.seed=tSeed;$('studio').scrollIntoView({behavior:REDUCED?'auto':'smooth'});
+  setTimeout(()=>{const n=render(heroCv,{...state});$('mSeed').textContent=state.seed;$('mStyle').textContent='Flow';$('mStrokes').textContent=n.toLocaleString();heroCv.classList.remove('run');void heroCv.offsetWidth;if(!REDUCED)heroCv.classList.add('run');$('interp').innerHTML='Loaded from creator tools: <b>seed '+tSeed+'</b> &middot; <b>'+tool.sym+'-fold</b>';pushRecent('Tool study '+tSeed);},REDUCED?0:450);};
+render(tc,{style:'flow',seed:tSeed,...tool});
+
+// Mint flow
+const mint={step:0,sel:0,edition:10,title:'Coastline, After Midnight',royalty:5,minted:false};
+function certHash(){const e=recent[mint.sel]||{seed:0};const h=hashStr(e.seed+'|'+e.style+'|'+mint.title+'|'+mint.edition).toString(16).padStart(13,'0');return '0x'+(h+hashStr(h).toString(16)).slice(0,24);}
+function setSteps(){document.querySelectorAll('#steps li').forEach((li,i)=>{li.className=i<mint.step?'done':i===mint.step?'on':'';if(i===mint.step)li.setAttribute('aria-current','step');else li.removeAttribute('aria-current');});}
+function drawPanel(){
+  setSteps();const p=$('panel');const e=recent[mint.sel];
+  const foot=(back,next,label='Continue')=>`<div class="panel-foot">${back?'<button class="btn ghost" type="button" data-go="back">Back</button>':'<span></span>'}${next?`<button class="btn" type="button" data-go="next">${label}</button>`:''}</div>`;
+  if(mint.step===0){p.innerHTML=`<h3>Choose a piece</h3><p class="sub">Your three most recent generations. Make another in the studio and it appears here.</p><div class="pick">${recent.map((r,i)=>`<button type="button" aria-pressed="${i===mint.sel}" data-sel="${i}"><img src="${r.src}" alt="${STYLES.find(s=>s.id===r.style).name} generation, seed ${r.seed}"><span>${STYLES.find(s=>s.id===r.style).name} &middot; ${r.seed}</span></button>`).join('')}</div>${foot(false,recent.length>0)}`;}
+  if(mint.step===1){p.innerHTML=`<h3>Set the edition</h3><p class="sub">Smaller editions are rarer. Royalties return to the creator on every resale.</p>
+    <div class="field"><label for="mTitle">Title</label><input id="mTitle" type="text" value="${mint.title.replace(/"/g,'&quot;')}"></div>
+    <fieldset class="field"><legend>Edition size</legend><div class="seg" id="edSeg">${[1,10,25,100].map(n=>`<button type="button" aria-pressed="${n===mint.edition}" data-ed="${n}">${n===1?'1 of 1':n}</button>`).join('')}</div></fieldset>
+    <div class="field"><label for="mRoy">Creator royalty <span class="mono" id="oRoy" style="color:var(--gold-text)">${mint.royalty}%</span></label><input id="mRoy" type="range" min="0" max="10" step="0.5" value="${mint.royalty}"></div>${foot(true,true)}`;
+    const r=$('mRoy');fillRange(r);r.oninput=()=>{mint.royalty=+r.value;$('oRoy').textContent=r.value+'%';fillRange(r);};$('mTitle').oninput=ev=>{mint.title=ev.target.value||'Untitled';};
+    p.querySelectorAll('[data-ed]').forEach(b=>b.onclick=()=>{mint.edition=+b.dataset.ed;p.querySelectorAll('[data-ed]').forEach(x=>x.setAttribute('aria-pressed',x===b));});}
+  if(mint.step===2){p.innerHTML=`<h3>Review the certificate</h3><p class="sub">This record travels with every copy in the edition.</p>
+    <div class="cert"><img src="${e.src}" alt="Selected artwork"><div><p class="eyebrow">Certificate of authenticity</p><h4>${mint.title.replace(/</g,'&lt;')}</h4><dl>
+    <dt>Studio</dt><dd>Smoove Atelier</dd><dt>Style</dt><dd>${STYLES.find(s=>s.id===e.style).name}</dd><dt>Seed</dt><dd>${e.seed}</dd><dt>Edition</dt><dd>${mint.edition===1?'1 of 1':mint.edition+' copies'}</dd><dt>Royalty</dt><dd>${mint.royalty}%</dd><dt>Fingerprint</dt><dd>${certHash()}</dd></dl></div></div>${foot(true,true,'Sign and continue')}`;}
+  if(mint.step===3){p.innerHTML=`<h3>Release the edition</h3><p class="sub">One final review. Releasing locks the title, seed and edition size.</p>
+    <div class="log" id="log"><span>Ready: ${mint.title.replace(/</g,'&lt;')} &middot; ${mint.edition===1?'1 of 1':'edition of '+mint.edition}</span></div><div id="done"></div>
+    <div class="panel-foot"><button class="btn ghost" type="button" data-go="back">Back</button><button class="btn" type="button" id="release">Release edition</button></div>`;
+    $('release').onclick=()=>{const btn=$('release');btn.disabled=true;const log=$('log');const lines=['Storing master at 8192 px','Writing certificate','Confirming edition'];let i=0;
+      const step=()=>{if(i<lines.length){log.insertAdjacentHTML('beforeend',`<span class="ok">✓ ${lines[i]}</span>`);i++;setTimeout(step,REDUCED?0:520);}else{$('done').innerHTML=`<div class="minted"><strong>Released.</strong> ${mint.title.replace(/</g,'&lt;')}, ${mint.edition===1?'a single original':'an edition of '+mint.edition}, fingerprint ${certHash()}.</div><p class="demo-note">Prototype only. No wallet is connected and nothing was written to any network.</p>`;btn.textContent='Released';p.querySelector('[data-go=back]').textContent='Start over';p.querySelector('[data-go=back]').dataset.go='reset';wire();}};step();};}
+  wire();
+}
+function wire(){const p=$('panel');p.querySelectorAll('[data-sel]').forEach(b=>b.onclick=()=>{mint.sel=+b.dataset.sel;p.querySelectorAll('[data-sel]').forEach(x=>x.setAttribute('aria-pressed',x===b));});
+  p.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{const g=b.dataset.go;if(g==='next')mint.step=Math.min(3,mint.step+1);if(g==='back')mint.step=Math.max(0,mint.step-1);if(g==='reset')mint.step=0;drawPanel();});}
+
+// Boot: seed the recent strip so the mint flow opens in a working state
+(function boot(){
+  const seeds=[{style:'deco',text:'gatsby lobby at dusk'},{style:'filament',text:'a star being born'}];
+  seeds.forEach(s=>{state.style=s.style;state.seed=hashStr(s.text+'|'+s.style)%1e8;const b={...state};Object.assign(state,{density:1,turb:1.4,sym:1,glow:.5});render(heroCv,{...state});recent.unshift({src:thumb(heroCv),seed:state.seed,style:s.style,label:s.text});Object.assign(state,b);});
+  setStyle('flow');Object.assign(state,{density:1,turb:1.4,sym:1,glow:.45});
+  const text=$('prompt').value;const {o,tags}=interpret(text,{...state});Object.assign(state,{density:o.density,turb:o.turb,sym:o.sym,glow:o.glow});if(o.suggest)setStyle(o.suggest);
+  state.seed=hashStr(text+'|'+state.style)%1e8;const n=render(heroCv,{...state});
+  $('mSeed').textContent=state.seed;$('mStyle').textContent=STYLES.find(s=>s.id===state.style).name;$('mStrokes').textContent=n.toLocaleString();
+  $('interp').innerHTML='Interpreted as: '+tags.map(t=>'<b>'+t+'</b>').join(' &middot; ');
+  recent.unshift({src:thumb(heroCv),seed:state.seed,style:state.style,label:text});
+  drawPanel();
+})();
+})();
+</script>
+</body>
+</html>

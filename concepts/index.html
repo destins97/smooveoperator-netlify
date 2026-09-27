@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>SmooveOperator Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Yellowtail&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --black:#000000;--gold:#FFC000;--gold-text:#FFCE3E;--gold-deep:#917300;
+  --iron:#0c0b08;--text:#F5F1E6;--muted:#A6A192;--dim:#68645A;
+  --line:rgba(245,241,230,.1);--line-gold:rgba(255,192,0,.3);
+  --display:'Fraunces',Georgia,serif;--body:'Inter',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--black);color:var(--text);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.wrap{width:min(1240px,100% - 2*clamp(16px,4vw,56px));margin-inline:auto}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+h1,h2,h3{font-family:var(--display);font-weight:340;margin:0;letter-spacing:-.02em;text-wrap:balance}
+p{margin:0}
+.logo{font-family:'Yellowtail',cursive;color:var(--gold);text-decoration:none;white-space:nowrap;line-height:1.1;
+  text-shadow:0 0 1px #fff8e0,0 0 6px rgba(255,192,0,.85),0 0 16px rgba(255,192,0,.55),0 0 38px rgba(255,192,0,.35),0 0 70px rgba(255,192,0,.18);
+  animation:ignite 1.6s steps(1,end) .2s both}
+@keyframes ignite{0%{opacity:.25}8%{opacity:1}12%{opacity:.4}18%{opacity:1}24%{opacity:.7}30%,100%{opacity:1}}
+header{padding-block:clamp(48px,7vw,96px) clamp(40px,5vw,64px);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+header::before{content:"";position:absolute;left:50%;top:-40%;width:900px;height:600px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(255,192,0,.10),transparent);pointer-events:none}
+.head{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:end}
+.head .logo{font-size:clamp(56px,9vw,128px);display:inline-block}
+.head h1{font-size:clamp(30px,3.4vw,46px);line-height:1.1;margin-top:18px}
+.head h1 i{color:var(--gold)}
+.head p{color:var(--muted);max-width:48ch}
+.rules{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+.rules span{font-family:var(--mono);font-size:12px;padding:6px 10px;border:1px solid var(--line-gold);color:var(--gold-text)}
+.sw{display:inline-block;width:10px;height:10px;vertical-align:-1px;margin-right:6px;border:1px solid var(--line-gold)}
+@media (max-width:860px){.head{grid-template-columns:minmax(0,1fr);gap:18px}}
+
+main{padding-block:clamp(40px,5vw,72px)}
+.list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.item a{display:grid;grid-template-columns:72px minmax(0,1.1fr) minmax(0,1fr) 140px;gap:24px;align-items:start;padding:30px 0;border-bottom:1px solid var(--line);text-decoration:none;transition:background .3s var(--ease)}
+.item a:hover{background:linear-gradient(90deg,rgba(255,192,0,.05),transparent 70%)}
+.item a:hover h2{color:var(--gold-text)}
+.item .n{font-family:var(--display);font-size:44px;line-height:1;color:var(--gold);font-weight:300;font-variant-numeric:tabular-nums}
+.item h2{font-size:clamp(30px,3vw,42px);line-height:1.05;transition:color .3s var(--ease)}
+.item .insp{margin-top:8px;color:var(--dim)}
+.item .what{color:var(--muted);font-size:16px}
+.item .what b{display:block;color:var(--text);font-weight:500;margin-bottom:4px}
+.meters{display:flex;flex-direction:column;gap:10px}
+.meter .mono{font-size:10.5px;color:var(--dim);display:flex;justify-content:space-between}
+.meter .track{height:3px;background:var(--line);margin-top:4px}
+.meter .track i{display:block;height:100%;background:var(--gold)}
+.req{display:inline-block;margin-top:10px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#000;background:var(--gold);padding:3px 8px}
+@media (max-width:960px){.item a{grid-template-columns:56px minmax(0,1fr);}.item .what,.item .meters{grid-column:2}.meters{flex-direction:row;gap:16px}.meter{flex:1}}
+.foot{margin-top:48px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.foot h3{font-size:22px;margin-bottom:8px}
+.foot p{color:var(--muted);font-size:15.5px}
+@media (max-width:860px){.foot{grid-template-columns:minmax(0,1fr)}}
+footer{border-top:1px solid var(--line);padding-block:36px;color:var(--dim);font-size:14px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap head">
+    <div>
+      <a class="logo" href="./" aria-label="Smoove Operator">Smoove Operator</a>
+      <h1>Five directions for the next version of the site, <i>all in black and gold.</i></h1>
+    </div>
+    <div>
+      <p>Each concept is a working, interactive page, not a picture. Open one, click around, and note what you want to keep. The logo and palette stay locked across every direction.</p>
+      <div class="rules"><span><i class="sw" style="background:#000"></i>Absolute Black #000000</span><span><i class="sw" style="background:#FFC000"></i>Lamborghini Gold #FFC000</span><span>Neon Yellowtail wordmark</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <ol class="list">
+      <li class="item"><a href="atelier.html">
+        <span class="n">01</span>
+        <div><h2>Smoove Atelier</h2><p class="mono insp">Generative art platform</p><span class="req">Your requested example</span></div>
+        <p class="what"><b>AI art preview, style gallery, creator tools and minting flow.</b>Type a prompt and a real generative engine paints it in gold. Six algorithmic styles, live creator sliders and a four step edition release.</p>
+        <div class="meters"><div class="meter"><span class="mono"><span>Wow</span><span>9</span></span><div class="track"><i style="width:90%"></i></div></div><div class="meter"><span class="mono"><span>Supplier fit</span><span>2</span></span><div class="track"><i style="width:20%"></i></div></div></div>
+      </a></li>
+      <li class="item"><a href="night-route.html">
+        <span class="n">02</span>
+        <div><h2>Night Route</h2><p class="mono insp">After Lamborghini &middot; Yacht</p></div>
+        <p class="what"><b>Cinematic light trails and a relationship configurator.</b>Gold long exposure traffic behind your locked slogan, a car style spec strip, a scroll drawn route, and a "Start configuration" builder that writes the first message.</p>
+        <div class="meters"><div class="meter"><span class="mono"><span>Wow</span><span>8</span></span><div class="track"><i style="width:80%"></i></div></div><div class="meter"><span class="mono"><span>Supplier fit</span><span>8</span></span><div class="track"><i style="width:80%"></i></div></div></div>
+      </a></li>
+      <li class="item"><a href="constellation.html">
+        <span class="n">03</span>
+        <div><h2>Supplier Constellation</h2><p class="mono insp">After Cosmos</p></div>
+        <p class="what"><b>A calm orbital map of every relationship.</b>Brands, manufacturers, wholesalers and distributors orbit SmooveOperator with prep and fulfillment beyond. Select any point to see what we bring and what we ask.</p>
+        <div class="meters"><div class="meter"><span class="mono"><span>Wow</span><span>7</span></span><div class="track"><i style="width:70%"></i></div></div><div class="meter"><span class="mono"><span>Supplier fit</span><span>8</span></span><div class="track"><i style="width:80%"></i></div></div></div>
+      </a></li>
+      <li class="item"><a href="ledger.html">
+        <span class="n">04</span>
+        <div><h2>The Buying Ledger</h2><p class="mono insp">After Onyx &middot; Balky</p></div>
+        <p class="what"><b>A live buy decision instrument.</b>Change price, cost and fees and watch a to scale waterfall, a verdict and the rules it passes. Ends with the purchase order a supplier would actually receive.</p>
+        <div class="meters"><div class="meter"><span class="mono"><span>Wow</span><span>6</span></span><div class="track"><i style="width:60%"></i></div></div><div class="meter"><span class="mono"><span>Supplier fit</span><span>9</span></span><div class="track"><i style="width:90%"></i></div></div></div>
+      </a></li>
+      <li class="item"><a href="prep-showroom.html">
+        <span class="n">05</span>
+        <div><h2>Prep Showroom</h2><p class="mono insp">After the solar company &middot; Yacht</p></div>
+        <p class="what"><b>A rising gold sun and an exploded 3D carton.</b>Drag the carton to rotate, open it to separate carton, polybag, product and label, each with a named owner. Closes on a yacht style specification sheet.</p>
+        <div class="meters"><div class="meter"><span class="mono"><span>Wow</span><span>8</span></span><div class="track"><i style="width:80%"></i></div></div><div class="meter"><span class="mono"><span>Supplier fit</span><span>7</span></span><div class="track"><i style="width:70%"></i></div></div></div>
+      </a></li>
+    </ol>
+
+    <div class="foot">
+      <div><h3>What they share</h3><p>True black ground, gold used for action and emphasis, square controls, generous space, and one signature interaction per page. That calm focus is the thread running through every reference you sent.</p></div>
+      <div><h3>How to read the scores</h3><p>Wow is visual impact. Supplier fit is how well the direction serves your main goal: a brand rep deciding in 30 seconds whether to answer your email.</p></div>
+      <div><h3>Mix and match</h3><p>The strongest site likely combines pieces: the Night Route hero, the Ledger instrument on the suppliers page, and the Showroom carton on operations.</p></div>
+    </div>
+  </div>
+</main>
+<footer><div class="wrap">Design concepts for SmooveOperator. Figures shown inside the concepts are illustrative examples.</div></footer>
+</body>
+</html>
