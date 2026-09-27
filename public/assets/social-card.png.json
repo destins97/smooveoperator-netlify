@@ -1,6 +1,7 @@
 {
-  "origin": "Authored vector typography, rendered with Resvg. Existing Yellowtail and Barlow plus Google Fonts Bodoni Moda. No generated or stock image.",
-  "generator": "scripts/assets.mjs",
+  "origin": "Authored HTML and canvas typography with the self-hosted Archivo and Yellowtail fonts, rendered in Chromium. No generated or stock image.",
+  "generator": "scripts/render-social-card.mjs",
+  "source": "scripts/social-card.html",
   "width": 1200,
   "height": 630
 }
