@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Night Route</title>
+<meta name="description" content="Night Route: a cinematic SmooveOperator concept with gold light trails, the five stage commerce route and a space to tailor a supplier partnership.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='46' fill='%23FFC000'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Barlow:wght@600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..500;1,6..96,400&family=Yellowtail&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --black:#000000;--gold:#FFC000;--gold-text:#FFCE3E;--gold-deep:#917300;
+  --iron:#181818;--char:#202020;--text:#FFFFFF;--smoke:#F5F5F5;--ash:#8C8C8C;--steel:#5E5E5E;
+  --line:rgba(255,255,255,.12);--line-gold:rgba(255,192,0,.35);
+  --f:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --ease:cubic-bezier(.16,.8,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--black);color:var(--text);font:400 17px/1.55 var(--f);font-stretch:100%;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.wrap{width:min(1400px,100% - 2*clamp(16px,4vw,64px));margin-inline:auto}
+.cap{font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.xc{font-stretch:62%;text-transform:uppercase;font-weight:500;letter-spacing:-.005em;line-height:.9}
+p{margin:0}h1,h2,h3{margin:0;font-weight:500}
+
+.logo{font-family:'Yellowtail',cursive;font-size:clamp(28px,2.8vw,36px);line-height:1.1;color:var(--gold);text-decoration:none;white-space:nowrap;text-transform:none;letter-spacing:0;font-stretch:100%;
+  text-shadow:0 0 1px #fff8e0,0 0 6px rgba(255,192,0,.85),0 0 16px rgba(255,192,0,.55),0 0 38px rgba(255,192,0,.35),0 0 70px rgba(255,192,0,.18)}
+
+/* Header floats over the hero with no container, like the reference */
+.top{position:absolute;inset:env(safe-area-inset-top,0px) 0 auto 0;z-index:10}
+.bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;min-height:72px;gap:16px}
+.bar .left{display:flex;gap:26px;align-items:center}
+.bar .right{display:flex;justify-content:flex-end;gap:14px;align-items:center}
+.bar a.lnk{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--smoke);min-height:44px;display:inline-flex;align-items:center}
+.bar a.lnk:hover{color:var(--gold)}
+.bar .dim{color:var(--ash)}
+@media (max-width:760px){.bar{grid-template-columns:auto 1fr}.bar .left{display:none}.bar .right .lnk:not(.keep){display:none}}
+
+.btn{display:inline-flex;align-items:center;gap:16px;min-height:52px;padding:0 26px;border:1px solid var(--gold);background:var(--gold);color:#000;font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease)}
+.btn:hover{background:var(--gold-deep);border-color:var(--gold-deep);color:#fff}
+.btn.ghost{background:transparent;border-color:rgba(255,255,255,.5);color:#fff}
+.btn.ghost:hover{border-color:var(--gold);color:var(--gold);background:transparent}
+.btn svg{width:18px;height:18px}
+.btn .ico{display:grid;place-items:center;width:34px;height:34px;margin-right:-14px;background:rgba(0,0,0,.14);transition:transform .45s var(--ease),background .2s var(--ease)}
+.btn:hover .ico{transform:translate(3px,-1px);background:rgba(0,0,0,.28)}
+
+/* Hero */
+.hero{position:relative;min-height:clamp(640px,92vh,900px);min-height:clamp(640px,92dvh,900px);display:flex;align-items:flex-end;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,0) 55%,rgba(0,0,0,.9) 100%);pointer-events:none}
+.hero-in{position:relative;z-index:2;padding-block:120px clamp(40px,6vw,72px)}
+.hero .cap{color:var(--gold)}
+.hero h1{font-size:clamp(64px,11.5vw,184px);margin-top:18px}
+.hero h1 .smoove{font-family:'Yellowtail',cursive;text-transform:none;font-stretch:100%;font-weight:400;color:var(--gold);letter-spacing:0;display:inline-block;font-size:1.02em;line-height:1;padding-right:.1em;
+  text-shadow:0 0 2px #fff6d0,0 0 14px rgba(255,192,0,.7),0 0 40px rgba(255,192,0,.4),0 0 90px rgba(255,192,0,.2)}
+.hero-row{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-top:34px;flex-wrap:wrap}
+.hero-row p{max-width:50ch;color:var(--smoke);font-size:clamp(16px,1.3vw,19px)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hex{position:absolute;right:clamp(16px,4vw,64px);top:110px;z-index:3;width:46px;height:52px;background:none;border:0;padding:0;cursor:pointer}
+.hex svg{width:100%;height:100%}
+.hex:hover polygon{stroke:var(--gold)}
+
+/* Spec strip */
+.specs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-bottom:1px solid var(--line)}
+.spec{padding:30px clamp(16px,2vw,32px) 34px;border-right:1px solid var(--line)}
+.spec:last-child{border-right:0}
+.spec .cap{color:var(--ash)}
+.spec strong{display:block;margin-top:12px;font-stretch:62%;text-transform:uppercase;font-weight:500;font-size:clamp(28px,2.6vw,40px);line-height:1}
+.spec span{display:block;margin-top:10px;color:var(--ash);font-size:15px}
+@media (max-width:860px){.specs{grid-template-columns:repeat(2,1fr)}.spec:nth-child(2){border-right:0}.spec:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media (max-width:460px){.specs{grid-template-columns:minmax(0,1fr)}.spec{border-right:0;border-bottom:1px solid var(--line)}}
+
+/* Route */
+section{padding-block:clamp(72px,9vw,140px)}
+.route{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,96px)}
+.route-sticky{position:sticky;top:40px;align-self:start}
+.route-sticky h2{font-size:clamp(52px,7vw,120px)}
+.route-sticky p{margin-top:24px;color:var(--ash);max-width:40ch}
+.big-n{margin-top:40px;display:flex;align-items:baseline;gap:18px}
+.big-n b{font-stretch:62%;font-weight:300;font-size:clamp(120px,14vw,220px);line-height:.8;color:var(--gold);font-variant-numeric:tabular-nums;text-shadow:0 0 30px rgba(255,192,0,.25)}
+.big-n span{font-stretch:62%;text-transform:uppercase;font-size:28px;color:var(--smoke)}
+.rail{position:relative;padding-left:44px}
+.stages{list-style:none;margin:0;padding:0}
+.rail::before{content:"";position:absolute;left:8px;top:10px;bottom:10px;width:1px;background:var(--line)}
+.rail .fill{position:absolute;left:8px;top:10px;bottom:10px;width:1px;background:var(--gold);box-shadow:0 0 10px var(--gold);transform:scaleY(0);transform-origin:top;transition:transform .7s var(--ease)}
+.stage{position:relative;padding-block:10px 64px}
+.stage::before{content:"";position:absolute;left:-41px;top:18px;width:11px;height:11px;border:1px solid var(--steel);background:#000;transform:rotate(45deg);transition:all .4s var(--ease)}
+.stage.on::before{background:var(--gold);border-color:var(--gold);box-shadow:0 0 14px var(--gold)}
+.stage .cap{color:var(--ash)}
+.stage h3{font-stretch:62%;text-transform:uppercase;font-size:clamp(44px,5vw,76px);line-height:.95;margin-top:10px;color:var(--steel);transition:color .4s var(--ease)}
+.stage.on h3{color:#fff}
+.stage .who{display:inline-block;margin-top:14px;padding:6px 10px;border:1px solid var(--line-gold);color:var(--gold-text);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.stage p{margin-top:16px;color:var(--ash);max-width:54ch}
+@media (max-width:900px){.route{grid-template-columns:minmax(0,1fr)}.route-sticky{position:static}.big-n{display:none}}
+
+/* Partnership outline */
+.config{background:var(--iron);border-block:1px solid var(--line)}
+.cfg-head{display:flex;flex-direction:column;gap:18px;max-width:900px;margin-bottom:48px}
+.cfg-head h2{font-size:clamp(48px,6.4vw,104px)}
+.cfg-head p{max-width:46ch;color:var(--ash)}
+.cfg{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.opts{background:#000;padding:clamp(20px,3vw,40px)}
+.opt{border:0;margin:0 0 34px;padding:0}
+.opt legend{padding:0;margin-bottom:14px;display:flex;gap:14px;align-items:baseline}
+.opt legend b{font-stretch:62%;text-transform:uppercase;font-size:30px;font-weight:500}
+.opt legend span{color:var(--ash);font-size:13px;font-weight:600;letter-spacing:.14em}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.card{position:relative;display:block;cursor:pointer}
+.card input{position:absolute;opacity:0;inset:0}
+.card span{display:block;height:100%;padding:16px 18px;border:1px solid var(--line);background:var(--iron);transition:border-color .2s var(--ease),background .2s var(--ease)}
+.card b{display:block;font-weight:600;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+.card small{display:block;margin-top:6px;color:var(--ash);font-size:14px;line-height:1.45}
+.card input:checked+span{border-color:var(--gold);background:#0b0900;box-shadow:inset 3px 0 0 var(--gold)}
+.card input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+.card:hover span{border-color:rgba(255,255,255,.35)}
+.sheet{background:#000;padding:clamp(20px,3vw,40px);display:flex;flex-direction:column}
+.sheet .cap{color:var(--gold)}
+.sheet h3{font-stretch:62%;text-transform:uppercase;font-size:40px;margin:10px 0 24px}
+.sheet dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);border-top:1px solid var(--line)}
+.sheet dt,.sheet dd{padding:14px 0;border-bottom:1px solid var(--line);margin:0}
+.sheet dt{color:var(--ash);font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding-right:18px}
+.sheet dd{text-align:right;font-weight:500}
+.msg{margin-top:24px;padding:16px;border:1px solid var(--line);color:var(--smoke);font-size:15px;line-height:1.6;background:var(--iron)}
+.msg .cap{display:block;color:var(--ash);margin-bottom:8px}
+.sheet .btn{margin-top:24px;justify-content:space-between}
+.sent{margin-top:12px;min-height:22px;color:var(--gold-text);font-size:14px}
+@media (max-width:960px){.cfg{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:520px){.cards{grid-template-columns:minmax(0,1fr)}}
+
+footer{padding-block:56px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.foot p{color:var(--ash);font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+
+/* Heading options: caps (default), bodoni (blend), mix */
+html{--serif:'Bodoni Moda',Didot,Georgia,serif}
+:is(.t-bodoni,.t-mix) :is(.route-sticky h2,.cfg-head h2,.stage h3,.spec strong,.opt legend b,.sheet h3){font-family:var(--serif);font-stretch:100%;text-transform:none;font-weight:400;letter-spacing:-.02em}
+:is(.t-bodoni,.t-mix) .route-sticky h2{font-size:clamp(42px,4.8vw,78px);line-height:1.06}
+:is(.t-bodoni,.t-mix) .cfg-head h2{font-size:clamp(42px,5vw,80px);line-height:1.04}
+:is(.t-bodoni,.t-mix) .stage h3{font-size:clamp(36px,3.8vw,58px);line-height:1.05}
+:is(.t-bodoni,.t-mix) .spec strong{font-size:clamp(24px,2.1vw,32px);line-height:1.12}
+:is(.t-bodoni,.t-mix) .opt legend b{font-size:27px}
+:is(.t-bodoni,.t-mix) .sheet h3{font-size:34px;line-height:1.1}
+:is(.t-bodoni,.t-mix) .big-n b{font-family:var(--serif);font-stretch:100%;font-weight:400;font-size:clamp(88px,9vw,150px)}
+:is(.t-bodoni,.t-mix) .big-n span{font-family:var(--serif);font-stretch:100%;text-transform:none;font-size:30px}
+/* Blend keeps the live site's locked slogan: Barlow 600 plus the Yellowtail Smoove */
+.t-bodoni .hero h1{font-family:'Barlow',var(--f);font-stretch:100%;text-transform:none;font-weight:600;letter-spacing:-.035em;line-height:1.02;font-size:clamp(56px,8.6vw,136px)}
+.t-bodoni .hero h1 .smoove{font-size:1.2em}
+.typeswitch{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);transform:translateX(-50%);z-index:70;display:flex;align-items:center;gap:4px;padding:5px;background:rgba(0,0,0,.86);border:1px solid var(--line-gold);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);max-width:calc(100% - 32px)}
+.typeswitch span{padding:0 12px 0 8px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ash);white-space:nowrap}
+.typeswitch button{min-height:40px;padding:0 14px;border:1px solid transparent;background:none;color:var(--smoke);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:background .2s var(--ease),color .2s var(--ease)}
+.typeswitch button:hover{color:var(--gold)}
+.typeswitch button[aria-pressed=true]{background:var(--gold);color:#000}
+@media (max-width:520px){.typeswitch span{display:none}.typeswitch button{padding:0 10px;font-size:11px}}
+footer{padding-bottom:110px!important}
+/* Shared polish from the redesign and ui-ux-pro-max audits */
+html{scroll-padding-top:96px}
+p{text-wrap:pretty}
+button,a,input,textarea{touch-action:manipulation}
+.btn:active{transform:translateY(1px)}
+body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .9 0 0 0 0 .7 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+@supports (animation-timeline: view()){@media (prefers-reduced-motion:no-preference){main>section:not(:first-of-type)>.wrap>*{animation:rise-in linear both;animation-timeline:view();animation-range:entry 0% cover 22%}@keyframes rise-in{from{opacity:.55;transform:translateY(24px)}to{opacity:1;transform:none}}}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <div class="left"><a class="lnk dim" href="./">All concepts</a><a class="lnk" href="#route">The route</a><a class="lnk" href="#partner">Partner with us</a></div>
+    <a class="logo" href="./" aria-label="Smoove Operator, all concepts">Smoove Operator</a>
+    <div class="right"><a class="lnk keep" href="#partner" style="color:var(--gold)">Start a conversation</a></div>
+  </div>
+</header>
+
+<main>
+<section class="hero" style="padding:0" aria-label="Introduction">
+  <canvas id="trails" aria-hidden="true"></canvas>
+  <button class="hex" id="pause" type="button" aria-label="Pause background motion" aria-pressed="false">
+    <svg viewBox="0 0 46 52" aria-hidden="true"><polygon points="23,1 45,13.5 45,38.5 23,51 1,38.5 1,13.5" fill="rgba(0,0,0,.4)" stroke="rgba(255,255,255,.6)" stroke-width="1.2"/><g id="pIcon" fill="#fff"><rect x="17" y="18" width="3.4" height="16"/><rect x="25.6" y="18" width="3.4" height="16"/></g></svg>
+  </button>
+  <div class="wrap hero-in">
+    <p class="cap">Independent marketplace commerce</p>
+    <h1 class="xc">Wholesale, made<br><span class="smoove">Smoove.</span></h1>
+    <div class="hero-row">
+      <p>We buy from brands and authorized distributors, and move every unit through documented, independent prep and fulfillment.</p>
+      <div class="ctas">
+        <a class="btn" href="#partner">Start a conversation <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a>
+        <a class="btn ghost" href="#route">See the route</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="specs" role="list" aria-label="Operating specification">
+  <div class="spec" role="listitem"><p class="cap">Source</p><strong>Direct &amp; authorized</strong><span>Brands, manufacturers, wholesalers and authorized distributors.</span></div>
+  <div class="spec" role="listitem"><p class="cap">Decide</p><strong>Full landed cost</strong><span>Every buy is priced after fees, freight, prep and capital.</span></div>
+  <div class="spec" role="listitem"><p class="cap">Prepare</p><strong>Independent providers</strong><span>Third-party prep to channel standards. No claimed warehouses.</span></div>
+  <div class="spec" role="listitem"><p class="cap">Channel</p><strong>As agreed</strong><span>Products are listed only where supplier terms allow.</span></div>
+</div>
+
+<section id="route">
+  <div class="wrap route">
+    <div class="route-sticky">
+      <h2 class="xc">Five stages. One owner of every decision.</h2>
+      <p>Each stage names who is responsible. SmooveOperator makes the commercial calls; specialist partners handle the physical work.</p>
+      <div class="big-n" aria-hidden="true"><b id="bigN">01</b><span id="bigL">Source</span></div>
+    </div>
+    <div class="rail" id="rail"><span class="fill" id="fill" aria-hidden="true"></span>
+    <ol class="stages">
+      <li class="stage" data-n="01" data-l="Source"><h3>Source</h3><span class="who">SmooveOperator</span><p>Open accounts directly with brands and authorized distributors. Keep every invoice, authorization letter and product specification on file before a single unit is ordered.</p></li>
+      <li class="stage" data-n="02" data-l="Evaluate"><h3>Evaluate</h3><span class="who">SmooveOperator</span><p>Check channel permissions, listing accuracy, demand and the full landed cost. Products that do not clear the numbers or the rules are declined, however attractive they look.</p></li>
+      <li class="stage" data-n="03" data-l="Prepare"><h3>Prepare</h3><span class="who">Independent prep provider</span><p>Units are received, inspected, labeled and packed to marketplace standards by a third-party prep provider, following instructions written for each order.</p></li>
+      <li class="stage" data-n="04" data-l="Fulfill"><h3>Fulfill</h3><span class="who">Marketplace fulfillment network</span><p>Inventory ships into the marketplace's own fulfillment network, which stores, picks and delivers. We monitor sell through and reorder only when the data supports it.</p></li>
+      <li class="stage" data-n="05" data-l="Customer"><h3>Customer</h3><span class="who">End customer</span><p>The product arrives exactly as the brand intended: genuine, accurately described and in its original condition. That is the whole point of the route.</p></li>
+    </ol></div>
+  </div>
+</section>
+
+<section class="config" id="partner">
+  <div class="wrap">
+    <div class="cfg-head">
+      <div><p class="cap" style="color:var(--gold)">Start a partnership</p><h2 class="xc">Tailor the partnership.</h2></div>
+      <p>Tell us what a good account looks like to you. The outline on the right becomes the first message of our conversation.</p>
+    </div>
+    <form class="cfg" id="cfg">
+      <div class="opts">
+        <fieldset class="opt"><legend><b>You are</b></legend><div class="cards">
+          <label class="card"><input type="radio" name="who" value="Brand owner" checked><span><b>Brand owner</b><small>You own the brand and set channel policy.</small></span></label>
+          <label class="card"><input type="radio" name="who" value="Manufacturer"><span><b>Manufacturer</b><small>You produce for one or more brands.</small></span></label>
+          <label class="card"><input type="radio" name="who" value="Wholesaler"><span><b>Wholesaler</b><small>You supply retailers across many brands.</small></span></label>
+          <label class="card"><input type="radio" name="who" value="Authorized distributor"><span><b>Authorized distributor</b><small>You hold distribution rights for a brand.</small></span></label>
+        </div></fieldset>
+        <fieldset class="opt"><legend><b>Channel</b></legend><div class="cards">
+          <label class="card"><input type="radio" name="ch" value="Amazon US only" checked><span><b>Amazon US</b><small>Single marketplace, fulfilled by the marketplace.</small></span></label>
+          <label class="card"><input type="radio" name="ch" value="Channels as you approve"><span><b>As you approve</b><small>Only the marketplaces named in your terms.</small></span></label>
+        </div></fieldset>
+        <fieldset class="opt" style="margin-bottom:0"><legend><b>Cadence</b></legend><div class="cards">
+          <label class="card"><input type="radio" name="cad" value="Opening order, then review" checked><span><b>Opening order</b><small>Start at your minimum, review sell through together.</small></span></label>
+          <label class="card"><input type="radio" name="cad" value="Scheduled replenishment"><span><b>Replenishment</b><small>Regular reorders once demand is proven.</small></span></label>
+        </div></fieldset>
+      </div>
+      <div class="sheet">
+        <p class="cap">Partnership outline</p>
+        <h3>What you have in mind</h3>
+        <dl>
+          <dt>Partner</dt><dd id="sWho"></dd>
+          <dt>Channel</dt><dd id="sCh"></dd>
+          <dt>Cadence</dt><dd id="sCad"></dd>
+          <dt>Prep</dt><dd>Independent provider</dd>
+        </dl>
+        <p class="msg"><span class="cap">First message preview</span><span id="sMsg"></span></p>
+        <button class="btn" type="submit">Send outline <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></button>
+        <p class="sent" id="sent" aria-live="polite"></p>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<div class="typeswitch" role="group" aria-label="Heading style">
+  <span>Headings</span>
+  <button type="button" data-t="caps" aria-pressed="true">1 &middot; All caps</button>
+  <button type="button" data-t="bodoni" aria-pressed="false">2 &middot; Bodoni</button>
+  <button type="button" data-t="mix" aria-pressed="false">3 &middot; Mix</button>
+</div>
+<footer><div class="wrap foot"><a class="logo" href="./">Smoove Operator</a><p>Concept 02 of 5 &middot; Night Route</p></div></footer>
+
+<script>
+(()=>{
+const REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Long exposure light trails converging on a vanishing point
+const cv=document.getElementById('trails'),ctx=cv.getContext('2d');
+let W,H,DPR,trails=[],paused=REDUCED,t=0;
+function size(){DPR=Math.min(2,devicePixelRatio||1);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*DPR;cv.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);}
+function mk(i){const lane=(i%7)-3+(Math.random()-.5)*.6;const gold=Math.random()<.78;return{lane,z:Math.random(),speed:.0016+Math.random()*.0032,len:.08+Math.random()*.22,w:.6+Math.random()*2.2,col:gold?(Math.random()<.3?'255,241,194':'255,192,0'):'255,255,255',a:.25+Math.random()*.6,side:Math.random()<.5?-1:1};}
+function init(){trails=Array.from({length:W<700?70:140},(_,i)=>mk(i));}
+// road geometry: points from horizon (z=0) to viewer (z=1) curving right
+function pt(lane,z){const vx=W*.62,vy=H*.46;const e=z*z;const curve=Math.sin(z*Math.PI*.9)*W*.18*(1-z);const x=vx+curve+lane*e*W*.16;const y=vy+e*H*.62;return[x,y];}
+function frame(){
+  ctx.globalCompositeOperation='source-over';ctx.fillStyle='rgba(0,0,0,'+(paused?1:.28)+')';ctx.fillRect(0,0,W,H);
+  // horizon glow
+  const g=ctx.createRadialGradient(W*.62,H*.46,0,W*.62,H*.46,W*.5);g.addColorStop(0,'rgba(255,192,0,.10)');g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  ctx.globalCompositeOperation='lighter';ctx.lineCap='round';
+  for(const tr of trails){if(!paused){tr.z+=tr.speed*(0.4+tr.z*1.6);if(tr.z-tr.len>1){Object.assign(tr,mk(Math.floor(Math.random()*7)),{z:0});}}
+    const z0=Math.max(0,tr.z-tr.len),z1=Math.min(1.05,tr.z);ctx.beginPath();for(let k=0;k<=14;k++){const z=z0+(z1-z0)*k/14;const[x,y]=pt(tr.lane,z);k?ctx.lineTo(x,y):ctx.moveTo(x,y);}
+    const[xa,ya]=pt(tr.lane,z0),[xb,yb]=pt(tr.lane,z1);const lg=ctx.createLinearGradient(xa,ya,xb,yb);lg.addColorStop(0,`rgba(${tr.col},0)`);lg.addColorStop(1,`rgba(${tr.col},${tr.a})`);ctx.strokeStyle=lg;ctx.lineWidth=tr.w*(0.3+z1*2.2);ctx.stroke();}
+  // lane markers
+  ctx.globalCompositeOperation='source-over';ctx.strokeStyle='rgba(255,255,255,.07)';ctx.lineWidth=1;for(const l of[-3.6,3.6]){ctx.beginPath();for(let k=0;k<=30;k++){const[x,y]=pt(l,k/30);k?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.stroke();}
+}
+function loop(){if(!paused)frame();requestAnimationFrame(loop);}
+size();init();
+// settle a still frame so the hero is complete at rest
+paused=false;for(let i=0;i<90;i++)frame();paused=REDUCED;if(REDUCED)frame();
+addEventListener('resize',()=>{size();init();for(let i=0;i<60;i++){const p=paused;paused=false;frame();paused=p;}});
+loop();
+const pb=document.getElementById('pause'),pi=document.getElementById('pIcon');
+function setIcon(){pi.innerHTML=paused?'<polygon points="19,17 31,26 19,35"/>':'<rect x="17" y="18" width="3.4" height="16"/><rect x="25.6" y="18" width="3.4" height="16"/>';pb.setAttribute('aria-pressed',paused);pb.setAttribute('aria-label',paused?'Play background motion':'Pause background motion');}
+pb.onclick=()=>{paused=!paused;setIcon();};setIcon();
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&!paused){paused=true;setIcon();}});
+
+// Route progress
+const stages=[...document.querySelectorAll('.stage')],fill=document.getElementById('fill'),list=document.getElementById('rail');
+// Stage activation via IntersectionObserver: a stage is on once it crosses 55% of the viewport
+const onSet=new Set();
+function paint(){let cur=-1;stages.forEach((st,i)=>{const on=onSet.has(i);st.classList.toggle('on',on);if(on)cur=i;});
+  const c=Math.max(0,cur);const r=list.offsetHeight-20;fill.style.transform=`scaleY(${cur<0?0:Math.min(1,(stages[c].offsetTop+18)/r)})`;
+  document.getElementById('bigN').textContent=stages[c].dataset.n;document.getElementById('bigL').textContent=stages[c].dataset.l;}
+const sio=new IntersectionObserver(es=>{es.forEach(e=>{const i=stages.indexOf(e.target);const past=e.isIntersecting||e.boundingClientRect.bottom<(e.rootBounds?e.rootBounds.top:0);past?onSet.add(i):onSet.delete(i);});paint();},{rootMargin:'0px 0px -45% 0px'});
+stages.forEach(st=>sio.observe(st));paint();
+
+// Partnership outline
+const f=document.getElementById('cfg');
+function sync(){const d=new FormData(f);const who=d.get('who'),ch=d.get('ch'),cad=d.get('cad');
+  const $=id=>document.getElementById(id);$('sWho').textContent=who;$('sCh').textContent=ch;$('sCad').textContent=cad;
+  const art=/^[AEIOU]/.test(who)?'an':'a';
+  $('sMsg').textContent=`Hello SmooveOperator. I represent ${art} ${who.toLowerCase()} and would like to discuss an account. Channel: ${ch.toLowerCase()}. Cadence: ${cad.toLowerCase()}. Please send your reseller profile and let me know what documentation you need from us.`;}
+f.addEventListener('change',sync);sync();
+f.addEventListener('submit',e=>{e.preventDefault();document.getElementById('sent').textContent='Prototype: in the live site this opens the supplier form with your outline attached. Nothing was sent.';});
+})();
+</script>
+<script>
+(()=>{const btns=[...document.querySelectorAll('.typeswitch button')];const keys=['caps','bodoni','mix'];
+function set(k,push){document.documentElement.classList.remove('t-bodoni','t-mix');if(k!=='caps')document.documentElement.classList.add('t-'+k);
+  btns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===k));if(push){try{history.replaceState(null,'','#'+k);}catch(e){}}}
+btns.forEach(b=>b.onclick=()=>set(b.dataset.t,true));
+const h=location.hash.slice(1);if(keys.includes(h))set(h,false);
+addEventListener('hashchange',()=>{const k=location.hash.slice(1);if(keys.includes(k))set(k,false);});})();
+</script>
+</body>
+</html>

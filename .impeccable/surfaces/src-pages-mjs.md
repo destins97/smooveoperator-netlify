@@ -11,5 +11,7 @@ FORM: Code-led, per the brief's explicit autonomy and diagram preference. Seed 4
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
 
 ## Locked homepage slogan
-The primary headline is exactly: Wholesale, made Smoove. Use Barlow 600 for Wholesale, made and the existing Yellowtail 400 wordmark font and gold gradient for Smoove. This explicit brand rule supersedes earlier hero wording and the wordmark-only script restriction. Other editorial headings remain Bodoni Moda.
+The primary headline is exactly: Wholesale, made Smoove. Never replace the wording.
+
+"WHOLESALE, MADE" is set in compressed Archivo capitals (62% width, weight 500, uppercase). "Smoove." is set in the protected Yellowtail 400 wordmark font in `#FFC000` with the neon glow. Approved by the owner on 2026-09-27 (Night Route, heading option 1) and live in production.
 

@@ -10,7 +10,7 @@ A brand or supplier account manager can understand SmooveOperator within 15 to 3
 Independent marketplace commerce and distribution business. Focus: documented sourcing, product evaluation, purchasing, inventory decisions, third-party preparation and marketplace fulfillment coordination. Seeking direct relationships with brands, manufacturers, wholesalers and authorized distributors. Amazon FBA is an important channel, not the company identity. Repeat purchasing depends on demand, availability and economics.
 
 ## Protected identity
-Retain the Yellowtail gold cursive wordmark. Black and gold dominate. No em or en dashes in copy.
+Retain the Yellowtail cursive wordmark in Lamborghini gold `#FFC000` with a neon glow. Absolute black `#000000` and gold dominate. No em or en dashes in copy.
 
 ## Public facts and privacy
 California seller's permit on file is an existing approved public fact. No permit number, personal name, home address, government ID, business legal entity type, private email or phone is added. No fabricated partners, authorization, scale, history, warehouse, volume, performance or testimonials. Archived vending site is outside scope.
@@ -25,5 +25,7 @@ The current user brief authorizes preview, finished commits and pushes, and prod
 WCAG 2.2 AA target; 375, 390, 768, 1024 and 1440px; keyboard and no-JS fallbacks; honest form success and failure; no perpetual motion. Legal text requires owner/counsel review for business-specific obligations; website publication is not legal validation.
 
 ## Locked homepage slogan
-The primary headline is exactly: Wholesale, made Smoove. Use Barlow 600 for Wholesale, made and the existing Yellowtail 400 wordmark font and gold gradient for Smoove. This explicit brand rule supersedes earlier hero wording and the wordmark-only script restriction. Other editorial headings remain Bodoni Moda.
+The primary headline is exactly: Wholesale, made Smoove. Never replace the wording.
+
+"WHOLESALE, MADE" is set in compressed Archivo capitals (62% width, weight 500, uppercase). "Smoove." is set in the protected Yellowtail 400 wordmark font in `#FFC000` with the neon glow. Approved by the owner on 2026-09-27 (Night Route, heading option 1) and live in production.
 
