@@ -1,21 +1,13 @@
-# Supplier-first editorial website handoff
+# Premium Industrial Commerce handoff
 
-Existing static Node build, GitHub repository and Netlify project retained. No framework migration.
+Status: preview only, awaiting review. Production remains at 5a2ff52. Publication requires Destin's exact approval: "Ship it."
 
-## Protected branding
+The static Node stack, 11 routes and existing Netlify project are retained. No dependencies were added. Departures is recovered through condensed display type, a source-to-customer route, mechanical gold board numbers, warm material depth, supplier Fit Check and a tangible business-profile presentation.
 
-Primary opening headline: Wholesale, made Smoove.
+The headline remains exactly "Wholesale, made Smoove." The existing local Yellowtail face and gold treatment are protected. Barlow Condensed provides display hierarchy and Barlow body copy preserves readability.
 
-Wholesale, made uses Barlow 600. Smoove uses the exact existing self-hosted Yellowtail font and gold gradient from the protected logo. Never replace the slogan. Other editorial headings use Bodoni Moda. Preserve black and gold.
+Truth boundary: a developing commerce business seeking direct supplier relationships. Commercial decisions belong to SmooveOperator; physical preparation, storage and delivery belong to independent providers and marketplace networks. No invented scale, authorizations, facilities, staff or testimonials. Seller's permit status is public; its number and documents are private.
 
-## Content truth
+Maintenance: src/industrial.mjs owns journey, principles board and profile feature. src/pages.mjs owns page composition. src/commerce.mjs owns the inquiry form. src/components.mjs owns shared navigation/footer. public/assets/site.css and site.js own presentation and progressive enhancement. scripts/assets.mjs generates the social card and PDF.
 
-Supplier credibility leads. Distinguish commercial decisions from physical work performed by independent preparation providers and marketplace fulfillment networks. No invented scale, partners, endorsements, facilities or testimonials. California seller's permit status is public; its number and private addresses are not.
-
-## Maintenance
-
-src/pages.mjs owns pages. src/commerce.mjs owns the pathway and inquiry form. src/components.mjs owns navigation/footer. public/assets/site.css and site.js own styling and enhancement. scripts/assets.mjs regenerates the social image and profile PDF. Read DESIGN.md, docs/BRAND.md, docs/TESTING.md and docs/DEPLOYMENT.md.
-
-Run npm run assets after profile/social content changes, then npm run build and npm test. Always render the PDF to inspect it; text extraction alone missed invisible WOFF2 fonts. Inquiries are available in Netlify Forms. Mailbox notifications have not been verified.
-
-The current user brief authorizes verified production publishing and supersedes historical preview-only instructions. No DNS, registrar or Google Workspace records were changed.
+Read DESIGN.md, docs/RECOVERY.md, docs/BRAND.md, docs/TESTING.md and docs/DEPLOYMENT.md. Run npm run assets only when those deliverables change, then npm run build and npm test. Render the PDF visually after regeneration. Baseline screenshots and local reports are retained in ignored qa-artifacts/recovery.

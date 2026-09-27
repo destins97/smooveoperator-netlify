@@ -13,6 +13,8 @@ if(menu&&nav){
 if(!reduced.matches&&'IntersectionObserver' in window){
  const io=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('map-arrive');io.unobserve(e.target);}},{threshold:.2});
  document.querySelectorAll('[data-commerce]').forEach(el=>io.observe(el));
+ const journeyObserver=new IntersectionObserver(entries=>{for(const e of entries)if(e.isIntersecting){e.target.classList.add('is-arrived');journeyObserver.unobserve(e.target);}},{threshold:.15});
+ document.querySelectorAll('[data-journey]').forEach(el=>journeyObserver.observe(el));
 }
 let source='direct';
 try{const q=new URLSearchParams(location.search);const code=q.get('ref')||q.get('src')||q.get('utm_campaign');if(code){source=code.replace(/[^\w.-]/g,'').slice(0,64)||'direct';sessionStorage.setItem('so-source',source);}else source=sessionStorage.getItem('so-source')||'direct';}catch{}
