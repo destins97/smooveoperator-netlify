@@ -1,227 +1,208 @@
 ---
-name: SmooveOperator
-description: "Night Route: absolute black, Lamborghini gold, compressed capitals and a neon cursive wordmark, with clear operational roles."
+name: SmooveOperator Creations
+description: "Listing videos, reels and websites for real estate agents, teams and brokerages, presented as an open house."
 colors:
-  black: "#000000"
-  surface: "#111111"
-  raised: "#1a1a1a"
-  gold: "#FFC000"
-  gold-hi: "#FFCE3E"
-  gold-deep: "#917300"
-  text: "#F5F5F5"
-  muted: "#A8A8A8"
-  line: "#262626"
-  control: "#6b6b6b"
-  error: "#f3b4a8"
+  canvas: "#0B0907"
+  surface: "#16120C"
+  ink: "#F3ECDF"
+  ink-soft: "#BDB096"
+  gold: "#D9B24C"
+  gold-hi: "#F1D88E"
+  gold-ink: "#140F05"
+  paper: "#F1E9DA"
+  paper-ink: "#1C150C"
+  paper-soft: "#5B4D38"
+  paper-gold: "#7A5A12"
+  paper-button-gold: "#F6DE8D"
+  paper-error: "#9B2C1A"
+  paper-success: "#2F5A23"
 typography:
   display:
-    fontFamily: "Archivo, Helvetica Neue, Arial, sans-serif"
-    fontStretch: "62%"
-    textTransform: "uppercase"
-    fontSize: "clamp(64px, 11.4vw, 184px)"
-    fontWeight: 500
-    lineHeight: 0.9
-    letterSpacing: "-0.005em"
-  headline-page:
-    fontFamily: "Archivo"
-    fontStretch: "62%"
-    textTransform: "uppercase"
-    fontSize: "clamp(56px, 8.2vw, 124px)"
-    fontWeight: 500
-    lineHeight: 0.95
-  headline:
-    fontFamily: "Archivo"
-    fontStretch: "62%"
-    textTransform: "uppercase"
-    fontSize: "clamp(42px, 5.4vw, 82px)"
-    fontWeight: 500
-    lineHeight: 0.95
-  title:
-    fontFamily: "Archivo"
-    fontSize: "23px"
-    fontWeight: 500
-    lineHeight: 1.3
-  body:
-    fontFamily: "Archivo"
-    fontSize: "18px"
+    fontFamily: "Fraunces, Georgia, serif"
+    fontSize: "clamp(2.9rem, 1.4rem + 4.4vw, 5.6rem)"
     fontWeight: 400
-    lineHeight: 1.6
+    lineHeight: 0.98
+    letterSpacing: "-0.02em"
+    fontVariation: "\"opsz\" 120, \"SOFT\" 50"
+  headline:
+    fontFamily: "Fraunces, Georgia, serif"
+    fontSize: "clamp(2.1rem, 1.6rem + 2.4vw, 3.4rem)"
+    fontWeight: 400
+    lineHeight: 1.04
+    letterSpacing: "-0.02em"
+  title:
+    fontFamily: "Fraunces, Georgia, serif"
+    fontSize: "clamp(1.6rem, 1.35rem + 1.2vw, 2.25rem)"
+    fontWeight: 400
+    lineHeight: 1.1
+  body:
+    fontFamily: "Barlow, system-ui, sans-serif"
+    fontSize: "1.0625rem"
+    fontWeight: 400
+    lineHeight: 1.62
+    letterSpacing: "0.005em"
   label:
-    fontFamily: "Archivo"
-    fontSize: "13px"
-    fontWeight: 600
-    letterSpacing: "0.14em"
-    textTransform: "uppercase"
+    fontFamily: "Barlow, system-ui, sans-serif"
+    fontSize: "0.72rem"
+    fontWeight: 500
+    letterSpacing: "0.2em"
   wordmark:
     fontFamily: "Yellowtail, cursive"
-    fontSize: "36px"
+    fontSize: "2.05rem"
     fontWeight: 400
-    lineHeight: 1.2
+    lineHeight: 1.05
 rounded:
-  square: "0"
+  sm: "6px"
+  lg: "20px"
+  pill: "999px"
+  none: "0"
 spacing:
-  gutter: "clamp(22px, 4.6vw, 72px)"
-  gutter-mobile: "24px"
-  section: "clamp(64px, 7.2vw, 104px)"
-  field: "24px"
+  unit: "0.25rem"
+  gutter: "clamp(1.25rem, 5vw, 5.5rem)"
+  section: "clamp(4.5rem, 9vw, 11rem)"
+  bar: "76px"
+  bar-mobile: "64px"
 components:
   button-primary:
     backgroundColor: "{colors.gold}"
-    textColor: "{colors.black}"
-    rounded: "{rounded.square}"
-    padding: "13px 24px"
+    textColor: "{colors.gold-ink}"
+    rounded: "{rounded.pill}"
+    padding: "0.8rem 1.6rem"
+    height: "48px"
   button-primary-hover:
     backgroundColor: "{colors.gold-hi}"
-    textColor: "{colors.black}"
-  button-ghost:
-    borderColor: "#ffffff80"
-    textColor: "{colors.text}"
-  button-text:
-    textColor: "{colors.text}"
-    padding: "13px 0"
-  input:
-    backgroundColor: "{colors.black}"
-    textColor: "{colors.text}"
-    rounded: "{rounded.square}"
-    padding: "12px 14px"
+    textColor: "{colors.gold-ink}"
+  button-quiet:
+    textColor: "{colors.ink}"
+    rounded: "{rounded.pill}"
+    padding: "0.8rem 1.6rem"
+  bar-cta:
+    textColor: "{colors.ink}"
+    rounded: "{rounded.pill}"
+    padding: "0.6rem 1.25rem"
+    height: "44px"
+  sheet:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.paper-ink}"
+    rounded: "{rounded.lg}"
+    padding: "clamp(1.5rem, 4vw, 3.25rem)"
+  sheet-button:
+    backgroundColor: "{colors.paper-ink}"
+    textColor: "{colors.paper-button-gold}"
+    rounded: "{rounded.pill}"
+  sheet-field:
+    textColor: "{colors.paper-ink}"
+    rounded: "{rounded.none}"
+    padding: "0.55rem 0 0.5rem"
 ---
 
-# Design System: SmooveOperator
+# Design System: SmooveOperator Creations
 
 ## Overview
 
-**Creative North Star: "Night Route"**
+**Creative North Star: "The Open House"**
 
-A cinematic business presentation for supplier account managers. True black grounds the page the way a night road does, Lamborghini gold marks the actions and the route, and compressed capitals give headings the confidence of a spec sheet. The protected cursive wordmark glows in neon gold and stays the only script on the page, apart from the Smoove in the locked slogan.
+The site is a showing, and each section is a room of it. Four rooms run in order: the Front door (a scroll scrub of the walk-through film, opened by a door prologue that plays by itself), The light (a pinned before and after), Three formats (a sideways pan rail) and the Sign-in sheet (a natural flow close where the inquiry form is typeset on a paper card). Warm near-black grounds the page, real golden-hour footage carries the mood, and gold is reserved for the mark, emphasis and the one action.
 
-The homepage opens with long-exposure gold light trails behind the slogan, then a spec strip, a route drawn stage by stage as the visitor scrolls, and a partnership outline that becomes the first message of a supplier conversation. Motion is purposeful, pausable and absent under reduced motion.
+The layer model is strict: `scrollcraft.css` is the engine floor and its device selectors are never restyled; `site.css` overrides only the engine tokens and styles its own markup. Visual direction is golden hour, quiet luxury and cinematic, kept to realistic homes rather than estates.
 
 **Key Characteristics:**
 
-- Absolute black `#000000` with Lamborghini gold `#FFC000` as the single accent.
-- Compressed Archivo capitals for headings, Archivo for reading, Yellowtail neon for the protected wordmark.
-- Inspectable commerce stages with explicit responsible parties.
-- Square controls; uppercase, letter-spaced button and navigation labels.
-- Progressive enhancement: content, navigation, disclosures and forms work without JavaScript.
+- One scrub act, at the peak, carrying the only real footage.
+- Fraunces display with italic gold emphasis, Barlow for reading, Yellowtail only in the wordmark.
+- Pill controls, 20px media corners, warm tinted shadows.
+- A light paper sheet as the single inverted surface.
+- Copy that names no numbers it cannot prove.
 
 ## Colors
 
-The palette is absolute black, neutral charcoal surfaces, Lamborghini gold and near-white text. Frontmatter records the CSS primitives.
+Warm black and parchment ink with one gold, which shifts lightness when the ground turns to paper.
 
 ### Primary
-
-- **Lamborghini gold** (`gold`, `#FFC000`): primary action backgrounds, the route line, eyebrows, the wordmark and slogan emphasis.
-- **Bright gold** (`gold-hi`, `#FFCE3E`): hover state for gold actions, links and focus rings.
-- **Deep gold** (`gold-deep`, `#917300`): stage-number borders and quiet gold structure. Not for text.
+- **Golden Hour** (`gold`): primary button fill, italic display emphasis, nav underline, room tag rule.
+- **Late Light** (`gold-hi`): button hover, focus outlines, the light handle and its divider, text links on dark.
+- **Wordmark gradient**: the protected four-stop gradient on the Yellowtail mark (see sidecar). Identity only.
 
 ### Neutral
+- **Night Canvas** (`canvas`) and **Ember Surface** (`surface`): page ground and raised media wells.
+- **Parchment Ink** (`ink`) and **Dry Grass** (`ink-soft`): primary and secondary text on dark.
+- **Paper** set (`paper`, `paper-ink`, `paper-soft`, `paper-gold`): the sign-in sheet. Rules on paper are `paper-ink` at 25% alpha. Errors and success on paper use `paper-error` and `paper-success` with text.
 
-- **Absolute black** (`black`): page background and field interiors.
-- **Charcoal** (`surface`): section bands and the partnership outline cards.
-- **Raised charcoal** (`raised`): capability-row hover background.
-- **Near-white** (`text`): headings and primary copy.
-- **Muted gray** (`muted`, 8:1 on black): explanations, annotations and labels.
-- **Structural line** (`line`): quiet dividers.
-- **Control gray** (`control`, 3:1 on black): field boundaries and stronger rules.
+**The Two Golds Rule.** On dark, gold is `gold` and `gold-hi`. On paper, gold drops to `paper-gold` for type and focus, and the paper button pairs `paper-ink` with `paper-button-gold`. Never set the dark-ground golds on paper.
 
-Error color is reserved for validation and submission failures. Success uses gold with explicit text.
-
-**The Protected Mark Rule.** Keep the Yellowtail wordmark in `#FFC000` with the neon glow (`--neon` in `site.css`). The glow is an identity treatment, reserved for the wordmark and the Smoove in the slogan.
+**The Protected Mark Rule.** The gold Yellowtail "Smoove Operator" wordmark keeps its gradient and its small uppercase "CREATIONS" sub-line (0.64rem, 0.42em tracking, `ink-soft`), right aligned beneath it.
 
 ## Typography
 
-Archivo is self-hosted as one variable file (`/fonts/Archivo-var.woff2`, weights 100 to 900, widths 62% to 125%, SIL OFL in `Archivo-OFL.txt`). Headings use it at 62% width, weight 500, uppercase. Body copy, controls and labels use it at normal width. Yellowtail is self-hosted at 400 and reserved for the wordmark and the Smoove in the slogan. All files use font-display swap; only Archivo and Yellowtail are preloaded. The previous Bodoni Moda and Barlow files have been removed.
+**Display Font:** Fraunces variable, self-hosted, roman and italic (Georgia fallback)
+**Body Font:** Barlow 400, 500 and 600, self-hosted (system-ui fallback)
+**Wordmark Font:** Yellowtail 400, self-hosted
 
-The frontmatter captures desktop roles. The homepage hero slogan uses `clamp(64px,11.4vw,184px)` at 0.9 line height. Below 760px, section headings use `clamp(40px,10vw,60px)` and page headings `clamp(50px,12vw,80px)`, 52px below 430px. The wordmark becomes 31px below 1100px and 29px below 430px.
+**Character:** a soft, optically sized serif for the voice, a plain grotesk for the facts.
 
-Lead copy uses `clamp(18px,1.45vw,21px)` at 1.65. Larger introductory paragraphs use `clamp(22px,2vw,27px)` at 1.5. General reading width is 65ch. Help text is 16px at 1.5. Buttons and navigation use 13 to 14px, weight 600, `0.14em` tracking, uppercase.
+### Hierarchy
+- **Display** (400, `opsz` 120, `SOFT` 50): the front door h1; shrinks to `clamp(2.4rem, 1.6rem + 4vw, 3.4rem)` at 860px.
+- **Headline** (400): room headings; the formats lead and legal titles step up to `clamp(2.8rem, 1.9rem + 4.2vw, 5rem)`.
+- **Title** (400): format names, legal subheads, and italic lines such as the arrival lines and the rail note.
+- **Body** (400): reading text, held to about 34 to 36ch beside media and 62ch on legal pages.
+- **Label** (500, uppercase, tracked): definition terms in piece labels and the live room tag.
 
-**The Two Voices Rule.** Compressed capitals for display hierarchy, normal-width Archivo for reading and controls, Yellowtail neon only for the protected mark.
+**The Italic Emphasis Rule.** Emphasis is a Fraunces italic `em` in gold (paper gold on the sheet). Room nav links are Fraunces italic too. Never italicize Barlow for emphasis.
+
+**The Three Voices Rule.** Fraunces speaks, Barlow informs, Yellowtail signs. Yellowtail never sets a headline or body text.
 
 ## Layout
 
-The centered container is `min(1296px, 100% - gutter * 2)`. Gutter becomes 24px at 760px and below.
+A fixed 76px bar (64px at 860px and below) holds the mark, the room list and the CTA, over a gradient density band that never covers the full frame. The room list hides at 1100px and below. Rooms are full-viewport acts with engine spans: arrival 5.2, light 2.2, formats 4.0, book in natural flow. The light room is a 2.5fr / 1fr media and copy grid that stacks at 860px, where the compare frames crop to 1:1. The formats rail lays a lead, a 16:9 film, a 9:16 reel, a 16:10 site and a closing note side by side. The sheet sits left at up to 42rem over a masked pool still; on phones the still sits above and the sheet starts 28svh down. Spacing uses the engine 4px scale; gutters and section rhythm are fluid.
 
-The homepage hero is full width, `clamp(620px,90dvh,900px)` tall, with the light-trail canvas behind the copy. The spec strip is four columns, two at 1000px and one at 560px. The route section is 0.9fr / 1.1fr with a sticky heading and stage counter, stacking at 1000px where the counter hides. The partnership outline is 1.2fr / 0.8fr (choices / outline), stacking at 1000px; its choice cards stack below 560px.
+**The One Scrub Rule.** The page has exactly one `scrub` act, the Front door. No device family repeats back to back.
 
-Editorial sections are 1fr / 1.07fr with a fluid 40px to 100px gap. Contact is .85fr / 1.15fr. These compositions stack at 760px.
-
-The sticky header bar has minimum height 76px. JavaScript enables collapsed navigation at 1000px and below. Without JavaScript navigation wraps and remains visible.
-
-Breakpoints are 430px, 560px, 760px, 1000px and 1100px. Print removes navigation, footer, action rows and invitations with white paper and dark body text.
+**The Sibling Scrim Rule.** Each scrim is a sibling of the copy it protects and is visible only inside that copy's scroll window. No full-frame overlay darkens the film. On phones every scrim becomes a bottom band.
 
 ## Elevation & Depth
 
-Most surfaces are flat with tonal changes or hairline rules. The homepage hero gets its depth from the light-trail canvas, a faint gold radial wash and a black gradient at the foot. The commerce diagram uses a subtle charcoal gradient and diffuse `0 22px 48px #0006` shadow. The sticky header uses a nearly opaque black background. Page intros carry a faint gold radial wash.
+Depth comes from footage and engine shadows tinted to the canvas hue (`30 45% 3%`). Media, the compare frame and the paper sheet use the large three-layer shadow; the light handle uses the medium one; piece media add a 1px inner top edge. There are no glows or offset hard shadows.
 
 ## Shapes
 
-Controls and panels have square corners. Thin borders distinguish fields and the commerce diagram; ruled rows separate lists and facts. Stage numbers occupy 35px squares linked by a 1px vertical gold line. On the homepage route, rotated squares mark each stage and fill gold when the stage is reached. The hero pause control is a hexagon, after the reference brand's motif.
+Media and the sheet use 20px corners; the sample note uses 6px; every button, the CTA, the room tag and the skip link are pills. The light handle is a 48px gold circle (40px on phones) with a sun glyph drawn in SVG. Fields on the sheet are underline only, square, with no box.
 
 ## Components
 
 ### Buttons
-
-Primary actions use `#FFC000` with black text, uppercase 14px labels at `0.14em` tracking, square corners and minimum height 52px. The trailing arrow sits in its own darker square that nudges up and right on hover. Hover lightens to `gold-hi`. Ghost buttons are transparent with a 50% white border that turns gold on hover. Text actions keep a bottom rule. Active shifts 1px down. Disabled submission buttons use .65 opacity and a waiting cursor.
-
-Global keyboard focus is a 2px gold outline offset 5px. Fields use a 3px offset.
+- **Primary:** gold pill, dark ink, 48px tall; hover lifts to `gold-hi`; press moves 1px down; disabled shows a wait cursor at 0.7 opacity.
+- **Quiet and bar CTA:** ink text, 70% gold outline; hover fills gold. The bar CTA is 44px.
+- **On paper:** `paper-ink` fill with `paper-button-gold` text.
+- **Label:** every call to action reads "Book a free call" and links to the sheet.
 
 ### Navigation
+The room list (Front door, The light, Three formats, Sign-in sheet) in Fraunces italic, `ink-soft` at rest. The room in view takes `ink` and a 1px gold underline that scales in from the left. Interior pages show only the mark and CTA.
 
-Navigation is uppercase, 13px, weight 600, near-white at rest and gold on hover or current page; the current page keeps a 1px gold underline. The contact link is gold with a gold outline. Mobile navigation opens as a full-width black sheet; Escape closes it and returns focus to Menu.
+### Fields
+Barlow labels in `paper-soft`, optional fields marked "(optional)". Focus thickens the underline to 2px `paper-gold`. Invalid fields gain a red underline and a linked text message. Checkboxes use the native control in `paper-ink`, 44px rows.
 
-### Light trails (homepage hero)
+### Signature: door, light handle, rail
+- **Door prologue:** plays once on load with no scroll, ends on the scrub clip's first frame, fades in 520ms; any scroll past 8px or a refused autoplay opens it at once.
+- **Room tag:** a pill naming the room in view, read from the film's own clock.
+- **Light handle:** a range input; scroll carries it until the visitor takes it, then it stays.
+- **Sample note:** every showing of the sample work says it is an AI-assisted sample built from a listing's own photos.
 
-A canvas draws long-exposure gold and white trails converging on a vanishing point. It pauses when offscreen or when the tab is hidden, stops by itself after 30 seconds, and exposes a hexagonal pause and play button. Under reduced motion it renders a single still frame and the button stays hidden. It is decorative and hidden from assistive technology.
-
-### Route (homepage)
-
-Five stages (Source, Evaluate, Prepare, Fulfill, Customer) each show their responsible party. An IntersectionObserver lights each stage as it crosses 55% of the viewport and scales a gold rail to match; the sticky counter shows the current stage. Without JavaScript all stages render lit.
-
-### Commerce pathway (supplier and operations pages)
-
-Five native details elements with responsible parties always visible. Evaluate starts open. Descriptions work without JavaScript.
-
-### Partnership outline
-
-"Tailor the partnership." Radio cards (partner type, channel, cadence) update an outline preview. Submitting is a GET to `/suppliers/#supplier-form`; the suppliers page prefills the inquiry message and channels only from known values, never free text from the URL. Without JavaScript the form still reaches the suppliers page.
-
-### Editorial rows
-
-Capability links are ruled rows with compressed uppercase titles, descriptions and SVG arrows. Principles and profile facts are definition lists.
-
-### Inquiry fields
-
-Fields have full control-gray borders, black interiors, square corners and minimum height 49px. Textareas resize vertically with minimum height 140px. Invalid fields gain an error-color border and a textual message linked through aria-describedby.
-
-Suppliers and contact share one continuous form. Inquiry type, name, email and message are required. Company and phone are optional. Native details contains optional categories, opening-order requirements and sales channels. Messages require at least 15 characters. Status uses a polite live region. Failed or timed-out submission preserves answers; a successful HTTP response resets the form and confirms receipt. Native POST remains available without JavaScript.
-
-### FAQ
-
-Native disclosures use ruled separators, 21px summaries and muted answers.
+### Reduced motion
+The door never plays, the room tag hides, the reel never loads, spans shrink (arrival 2, light 1.4, formats 1.3), the light handle rests at 50%, and the rail becomes an ordinary horizontal scroll region.
 
 ## Do's and Don'ts
 
 ### Do:
-
-- Do preserve the Yellowtail neon wordmark in `#FFC000`.
-- Do use absolute black and Lamborghini gold as the only background and accent.
-- Do set headings in compressed Archivo capitals and reading text in normal-width Archivo.
-- Do identify responsible parties wherever the commerce route appears.
-- Do give every perpetual motion a pause control, an offscreen pause and a reduced-motion still state.
-- Do retain native navigation, disclosure and form fallbacks.
+- **Do** use the one label "Book a free call" for the one action.
+- **Do** label sample work as AI-assisted and built from listing photos.
+- **Do** keep the sample listing anonymous: no address, price or agent.
+- **Do** keep every scrim tied to its own copy's window.
+- **Do** drop gold to `paper-gold` on the paper sheet.
 
 ### Don't:
-
-- Don't add a second accent color or replace gold with a matte or brass gold.
-- Don't introduce rounded controls or decorative card grids into established editorial patterns.
-- Don't use Yellowtail for anything other than the wordmark and the Smoove in the slogan.
-- Don't hide essential content until an animation runs.
-- Don't use inline style attributes; the Content Security Policy blocks them.
-- Don't write em dashes or en dashes in public copy.
-
-## Locked homepage slogan
-
-The primary headline is exactly: Wholesale, made Smoove. Never replace the wording.
-
-"WHOLESALE, MADE" is set in compressed Archivo capitals (62% width, weight 500, uppercase). "Smoove." is set in the protected Yellowtail 400 wordmark font in `#FFC000` with the neon glow. This treatment was approved by the owner on 2026-09-27 (Night Route, heading option 1) and is live in production.
+- **Don't** add a second `scrub` act, counters, statistics or any number the business cannot prove.
+- **Don't** write em dashes or en dashes in copy.
+- **Don't** restyle `scrollcraft.css` device selectors; override tokens and style page markup instead.
+- **Don't** set Yellowtail anywhere but the wordmark, or alter its gradient.
+- **Don't** add uppercase eyebrows above headings, beyond one per three sections. The home page spends its one on the sign-in sheet; the sample site's flag is a required sample label.
+- **Don't** show a face or headshot.

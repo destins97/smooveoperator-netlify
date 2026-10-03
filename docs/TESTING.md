@@ -12,13 +12,6 @@
 - Mobile menu and Escape focus return verified. Browser validation errors and retained answers after local HTTP 503 verified.
 - Preview form showed success and focused confirmation. Backend receipt confirmed: 6ab8af631c20d1c8d6f10d6a.
 - Final hero DOM text is exactly Wholesale, made Smoove. Both emphasized word and logo compute to Yellowtail.
-
-## Night Route release, 2026-09-27
-
-- `npm run build` and `npm test`: 385 site checks and 51 form assertions pass.
-- All 11 routes loaded in Chromium at 1440 and 390 CSS pixels behind the production Content Security Policy: no console errors or policy violations (the 404 route reports its own expected 404), no horizontal overflow.
-- Homepage outline to suppliers prefill verified: choosing Authorized distributor and As you approve lands on `/suppliers/#supplier-form` with the message and channels fields filled from known values.
-- Light trails verified to render a still frame under reduced motion, pause offscreen and expose a pause control.
 - Dependency audit: zero vulnerabilities at inspection.
 
 ## Lighthouse
@@ -30,10 +23,3 @@ Local mobile homepage and contact initially scored 99 Performance, 100 Accessibi
 Local qa-artifacts contains screenshots, Lighthouse JSON and responsive measurements; excluded from Git. These lab results are not field guarantees or full WCAG certification. Reduced-motion and no-JavaScript fallback are implemented and source-reviewed; a real no-JavaScript form submission and mailbox notification delivery have not been verified. The Netlify preview review drawer conflicts with the preserved restrictive CSP; verify production independently for site errors.
 
 After merge, verify the deployed commit and custom domain, then record the result in the handoff. Repeat relevant tests after implementation changes.
-
-## Finishing pass, 2026-09-27
-
-- Lighthouse 13 (local build, production CSP, simulated throttling). Mobile: home 95 performance after deferring the light-trail drawing to idle time (was 72), suppliers 99, profile 100. Desktop: home 95, suppliers 100, profile 100. Accessibility, Best Practices and SEO 100 on every audited page and form factor. CLS 0 everywhere.
-- Business profile PDF re-rendered in Chromium from scripts/profile.html and inspected as a rendered image (PyMuPDF): one US Letter page, Archivo and Yellowtail visibly rendered, black and gold.
-- Favicon redrawn as a path-based neon Yellowtail S, independent of installed fonts.
-- All 11 routes rechecked at 1440 and 390 CSS pixels under the production CSP: no console errors, no horizontal overflow. Outline prefill and profile viewer fallback (new tab when the browser reports no inline PDF viewer) verified.

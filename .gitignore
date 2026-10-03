@@ -15,3 +15,10 @@ qa-artifacts/
 qa-font.mjs
 qa-prepare.mjs
 qa-fix.mjs
+
+# Scroll harness output, local agent state and editor config
+scrollcraft/builds/*/lab/
+.claude-flow/
+.claude/
+graphify-out/
+.graphifyignore

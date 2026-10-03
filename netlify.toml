@@ -13,6 +13,36 @@
   from = "/terms.html"
   to = "/terms/"
   status = 301
+
+# Supplier-site pages retired in the October 2026 pivot to SmooveOperator Creations
+[[redirects]]
+  from = "/contact/"
+  to = "/#book"
+  status = 301
+[[redirects]]
+  from = "/suppliers/"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/capabilities/"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/operations/"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/about/"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/profile/"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/assets/smooveoperator-reseller-profile.pdf"
+  to = "/"
+  status = 301
 [[headers]]
   for = "/*"
   [headers.values]
@@ -20,7 +50,7 @@
     X-Frame-Options = "SAMEORIGIN"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'sha256-PtdI6/36DhPdMEgjNWV5ExIEqFovVcjUHPeOyApfBhs='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-ancestors 'self'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'sha256-PtdI6/36DhPdMEgjNWV5ExIEqFovVcjUHPeOyApfBhs='; style-src 'self'; img-src 'self' data:; media-src 'self' blob:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'self'; frame-ancestors 'self'"
 [[headers]]
   for = "/assets/*"
   [headers.values]

@@ -1,6 +1,14 @@
 export const escape = s => String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
-export const arrow = '<svg class="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>';
-export const button = (label,href,variant='solid',extra='') => `<a class="btn btn-${variant}" href="${href}"${extra}>${label}${arrow}</a>`;
-export const links = [['For suppliers','/suppliers/'],['Capabilities','/capabilities/'],['Our operations','/operations/'],['About','/about/']];
-export const header = path => `<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="wrap bar"><a class="wordmark" href="/" aria-label="Smoove Operator, home">Smoove Operator</a><button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false"><span>Menu</span><span class="menu-lines" aria-hidden="true"></span></button><nav id="site-nav" aria-label="Main">${links.map(([t,h])=>`<a href="${h}"${path===h?' aria-current="page"':''}>${t}</a>`).join('')}<a class="nav-cta" href="/contact/"${path==='/contact/'?' aria-current="page"':''}>Let’s talk ${arrow}</a></nav></div></header>`;
-export const footer = () => `<footer class="site-footer"><div class="wrap"><div class="footer-top"><div><a class="wordmark" href="/">Smoove Operator</a><p>Independent commerce.<br>Considered from source to customer.</p></div><nav aria-label="Footer"><a href="/suppliers/">For brands &amp; suppliers</a><a href="/operations/">Our operating model</a><a href="/profile/">Business profile</a><a href="/contact/">Contact</a></nav></div><div class="footer-bottom"><p>&copy; ${new Date().getFullYear()} SmooveOperator</p><div><a href="/privacy/">Privacy notice</a><a href="/terms/">Website terms</a></div><p>Independent of the marketplaces and brands we work with.</p></div></div></footer>`;
+
+// One label for the one action, everywhere on the site.
+export const CTA = 'Book a free call';
+export const ctaLink = (cls='btn') => `<a class="${cls}" href="/#book">${CTA}</a>`;
+
+export const rooms = [['arrival','Front door'],['light','The light'],['formats','Three formats'],['book','Sign-in sheet']];
+
+const mark = `<a class="mark" href="/"><span class="mark__script">Smoove Operator</span> <span class="mark__sub">Creations</span><span class="visually-hidden">, home</span></a>`;
+
+// The home page is a showing, so its nav is the room list, the way a listing sheet lists rooms.
+export const header = path => `<a class="skip-link" href="#main">Skip to content</a><header class="bar">${mark}${path==='/'?`<nav class="rooms" aria-label="Rooms"><ol>${rooms.map(([id,name])=>`<li><a href="#${id}" data-room-link="${id}">${name}</a></li>`).join('')}</ol></nav>`:''}${ctaLink('bar__cta')}</header>`;
+
+export const footer = () => `<footer class="foot"><div class="foot__mark"><span class="mark__script">Smoove Operator</span><span class="mark__sub">Creations</span></div><p>Listing videos, reels and websites for real estate professionals. Based in Orange County, California. Working with listings anywhere in the US.</p><p class="foot__small">&copy; ${new Date().getFullYear()} SmooveOperator Creations <span aria-hidden="true">·</span> <a href="/privacy/">Privacy</a> <span aria-hidden="true">·</span> <a href="/terms/">Terms</a></p></footer>`;

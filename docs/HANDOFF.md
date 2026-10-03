@@ -1,21 +1,29 @@
-# Night Route website handoff
+# SmooveOperator Creations handoff
 
-Existing static Node build, GitHub repository and Netlify project retained. No framework migration.
+October 2026 pivot: the Amazon FBA supplier site is replaced by a scroll-driven site for a real estate media business. Same repository, Netlify project, domain and static Node build. No framework.
 
-## Protected branding
+## Protected identity
 
-Primary opening headline: Wholesale, made Smoove.
+Gold Yellowtail "Smoove Operator" wordmark with its existing gradient, plus a "CREATIONS" line. Black and gold. The supplier slogan is retired; the working h1 "Making a good house look great." stays until Destin names a slogan.
 
-WHOLESALE, MADE in compressed Archivo capitals; Smoove in the protected Yellowtail font in `#FFC000` with the neon glow. Other headings use compressed capitals. Approved 2026-09-27 and live. Never replace the slogan wording. Preserve absolute black `#000000` and Lamborghini gold `#FFC000`. The design studies that led here live in `concepts/` and are not deployed.
+## How the home page works
+
+Four rooms, defined in `scrollcraft/builds/creations/BRIEF.md`:
+
+1. Front door: the opener (key, unlock, door swing) plays once on load, then the scroll scrubs the rest of the walk-through from the exact frame where the door stopped. A label names the room from the film's clock.
+2. The light: listing photo against the golden-hour frame, revealed by scroll until the visitor takes the handle.
+3. Three formats: a lateral rail of the film, the reel and the sample website.
+4. Sign-in sheet: the request form, on a paper card, with the three-step process.
+
+`public/assets/scrollcraft.js|css` is the engine, copied unmodified. Page-specific behavior lives in `site.js` and `site.css`.
 
 ## Content truth
 
-Supplier credibility leads. Distinguish commercial decisions from physical work performed by independent preparation providers and marketplace fulfillment networks. No invented scale, partners, endorsements, facilities or testimonials. California seller's permit status is public; its number and private addresses are not.
+Sample work is labeled AI-assisted and built from listing photos. No invented clients, numbers or testimonials. The sample listing's address, price and agent never appear; `scripts/check.mjs` enforces this.
 
-## Maintenance
+## Open items
 
-src/pages.mjs owns pages. src/commerce.mjs owns the pathway and inquiry form. The Night Route homepage (hero, spec strip, route and partnership outline) lives in `home()` in src/pages.mjs; its behavior (light trails, route observer, outline and suppliers prefill) is in site.js. src/components.mjs owns navigation/footer. public/assets/site.css and site.js own styling and enhancement. The 1200x630 link preview image and the one-page business profile PDF are authored in scripts/social-card.html and scripts/profile.html and rendered in Chromium by scripts/render-assets.mjs (npm run assets; needs Playwright locally); build.mjs adds a content hash to og:image so link previews refresh. Read DESIGN.md, docs/BRAND.md, docs/TESTING.md and docs/DEPLOYMENT.md.
-
-Run npm run assets after social card or profile content changes, then npm run build and npm test. Always render the PDF to inspect it; text extraction alone missed invisible WOFF2 fonts. Inquiries are available in Netlify Forms. Mailbox notifications have not been verified.
-
-The current user brief authorizes verified production publishing and supersedes historical preview-only instructions. No DNS, registrar or Google Workspace records were changed.
+- Permission from the sample listing's photographer or agent before production.
+- Clean (unwatermarked) media rebuilt with `scripts/media.mjs` after permission, then a fresh `sample-site.webp` screenshot.
+- Destin's final slogan.
+- A real phone check of the door prologue and scrub on iOS Safari.

@@ -1,321 +1,430 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-27T05:53:04.921Z",
-  "title": "Design System: SmooveOperator",
+  "generatedAt": "2026-10-03T07:53:41+00:00",
+  "title": "Design System: SmooveOperator Creations",
   "extensions": {
-    "typographyMeta": {
-      "display": {
-        "displayName": "Bodoni Moda",
-        "purpose": "Superseded 2026-09-27 by compressed Archivo capitals (Night Route). Kept for history; no longer loaded."
-      },
-      "wordmark": {
-        "displayName": "Yellowtail",
-        "purpose": "Protected wordmark and the Smoove emphasis in the exact slogan Wholesale, made Smoove."
-      }
-    },
-    "shadows": [
-      {
-        "name": "commerce-map",
-        "value": "0 22px 48px #0004",
-        "purpose": "Diffuse depth beneath the inspectable commerce diagram."
-      }
-    ],
-    "motion": [
-      {
-        "name": "ease",
-        "value": "cubic-bezier(.22,1,.36,1)",
-        "purpose": "Shared interaction and entrance curve."
-      },
-      {
-        "name": "button",
-        "value": "220ms",
-        "purpose": "Button background, text and arrow transitions."
-      },
-      {
-        "name": "capability-row",
-        "value": "260ms",
-        "purpose": "Color and background transitions."
-      },
-      {
-        "name": "route-arrive",
-        "value": "850ms",
-        "purpose": "Once-only stage number entrance with 100ms stagger; disabled for reduced motion."
-      }
-    ],
-    "breakpoints": [
-      {
-        "name": "max-430",
-        "value": "430px"
-      },
-      {
-        "name": "max-760",
-        "value": "760px"
-      },
-      {
-        "name": "max-1000",
-        "value": "1000px"
-      },
-      {
-        "name": "max-1100",
-        "value": "1100px"
-      },
-      {
-        "name": "min-wide",
-        "value": "1600px"
-      }
-    ],
-    "gradients": [
-      {
-        "name": "wordmark",
-        "value": "linear-gradient(110deg,#a58327,var(--gold-hi) 34%,#efd988 56%,var(--gold) 80%)"
-      },
-      {
-        "name": "commerce-map",
-        "value": "linear-gradient(135deg,#1a1c15,#11120f 55%,#15150f)"
-      }
-    ],
     "colorMeta": {
-      "black": {
+      "canvas": {
         "role": "neutral",
-        "displayName": "black",
+        "displayName": "Night Canvas",
+        "canonical": "#0B0907",
         "tonalRamp": [
-          "oklch(15.00% 0.0000 89.88)",
-          "oklch(26.43% 0.0000 89.88)",
-          "oklch(37.86% 0.0000 89.88)",
-          "oklch(49.29% 0.0000 89.88)",
-          "oklch(60.71% 0.0000 89.88)",
-          "oklch(72.14% 0.0000 89.88)",
-          "oklch(83.57% 0.0000 89.88)",
-          "oklch(95.00% 0.0000 89.88)"
+          "oklch(15.00% 0.0060 70.62)",
+          "oklch(26.43% 0.0060 70.62)",
+          "oklch(37.86% 0.0060 70.62)",
+          "oklch(49.29% 0.0060 70.62)",
+          "oklch(60.71% 0.0060 70.62)",
+          "oklch(72.14% 0.0060 70.62)",
+          "oklch(83.57% 0.0060 70.62)",
+          "oklch(95.00% 0.0060 70.62)"
         ]
       },
       "surface": {
         "role": "neutral",
-        "displayName": "surface",
+        "displayName": "Ember Surface",
+        "canonical": "#16120C",
         "tonalRamp": [
-          "oklch(15.00% 0.0043 128.73)",
-          "oklch(26.43% 0.0043 128.73)",
-          "oklch(37.86% 0.0043 128.73)",
-          "oklch(49.29% 0.0043 128.73)",
-          "oklch(60.71% 0.0043 128.73)",
-          "oklch(72.14% 0.0043 128.73)",
-          "oklch(83.57% 0.0043 128.73)",
-          "oklch(95.00% 0.0043 128.73)"
+          "oklch(15.00% 0.0134 77.80)",
+          "oklch(26.43% 0.0134 77.80)",
+          "oklch(37.86% 0.0134 77.80)",
+          "oklch(49.29% 0.0134 77.80)",
+          "oklch(60.71% 0.0134 77.80)",
+          "oklch(72.14% 0.0134 77.80)",
+          "oklch(83.57% 0.0134 77.80)",
+          "oklch(95.00% 0.0134 77.80)"
         ]
       },
-      "raised": {
+      "ink": {
         "role": "neutral",
-        "displayName": "raised",
+        "displayName": "Parchment Ink",
+        "canonical": "#F3ECDF",
         "tonalRamp": [
-          "oklch(15.00% 0.0078 118.47)",
-          "oklch(26.43% 0.0078 118.47)",
-          "oklch(37.86% 0.0078 118.47)",
-          "oklch(49.29% 0.0078 118.47)",
-          "oklch(60.71% 0.0078 118.47)",
-          "oklch(72.14% 0.0078 118.47)",
-          "oklch(83.57% 0.0078 118.47)",
-          "oklch(95.00% 0.0078 118.47)"
+          "oklch(15.00% 0.0189 83.06)",
+          "oklch(26.43% 0.0189 83.06)",
+          "oklch(37.86% 0.0189 83.06)",
+          "oklch(49.29% 0.0189 83.06)",
+          "oklch(60.71% 0.0189 83.06)",
+          "oklch(72.14% 0.0189 83.06)",
+          "oklch(83.57% 0.0189 83.06)",
+          "oklch(95.00% 0.0189 83.06)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Dry Grass",
+        "canonical": "#BDB096",
+        "tonalRamp": [
+          "oklch(15.00% 0.0388 84.56)",
+          "oklch(26.43% 0.0388 84.56)",
+          "oklch(37.86% 0.0388 84.56)",
+          "oklch(49.29% 0.0388 84.56)",
+          "oklch(60.71% 0.0388 84.56)",
+          "oklch(72.14% 0.0388 84.56)",
+          "oklch(83.57% 0.0388 84.56)",
+          "oklch(95.00% 0.0388 84.56)"
         ]
       },
       "gold": {
         "role": "primary",
-        "displayName": "gold",
+        "displayName": "Golden Hour",
+        "canonical": "#D9B24C",
         "tonalRamp": [
-          "oklch(15.00% 0.1356 90.39)",
-          "oklch(26.43% 0.1356 90.39)",
-          "oklch(37.86% 0.1356 90.39)",
-          "oklch(49.29% 0.1356 90.39)",
-          "oklch(60.71% 0.1356 90.39)",
-          "oklch(72.14% 0.1356 90.39)",
-          "oklch(83.57% 0.1356 90.39)",
-          "oklch(95.00% 0.1356 90.39)"
+          "oklch(15.00% 0.1273 88.02)",
+          "oklch(26.43% 0.1273 88.02)",
+          "oklch(37.86% 0.1273 88.02)",
+          "oklch(49.29% 0.1273 88.02)",
+          "oklch(60.71% 0.1273 88.02)",
+          "oklch(72.14% 0.1273 88.02)",
+          "oklch(83.57% 0.1273 88.02)",
+          "oklch(95.00% 0.1273 88.02)"
         ]
       },
       "gold-hi": {
         "role": "primary",
-        "displayName": "gold hi",
+        "displayName": "Late Light",
+        "canonical": "#F1D88E",
         "tonalRamp": [
-          "oklch(15.00% 0.1387 91.06)",
-          "oklch(26.43% 0.1387 91.06)",
-          "oklch(37.86% 0.1387 91.06)",
-          "oklch(49.29% 0.1387 91.06)",
-          "oklch(60.71% 0.1387 91.06)",
-          "oklch(72.14% 0.1387 91.06)",
-          "oklch(83.57% 0.1387 91.06)",
-          "oklch(95.00% 0.1387 91.06)"
+          "oklch(15.00% 0.0970 91.50)",
+          "oklch(26.43% 0.0970 91.50)",
+          "oklch(37.86% 0.0970 91.50)",
+          "oklch(49.29% 0.0970 91.50)",
+          "oklch(60.71% 0.0970 91.50)",
+          "oklch(72.14% 0.0970 91.50)",
+          "oklch(83.57% 0.0970 91.50)",
+          "oklch(95.00% 0.0970 91.50)"
         ]
       },
-      "gold-light": {
+      "gold-ink": {
+        "role": "neutral",
+        "displayName": "Gold Ink",
+        "canonical": "#140F05",
+        "tonalRamp": [
+          "oklch(15.00% 0.0220 85.72)",
+          "oklch(26.43% 0.0220 85.72)",
+          "oklch(37.86% 0.0220 85.72)",
+          "oklch(49.29% 0.0220 85.72)",
+          "oklch(60.71% 0.0220 85.72)",
+          "oklch(72.14% 0.0220 85.72)",
+          "oklch(83.57% 0.0220 85.72)",
+          "oklch(95.00% 0.0220 85.72)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#F1E9DA",
+        "tonalRamp": [
+          "oklch(15.00% 0.0218 83.26)",
+          "oklch(26.43% 0.0218 83.26)",
+          "oklch(37.86% 0.0218 83.26)",
+          "oklch(49.29% 0.0218 83.26)",
+          "oklch(60.71% 0.0218 83.26)",
+          "oklch(72.14% 0.0218 83.26)",
+          "oklch(83.57% 0.0218 83.26)",
+          "oklch(95.00% 0.0218 83.26)"
+        ]
+      },
+      "paper-ink": {
+        "role": "neutral",
+        "displayName": "Paper Ink",
+        "canonical": "#1C150C",
+        "tonalRamp": [
+          "oklch(15.00% 0.0202 73.26)",
+          "oklch(26.43% 0.0202 73.26)",
+          "oklch(37.86% 0.0202 73.26)",
+          "oklch(49.29% 0.0202 73.26)",
+          "oklch(60.71% 0.0202 73.26)",
+          "oklch(72.14% 0.0202 73.26)",
+          "oklch(83.57% 0.0202 73.26)",
+          "oklch(95.00% 0.0202 73.26)"
+        ]
+      },
+      "paper-soft": {
+        "role": "neutral",
+        "displayName": "Paper Soft",
+        "canonical": "#5B4D38",
+        "tonalRamp": [
+          "oklch(15.00% 0.0375 77.57)",
+          "oklch(26.43% 0.0375 77.57)",
+          "oklch(37.86% 0.0375 77.57)",
+          "oklch(49.29% 0.0375 77.57)",
+          "oklch(60.71% 0.0375 77.57)",
+          "oklch(72.14% 0.0375 77.57)",
+          "oklch(83.57% 0.0375 77.57)",
+          "oklch(95.00% 0.0375 77.57)"
+        ]
+      },
+      "paper-gold": {
         "role": "primary",
-        "displayName": "gold light",
+        "displayName": "Paper Gold",
+        "canonical": "#7A5A12",
         "tonalRamp": [
-          "oklch(15.00% 0.1096 91.69)",
-          "oklch(26.43% 0.1096 91.69)",
-          "oklch(37.86% 0.1096 91.69)",
-          "oklch(49.29% 0.1096 91.69)",
-          "oklch(60.71% 0.1096 91.69)",
-          "oklch(72.14% 0.1096 91.69)",
-          "oklch(83.57% 0.1096 91.69)",
-          "oklch(95.00% 0.1096 91.69)"
+          "oklch(15.00% 0.0934 82.27)",
+          "oklch(26.43% 0.0934 82.27)",
+          "oklch(37.86% 0.0934 82.27)",
+          "oklch(49.29% 0.0934 82.27)",
+          "oklch(60.71% 0.0934 82.27)",
+          "oklch(72.14% 0.0934 82.27)",
+          "oklch(83.57% 0.0934 82.27)",
+          "oklch(95.00% 0.0934 82.27)"
         ]
       },
-      "text": {
-        "role": "neutral",
-        "displayName": "text",
+      "paper-button-gold": {
+        "role": "primary",
+        "displayName": "Paper Button Gold",
+        "canonical": "#F6DE8D",
         "tonalRamp": [
-          "oklch(15.00% 0.0096 93.57)",
-          "oklch(26.43% 0.0096 93.57)",
-          "oklch(37.86% 0.0096 93.57)",
-          "oklch(49.29% 0.0096 93.57)",
-          "oklch(60.71% 0.0096 93.57)",
-          "oklch(72.14% 0.0096 93.57)",
-          "oklch(83.57% 0.0096 93.57)",
-          "oklch(95.00% 0.0096 93.57)"
+          "oklch(15.00% 0.1041 93.48)",
+          "oklch(26.43% 0.1041 93.48)",
+          "oklch(37.86% 0.1041 93.48)",
+          "oklch(49.29% 0.1041 93.48)",
+          "oklch(60.71% 0.1041 93.48)",
+          "oklch(72.14% 0.1041 93.48)",
+          "oklch(83.57% 0.1041 93.48)",
+          "oklch(95.00% 0.1041 93.48)"
         ]
       },
-      "muted": {
-        "role": "neutral",
-        "displayName": "muted",
+      "paper-error": {
+        "role": "error",
+        "displayName": "Paper Error",
+        "canonical": "#9B2C1A",
         "tonalRamp": [
-          "oklch(15.00% 0.0155 102.54)",
-          "oklch(26.43% 0.0155 102.54)",
-          "oklch(37.86% 0.0155 102.54)",
-          "oklch(49.29% 0.0155 102.54)",
-          "oklch(60.71% 0.0155 102.54)",
-          "oklch(72.14% 0.0155 102.54)",
-          "oklch(83.57% 0.0155 102.54)",
-          "oklch(95.00% 0.0155 102.54)"
+          "oklch(15.00% 0.1499 31.90)",
+          "oklch(26.43% 0.1499 31.90)",
+          "oklch(37.86% 0.1499 31.90)",
+          "oklch(49.29% 0.1499 31.90)",
+          "oklch(60.71% 0.1499 31.90)",
+          "oklch(72.14% 0.1499 31.90)",
+          "oklch(83.57% 0.1499 31.90)",
+          "oklch(95.00% 0.1499 31.90)"
         ]
       },
-      "line": {
-        "role": "neutral",
-        "displayName": "line",
+      "paper-success": {
+        "role": "success",
+        "displayName": "Paper Success",
+        "canonical": "#2F5A23",
         "tonalRamp": [
-          "oklch(15.00% 0.0171 111.99)",
-          "oklch(26.43% 0.0171 111.99)",
-          "oklch(37.86% 0.0171 111.99)",
-          "oklch(49.29% 0.0171 111.99)",
-          "oklch(60.71% 0.0171 111.99)",
-          "oklch(72.14% 0.0171 111.99)",
-          "oklch(83.57% 0.0171 111.99)",
-          "oklch(95.00% 0.0171 111.99)"
-        ]
-      },
-      "control": {
-        "role": "neutral",
-        "displayName": "control",
-        "tonalRamp": [
-          "oklch(15.00% 0.0211 113.67)",
-          "oklch(26.43% 0.0211 113.67)",
-          "oklch(37.86% 0.0211 113.67)",
-          "oklch(49.29% 0.0211 113.67)",
-          "oklch(60.71% 0.0211 113.67)",
-          "oklch(72.14% 0.0211 113.67)",
-          "oklch(83.57% 0.0211 113.67)",
-          "oklch(95.00% 0.0211 113.67)"
-        ]
-      },
-      "error": {
-        "role": "neutral",
-        "displayName": "error",
-        "tonalRamp": [
-          "oklch(15.00% 0.0759 30.93)",
-          "oklch(26.43% 0.0759 30.93)",
-          "oklch(37.86% 0.0759 30.93)",
-          "oklch(49.29% 0.0759 30.93)",
-          "oklch(60.71% 0.0759 30.93)",
-          "oklch(72.14% 0.0759 30.93)",
-          "oklch(83.57% 0.0759 30.93)",
-          "oklch(95.00% 0.0759 30.93)"
+          "oklch(15.00% 0.0970 139.29)",
+          "oklch(26.43% 0.0970 139.29)",
+          "oklch(37.86% 0.0970 139.29)",
+          "oklch(49.29% 0.0970 139.29)",
+          "oklch(60.71% 0.0970 139.29)",
+          "oklch(72.14% 0.0970 139.29)",
+          "oklch(83.57% 0.0970 139.29)",
+          "oklch(95.00% 0.0970 139.29)"
         ]
       }
     },
-    "tonalRampNote": "Synthesized OKLCH ramps are panel previews only; they are not additional site CSS tokens."
+    "typographyMeta": {
+      "display": {
+        "displayName": "Fraunces Display",
+        "purpose": "Front door h1; sc-display headings use the same optical settings, with italic em in gold."
+      },
+      "headline": {
+        "displayName": "Fraunces Headline",
+        "purpose": "Room headings."
+      },
+      "title": {
+        "displayName": "Fraunces Title",
+        "purpose": "Format names, legal subheads, italic arrival lines and the rail note."
+      },
+      "body": {
+        "displayName": "Barlow Body",
+        "purpose": "Reading text and controls."
+      },
+      "label": {
+        "displayName": "Barlow Label",
+        "purpose": "Uppercase tracked definition terms and the live room tag."
+      },
+      "wordmark": {
+        "displayName": "Yellowtail Wordmark",
+        "purpose": "The protected Smoove Operator mark only."
+      }
+    },
+    "gradients": [
+      {
+        "name": "wordmark",
+        "value": "linear-gradient(110deg,#a58327,#D4AF37 34%,#efd988 56%,#C5A028 80%)",
+        "purpose": "Protected identity gradient clipped to the Yellowtail wordmark."
+      },
+      {
+        "name": "bar-band",
+        "value": "linear-gradient(to bottom,color-mix(in oklab,var(--sc-canvas) 82%,transparent),color-mix(in oklab,var(--sc-canvas) 40%,transparent) 60%,transparent)",
+        "purpose": "Density band behind the fixed bar only, never full frame."
+      }
+    ],
+    "shadows": [
+      {
+        "name": "e2",
+        "value": "0 2px 4px hsl(30 45% 3% / 0.24), 0 8px 18px -4px hsl(30 45% 3% / 0.3)",
+        "purpose": "Light handle."
+      },
+      {
+        "name": "e3",
+        "value": "0 4px 8px hsl(30 45% 3% / 0.22), 0 18px 40px -8px hsl(30 45% 3% / 0.38), 0 48px 90px -24px hsl(30 45% 3% / 0.3)",
+        "purpose": "Media frames, compare frame, paper sheet."
+      },
+      {
+        "name": "edge",
+        "value": "inset 0 1px 0 color-mix(in oklab, var(--sc-ink) 10%, transparent)",
+        "purpose": "Top edge on format piece media."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "All page transitions."
+      },
+      {
+        "name": "d-fast",
+        "value": "160ms",
+        "purpose": "Color and border changes on buttons, nav and fields."
+      },
+      {
+        "name": "d-base",
+        "value": "240ms",
+        "purpose": "Nav underline scale."
+      },
+      {
+        "name": "press",
+        "value": "120ms",
+        "purpose": "Button 1px press."
+      },
+      {
+        "name": "door-open",
+        "value": "520ms",
+        "purpose": "Door prologue fade out."
+      },
+      {
+        "name": "door-film",
+        "value": "260ms",
+        "purpose": "Door film fade in over its poster."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "spans arrival 2, light 1.4, formats 1.3",
+        "purpose": "Under prefers-reduced-motion the door never plays, the room tag hides, the reel never loads and the light handle rests at 50%."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "max-400",
+        "value": "400px"
+      },
+      {
+        "name": "max-860",
+        "value": "860px"
+      },
+      {
+        "name": "max-1100",
+        "value": "1100px"
+      }
+    ]
   },
   "components": [
     {
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "The primary supplier action.",
-      "html": "<a class=\"ds-primary\" href=\"#supplier\">For brands &amp; suppliers <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M4 12h15M13 6l6 6-6 6\"/></svg></a>",
-      "css": ".ds-primary{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;display:inline-flex;align-items:center;gap:18px;min-height:50px;padding:13px 22px;background:var(--gold,#C5A028);color:var(--black,#0a0a0a);border:1px solid var(--gold,#C5A028);font-weight:500;line-height:1.4;text-decoration:none;transition:background 220ms cubic-bezier(.22,1,.36,1)}.ds-primary:hover{background:var(--gold-light,#e5c974)}.ds-primary:focus-visible{outline:2px solid var(--gold-light,#e5c974);outline-offset:5px}.ds-primary:active{transform:translateY(1px)}"
+      "description": "The one action, always labeled Book a free call.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Book a free call</a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;min-height:48px;padding:.8rem 1.6rem;border-radius:999px;background:#D9B24C;color:#140F05;font:500 1rem/1.2 Barlow,system-ui,sans-serif;letter-spacing:.01em;text-decoration:none;transition:background-color 160ms cubic-bezier(.23,1,.32,1),transform 120ms cubic-bezier(.23,1,.32,1)}.ds-btn:hover{background:#F1D88E}.ds-btn:focus-visible{outline:2px solid #F1D88E;outline-offset:3px}.ds-btn:active{transform:translateY(1px)}"
     },
     {
-      "name": "Text Button",
+      "name": "Quiet Button",
       "kind": "button",
-      "refersTo": "button-text",
-      "description": "Secondary editorial action.",
-      "html": "<a class=\"ds-text\" href=\"#operations\">How we operate</a>",
-      "css": ".ds-text{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;display:inline-flex;align-items:center;min-height:50px;padding:13px 0;color:var(--text,#f0eee7);border-bottom:1px solid var(--control,#77796b);font-weight:500;text-decoration:none}.ds-text:hover{color:var(--gold-light,#e5c974);border-color:var(--gold,#C5A028)}.ds-text:focus-visible{outline:2px solid var(--gold-light,#e5c974);outline-offset:5px}.ds-text:active{transform:translateY(1px)}"
+      "refersTo": "button-quiet",
+      "description": "Outlined secondary action on message pages; the bar CTA uses the same treatment at 44px.",
+      "html": "<a class=\"ds-btn-quiet\" href=\"#\">Back to the front door</a>",
+      "css": ".ds-btn-quiet{display:inline-flex;align-items:center;min-height:48px;padding:.8rem 1.6rem;border-radius:999px;border:1px solid color-mix(in oklab,#D9B24C 70%,transparent);background:#0B0907;color:#F3ECDF;font:500 1rem/1.2 Barlow,system-ui,sans-serif;text-decoration:none;transition:background-color 160ms cubic-bezier(.23,1,.32,1),color 160ms cubic-bezier(.23,1,.32,1)}.ds-btn-quiet:hover{background:#D9B24C;color:#140F05}.ds-btn-quiet:focus-visible{outline:2px solid #F1D88E;outline-offset:3px}"
     },
     {
-      "name": "Inquiry Input",
-      "kind": "input",
-      "refersTo": "input",
-      "description": "A labeled, fully bordered field.",
-      "html": "<label class=\"ds-label\" for=\"ds-email\">Work email *</label><input class=\"ds-input\" id=\"ds-email\" type=\"email\" autocomplete=\"email\" required>",
-      "css": ".ds-label{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;display:block;color:var(--text,#f0eee7);font-weight:500;margin-bottom:9px}.ds-input{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;font-size:18px;line-height:1.45;width:100%;min-height:49px;padding:12px 14px;border:1px solid var(--control,#77796b);border-radius:0;background:var(--black,#0a0a0a);color:var(--text,#f0eee7)}.ds-input:focus-visible{outline:2px solid var(--gold-light,#e5c974);outline-offset:5px;outline-offset:3px}.ds-input[aria-invalid=true]{border-color:var(--error,#f3b4a8)}"
+      "name": "Wordmark",
+      "kind": "custom",
+      "description": "Protected gold Yellowtail mark with the CREATIONS sub-line.",
+      "html": "<a class=\"ds-mark\" href=\"#\"><span class=\"ds-mark__s\">Smoove Operator</span><span class=\"ds-mark__sub\">Creations</span></a>",
+      "css": ".ds-mark{display:inline-flex;flex-direction:column;align-items:flex-end;text-decoration:none;line-height:1;background:#0B0907;padding:8px}.ds-mark__s{font:400 2.05rem/1.05 Yellowtail,cursive;padding-right:.1em;background:linear-gradient(110deg,#a58327,#D4AF37 34%,#efd988 56%,#C5A028 80%);color:transparent;-webkit-background-clip:text;background-clip:text}.ds-mark__sub{margin-top:-.15rem;font:500 .64rem/1 Barlow,sans-serif;letter-spacing:.42em;text-transform:uppercase;color:#BDB096}.ds-mark:focus-visible{outline:2px solid #F1D88E;outline-offset:3px}"
     },
     {
-      "name": "Navigation",
+      "name": "Room Navigation",
       "kind": "nav",
-      "description": "Sentence-case links with current-page underline.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Sample navigation\"><a href=\"#suppliers\" aria-current=\"page\">For suppliers</a><a href=\"#capabilities\">Capabilities</a></nav>",
-      "css": ".ds-nav{display:flex;gap:27px}.ds-nav a{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;font-size:16px;display:inline-flex;min-height:44px;align-items:center;color:var(--muted,#b0afa4);text-decoration:none}.ds-nav a:hover,.ds-nav a[aria-current=page]{color:var(--gold-light,#e5c974)}.ds-nav a[aria-current=page]{box-shadow:inset 0 -1px var(--gold,#C5A028)}.ds-nav a:focus-visible{outline:2px solid var(--gold-light,#e5c974);outline-offset:5px}"
+      "description": "Room list in the fixed bar; the room in view is underlined in gold.",
+      "html": "<nav class=\"ds-rooms\"><a href=\"#\" aria-current=\"true\">Front door</a><a href=\"#\">The light</a><a href=\"#\">Three formats</a><a href=\"#\">Sign-in sheet</a></nav>",
+      "css": ".ds-rooms{display:flex;gap:2rem;background:#0B0907;padding:12px}.ds-rooms a{position:relative;display:inline-flex;align-items:center;min-height:44px;font:italic 400 1rem/1 Fraunces,Georgia,serif;color:#BDB096;text-decoration:none;transition:color 160ms cubic-bezier(.23,1,.32,1)}.ds-rooms a::after{content:\"\";position:absolute;left:0;right:0;bottom:8px;height:1px;background:#D9B24C;transform:scaleX(0);transform-origin:left;transition:transform 240ms cubic-bezier(.23,1,.32,1)}.ds-rooms a:hover,.ds-rooms a[aria-current=true]{color:#F3ECDF}.ds-rooms a[aria-current=true]::after{transform:scaleX(1)}.ds-rooms a:focus-visible{outline:2px solid #F1D88E;outline-offset:3px}"
     },
     {
-      "name": "Commerce Stage",
-      "kind": "custom",
-      "description": "Native disclosure exposes stage ownership before expansion.",
-      "html": "<details class=\"ds-stage\" open><summary><span class=\"ds-number\">02</span><span>Evaluate<small>SmooveOperator</small></span></summary><p>We assess marketplace eligibility, channel permissions, demand and the full cost of an order.</p></details>",
-      "css": ".ds-stage{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;background:var(--surface,#111210);color:var(--text,#f0eee7);padding:12px}.ds-stage summary{display:flex;align-items:center;gap:18px;cursor:pointer;font-size:23px;line-height:1.25}.ds-number{display:grid;place-items:center;min-width:35px;height:35px;border:1px solid #9b8746;color:var(--gold-light,#e5c974);font-size:14px}.ds-stage[open] .ds-number{background:var(--gold,#C5A028);color:var(--black,#0a0a0a)}.ds-stage small{display:block;font-size:16px;color:var(--muted,#b0afa4)}.ds-stage p{font-size:16px;line-height:1.5;color:var(--muted,#b0afa4);padding-left:54px}.ds-stage summary:focus-visible{outline:2px solid var(--gold-light,#e5c974);outline-offset:5px}"
+      "name": "Sign-in Sheet",
+      "kind": "input",
+      "refersTo": "sheet-field",
+      "description": "Paper card with underline-only fields and the paper button.",
+      "html": "<div class=\"ds-sheet\"><label class=\"ds-f\">Email *<input type=\"email\"></label><button class=\"ds-sbtn\">Book a free call</button></div>",
+      "css": ".ds-sheet{background:#F1E9DA;color:#1C150C;padding:2rem;border-radius:20px;box-shadow:0 4px 8px hsl(30 45% 3% / 0.22),0 18px 40px -8px hsl(30 45% 3% / 0.38)}.ds-f{display:block;font:500 .82rem Barlow,sans-serif;letter-spacing:.02em;color:#5B4D38}.ds-f input{display:block;width:100%;margin-top:.15rem;padding:.55rem 0 .5rem;border:0;border-bottom:1px solid #1C150C40;border-radius:0;background:transparent;color:#1C150C;font:1.06rem Barlow,sans-serif;transition:border-color 160ms cubic-bezier(.23,1,.32,1)}.ds-f input:focus{outline:none;border-bottom:2px solid #7A5A12;padding-bottom:calc(.5rem - 1px)}.ds-sbtn{margin-top:1.5rem;min-height:48px;padding:.8rem 1.6rem;border:0;border-radius:999px;background:#1C150C;color:#F6DE8D;font:500 1rem Barlow,sans-serif;cursor:pointer}.ds-sbtn:hover{background:#3a2c14}.ds-sbtn:focus-visible{outline:2px solid #7A5A12;outline-offset:3px}"
     },
     {
-      "name": "Capability Row",
-      "kind": "custom",
-      "description": "Open ruled row with a restrained hover surface.",
-      "html": "<a class=\"ds-row\" href=\"#sourcing\"><span>Sourcing &amp; evaluation</span><p>Product fit, documented sources and channel permissions.</p></a>",
-      "css": ".ds-row{font-family:var(--body,Barlow,system-ui,sans-serif);font-size:17px;display:grid;grid-template-columns:1.1fr 1fr;gap:35px;padding:30px 0;border-block:1px solid var(--line,#34352b);color:var(--text,#f0eee7);text-decoration:none;transition:background 260ms cubic-bezier(.22,1,.36,1)}.ds-row span{font-size:25px;line-height:1.3}.ds-row p{margin:0;font-size:18px;color:var(--muted,#b0afa4)}.ds-row:hover{background:var(--raised,#191a16);color:var(--gold-light,#e5c974)}.ds-row:focus-visible{outline:2px solid var(--gold-light,#e5c974);outline-offset:5px}"
+      "name": "Format Piece",
+      "kind": "card",
+      "description": "Rail item: rounded media well, Fraunces title, tracked definition labels.",
+      "html": "<article class=\"ds-piece\"><div class=\"ds-piece__m\"></div><h3>Reel</h3><dl><dt>Ratio</dt><dd>9:16</dd></dl></article>",
+      "css": ".ds-piece{width:200px;display:grid;gap:1rem;background:#0B0907;color:#F3ECDF;padding:12px}.ds-piece__m{aspect-ratio:9/16;border-radius:20px;background:#16120C;box-shadow:0 4px 8px hsl(30 45% 3% / 0.22),0 18px 40px -8px hsl(30 45% 3% / 0.38),inset 0 1px 0 color-mix(in oklab,#F3ECDF 10%,transparent)}.ds-piece h3{margin:.5rem 0 0;font:400 1.8rem/1.1 Fraunces,Georgia,serif}.ds-piece dl{display:grid;grid-template-columns:auto 1fr;gap:.35rem 1.2rem;margin:0;font:.92rem Barlow,sans-serif}.ds-piece dt{color:#BDB096;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;padding-top:.22rem}.ds-piece dd{margin:0}"
     }
   ],
   "narrative": {
-    "northStar": "Considered Commerce",
-    "overview": "An editorial business presentation built around open columns, readable explanations and an inspectable product journey. Near-black grounds the page, matte gold identifies actions, and warm text carries the business explanation. The protected cursive wordmark remains distinct from the serif headlines.\n\nThe composition uses thin rules and measured spacing to separate responsibilities. Interaction reveals useful information through native controls. Motion briefly reinforces the route and never runs perpetually.",
+    "northStar": "The Open House",
+    "overview": "The site is a showing, and each section is a room of it. Four rooms run in order: the Front door (a scroll scrub of the walk-through film, opened by a door prologue that plays by itself), The light (a pinned before and after), Three formats (a sideways pan rail) and the Sign-in sheet (a natural flow close where the inquiry form is typeset on a paper card). Warm near-black grounds the page, real golden-hour footage carries the mood, and gold is reserved for the mark, emphasis and the one action.\n\nThe layer model is strict: `scrollcraft.css` is the engine floor and its device selectors are never restyled; `site.css` overrides only the engine tokens and styles its own markup. Visual direction is golden hour, quiet luxury and cinematic, kept to realistic homes rather than estates.",
     "keyCharacteristics": [
-      "Open editorial columns and structural rules.",
-      "Bodoni Moda headings, Barlow reading text and a protected Yellowtail wordmark.",
-      "Inspectable commerce stages with explicit responsible parties.",
-      "Square controls and restrained gold emphasis.",
-      "Progressive enhancement with visible content and native fallbacks."
+      "One scrub act, at the peak, carrying the only real footage.",
+      "Fraunces display with italic gold emphasis, Barlow for reading, Yellowtail only in the wordmark.",
+      "Pill controls, 20px media corners, warm tinted shadows.",
+      "A light paper sheet as the single inverted surface.",
+      "Copy that names no numbers it cannot prove."
     ],
     "rules": [
       {
-        "name": "The Protected Mark Rule",
-        "body": "Keep the Yellowtail gold wordmark. Its multistop gradient is an identity treatment, not a body-text treatment.",
+        "name": "The Two Golds Rule",
+        "body": "On dark, gold is `gold` and `gold-hi`. On paper, gold drops to `paper-gold` for type and focus, and the paper button pairs `paper-ink` with `paper-button-gold`. Never set the dark-ground golds on paper.",
         "section": "colors"
       },
       {
-        "name": "The Separate Voices Rule",
-        "body": "Use Bodoni for display hierarchy, Barlow for reading and controls, and Yellowtail for the protected wordmark.",
+        "name": "The Protected Mark Rule",
+        "body": "The gold Yellowtail \"Smoove Operator\" wordmark keeps its gradient and its small uppercase \"CREATIONS\" sub-line (0.64rem, 0.42em tracking, `ink-soft`), right aligned beneath it.",
+        "section": "colors"
+      },
+      {
+        "name": "The Italic Emphasis Rule",
+        "body": "Emphasis is a Fraunces italic `em` in gold (paper gold on the sheet). Room nav links are Fraunces italic too. Never italicize Barlow for emphasis.",
         "section": "typography"
+      },
+      {
+        "name": "The Three Voices Rule",
+        "body": "Fraunces speaks, Barlow informs, Yellowtail signs. Yellowtail never sets a headline or body text.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Scrub Rule",
+        "body": "The page has exactly one `scrub` act, the Front door. No device family repeats back to back.",
+        "section": "layout"
+      },
+      {
+        "name": "The Sibling Scrim Rule",
+        "body": "Each scrim is a sibling of the copy it protects and is visible only inside that copy's scroll window. No full-frame overlay darkens the film. On phones every scrim becomes a bottom band.",
+        "section": "layout"
       }
     ],
     "dos": [
-      "Do preserve the Yellowtail gold wordmark.",
-      "Do use Bodoni headings and Barlow reading text with the recorded hierarchy.",
-      "Do separate content through open columns, thin rules and readable measures.",
-      "Do identify responsible parties wherever the commerce pathway appears.",
-      "Do retain native navigation, disclosure and form fallbacks.",
-      "Do keep animation brief, once-only and disabled under reduced motion."
+      "Do use the one label \"Book a free call\" for the one action.",
+      "Do label sample work as AI-assisted and built from listing photos.",
+      "Do keep the sample listing anonymous: no address, price or agent.",
+      "Do keep every scrim tied to its own copy's window.",
+      "Do drop gold to `paper-gold` on the paper sheet."
     ],
     "donts": [
-      "Don't restore departures boards, flap digits, condensed uppercase headlines or a mandatory multistep form.",
-      "Don't introduce rounded controls or decorative card grids into established editorial patterns.",
-      "Don't use Yellowtail as a general headline or reading font.",
-      "Don't hide essential content until an animation runs.",
-      "Don't use error color without an explicit text explanation.",
-      "Don't write em dashes or en dashes in public copy."
+      "Don't add a second `scrub` act, counters, statistics or any number the business cannot prove.",
+      "Don't write em dashes or en dashes in copy.",
+      "Don't restyle `scrollcraft.css` device selectors; override tokens and style page markup instead.",
+      "Don't set Yellowtail anywhere but the wordmark, or alter its gradient.",
+      "Don't add uppercase eyebrows above headings, beyond one per three sections. The home page spends its one on the sign-in sheet; the sample site's flag is a required sample label.",
+      "Don't show a face or headshot."
     ]
   }
 }
